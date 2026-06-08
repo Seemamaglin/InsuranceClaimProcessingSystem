@@ -1,0 +1,409 @@
+{
+  "id": "019ea222-8d8b-7133-ad76-a31a24c45edb",
+  "name": "Complete Insurance Backend",
+  "description": "Implement the complete Insurance Claim Processing System backend in phases. The user wants a \"completed backend\" that does NOT include CQRS/MediatR, keeping it simple with traditional N-Tier architecture.\n\nPhases to implement:\n1. Foundation: Seed data, Serilog, Swagger, JWT setup, Program.cs configuration\n2. Auth: Full authentication system including JWT, refresh tokens, account lockout, role-based authorization, KYC\n3. Policy: Full CRUD, approval/rejection, status transitions, coverage tracking\n4. Claims: Submission, review, approval/rejection, payout calculation, reviewer auto-assignment, workflow history\n5. Documents: Upload/download with validation, soft delete, WebP conversion\n6. Notifications: Email (MailKit + MailHog), in-app notification inbox\n7. Payments: Stripe PaymentIntent, payment processing, link to claim close\n8. Premium payments: Grace period logic, policy lapse tracking\n9. Tests: Unit tests for major services + one integration test for full claim lifecycle\n\nWhat's already done:\n- Domain layer (entities, enums, events, exceptions)\n- Application layer (Common pattern classes, DTOs, repository interfaces, service interfaces)\n- Infrastructure layer (DbContext, configurations, repositories, UnitOfWork, migration)\n- API middleware (GlobalExceptionMiddleware, CorrelationIdMiddleware)\n\nWhat's needed:\n- Application service implementations (AuthService, PolicyService, ClaimService, etc.)\n- FluentValidation validators\n- AutoMapper profiles\n- API controllers\n- JWT authentication configuration in Program.cs\n- Seed data (Admin, PolicyTypes, ClaimTypes, PolicyBenefitRules)\n- External service implementations (Email, FileStorage, Stripe)\n- Hangfire background jobs\n- SignalR notification hub\n- Tests\n\nRequirements:\n- Use implementation_plan.md as single source of truth\n- No CQRS/MediatR - simple N-Tier with service interfaces injected into controllers\n- PostgreSQL, EF Core code-first\n- Clean, modular, testable code\n- Thin controllers, business logic in services\n- Production-quality code with proper error handling\n- At least 70% test coverage for services",
+  "status": "abandoned",
+  "worktree": {
+    "path": "/Users/seemamaglin/Documents/Genspark-assignments/Capstone"
+  },
+  "scoping": {
+    "goal": {
+      "answer": "Complete the InsuranceClaimSystem backend: implement all Application services, controllers, auth middleware, external services (email, file, Stripe), validators, AutoMapper profiles, Hangfire jobs, SignalR hub, seed data, and unit/integration tests. Build atop all existing code without repeating completed work. Delivery excludes CQRS/MediatR and frontend code.",
+      "confirmedAt": "2026-06-07T13:20:19.133Z"
+    },
+    "criteria": {
+      "answer": "All service interfaces have concrete implementations with correct DI registration\nAll API controllers exist and expose every required endpoint from implementation_plan.md\nJWT authentication is working with 15-min access + 7-day refresh tokens in httpOnly cookies\nRole-based authorization works for all 5 roles with policy-based guards\nBuild compiles with 0 errors\nSeed data creates Admin, PolicyTypes, ClaimTypes, and PolicyBenefitRules on startup\nClaim state machine enforces valid transitions submitted→review→approve→paid→closed\nPayout formula implemented: MIN(ClaimedAmount, SubLimit) × (1 - CoPayPercent/100) - Deductible\nAuto-assign reviewer uses specialization match → lowest workload → round-robin logic\nStripe PaymentIntent creation confirmation and idempotency protection works\nRemainingCoverageAmount decrements on approved claim payment\nGrace period: 15 days for Monthly, 30 days for others\nMailKit SMTP email sends for all 18 notification events\nUnit test coverage for AuthService ClaimService PolicyService ≥70%\nIntegration test covers full claim lifecycle Submit → Review → Approve → Pay → Closed",
+      "confirmedAt": "2026-06-07T13:20:19.133Z"
+    },
+    "constraints": {
+      "answer": "No CQRS/MediatR - use simple N-Tier service layer, No SystemHealthLogs (out of scope), No frontend code, Use only packages already referenced in csproj files, Keep controllers thin - max 30 lines per action, Must build on top of existing code - don't redo what's done",
+      "confirmedAt": "2026-06-07T13:20:19.133Z"
+    },
+    "phases": {
+      "answer": "Foundation, Auth, Policy, Claims, Payments & Notifications, Tests",
+      "confirmedAt": "2026-06-07T13:20:19.133Z"
+    },
+    "assumptions": {
+      "answer": "PostgreSQL is installed locally and accessible; dotnet-ef tool is available; MailHog is available for local email testing; Stripe test keys can be configured in appsettings; No Angular frontend is needed for this backend scope; All existing code (entities, repositories, DTOs, middleware) is accepted as-is",
+      "confirmedAt": "2026-06-07T13:20:19.133Z"
+    }
+  },
+  "phases": [
+    {
+      "id": "phase-1",
+      "index": 1,
+      "name": "Foundation",
+      "goal": "Wire up the cross-cutting infrastructure and external services",
+      "description": "",
+      "parallel": false,
+      "status": "active",
+      "steps": [
+        {
+          "id": "step-1",
+          "index": 1,
+          "description": "Wire Program.cs with all required services: CORS, JWT auth, rate limiting, exception middleware, Serilog, Swagger, Hangfire, SignalR, AutoMapper, FluentValidation",
+          "status": "running",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false,
+          "startedAt": "2026-06-07T13:29:50.828Z"
+        },
+        {
+          "id": "step-2",
+          "index": 2,
+          "description": "Create AutoMapper profiles for entity↔DTO mapping",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-3",
+          "index": 3,
+          "description": "Create all FluentValidation validators for request DTOs",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-4",
+          "index": 4,
+          "description": "Add seed data for Admin user, PolicyTypes, ClaimTypes, PolicyBenefitRules",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-5",
+          "index": 5,
+          "description": "Create external service interfaces in Application layer and implementations in Infrastructure layer: IEmailService/SmtpEmailService, IFileStorageService/LocalFileStorageService, IStripeService/StripePaymentService, IPiiEncryptionService/PiiEncryptionService",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        }
+      ],
+      "startedAt": "2026-06-07T13:29:27.130Z"
+    },
+    {
+      "id": "phase-2",
+      "index": 2,
+      "name": "Auth",
+      "goal": "Implement complete authentication and authorization",
+      "description": "",
+      "parallel": false,
+      "status": "planned",
+      "steps": [
+        {
+          "id": "step-1",
+          "index": 1,
+          "description": "Implement JwtTokenService for access/refresh token generation and validation",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-2",
+          "index": 2,
+          "description": "Implement AuthService (register, login, refresh, forgot/reset password, email verification), AccountService (profile, password), AddressService (CRUD)",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-3",
+          "index": 3,
+          "description": "Create AuthController, AccountController, AdminController with all endpoints",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-4",
+          "index": 4,
+          "description": "Configure JWT auth in Program.cs with custom policies for all 5 roles and account lockout rules",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        }
+      ]
+    },
+    {
+      "id": "phase-3",
+      "index": 3,
+      "name": "Policy",
+      "goal": "Implement policy lifecycle management and premium tracking",
+      "description": "",
+      "parallel": false,
+      "status": "planned",
+      "steps": [
+        {
+          "id": "step-1",
+          "index": 1,
+          "description": "Implement PolicyService (create, get, update, delete, approve, reject) and PremiumPaymentService",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-2",
+          "index": 2,
+          "description": "Create PolicyController with full CRUD endpoints",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-3",
+          "index": 3,
+          "description": "Implement Hangfire background jobs for premium reminders, grace period lapse, and policy expiry",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        }
+      ]
+    },
+    {
+      "id": "phase-4",
+      "index": 4,
+      "name": "Claims",
+      "goal": "Implement claims lifecycle and document management",
+      "description": "",
+      "parallel": false,
+      "status": "planned",
+      "steps": [
+        {
+          "id": "step-1",
+          "index": 1,
+          "description": "Implement ClaimValidationService (all 9 validations) and ClaimService (submit, get, update status, auto-assign reviewer, approve, reject, payout calc)",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-2",
+          "index": 2,
+          "description": "Implement DocumentService (upload, download, verify, soft delete) and ClaimStateMachine",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-3",
+          "index": 3,
+          "description": "Create ClaimsController, DocumentsController, ReviewersController with all endpoints",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        }
+      ]
+    },
+    {
+      "id": "phase-5",
+      "index": 5,
+      "name": "Payments & Notifications",
+      "goal": "Implement payment processing and notification system",
+      "description": "",
+      "parallel": false,
+      "status": "planned",
+      "steps": [
+        {
+          "id": "step-1",
+          "index": 1,
+          "description": "Implement PaymentService with Stripe PaymentIntent creation, confirmation, and idempotency protection",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-2",
+          "index": 2,
+          "description": "Create PaymentsController with premium and claim payment endpoints",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-3",
+          "index": 3,
+          "description": "Implement NotificationService with SMTP email, SignalR hub, in-app notifications",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-4",
+          "index": 4,
+          "description": "Create NotificationHub and NotificationsController for inbox and mark-as-read",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet build | grep -q \"0 error\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        }
+      ]
+    },
+    {
+      "id": "phase-6",
+      "index": 6,
+      "name": "Tests",
+      "goal": "Write unit and integration tests for core services",
+      "description": "",
+      "parallel": false,
+      "status": "planned",
+      "steps": [
+        {
+          "id": "step-1",
+          "index": 1,
+          "description": "Create test project and write unit tests for AuthService",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet test --filter AuthServiceTests | grep -q \"Passed\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-2",
+          "index": 2,
+          "description": "Write unit tests for ClaimService",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet test --filter ClaimServiceTests | grep -q \"Passed\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-3",
+          "index": 3,
+          "description": "Write unit tests for PolicyService",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet test --filter PolicyServiceTests | grep -q \"Passed\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        },
+        {
+          "id": "step-4",
+          "index": 4,
+          "description": "Write integration test for full claim lifecycle Submit→Review→Approve→Pay→Closed",
+          "status": "pending",
+          "verification": {
+            "command": "dotnet test --filter ClaimLifecycleIntegrationTest | grep -q \"Passed\"",
+            "retries": 2,
+            "retryDelayMs": 1000
+          },
+          "parallel": false
+        }
+      ]
+    }
+  ],
+  "decisions": [],
+  "memories": [],
+  "createdAt": "2026-06-07T12:50:33.995Z",
+  "updatedAt": "2026-06-07T15:22:37.178Z",
+  "goal": "Complete the InsuranceClaimSystem backend: implement all Application services, controllers, auth middleware, external services (email, file, Stripe), validators, AutoMapper profiles, Hangfire jobs, SignalR hub, seed data, and unit/integration tests. Build atop all existing code without repeating completed work. Delivery excludes CQRS/MediatR and frontend code.",
+  "successCriteria": [
+    "All service interfaces have concrete implementations with correct DI registration",
+    "All API controllers exist and expose every required endpoint from implementation_plan.md",
+    "JWT authentication is working with 15-min access + 7-day refresh tokens in httpOnly cookies",
+    "Role-based authorization works for all 5 roles with policy-based guards",
+    "Build compiles with 0 errors",
+    "Seed data creates Admin, PolicyTypes, ClaimTypes, and PolicyBenefitRules on startup",
+    "Claim state machine enforces valid transitions submitted→review→approve→paid→closed",
+    "Payout formula implemented: MIN(ClaimedAmount, SubLimit) × (1 - CoPayPercent/100) - Deductible",
+    "Auto-assign reviewer uses specialization match → lowest workload → round-robin logic",
+    "Stripe PaymentIntent creation confirmation and idempotency protection works",
+    "RemainingCoverageAmount decrements on approved claim payment",
+    "Grace period: 15 days for Monthly, 30 days for others",
+    "MailKit SMTP email sends for all 18 notification events",
+    "Unit test coverage for AuthService ClaimService PolicyService ≥70%",
+    "Integration test covers full claim lifecycle Submit → Review → Approve → Pay → Closed"
+  ],
+  "constraints": [
+    "No CQRS/MediatR - use simple N-Tier service layer",
+    "No SystemHealthLogs (out of scope)",
+    "No frontend code",
+    "Use only packages already referenced in csproj files",
+    "Keep controllers thin - max 30 lines per action",
+    "Must build on top of existing code - don't redo what's done"
+  ],
+  "lastActiveAt": "2026-06-07T13:29:27.130Z",
+  "activePhaseId": "phase-1"
+}

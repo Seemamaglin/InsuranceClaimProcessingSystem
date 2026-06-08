@@ -1,0 +1,183 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using InsuranceClaimSystem.Application.DTOs.Claims;
+using InsuranceClaimSystem.Application.Interfaces.Services;
+
+namespace InsuranceClaimSystem.API.Controllers;
+
+[ApiController]
+[Route("api/v1/claims")]
+[Authorize]
+public class ClaimsController : ControllerBase
+{
+    private readonly IClaimService _claimService;
+    private readonly ILogger<ClaimsController> _logger;
+
+    public ClaimsController(IClaimService claimService, ILogger<ClaimsController> logger)
+    {
+        _claimService = claimService;
+        _logger = logger;
+    }
+
+    /// <summary>
+    /// Submit a new claim
+    /// </summary>
+    [HttpPost]
+    [Authorize(Policy = "PolicyHolderOnly")]
+    public async Task<IActionResult> SubmitClaim([FromBody] SubmitClaimRequest request)
+    {
+        var result = await _claimService.SubmitClaimAsync(request);
+        if (result.IsFailure)
+        {
+            return BadRequest(result.Error);
+        }
+        return CreatedAtAction(nameof(GetClaimById), new { id = result.Value.Id }, result.Value);
+    }
+
+    /// <summary>
+    /// Get paginated list of all claims (staff only)
+    /// </summary>
+    [HttpGet]
+    [Authorize(Policy = "StaffOnly")]
+    public async Task<IActionResult> GetClaims([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+    {
+        var result = await _claimService.GetClaimsAsync(page, pageSize);
+        if (result.IsFailure)
+        {
+            return BadRequest(result.Error);
+        }
+        return Ok(result.Value);
+    }
+
+    /// <summary>
+    /// Get claim by ID
+    /// </summary>
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetClaimById(Guid id)
+    {
+        var result = await _claimService.GetClaimByIdAsync(id);
+        if (result.IsFailure)
+        {
+            return NotFound(result.Error);
+        }
+        return Ok(result.Value);
+    }
+
+    /// <summary>
+    /// Get claim by claim number
+    /// </summary>
+    [HttpGet("number/{claimNumber}")]
+    public async Task<IActionResult> GetClaimByNumber(string claimNumber)
+    {
+        var result = await _claimService.GetClaimByNumberAsync(claimNumber);
+        if (result.IsFailure)
+        {
+            return NotFound(result.Error);
+        }
+        return Ok(result.Value);
+    }
+
+    /// <summary>
+    /// Update claim status
+    /// </summary>
+    [HttpPatch("{id:guid}/status")]
+    [Authorize(Policy = "ReviewerOrManager")]
+    public async Task<IActionResult> UpdateStatus(Guid id, [FromBody] UpdateClaimStatusRequest request)
+    {
+        var result = await _claimService.UpdateStatusAsync(id, request);
+        if (result.IsFailure)
+        {
+            return BadRequest(result.Error);
+        }
+        return Ok(result.Value);
+    }
+
+    /// <summary>
+    /// Assign a reviewer to a claim
+    /// </summary>
+    [HttpPost("{id:guid}/assign-reviewer")]
+    [Authorize(Policy = "ManagerOrAdmin")]
+    public async Task<IActionResult> AssignReviewer(Guid id, [FromBody] AssignReviewerRequest request)
+    {
+        request.ClaimId = id;
+        var result = await _claimService.AssignReviewerAsync(request);
+        if (result.IsFailure)
+        {
+            return BadRequest(result.Error);
+        }
+        return Ok(result.Value);
+    }
+
+    /// <summary>
+    /// Auto-assign a reviewer to a claim
+    /// </summary>
+    [HttpPost("{id:guid}/auto-assign")]
+    [Authorize(Policy = "ManagerOrAdmin")]
+    public async Task<IActionResult> AutoAssignReviewer(Guid id)
+    {
+        var result = await _claimService.AutoAssignReviewerAsync(id);
+        if (result.IsFailure)
+        {
+            return BadRequest(result.Error);
+        }
+        return Ok(result.Value);
+    }
+
+    /// <summary>
+    /// Approve a claim (manager only)
+    /// </summary>
+    [HttpPost("{id:guid}/approve")]
+    [Authorize(Policy = "ClaimsManagerOnly")]
+    public async Task<IActionResult> ApproveClaim(Guid id, [FromQuery] Guid managerId, [FromQuery] decimal? approvedAmount = null)
+    {
+        // Note: This would call a dedicated ApproveClaimAsync method
+        // For now, returning not implemented
+        return StatusCode(501, "Claim approval endpoint - use UpdateStatus with Approved status");
+    }
+
+    /// <summary>
+    /// Reject a claim (manager only)
+    /// </summary>
+    [HttpPost("{id:guid}/reject")]
+    [Authorize(Policy = "ClaimsManagerOnly")]
+    public async Task<IActionResult> RejectClaim(Guid id, [FromQuery] Guid managerId, [FromBody] RejectClaimRequest request)
+    {
+        // Note: This would call a dedicated RejectClaimAsync method
+        // For now, returning not implemented
+        return StatusCode(501, "Claim rejection endpoint - use UpdateStatus with Rejected status");
+    }
+
+    /// <summary>
+    /// Get claims by policy ID
+    /// </summary>
+    [HttpGet("policy/{policyId:guid}")]
+    public async Task<IActionResult> GetClaimsByPolicy(Guid policyId, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+    {
+        var result = await _claimService.GetClaimsByPolicyAsync(policyId, page, pageSize);
+        if (result.IsFailure)
+        {
+            return BadRequest(result.Error);
+        }
+        return Ok(result.Value);
+    }
+
+    /// <summary>
+    /// Get claims assigned to a reviewer
+    /// </summary>
+    [HttpGet("reviewer/{reviewerId:guid}")]
+    [Authorize(Policy = "ClaimReviewerOnly")]
+    public async Task<IActionResult> GetClaimsByReviewer(Guid reviewerId, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+    {
+        var result = await _claimService.GetClaimsByReviewerAsync(reviewerId, page, pageSize);
+        if (result.IsFailure)
+        {
+            return BadRequest(result.Error);
+        }
+        return Ok(result.Value);
+    }
+}
+
+public class RejectClaimRequest
+{
+    public string RejectionReason { get; set; } = string.Empty;
+}
