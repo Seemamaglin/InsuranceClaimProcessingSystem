@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace InsuranceClaimSystem.API.Controllers;
 
 [ApiController]
-[Route("api/v1/[controller]")]
+[Route("api/admin")]
 [Authorize(Policy = "AdminOnly")]
 public class AdminController : ControllerBase
 {

@@ -25,8 +25,7 @@ public class PolicyConfiguration : IEntityTypeConfiguration<Policy>
         builder.Property(p => p.RemainingCoverageAmount)
             .HasColumnType("decimal(12,2)");
 
-        builder.Property(p => p.RowVersion).IsRowVersion();
-
+        builder.Property(p => p.RowVersion).IsConcurrencyToken();
         builder.HasOne(p => p.PolicyType)
             .WithMany()
             .HasForeignKey(p => p.PolicyTypeId)

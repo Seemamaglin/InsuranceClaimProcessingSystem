@@ -6,7 +6,7 @@ using InsuranceClaimSystem.Application.Interfaces.Services;
 namespace InsuranceClaimSystem.API.Controllers;
 
 [ApiController]
-[Route("api/v1/reviewers")]
+[Route("api/reviewers")]
 [Authorize(Policy = "ClaimReviewerOnly")]
 public class ReviewersController : ControllerBase
 {

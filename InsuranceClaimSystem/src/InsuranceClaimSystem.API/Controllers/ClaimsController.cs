@@ -6,7 +6,7 @@ using InsuranceClaimSystem.Application.Interfaces.Services;
 namespace InsuranceClaimSystem.API.Controllers;
 
 [ApiController]
-[Route("api/v1/claims")]
+[Route("api/claims")]
 [Authorize]
 public class ClaimsController : ControllerBase
 {

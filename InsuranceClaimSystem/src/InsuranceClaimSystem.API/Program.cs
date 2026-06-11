@@ -3,7 +3,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Hangfire;
 using Hangfire.PostgreSql;
-using InsuranceClaimSystem.API.Configuration;
+using InsuranceClaimSystem.Infrastructure.Configuration;
 using InsuranceClaimSystem.API.Filters;
 using InsuranceClaimSystem.API.Hubs;
 using InsuranceClaimSystem.API.Middleware;
@@ -23,6 +23,7 @@ using InsuranceClaimSystem.Infrastructure.Services.Storage;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System.Threading.RateLimiting;
 
@@ -47,10 +48,46 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // 4. Swagger
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "Insurance Claim System API",
+        Version = "v1"
+    });
+
+    // Add JWT Bearer support
+    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Description = "Enter your JWT token. Example: eyJhbGci..."
+    });
+
+    options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            {
+                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                {
+                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 
 // 5. DbContext
-builder.Services.AddAppDbContext(builder.Configuration.GetConnectionString("DefaultConnection")!);
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")!));
 
 // 6. Repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -113,9 +150,9 @@ builder.Services.AddHangfireServer();
 // 11. CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAngular", policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins("http://localhost:4200","http://localhost:5050")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
@@ -197,7 +234,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
-app.UseCors("AllowAngular");
+app.UseCors("AllowAll");
 app.UseRateLimiter();
 
 // Custom middleware
@@ -218,5 +255,21 @@ app.MapControllers();
 
 // SignalR Hubs
 app.MapHub<NotificationHub>("/hubs/notifications");
+
+// Apply pending migrations and seed data
+try
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        await dbContext.Database.MigrateAsync();
+        await DbSeeder.SeedAsync(dbContext);
+        Log.Information("Database migrated and seeded successfully.");
+    }
+}
+catch (Exception ex)
+{
+    Log.Error(ex, "An error occurred during database migration or seeding.");
+}
 
 app.Run();

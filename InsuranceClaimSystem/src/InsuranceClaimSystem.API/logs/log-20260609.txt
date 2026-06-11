@@ -1,0 +1,603 @@
+[2026-06-09 12:52:44.916 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-09 12:52:45.159 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-09 12:52:46.139 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 12:52:46.140 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 12:52:46.141 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 12:52:46.683 INF] : Database migrated and seeded successfully.
+[2026-06-09 12:52:46.756 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-09 12:52:46.760 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-09 12:52:46.760 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-09 12:52:46.760 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-09 12:52:46.760 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-09 12:52:46.761 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-09 12:52:46.761 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-09 12:52:46.768 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-09 12:52:46.768 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-09 12:52:46.768 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-09 12:52:46.848 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:42612:787adf8b successfully announced in 78.1521 ms
+[2026-06-09 12:52:46.850 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:42612:787adf8b is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-09 12:52:46.853 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:42612:787adf8b all the dispatchers started
+[2026-06-09 12:53:30.335 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-09 12:53:31.441 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-09 12:53:31.616 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 1336.9921 ms
+[2026-06-09 14:03:25.414 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Admin/registrations/d6fcc9dc-e6cc-4708-98ba-9c7e13249f10/approve responded 401 in 205.9468 ms
+[2026-06-09 14:04:04.101 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Admin/registrations/d6fcc9dc-e6cc-4708-98ba-9c7e13249f10/approve responded 401 in 46.2224 ms
+[2026-06-09 14:04:23.742 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:42612:787adf8b caught stopping signal...
+[2026-06-09 14:04:23.761 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-09 14:04:24.217 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:42612:787adf8b All dispatchers stopped
+[2026-06-09 14:04:24.254 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:42612:787adf8b caught stopped signal...
+[2026-06-09 14:04:24.345 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:42612:787adf8b successfully reported itself as stopped in 117.9932 ms
+[2026-06-09 14:04:24.345 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:42612:787adf8b has been stopped in total 595.3666 ms
+[2026-06-09 14:06:40.548 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-09 14:06:40.979 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-09 14:06:44.081 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 14:06:44.104 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 14:06:44.108 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 14:06:47.941 INF] : Database migrated and seeded successfully.
+[2026-06-09 14:06:48.211 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-09 14:06:48.222 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-09 14:06:48.224 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-09 14:06:48.225 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-09 14:06:48.225 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-09 14:06:48.225 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-09 14:06:48.226 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-09 14:06:48.245 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-09 14:06:48.246 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-09 14:06:48.246 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-09 14:06:48.561 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47325:616c021c successfully announced in 303.7644 ms
+[2026-06-09 14:06:48.570 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47325:616c021c is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-09 14:06:48.575 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47325:616c021c all the dispatchers started
+[2026-06-09 14:07:45.803 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-09 14:07:48.119 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-09 14:07:48.332 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 2637.5742 ms
+[2026-06-09 14:08:41.316 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/policy-types responded 200 in 395.9523 ms
+[2026-06-09 14:09:40.156 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Admin/registrations/d6fcc9dc-e6cc-4708-98ba-9c7e13249f10/approve responded 400 in 295.3966 ms
+[2026-06-09 14:10:58.280 ERR] InsuranceClaimSystem.Infrastructure.Services.AuthService: Failed to send verification email to somu@gmail.com
+System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at MailKit.Net.SocketUtils.SocketConnectState.OnEndConnect(IAsyncResult ar)
+--- End of stack trace from previous location ---
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, CancellationToken cancellationToken)
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, Int32 timeout, CancellationToken cancellationToken)
+   at MailKit.MailService.ConnectNetworkAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService.SendEmailAsync(String to, String subject, String body, Boolean isHtml) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/Email/SmtpEmailService.cs:line 41
+   at InsuranceClaimSystem.Infrastructure.Services.AuthService.RegisterAsync(RegisterRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/AuthService.cs:line 106
+[2026-06-09 14:10:58.304 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/register responded 200 in 769.7190 ms
+[2026-06-09 14:11:15.965 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Admin/registrations/0ef96c8a-cb99-4957-b630-91f0bb1f1593/approve responded 200 in 163.0565 ms
+[2026-06-09 14:11:28.992 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Admin/registrations/0ef96c8a-cb99-4957-b630-91f0bb1f1593/approve responded 400 in 60.9991 ms
+[2026-06-09 14:12:53.716 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-09 14:12:54.130 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 890.5319 ms
+[2026-06-09 14:22:27.675 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (18ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Guid), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = DateTime), @p19='?' (DbType = Int32), @p20='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Policies" ("Id", "CoverageAmount", "CreatedAt", "DeletedAt", "EndDate", "GracePeriodDays", "IsDeleted", "LapsedAt", "LastPremiumPaidDate", "NextPremiumDueDate", "PolicyDocumentUrl", "PolicyHolderId", "PolicyNumber", "PolicyTypeId", "PremiumAmount", "PremiumFrequency", "RejectionReason", "RemainingCoverageAmount", "StartDate", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20)
+RETURNING "RowVersion";
+[2026-06-09 14:22:27.751 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "RowVersion" of relation "Policies" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "RowVersion" of relation "Policies" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ColumnName: RowVersion
+    File: execMain.c
+    Line: 2219
+    Routine: ReportNotNullViolationError
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "RowVersion" of relation "Policies" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "RowVersion" of relation "Policies" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ColumnName: RowVersion
+    File: execMain.c
+    Line: 2219
+    Routine: ReportNotNullViolationError
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-09 14:22:27.773 ERR] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Error creating policy
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "RowVersion" of relation "Policies" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "RowVersion" of relation "Policies" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ColumnName: RowVersion
+    File: execMain.c
+    Line: 2219
+    Routine: ReportNotNullViolationError
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.PolicyService.CreatePolicyAsync(CreatePolicyRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/PolicyService.cs:line 81
+[2026-06-09 14:22:27.793 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Policy responded 400 in 621.0546 ms
+[2026-06-09 14:32:58.501 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/policy-types responded 401 in 106.8967 ms
+[2026-06-09 14:33:16.243 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/policy-types responded 401 in 18.8561 ms
+[2026-06-09 14:34:06.190 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/policy-types responded 401 in 13.9345 ms
+[2026-06-09 14:34:09.725 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/policy-types responded 401 in 13.8223 ms
+[2026-06-09 14:40:11.926 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47325:616c021c caught stopping signal...
+[2026-06-09 14:40:11.966 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-09 14:40:12.003 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47325:616c021c All dispatchers stopped
+[2026-06-09 14:40:12.079 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47325:616c021c successfully reported itself as stopped in 58.2907 ms
+[2026-06-09 14:40:12.079 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47325:616c021c has been stopped in total 130.125 ms
+[2026-06-09 15:19:54.594 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-09 15:19:54.920 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-09 15:19:56.037 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 15:19:56.039 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 15:19:56.040 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 15:19:57.836 INF] : Database migrated and seeded successfully.
+[2026-06-09 15:19:57.941 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-09 15:19:57.946 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-09 15:19:57.947 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-09 15:19:57.948 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-09 15:19:57.948 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-09 15:19:57.949 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-09 15:19:57.949 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-09 15:19:57.972 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-09 15:19:57.973 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-09 15:19:57.974 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-09 15:19:58.072 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:53736:582fc68e successfully announced in 95.5491 ms
+[2026-06-09 15:19:58.073 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:53736:582fc68e is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-09 15:19:58.076 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:53736:582fc68e all the dispatchers started
+[2026-06-09 15:21:21.817 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-09 15:21:21.987 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/Policy responded 401 in 181.0334 ms
+[2026-06-09 15:21:36.529 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/policy-types responded 401 in 25.0733 ms
+[2026-06-09 15:22:02.347 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-09 15:22:02.565 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 932.0998 ms
+[2026-06-09 15:22:42.219 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/policy-types responded 200 in 1447.2737 ms
+[2026-06-09 15:23:30.208 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Policy created successfully: POL-2026-0001
+[2026-06-09 15:23:30.286 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Policy responded 201 in 480.4833 ms
+[2026-06-09 15:26:25.134 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Policy approved: "26ef7c23-11a2-4a1c-bbf4-f7abf4b1f89d"
+[2026-06-09 15:26:25.144 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Policy/26ef7c23-11a2-4a1c-bbf4-f7abf4b1f89d/approve responded 200 in 578.3450 ms
+[2026-06-09 15:27:41.988 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-09 15:27:42.078 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 611.1462 ms
+[2026-06-09 16:21:04.447 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Policy/26ef7c23-11a2-4a1c-bbf4-f7abf4b1f89d/approve responded 401 in 97.5502 ms
+[2026-06-09 16:21:26.969 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Policy/26ef7c23-11a2-4a1c-bbf4-f7abf4b1f89d/approve responded 401 in 15.9399 ms
+[2026-06-09 16:27:36.682 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims responded 401 in 55.5768 ms
+[2026-06-09 16:32:10.966 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:53736:582fc68e caught stopping signal...
+[2026-06-09 16:32:10.982 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-09 16:32:11.005 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:53736:582fc68e All dispatchers stopped
+[2026-06-09 16:32:11.045 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:53736:582fc68e successfully reported itself as stopped in 33.0698 ms
+[2026-06-09 16:32:11.045 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:53736:582fc68e has been stopped in total 74.0023 ms
+[2026-06-09 16:41:33.877 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-09 16:41:34.110 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-09 16:41:35.211 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 16:41:35.212 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 16:41:35.212 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 16:41:36.132 INF] : Database migrated and seeded successfully.
+[2026-06-09 16:41:36.283 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-09 16:41:36.287 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-09 16:41:36.288 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-09 16:41:36.290 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-09 16:41:36.291 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-09 16:41:36.292 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-09 16:41:36.293 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-09 16:41:36.313 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-09 16:41:36.315 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-09 16:41:36.315 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-09 16:41:36.565 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:61617:83a0597d successfully announced in 230.5238 ms
+[2026-06-09 16:41:36.578 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:61617:83a0597d is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-09 16:41:36.608 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:61617:83a0597d all the dispatchers started
+[2026-06-09 16:43:13.005 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-09 16:43:13.171 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims responded 401 in 172.3368 ms
+[2026-06-09 16:43:38.356 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-09 16:43:38.504 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 853.6807 ms
+[2026-06-09 16:44:02.093 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims responded 403 in 111.3174 ms
+[2026-06-09 16:44:11.542 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims responded 403 in 14.7649 ms
+[2026-06-09 16:57:00.126 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-09 16:57:00.539 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 1429.0972 ms
+[2026-06-09 16:57:24.184 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims responded 400 in 1314.3659 ms
+[2026-06-09 16:58:05.276 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (38ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Guid), @p6='?' (DbType = Guid), @p7='?', @p8='?' (DbType = Decimal), @p9='?' (DbType = Decimal), @p10='?' (DbType = DateTime), @p11='?' (DbType = Decimal), @p12='?' (DbType = DateTime), @p13='?' (DbType = Decimal), @p14='?' (DbType = DateTime), @p15='?', @p16='?', @p17='?' (DbType = DateTime), @p18='?' (DbType = Boolean), @p19='?' (DbType = Boolean), @p20='?' (DbType = Guid), @p21='?' (DbType = Int32), @p22='?' (DbType = Guid), @p23='?', @p24='?', @p25='?', @p26='?', @p27='?', @p28='?' (DbType = DateTime), @p29='?', @p30='?' (DbType = DateTime), @p31='?' (DbType = Guid), @p32='?' (DbType = Int32), @p33='?' (DbType = Guid), @p34='?' (DbType = Guid), @p35='?', @p36='?' (DbType = DateTime), @p37='?' (DbType = DateTime), @p38='?' (DbType = Boolean), @p39='?' (DbType = Int32), @p40='?' (DbType = Int32), @p41='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Claims" ("Id", "ApprovedAmount", "AssignedManagerId", "AssignedReviewerId", "ClaimNumber", "ClaimTypeId", "ClaimantId", "ClaimantType", "ClaimedAmount", "CoPayPercentage", "CreatedAt", "DeductibleAmount", "DeletedAt", "FinalPayableAmount", "IncidentDate", "IncidentDescription", "IncidentLocation", "IntimationDate", "IsDeleted", "IsLateIntimation", "NomineeId", "PaymentRecipientType", "PolicyId", "RecipientAccountNumber", "RecipientBankName", "RecipientIFSC", "RecipientName", "RejectionReason", "ResolvedAt", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30)
+RETURNING "RowVersion";
+INSERT INTO "WorkFlowHistory" ("Id", "ActionType", "ChangedByUserId", "ClaimId", "Comments", "CreatedAt", "DeletedAt", "IsDeleted", "NewStatus", "PreviousStatus", "UpdatedAt")
+VALUES (@p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41);
+[2026-06-09 16:58:05.339 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Claims
+    ColumnName: RowVersion
+    File: execMain.c
+    Line: 2219
+    Routine: ReportNotNullViolationError
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Claims
+    ColumnName: RowVersion
+    File: execMain.c
+    Line: 2219
+    Routine: ReportNotNullViolationError
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-09 16:58:05.343 ERR] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Error submitting claim
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Claims
+    ColumnName: RowVersion
+    File: execMain.c
+    Line: 2219
+    Routine: ReportNotNullViolationError
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.SubmitClaimAsync(SubmitClaimRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 117
+[2026-06-09 16:58:05.359 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims responded 400 in 941.3690 ms
+[2026-06-09 16:58:26.714 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (9ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Guid), @p6='?' (DbType = Guid), @p7='?', @p8='?' (DbType = Decimal), @p9='?' (DbType = Decimal), @p10='?' (DbType = DateTime), @p11='?' (DbType = Decimal), @p12='?' (DbType = DateTime), @p13='?' (DbType = Decimal), @p14='?' (DbType = DateTime), @p15='?', @p16='?', @p17='?' (DbType = DateTime), @p18='?' (DbType = Boolean), @p19='?' (DbType = Boolean), @p20='?' (DbType = Guid), @p21='?' (DbType = Int32), @p22='?' (DbType = Guid), @p23='?', @p24='?', @p25='?', @p26='?', @p27='?', @p28='?' (DbType = DateTime), @p29='?', @p30='?' (DbType = DateTime), @p31='?' (DbType = Guid), @p32='?' (DbType = Int32), @p33='?' (DbType = Guid), @p34='?' (DbType = Guid), @p35='?', @p36='?' (DbType = DateTime), @p37='?' (DbType = DateTime), @p38='?' (DbType = Boolean), @p39='?' (DbType = Int32), @p40='?' (DbType = Int32), @p41='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Claims" ("Id", "ApprovedAmount", "AssignedManagerId", "AssignedReviewerId", "ClaimNumber", "ClaimTypeId", "ClaimantId", "ClaimantType", "ClaimedAmount", "CoPayPercentage", "CreatedAt", "DeductibleAmount", "DeletedAt", "FinalPayableAmount", "IncidentDate", "IncidentDescription", "IncidentLocation", "IntimationDate", "IsDeleted", "IsLateIntimation", "NomineeId", "PaymentRecipientType", "PolicyId", "RecipientAccountNumber", "RecipientBankName", "RecipientIFSC", "RecipientName", "RejectionReason", "ResolvedAt", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30)
+RETURNING "RowVersion";
+INSERT INTO "WorkFlowHistory" ("Id", "ActionType", "ChangedByUserId", "ClaimId", "Comments", "CreatedAt", "DeletedAt", "IsDeleted", "NewStatus", "PreviousStatus", "UpdatedAt")
+VALUES (@p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41);
+[2026-06-09 16:58:26.736 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Claims
+    ColumnName: RowVersion
+    File: execMain.c
+    Line: 2219
+    Routine: ReportNotNullViolationError
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Claims
+    ColumnName: RowVersion
+    File: execMain.c
+    Line: 2219
+    Routine: ReportNotNullViolationError
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-09 16:58:26.746 ERR] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Error submitting claim
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "RowVersion" of relation "Claims" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Claims
+    ColumnName: RowVersion
+    File: execMain.c
+    Line: 2219
+    Routine: ReportNotNullViolationError
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.SubmitClaimAsync(SubmitClaimRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 117
+[2026-06-09 16:58:26.757 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims responded 400 in 219.2208 ms
+[2026-06-09 17:06:45.708 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:61617:83a0597d caught stopping signal...
+[2026-06-09 17:06:45.730 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-09 17:06:45.744 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:61617:83a0597d All dispatchers stopped
+[2026-06-09 17:06:45.779 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:61617:83a0597d successfully reported itself as stopped in 25.4773 ms
+[2026-06-09 17:06:45.780 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:61617:83a0597d has been stopped in total 56.9193 ms
+[2026-06-09 17:07:31.325 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-09 17:07:31.510 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-09 17:07:32.305 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 17:07:32.306 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 17:07:32.306 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 17:07:32.799 INF] : Database migrated and seeded successfully.
+[2026-06-09 17:07:32.898 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-09 17:07:32.902 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-09 17:07:32.903 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-09 17:07:32.903 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-09 17:07:32.903 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-09 17:07:32.903 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-09 17:07:32.903 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-09 17:07:32.918 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-09 17:07:32.918 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-09 17:07:32.919 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-09 17:07:33.028 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65854:7b58768f successfully announced in 107.6343 ms
+[2026-06-09 17:07:33.030 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65854:7b58768f is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-09 17:07:33.035 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65854:7b58768f all the dispatchers started
+[2026-06-09 17:19:47.636 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65854:7b58768f caught stopping signal...
+[2026-06-09 17:19:47.679 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-09 17:19:47.688 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65854:7b58768f All dispatchers stopped
+[2026-06-09 17:19:47.835 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65854:7b58768f successfully reported itself as stopped in 131.512 ms
+[2026-06-09 17:19:47.835 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65854:7b58768f has been stopped in total 167.5541 ms
+[2026-06-09 21:45:34.964 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-09 21:45:35.121 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-09 21:45:35.620 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 21:45:35.620 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 21:45:35.620 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-09 21:45:35.931 INF] : Database migrated and seeded successfully.
+[2026-06-09 21:45:35.970 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-09 21:45:35.972 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-09 21:45:35.972 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-09 21:45:35.972 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-09 21:45:35.972 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-09 21:45:35.972 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-09 21:45:35.973 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-09 21:45:35.980 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-09 21:45:35.980 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-09 21:45:35.980 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-09 21:45:36.040 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:5699:a678809b successfully announced in 58.6925 ms
+[2026-06-09 21:45:36.041 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:5699:a678809b is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-09 21:45:36.044 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:5699:a678809b all the dispatchers started
+[2026-06-09 21:45:46.417 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-09 21:45:46.442 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET / responded 404 in 25.6953 ms
+[2026-06-09 21:46:20.427 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-09 21:46:20.524 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 634.2412 ms
+[2026-06-09 21:47:52.820 WRN] Microsoft.EntityFrameworkCore.Query: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2026-06-09 21:47:52.984 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims responded 201 in 616.7605 ms
+[2026-06-09 21:55:43.509 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/Policy/26ef7c23-11a2-4a1c-bbf4-f7abf4b1f89d responded 200 in 60.8267 ms
+[2026-06-09 21:57:28.095 ERR] InsuranceClaimSystem.Infrastructure.Services.AuthService: Failed to send verification email to priya@reviewer.com
+System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at MailKit.Net.SocketUtils.SocketConnectState.OnEndConnect(IAsyncResult ar)
+--- End of stack trace from previous location ---
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, CancellationToken cancellationToken)
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, Int32 timeout, CancellationToken cancellationToken)
+   at MailKit.MailService.ConnectNetworkAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService.SendEmailAsync(String to, String subject, String body, Boolean isHtml) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/Email/SmtpEmailService.cs:line 41
+   at InsuranceClaimSystem.Infrastructure.Services.AuthService.RegisterAsync(RegisterRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/AuthService.cs:line 106
+[2026-06-09 21:57:28.106 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/register responded 200 in 451.3473 ms
+[2026-06-09 21:58:47.558 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 401 in 336.3662 ms
+[2026-06-09 21:58:57.474 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "7bcc973b-917f-43dd-bddb-a68fd56c6e2b"
+[2026-06-09 21:58:57.480 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 328.8036 ms
+[2026-06-09 22:00:01.885 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims/7bcc973b-917f-43dd-bddb-a68fd56c6e2b/auto-assign responded 403 in 11.5813 ms
+[2026-06-09 22:00:07.132 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims/7bcc973b-917f-43dd-bddb-a68fd56c6e2b/auto-assign responded 403 in 0.8676 ms
+[2026-06-09 22:00:18.567 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims/7bcc973b-917f-43dd-bddb-a68fd56c6e2b/auto-assign responded 403 in 0.5448 ms
+[2026-06-09 22:01:16.191 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims/7bcc973b-917f-43dd-bddb-a68fd56c6e2b/auto-assign responded 403 in 0.7329 ms
+[2026-06-09 22:01:36.903 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims/7bcc973b-917f-43dd-bddb-a68fd56c6e2b/auto-assign responded 403 in 0.5654 ms
+[2026-06-09 22:02:47.876 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 401 in 32.6615 ms
+[2026-06-09 22:03:10.050 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-09 22:03:10.057 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 191.6321 ms
+[2026-06-09 22:03:34.544 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims/7bcc973b-917f-43dd-bddb-a68fd56c6e2b/auto-assign responded 400 in 48.5131 ms
+[2026-06-09 22:05:04.357 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims/7bcc973b-917f-43dd-bddb-a68fd56c6e2b/auto-assign responded 400 in 18.3960 ms
+[2026-06-09 22:05:06.105 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims responded 403 in 0.5126 ms
+[2026-06-09 22:05:45.384 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/claims/116a722c-7311-4fe1-ab42-b71f2faf288f/auto-assign responded 401 in 9.6845 ms

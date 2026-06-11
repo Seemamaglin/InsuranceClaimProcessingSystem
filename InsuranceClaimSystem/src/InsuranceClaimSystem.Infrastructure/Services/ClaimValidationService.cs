@@ -129,6 +129,19 @@ public class ClaimValidationService : IClaimValidationService
                 }
             }
 
+            //nominee polic type validation
+            if (dto.ClaimantType ==  ClaimantType.Nominee)
+            {
+                var policyType = await _dbContext.PolicyTypes
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(pt => pt.Id == policy.PolicyTypeId);
+
+                if (policyType == null || !policyType.AllowsNomineeClaim)
+                {
+                    throw new BusinessRuleException("Nominee claims are not allowed for this policy type.");
+                }
+            }
+
             // 8. Intimation deadline - mark as late but allow submission
             if (dto.IncidentDate.HasValue && benefitRule.IntimationDeadlineDays > 0)
             {

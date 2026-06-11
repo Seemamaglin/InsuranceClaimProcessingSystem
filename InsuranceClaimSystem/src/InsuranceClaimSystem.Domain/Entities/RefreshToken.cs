@@ -13,6 +13,5 @@ public class RefreshToken   // No BaseEntity — this is auth infrastructure, no
     public string? ReplacedByToken { get; set; }        // successor token hash
     public DateTime CreatedAt { get; set; }
 
-    // Navigation
     public User User { get; set; } = null!;
 }

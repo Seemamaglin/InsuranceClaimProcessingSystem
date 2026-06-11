@@ -179,3 +179,4 @@
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.pdb
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.genruntimeconfig.cache
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/ref/InsuranceClaimSystem.Tests.dll
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.sourcelink.json

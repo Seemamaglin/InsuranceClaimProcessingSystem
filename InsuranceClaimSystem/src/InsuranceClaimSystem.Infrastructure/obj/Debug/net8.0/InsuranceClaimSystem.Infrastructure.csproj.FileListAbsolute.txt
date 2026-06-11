@@ -17,3 +17,4 @@
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/obj/Debug/net8.0/InsuranceClaimSystem.Infrastructure.pdb
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/obj/Debug/net8.0/InsuranceClaimSystem.Infrastructure.genruntimeconfig.cache
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/obj/Debug/net8.0/ref/InsuranceClaimSystem.Infrastructure.dll
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/obj/Debug/net8.0/InsuranceClaimSystem.Infrastructure.sourcelink.json

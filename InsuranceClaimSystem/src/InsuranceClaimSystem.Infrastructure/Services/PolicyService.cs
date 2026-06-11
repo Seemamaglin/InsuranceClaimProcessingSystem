@@ -74,7 +74,8 @@ public class PolicyService : IPolicyService
                 RemainingCoverageAmount = request.CoverageAmount,
                 PremiumAmount = request.PremiumAmount,
                 PremiumFrequency = request.PremiumFrequency,
-                GracePeriodDays = gracePeriodDays
+                GracePeriodDays = gracePeriodDays,
+                RowVersion = Guid.NewGuid().ToByteArray()
             };
 
             await _policyRepository.AddAsync(policy);

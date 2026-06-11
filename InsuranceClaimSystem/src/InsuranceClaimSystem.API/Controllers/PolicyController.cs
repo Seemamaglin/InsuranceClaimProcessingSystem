@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace InsuranceClaimSystem.API.Controllers;
 
 [ApiController]
-[Route("api/v1/[controller]")]
+[Route("api/policies")]
 public class PolicyController : ControllerBase
 {
     private readonly IPolicyService _policyService;
@@ -143,7 +143,7 @@ public class PolicyController : ControllerBase
         return Ok(result.Value);
     }
 
-    [HttpGet("~/api/v1/policy-types")]
+    [HttpGet("~/api/policy-types")]
     [Authorize]
     public async Task<IActionResult> GetPolicyTypes()
     {

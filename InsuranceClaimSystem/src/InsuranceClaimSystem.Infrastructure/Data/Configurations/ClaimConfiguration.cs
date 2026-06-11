@@ -39,7 +39,7 @@ public class ClaimConfiguration : IEntityTypeConfiguration<Claim>
             .HasConversion<string>();
 
         builder.Property(c => c.RowVersion)
-            .IsRowVersion(); 
+            .IsConcurrencyToken(); 
        
         builder.HasOne(c => c.Policy)
             .WithMany(p => p.Claims)

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace InsuranceClaimSystem.API.Controllers;
 
 [ApiController]
-[Route("api/v1/[controller]")]
+[Route("api/account")]
 [Authorize]
 public class AccountController : ControllerBase
 {

@@ -94,6 +94,13 @@ public class AuthService : IAuthService
             await _emailVerificationCodeRepository.AddAsync(emailVerification);
             await _unitOfWork.SaveChangesAsync();
 
+            //Auto verufy email for admin approval
+            emailVerification.IsUsed = true;
+            emailVerification.UsedAt = DateTime.UtcNow;
+            user.EmailVerifiedAt = DateTime.UtcNow;
+            user.RegistrationStatus = RegistrationStatus.PendingApproval;
+            await _unitOfWork.SaveChangesAsync();
+            
             try
             {
                 await _emailService.SendEmailAsync(

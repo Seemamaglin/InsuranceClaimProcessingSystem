@@ -1,0 +1,662 @@
+[2026-06-08 09:59:40.811 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 09:59:41.055 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 09:59:41.359 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 09:59:41.364 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: Insurance_claim_db, Schema: hangfire'
+[2026-06-08 09:59:41.364 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 09:59:41.365 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 09:59:41.365 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 09:59:41.366 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 09:59:41.366 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 09:59:41.401 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 09:59:41.401 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 09:59:41.402 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 09:59:41.579 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68757:6b59340e successfully announced in 174.8078 ms
+[2026-06-08 09:59:41.584 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68757:6b59340e is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 09:59:41.595 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68757:6b59340e all the dispatchers started
+[2026-06-08 10:00:53.543 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68757:6b59340e caught stopping signal...
+[2026-06-08 10:00:53.551 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 10:00:53.556 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68757:6b59340e All dispatchers stopped
+[2026-06-08 10:00:53.586 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68757:6b59340e successfully reported itself as stopped in 21.7485 ms
+[2026-06-08 10:00:53.587 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68757:6b59340e has been stopped in total 36.7817 ms
+[2026-06-08 10:01:13.596 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 10:01:14.661 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 10:01:15.549 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 10:01:15.552 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: Insurance_claim_db, Schema: hangfire'
+[2026-06-08 10:01:15.552 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 10:01:15.552 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 10:01:15.553 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 10:01:15.553 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 10:01:15.553 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 10:01:15.562 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 10:01:15.562 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 10:01:15.563 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 10:01:15.808 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69094:0d9ee55e successfully announced in 241.595 ms
+[2026-06-08 10:01:15.813 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69094:0d9ee55e is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 10:01:15.829 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69094:0d9ee55e all the dispatchers started
+[2026-06-08 10:01:49.028 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-08 10:01:49.709 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:01:49.710 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:01:49.710 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:01:50.267 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 401 in 1243.9911 ms
+[2026-06-08 10:02:34.568 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69094:0d9ee55e caught stopping signal...
+[2026-06-08 10:02:34.582 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 10:02:34.593 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69094:0d9ee55e All dispatchers stopped
+[2026-06-08 10:02:34.642 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69094:0d9ee55e successfully reported itself as stopped in 35.7405 ms
+[2026-06-08 10:02:34.642 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69094:0d9ee55e has been stopped in total 63.4388 ms
+[2026-06-08 10:02:54.752 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 10:02:54.947 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 10:02:55.131 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 10:02:55.134 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: Insurance_claim_db, Schema: hangfire'
+[2026-06-08 10:02:55.134 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 10:02:55.134 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 10:02:55.134 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 10:02:55.134 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 10:02:55.134 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 10:02:55.146 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 10:02:55.148 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 10:02:55.148 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 10:02:55.219 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69462:229c8f99 successfully announced in 68.2786 ms
+[2026-06-08 10:02:55.220 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69462:229c8f99 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 10:02:55.231 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69462:229c8f99 all the dispatchers started
+[2026-06-08 10:03:27.307 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-08 10:03:28.063 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:03:28.064 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:03:28.064 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:03:28.495 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 401 in 1192.9044 ms
+[2026-06-08 10:07:11.009 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 401 in 135.8060 ms
+[2026-06-08 10:09:26.091 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69462:229c8f99 caught stopping signal...
+[2026-06-08 10:09:26.154 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 10:09:26.162 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69462:229c8f99 All dispatchers stopped
+[2026-06-08 10:09:26.193 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69462:229c8f99 successfully reported itself as stopped in 26.795 ms
+[2026-06-08 10:09:26.194 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69462:229c8f99 has been stopped in total 50.256 ms
+[2026-06-08 10:10:21.353 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:10:21.446 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:10:21.447 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:10:37.983 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 10:10:38.291 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 10:10:38.629 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 10:10:38.633 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: Insurance_claim_db, Schema: hangfire'
+[2026-06-08 10:10:38.633 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 10:10:38.634 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 10:10:38.634 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 10:10:38.635 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 10:10:38.635 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 10:10:38.659 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 10:10:38.660 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 10:10:38.660 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 10:10:38.785 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:70911:a96f0b24 successfully announced in 118.9872 ms
+[2026-06-08 10:10:38.786 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:70911:a96f0b24 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 10:10:38.796 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:70911:a96f0b24 all the dispatchers started
+[2026-06-08 10:18:33.767 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:70911:a96f0b24 caught stopping signal...
+[2026-06-08 10:18:33.789 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 10:18:33.799 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:70911:a96f0b24 All dispatchers stopped
+[2026-06-08 10:18:33.845 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:70911:a96f0b24 successfully reported itself as stopped in 41.271 ms
+[2026-06-08 10:18:33.845 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:70911:a96f0b24 has been stopped in total 60.2955 ms
+[2026-06-08 10:18:48.196 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:18:48.263 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:18:48.263 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:34:03.374 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:34:03.503 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:34:03.504 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:34:15.182 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 10:34:17.699 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 10:34:18.070 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 10:34:18.083 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-08 10:34:18.085 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 10:34:18.087 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 10:34:18.088 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 10:34:18.088 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 10:34:18.088 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 10:34:18.122 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 10:34:18.123 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 10:34:18.123 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 10:34:18.301 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:73633:1dea226b successfully announced in 171.5869 ms
+[2026-06-08 10:34:18.304 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:73633:1dea226b is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 10:34:18.314 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:73633:1dea226b all the dispatchers started
+[2026-06-08 10:42:57.927 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:73633:1dea226b caught stopping signal...
+[2026-06-08 10:42:57.971 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 10:42:57.978 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:73633:1dea226b All dispatchers stopped
+[2026-06-08 10:42:58.055 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:73633:1dea226b successfully reported itself as stopped in 70.1569 ms
+[2026-06-08 10:42:58.056 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:73633:1dea226b has been stopped in total 96.6355 ms
+[2026-06-08 10:43:17.779 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:43:17.893 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:43:17.894 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:44:14.803 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:44:14.943 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 10:44:14.944 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 14:36:36.477 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 14:36:36.647 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 14:36:37.379 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 14:36:37.379 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 14:36:37.379 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 14:36:38.708 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (7ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Boolean), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Decimal), @p6='?' (DbType = DateTime), @p7='?', @p8='?' (DbType = Boolean), @p9='?' (DbType = Boolean), @p10='?', @p11='?' (DbType = DateTime), @p12='?' (DbType = Guid), @p13='?' (DbType = Boolean), @p14='?' (DbType = Boolean), @p15='?' (DbType = DateTime), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = DateTime), @p19='?', @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?', @p23='?' (DbType = DateTime), @p24='?' (DbType = Guid), @p25='?' (DbType = Boolean), @p26='?' (DbType = Boolean), @p27='?' (DbType = DateTime), @p28='?', @p29='?' (DbType = Decimal), @p30='?' (DbType = DateTime), @p31='?', @p32='?' (DbType = Boolean), @p33='?' (DbType = Boolean), @p34='?', @p35='?' (DbType = DateTime), @p36='?' (DbType = Guid), @p37='?' (DbType = Boolean), @p38='?' (DbType = Boolean), @p39='?' (DbType = DateTime), @p40='?', @p41='?' (DbType = Decimal), @p42='?' (DbType = DateTime), @p43='?', @p44='?' (DbType = Boolean), @p45='?' (DbType = Boolean), @p46='?', @p47='?' (DbType = DateTime), @p48='?' (DbType = Guid), @p49='?' (DbType = DateTime), @p50='?' (DbType = DateTime), @p51='?' (DbType = DateTime), @p52='?', @p53='?' (DbType = DateTime), @p54='?' (DbType = Int32), @p55='?', @p56='?' (DbType = Boolean), @p57='?' (DbType = Boolean), @p58='?' (DbType = Boolean), @p59='?' (DbType = DateTime), @p60='?', @p61='?' (DbType = DateTime), @p62='?', @p63='?', @p64='?', @p65='?', @p66='?', @p67='?', @p68='?' (DbType = DateTime), @p69='?', @p70='?' (DbType = Guid), @p71='?' (DbType = DateTime), @p72='?' (DbType = DateTime), @p73='?' (DbType = Boolean), @p74='?' (DbType = Boolean), @p75='?' (DbType = Boolean), @p76='?' (DbType = Guid), @p77='?', @p78='?' (DbType = DateTime), @p79='?' (DbType = Guid), @p80='?' (DbType = DateTime), @p81='?' (DbType = DateTime), @p82='?' (DbType = Boolean), @p83='?' (DbType = Boolean), @p84='?' (DbType = Boolean), @p85='?' (DbType = Guid), @p86='?', @p87='?' (DbType = DateTime), @p88='?' (DbType = Guid), @p89='?' (DbType = DateTime), @p90='?' (DbType = DateTime), @p91='?' (DbType = Boolean), @p92='?' (DbType = Boolean), @p93='?' (DbType = Boolean), @p94='?' (DbType = Guid), @p95='?', @p96='?' (DbType = DateTime), @p97='?' (DbType = Guid), @p98='?' (DbType = DateTime), @p99='?' (DbType = DateTime), @p100='?' (DbType = Boolean), @p101='?' (DbType = Boolean), @p102='?' (DbType = Boolean), @p103='?' (DbType = Guid), @p104='?', @p105='?' (DbType = DateTime), @p106='?' (DbType = Guid), @p107='?' (DbType = DateTime), @p108='?' (DbType = DateTime), @p109='?' (DbType = Boolean), @p110='?' (DbType = Boolean), @p111='?' (DbType = Boolean), @p112='?' (DbType = Guid), @p113='?', @p114='?' (DbType = DateTime), @p115='?' (DbType = Guid), @p116='?' (DbType = DateTime), @p117='?' (DbType = DateTime), @p118='?' (DbType = Boolean), @p119='?' (DbType = Boolean), @p120='?' (DbType = Boolean), @p121='?' (DbType = Guid), @p122='?', @p123='?' (DbType = DateTime), @p124='?' (DbType = Guid), @p125='?' (DbType = DateTime), @p126='?' (DbType = DateTime), @p127='?' (DbType = Boolean), @p128='?' (DbType = Boolean), @p129='?' (DbType = Boolean), @p130='?' (DbType = Guid), @p131='?', @p132='?' (DbType = DateTime), @p133='?' (DbType = Guid), @p134='?' (DbType = DateTime), @p135='?' (DbType = DateTime), @p136='?' (DbType = Boolean), @p137='?' (DbType = Boolean), @p138='?' (DbType = Boolean), @p139='?' (DbType = Guid), @p140='?', @p141='?' (DbType = DateTime), @p142='?' (DbType = Guid), @p143='?' (DbType = Guid), @p144='?' (DbType = Decimal), @p145='?' (DbType = DateTime), @p146='?' (DbType = Decimal), @p147='?' (DbType = DateTime), @p148='?' (DbType = Int32), @p149='?' (DbType = Boolean), @p150='?' (DbType = Boolean), @p151='?' (DbType = Decimal), @p152='?' (DbType = Guid), @p153='?' (DbType = Boolean), @p154='?' (DbType = Boolean), @p155='?' (DbType = Boolean), @p156='?' (DbType = Decimal), @p157='?', @p158='?' (DbType = DateTime), @p159='?' (DbType = Int32), @p160='?' (DbType = Guid), @p161='?' (DbType = Guid), @p162='?' (DbType = Decimal), @p163='?' (DbType = DateTime), @p164='?' (DbType = Decimal), @p165='?' (DbType = DateTime), @p166='?' (DbType = Int32), @p167='?' (DbType = Boolean), @p168='?' (DbType = Boolean), @p169='?' (DbType = Decimal), @p170='?' (DbType = Guid), @p171='?' (DbType = Boolean), @p172='?' (DbType = Boolean), @p173='?' (DbType = Boolean), @p174='?' (DbType = Decimal), @p175='?', @p176='?' (DbType = DateTime), @p177='?' (DbType = Int32), @p178='?' (DbType = Guid), @p179='?' (DbType = Guid), @p180='?' (DbType = Decimal), @p181='?' (DbType = DateTime), @p182='?' (DbType = Decimal), @p183='?' (DbType = DateTime), @p184='?' (DbType = Int32), @p185='?' (DbType = Boolean), @p186='?' (DbType = Boolean), @p187='?' (DbType = Decimal), @p188='?' (DbType = Guid), @p189='?' (DbType = Boolean), @p190='?' (DbType = Boolean), @p191='?' (DbType = Boolean), @p192='?' (DbType = Decimal), @p193='?', @p194='?' (DbType = DateTime), @p195='?' (DbType = Int32), @p196='?' (DbType = Guid), @p197='?' (DbType = Guid), @p198='?' (DbType = Decimal), @p199='?' (DbType = DateTime), @p200='?' (DbType = Decimal), @p201='?' (DbType = DateTime), @p202='?' (DbType = Int32), @p203='?' (DbType = Boolean), @p204='?' (DbType = Boolean), @p205='?' (DbType = Decimal), @p206='?' (DbType = Guid), @p207='?' (DbType = Boolean), @p208='?' (DbType = Boolean), @p209='?' (DbType = Boolean), @p210='?' (DbType = Decimal), @p211='?', @p212='?' (DbType = DateTime), @p213='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "PolicyTypes" ("Id", "AllowsNomineeClaim", "AllowsThirdPartyClaim", "CreatedAt", "DefaultBenefitType", "DefaultCoverageAmount", "DeletedAt", "Description", "IsActive", "IsDeleted", "TypeName", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+INSERT INTO "PolicyTypes" ("Id", "AllowsNomineeClaim", "AllowsThirdPartyClaim", "CreatedAt", "DefaultBenefitType", "DefaultCoverageAmount", "DeletedAt", "Description", "IsActive", "IsDeleted", "TypeName", "UpdatedAt")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23);
+INSERT INTO "PolicyTypes" ("Id", "AllowsNomineeClaim", "AllowsThirdPartyClaim", "CreatedAt", "DefaultBenefitType", "DefaultCoverageAmount", "DeletedAt", "Description", "IsActive", "IsDeleted", "TypeName", "UpdatedAt")
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35);
+INSERT INTO "PolicyTypes" ("Id", "AllowsNomineeClaim", "AllowsThirdPartyClaim", "CreatedAt", "DefaultBenefitType", "DefaultCoverageAmount", "DeletedAt", "Description", "IsActive", "IsDeleted", "TypeName", "UpdatedAt")
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47);
+INSERT INTO "Users" ("Id", "CreatedAt", "DateOfBirth", "DeletedAt", "Email", "EmailVerifiedAt", "FailedLoginAttempts", "FirstName", "IsActive", "IsDeleted", "IsFirstLogin", "LastLoginAt", "LastName", "LockoutUntil", "PasswordHash", "PhoneNumber", "RegistrationRejectionReason", "RegistrationStatus", "Role", "Specialization", "UpdatedAt", "Username")
+VALUES (@p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65, @p66, @p67, @p68, @p69);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, @p78);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p97, @p98, @p99, @p100, @p101, @p102, @p103, @p104, @p105);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p106, @p107, @p108, @p109, @p110, @p111, @p112, @p113, @p114);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p115, @p116, @p117, @p118, @p119, @p120, @p121, @p122, @p123);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p124, @p125, @p126, @p127, @p128, @p129, @p130, @p131, @p132);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p133, @p134, @p135, @p136, @p137, @p138, @p139, @p140, @p141);
+INSERT INTO "PolicyBenefitRules" ("Id", "ClaimTypeId", "CoPayPercent", "CreatedAt", "DeductibleAmount", "DeletedAt", "IntimationDeadlineDays", "IsActive", "IsDeleted", "MaxClaimablePercent", "PolicyTypeId", "RequiresDeathCertificate", "RequiresMedicalCertificate", "RequiresPoliceReport", "SubLimitAmount", "SubLimitDescription", "UpdatedAt", "WaitingPeriodDays")
+VALUES (@p142, @p143, @p144, @p145, @p146, @p147, @p148, @p149, @p150, @p151, @p152, @p153, @p154, @p155, @p156, @p157, @p158, @p159);
+INSERT INTO "PolicyBenefitRules" ("Id", "ClaimTypeId", "CoPayPercent", "CreatedAt", "DeductibleAmount", "DeletedAt", "IntimationDeadlineDays", "IsActive", "IsDeleted", "MaxClaimablePercent", "PolicyTypeId", "RequiresDeathCertificate", "RequiresMedicalCertificate", "RequiresPoliceReport", "SubLimitAmount", "SubLimitDescription", "UpdatedAt", "WaitingPeriodDays")
+VALUES (@p160, @p161, @p162, @p163, @p164, @p165, @p166, @p167, @p168, @p169, @p170, @p171, @p172, @p173, @p174, @p175, @p176, @p177);
+INSERT INTO "PolicyBenefitRules" ("Id", "ClaimTypeId", "CoPayPercent", "CreatedAt", "DeductibleAmount", "DeletedAt", "IntimationDeadlineDays", "IsActive", "IsDeleted", "MaxClaimablePercent", "PolicyTypeId", "RequiresDeathCertificate", "RequiresMedicalCertificate", "RequiresPoliceReport", "SubLimitAmount", "SubLimitDescription", "UpdatedAt", "WaitingPeriodDays")
+VALUES (@p178, @p179, @p180, @p181, @p182, @p183, @p184, @p185, @p186, @p187, @p188, @p189, @p190, @p191, @p192, @p193, @p194, @p195);
+INSERT INTO "PolicyBenefitRules" ("Id", "ClaimTypeId", "CoPayPercent", "CreatedAt", "DeductibleAmount", "DeletedAt", "IntimationDeadlineDays", "IsActive", "IsDeleted", "MaxClaimablePercent", "PolicyTypeId", "RequiresDeathCertificate", "RequiresMedicalCertificate", "RequiresPoliceReport", "SubLimitAmount", "SubLimitDescription", "UpdatedAt", "WaitingPeriodDays")
+VALUES (@p196, @p197, @p198, @p199, @p200, @p201, @p202, @p203, @p204, @p205, @p206, @p207, @p208, @p209, @p210, @p211, @p212, @p213);
+[2026-06-08 14:36:38.738 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=Unspecified to PostgreSQL type 'timestamp with time zone', only UTC is supported. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=Unspecified to PostgreSQL type 'timestamp with time zone', only UTC is supported. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-08 14:36:38.746 ERR] : An error occurred during database migration or seeding.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=Unspecified to PostgreSQL type 'timestamp with time zone', only UTC is supported. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Data.DbSeeder.SeedAsync(AppDbContext context) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/DbSeeder.cs:line 297
+   at Program.<Main>$(String[] args) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/Program.cs:line 230
+[2026-06-08 14:36:38.816 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-08 14:36:38.818 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-08 14:36:38.819 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 14:36:38.819 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 14:36:38.819 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 14:36:38.819 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 14:36:38.819 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 14:36:38.827 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 14:36:38.827 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 14:36:38.828 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 14:36:38.957 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:94671:7a4611de successfully announced in 128.322 ms
+[2026-06-08 14:36:38.970 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:94671:7a4611de is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 14:36:38.999 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:94671:7a4611de all the dispatchers started
+[2026-06-08 14:37:35.669 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:94671:7a4611de caught stopping signal...
+[2026-06-08 14:37:35.689 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 14:37:35.693 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:94671:7a4611de All dispatchers stopped
+[2026-06-08 14:37:35.724 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:94671:7a4611de successfully reported itself as stopped in 24.2974 ms
+[2026-06-08 14:37:35.724 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:94671:7a4611de has been stopped in total 49.5032 ms
+[2026-06-08 14:38:49.264 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 14:38:49.440 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 14:38:50.075 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 14:38:50.076 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 14:38:50.076 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 14:38:50.809 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Boolean), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Decimal), @p6='?' (DbType = DateTime), @p7='?', @p8='?' (DbType = Boolean), @p9='?' (DbType = Boolean), @p10='?', @p11='?' (DbType = DateTime), @p12='?' (DbType = Guid), @p13='?' (DbType = Boolean), @p14='?' (DbType = Boolean), @p15='?' (DbType = DateTime), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = DateTime), @p19='?', @p20='?' (DbType = Boolean), @p21='?' (DbType = Boolean), @p22='?', @p23='?' (DbType = DateTime), @p24='?' (DbType = Guid), @p25='?' (DbType = Boolean), @p26='?' (DbType = Boolean), @p27='?' (DbType = DateTime), @p28='?', @p29='?' (DbType = Decimal), @p30='?' (DbType = DateTime), @p31='?', @p32='?' (DbType = Boolean), @p33='?' (DbType = Boolean), @p34='?', @p35='?' (DbType = DateTime), @p36='?' (DbType = Guid), @p37='?' (DbType = Boolean), @p38='?' (DbType = Boolean), @p39='?' (DbType = DateTime), @p40='?', @p41='?' (DbType = Decimal), @p42='?' (DbType = DateTime), @p43='?', @p44='?' (DbType = Boolean), @p45='?' (DbType = Boolean), @p46='?', @p47='?' (DbType = DateTime), @p48='?' (DbType = Guid), @p49='?' (DbType = DateTime), @p50='?' (DbType = DateTime), @p51='?' (DbType = DateTime), @p52='?', @p53='?' (DbType = DateTime), @p54='?' (DbType = Int32), @p55='?', @p56='?' (DbType = Boolean), @p57='?' (DbType = Boolean), @p58='?' (DbType = Boolean), @p59='?' (DbType = DateTime), @p60='?', @p61='?' (DbType = DateTime), @p62='?', @p63='?', @p64='?', @p65='?', @p66='?', @p67='?', @p68='?' (DbType = DateTime), @p69='?', @p70='?' (DbType = Guid), @p71='?' (DbType = DateTime), @p72='?' (DbType = DateTime), @p73='?' (DbType = Boolean), @p74='?' (DbType = Boolean), @p75='?' (DbType = Boolean), @p76='?' (DbType = Guid), @p77='?', @p78='?' (DbType = DateTime), @p79='?' (DbType = Guid), @p80='?' (DbType = DateTime), @p81='?' (DbType = DateTime), @p82='?' (DbType = Boolean), @p83='?' (DbType = Boolean), @p84='?' (DbType = Boolean), @p85='?' (DbType = Guid), @p86='?', @p87='?' (DbType = DateTime), @p88='?' (DbType = Guid), @p89='?' (DbType = DateTime), @p90='?' (DbType = DateTime), @p91='?' (DbType = Boolean), @p92='?' (DbType = Boolean), @p93='?' (DbType = Boolean), @p94='?' (DbType = Guid), @p95='?', @p96='?' (DbType = DateTime), @p97='?' (DbType = Guid), @p98='?' (DbType = DateTime), @p99='?' (DbType = DateTime), @p100='?' (DbType = Boolean), @p101='?' (DbType = Boolean), @p102='?' (DbType = Boolean), @p103='?' (DbType = Guid), @p104='?', @p105='?' (DbType = DateTime), @p106='?' (DbType = Guid), @p107='?' (DbType = DateTime), @p108='?' (DbType = DateTime), @p109='?' (DbType = Boolean), @p110='?' (DbType = Boolean), @p111='?' (DbType = Boolean), @p112='?' (DbType = Guid), @p113='?', @p114='?' (DbType = DateTime), @p115='?' (DbType = Guid), @p116='?' (DbType = DateTime), @p117='?' (DbType = DateTime), @p118='?' (DbType = Boolean), @p119='?' (DbType = Boolean), @p120='?' (DbType = Boolean), @p121='?' (DbType = Guid), @p122='?', @p123='?' (DbType = DateTime), @p124='?' (DbType = Guid), @p125='?' (DbType = DateTime), @p126='?' (DbType = DateTime), @p127='?' (DbType = Boolean), @p128='?' (DbType = Boolean), @p129='?' (DbType = Boolean), @p130='?' (DbType = Guid), @p131='?', @p132='?' (DbType = DateTime), @p133='?' (DbType = Guid), @p134='?' (DbType = DateTime), @p135='?' (DbType = DateTime), @p136='?' (DbType = Boolean), @p137='?' (DbType = Boolean), @p138='?' (DbType = Boolean), @p139='?' (DbType = Guid), @p140='?', @p141='?' (DbType = DateTime), @p142='?' (DbType = Guid), @p143='?' (DbType = Guid), @p144='?' (DbType = Decimal), @p145='?' (DbType = DateTime), @p146='?' (DbType = Decimal), @p147='?' (DbType = DateTime), @p148='?' (DbType = Int32), @p149='?' (DbType = Boolean), @p150='?' (DbType = Boolean), @p151='?' (DbType = Decimal), @p152='?' (DbType = Guid), @p153='?' (DbType = Boolean), @p154='?' (DbType = Boolean), @p155='?' (DbType = Boolean), @p156='?' (DbType = Decimal), @p157='?', @p158='?' (DbType = DateTime), @p159='?' (DbType = Int32), @p160='?' (DbType = Guid), @p161='?' (DbType = Guid), @p162='?' (DbType = Decimal), @p163='?' (DbType = DateTime), @p164='?' (DbType = Decimal), @p165='?' (DbType = DateTime), @p166='?' (DbType = Int32), @p167='?' (DbType = Boolean), @p168='?' (DbType = Boolean), @p169='?' (DbType = Decimal), @p170='?' (DbType = Guid), @p171='?' (DbType = Boolean), @p172='?' (DbType = Boolean), @p173='?' (DbType = Boolean), @p174='?' (DbType = Decimal), @p175='?', @p176='?' (DbType = DateTime), @p177='?' (DbType = Int32), @p178='?' (DbType = Guid), @p179='?' (DbType = Guid), @p180='?' (DbType = Decimal), @p181='?' (DbType = DateTime), @p182='?' (DbType = Decimal), @p183='?' (DbType = DateTime), @p184='?' (DbType = Int32), @p185='?' (DbType = Boolean), @p186='?' (DbType = Boolean), @p187='?' (DbType = Decimal), @p188='?' (DbType = Guid), @p189='?' (DbType = Boolean), @p190='?' (DbType = Boolean), @p191='?' (DbType = Boolean), @p192='?' (DbType = Decimal), @p193='?', @p194='?' (DbType = DateTime), @p195='?' (DbType = Int32), @p196='?' (DbType = Guid), @p197='?' (DbType = Guid), @p198='?' (DbType = Decimal), @p199='?' (DbType = DateTime), @p200='?' (DbType = Decimal), @p201='?' (DbType = DateTime), @p202='?' (DbType = Int32), @p203='?' (DbType = Boolean), @p204='?' (DbType = Boolean), @p205='?' (DbType = Decimal), @p206='?' (DbType = Guid), @p207='?' (DbType = Boolean), @p208='?' (DbType = Boolean), @p209='?' (DbType = Boolean), @p210='?' (DbType = Decimal), @p211='?', @p212='?' (DbType = DateTime), @p213='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "PolicyTypes" ("Id", "AllowsNomineeClaim", "AllowsThirdPartyClaim", "CreatedAt", "DefaultBenefitType", "DefaultCoverageAmount", "DeletedAt", "Description", "IsActive", "IsDeleted", "TypeName", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+INSERT INTO "PolicyTypes" ("Id", "AllowsNomineeClaim", "AllowsThirdPartyClaim", "CreatedAt", "DefaultBenefitType", "DefaultCoverageAmount", "DeletedAt", "Description", "IsActive", "IsDeleted", "TypeName", "UpdatedAt")
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23);
+INSERT INTO "PolicyTypes" ("Id", "AllowsNomineeClaim", "AllowsThirdPartyClaim", "CreatedAt", "DefaultBenefitType", "DefaultCoverageAmount", "DeletedAt", "Description", "IsActive", "IsDeleted", "TypeName", "UpdatedAt")
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35);
+INSERT INTO "PolicyTypes" ("Id", "AllowsNomineeClaim", "AllowsThirdPartyClaim", "CreatedAt", "DefaultBenefitType", "DefaultCoverageAmount", "DeletedAt", "Description", "IsActive", "IsDeleted", "TypeName", "UpdatedAt")
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47);
+INSERT INTO "Users" ("Id", "CreatedAt", "DateOfBirth", "DeletedAt", "Email", "EmailVerifiedAt", "FailedLoginAttempts", "FirstName", "IsActive", "IsDeleted", "IsFirstLogin", "LastLoginAt", "LastName", "LockoutUntil", "PasswordHash", "PhoneNumber", "RegistrationRejectionReason", "RegistrationStatus", "Role", "Specialization", "UpdatedAt", "Username")
+VALUES (@p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65, @p66, @p67, @p68, @p69);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, @p78);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p97, @p98, @p99, @p100, @p101, @p102, @p103, @p104, @p105);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p106, @p107, @p108, @p109, @p110, @p111, @p112, @p113, @p114);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p115, @p116, @p117, @p118, @p119, @p120, @p121, @p122, @p123);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p124, @p125, @p126, @p127, @p128, @p129, @p130, @p131, @p132);
+INSERT INTO "ClaimTypes" ("Id", "CreatedAt", "DeletedAt", "IsDeleted", "IsFixedBenefit", "IsMaturityClaim", "PolicyTypeId", "TypeName", "UpdatedAt")
+VALUES (@p133, @p134, @p135, @p136, @p137, @p138, @p139, @p140, @p141);
+INSERT INTO "PolicyBenefitRules" ("Id", "ClaimTypeId", "CoPayPercent", "CreatedAt", "DeductibleAmount", "DeletedAt", "IntimationDeadlineDays", "IsActive", "IsDeleted", "MaxClaimablePercent", "PolicyTypeId", "RequiresDeathCertificate", "RequiresMedicalCertificate", "RequiresPoliceReport", "SubLimitAmount", "SubLimitDescription", "UpdatedAt", "WaitingPeriodDays")
+VALUES (@p142, @p143, @p144, @p145, @p146, @p147, @p148, @p149, @p150, @p151, @p152, @p153, @p154, @p155, @p156, @p157, @p158, @p159);
+INSERT INTO "PolicyBenefitRules" ("Id", "ClaimTypeId", "CoPayPercent", "CreatedAt", "DeductibleAmount", "DeletedAt", "IntimationDeadlineDays", "IsActive", "IsDeleted", "MaxClaimablePercent", "PolicyTypeId", "RequiresDeathCertificate", "RequiresMedicalCertificate", "RequiresPoliceReport", "SubLimitAmount", "SubLimitDescription", "UpdatedAt", "WaitingPeriodDays")
+VALUES (@p160, @p161, @p162, @p163, @p164, @p165, @p166, @p167, @p168, @p169, @p170, @p171, @p172, @p173, @p174, @p175, @p176, @p177);
+INSERT INTO "PolicyBenefitRules" ("Id", "ClaimTypeId", "CoPayPercent", "CreatedAt", "DeductibleAmount", "DeletedAt", "IntimationDeadlineDays", "IsActive", "IsDeleted", "MaxClaimablePercent", "PolicyTypeId", "RequiresDeathCertificate", "RequiresMedicalCertificate", "RequiresPoliceReport", "SubLimitAmount", "SubLimitDescription", "UpdatedAt", "WaitingPeriodDays")
+VALUES (@p178, @p179, @p180, @p181, @p182, @p183, @p184, @p185, @p186, @p187, @p188, @p189, @p190, @p191, @p192, @p193, @p194, @p195);
+INSERT INTO "PolicyBenefitRules" ("Id", "ClaimTypeId", "CoPayPercent", "CreatedAt", "DeductibleAmount", "DeletedAt", "IntimationDeadlineDays", "IsActive", "IsDeleted", "MaxClaimablePercent", "PolicyTypeId", "RequiresDeathCertificate", "RequiresMedicalCertificate", "RequiresPoliceReport", "SubLimitAmount", "SubLimitDescription", "UpdatedAt", "WaitingPeriodDays")
+VALUES (@p196, @p197, @p198, @p199, @p200, @p201, @p202, @p203, @p204, @p205, @p206, @p207, @p208, @p209, @p210, @p211, @p212, @p213);
+[2026-06-08 14:38:50.826 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=Unspecified to PostgreSQL type 'timestamp with time zone', only UTC is supported. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=Unspecified to PostgreSQL type 'timestamp with time zone', only UTC is supported. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-08 14:38:50.830 ERR] : An error occurred during database migration or seeding.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=Unspecified to PostgreSQL type 'timestamp with time zone', only UTC is supported. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Data.DbSeeder.SeedAsync(AppDbContext context) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/DbSeeder.cs:line 297
+   at Program.<Main>$(String[] args) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/Program.cs:line 230
+[2026-06-08 14:38:50.901 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-08 14:38:50.903 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-08 14:38:50.903 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 14:38:50.903 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 14:38:50.903 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 14:38:50.904 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 14:38:50.904 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 14:38:50.910 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 14:38:50.910 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 14:38:50.911 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 14:38:51.025 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:95297:7ac42206 successfully announced in 112.7945 ms
+[2026-06-08 14:38:51.030 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:95297:7ac42206 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 14:38:51.061 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:95297:7ac42206 all the dispatchers started
+[2026-06-08 14:41:53.318 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:95297:7ac42206 caught stopping signal...
+[2026-06-08 14:41:53.342 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 14:41:53.351 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:95297:7ac42206 All dispatchers stopped
+[2026-06-08 14:41:53.384 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:95297:7ac42206 successfully reported itself as stopped in 28.5155 ms
+[2026-06-08 14:41:53.385 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:95297:7ac42206 has been stopped in total 51.1147 ms
+[2026-06-08 14:44:38.664 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 14:44:38.810 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 14:44:39.494 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 14:44:39.495 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 14:44:39.495 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 14:44:40.308 INF] : Database migrated and seeded successfully.
+[2026-06-08 14:44:40.372 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 14:44:40.374 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-08 14:44:40.374 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 14:44:40.374 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 14:44:40.374 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 14:44:40.374 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 14:44:40.374 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 14:44:40.381 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 14:44:40.381 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 14:44:40.381 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 14:44:40.457 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:96563:996d150b successfully announced in 72.9461 ms
+[2026-06-08 14:44:40.461 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:96563:996d150b is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 14:44:40.473 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:96563:996d150b all the dispatchers started
+[2026-06-08 15:07:48.988 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:96563:996d150b caught stopping signal...
+[2026-06-08 15:07:49.007 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 15:07:49.015 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:96563:996d150b All dispatchers stopped
+[2026-06-08 15:07:49.054 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:96563:996d150b successfully reported itself as stopped in 31.1697 ms
+[2026-06-08 15:07:49.054 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:96563:996d150b has been stopped in total 54.7449 ms
+[2026-06-08 15:11:22.918 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 15:11:23.109 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 15:11:23.819 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 15:11:23.820 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 15:11:23.820 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 15:11:24.380 INF] : Database migrated and seeded successfully.
+[2026-06-08 15:11:24.491 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 15:11:24.496 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-08 15:11:24.496 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 15:11:24.497 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 15:11:24.497 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 15:11:24.497 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 15:11:24.497 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 15:11:24.507 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 15:11:24.508 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 15:11:24.508 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 15:11:24.601 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:99034:98c1b2c8 successfully announced in 89.602 ms
+[2026-06-08 15:11:24.602 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:99034:98c1b2c8 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 15:11:24.618 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:99034:98c1b2c8 all the dispatchers started
+[2026-06-08 15:11:38.590 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-08 15:11:38.699 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET / responded 404 in 110.1478 ms
+[2026-06-08 15:20:44.327 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:99034:98c1b2c8 caught stopping signal...
+[2026-06-08 15:20:44.371 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 15:20:44.416 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:99034:98c1b2c8 All dispatchers stopped
+[2026-06-08 15:20:44.686 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:99034:98c1b2c8 successfully reported itself as stopped in 241.426 ms
+[2026-06-08 15:20:44.689 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:99034:98c1b2c8 has been stopped in total 334.2472 ms
+[2026-06-08 16:06:55.632 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 16:06:56.910 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 16:06:57.602 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:06:57.603 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:06:57.603 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:06:59.031 INF] : Database migrated and seeded successfully.
+[2026-06-08 16:06:59.095 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 16:06:59.097 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-08 16:06:59.097 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 16:06:59.097 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 16:06:59.097 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 16:06:59.097 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 16:06:59.098 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 16:06:59.104 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 16:06:59.104 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 16:06:59.104 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 16:06:59.170 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:4075:354fa3a7 successfully announced in 62.838 ms
+[2026-06-08 16:06:59.171 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:4075:354fa3a7 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 16:06:59.174 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:4075:354fa3a7 all the dispatchers started
+[2026-06-08 16:16:19.169 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-08 16:16:20.738 ERR] InsuranceClaimSystem.Infrastructure.Services.AuthService: Error during login for admin@insuranceclaimsystem.com
+System.ArgumentException: IDX10703: Cannot create a 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey', key length is zero.
+   at Microsoft.IdentityModel.Tokens.SymmetricSecurityKey..ctor(Byte[] key)
+   at InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService.GenerateAccessToken(User user) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/Auth/JwtTokenService.cs:line 38
+   at InsuranceClaimSystem.Infrastructure.Services.AuthService.LoginAsync(LoginRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/AuthService.cs:line 172
+[2026-06-08 16:16:20.805 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 400 in 1649.8245 ms
+[2026-06-08 16:16:57.870 ERR] InsuranceClaimSystem.Infrastructure.Services.AuthService: Error during login for admin@insuranceclaimsystem.com
+System.ArgumentException: IDX10703: Cannot create a 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey', key length is zero.
+   at Microsoft.IdentityModel.Tokens.SymmetricSecurityKey..ctor(Byte[] key)
+   at InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService.GenerateAccessToken(User user) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/Auth/JwtTokenService.cs:line 38
+   at InsuranceClaimSystem.Infrastructure.Services.AuthService.LoginAsync(LoginRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/AuthService.cs:line 172
+[2026-06-08 16:16:57.875 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 400 in 309.5599 ms
+[2026-06-08 16:31:15.738 ERR] InsuranceClaimSystem.Infrastructure.Services.AuthService: Error during login for admin@insuranceclaimsystem.com
+System.ArgumentException: IDX10703: Cannot create a 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey', key length is zero.
+   at Microsoft.IdentityModel.Tokens.SymmetricSecurityKey..ctor(Byte[] key)
+   at InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService.GenerateAccessToken(User user) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/Auth/JwtTokenService.cs:line 38
+   at InsuranceClaimSystem.Infrastructure.Services.AuthService.LoginAsync(LoginRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/AuthService.cs:line 172
+[2026-06-08 16:31:15.771 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 400 in 347.6882 ms
+[2026-06-08 16:31:40.354 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:4075:354fa3a7 caught stopping signal...
+[2026-06-08 16:31:40.364 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 16:31:40.375 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:4075:354fa3a7 All dispatchers stopped
+[2026-06-08 16:31:40.397 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:4075:354fa3a7 successfully reported itself as stopped in 18.2024 ms
+[2026-06-08 16:31:40.398 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:4075:354fa3a7 has been stopped in total 36.179 ms
+[2026-06-08 16:35:08.301 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 16:35:08.436 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 16:35:09.044 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:35:09.045 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:35:09.045 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:35:09.387 INF] : Database migrated and seeded successfully.
+[2026-06-08 16:35:09.440 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 16:35:09.443 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-08 16:35:09.444 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 16:35:09.444 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 16:35:09.444 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 16:35:09.444 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 16:35:09.444 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 16:35:09.452 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 16:35:09.452 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 16:35:09.452 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 16:35:09.548 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7224:d7e7818e successfully announced in 94.1664 ms
+[2026-06-08 16:35:09.553 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7224:d7e7818e is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 16:35:09.560 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7224:d7e7818e all the dispatchers started
+[2026-06-08 16:35:25.442 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-08 16:35:25.906 ERR] InsuranceClaimSystem.Infrastructure.Services.AuthService: Error during login for admin@insuranceclaimsystem.com
+System.ArgumentException: IDX10703: Cannot create a 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey', key length is zero.
+   at Microsoft.IdentityModel.Tokens.SymmetricSecurityKey..ctor(Byte[] key)
+   at InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService.GenerateAccessToken(User user) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/Auth/JwtTokenService.cs:line 38
+   at InsuranceClaimSystem.Infrastructure.Services.AuthService.LoginAsync(LoginRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/AuthService.cs:line 172
+[2026-06-08 16:35:25.929 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 400 in 489.2300 ms
+[2026-06-08 16:37:16.762 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7224:d7e7818e caught stopping signal...
+[2026-06-08 16:37:16.773 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 16:37:16.780 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7224:d7e7818e All dispatchers stopped
+[2026-06-08 16:37:16.810 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7224:d7e7818e successfully reported itself as stopped in 25.7695 ms
+[2026-06-08 16:37:16.810 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7224:d7e7818e has been stopped in total 39.7595 ms
+[2026-06-08 16:41:19.975 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 16:41:20.512 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 16:41:21.284 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:41:21.286 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:41:21.287 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:41:21.679 INF] : Database migrated and seeded successfully.
+[2026-06-08 16:41:21.726 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 16:41:21.728 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-08 16:41:21.728 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 16:41:21.728 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 16:41:21.728 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 16:41:21.728 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 16:41:21.728 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 16:41:21.738 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 16:41:21.738 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 16:41:21.739 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 16:41:21.805 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:9021:b15668fe successfully announced in 64.9144 ms
+[2026-06-08 16:41:21.806 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:9021:b15668fe is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 16:41:21.809 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:9021:b15668fe all the dispatchers started
+[2026-06-08 16:41:34.645 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-08 16:41:35.177 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-08 16:41:35.377 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 737.1444 ms
+[2026-06-08 16:43:55.237 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/policy-types responded 200 in 644.4651 ms
+[2026-06-08 16:44:06.188 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/v1/policy-types responded 200 in 350.7590 ms
+[2026-06-08 16:47:32.182 ERR] InsuranceClaimSystem.Infrastructure.Services.AuthService: Failed to send verification email to seema@gmail.com
+System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at MailKit.Net.SocketUtils.SocketConnectState.OnEndConnect(IAsyncResult ar)
+--- End of stack trace from previous location ---
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, CancellationToken cancellationToken)
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, Int32 timeout, CancellationToken cancellationToken)
+   at MailKit.MailService.ConnectNetworkAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService.SendEmailAsync(String to, String subject, String body, Boolean isHtml) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/Email/SmtpEmailService.cs:line 41
+   at InsuranceClaimSystem.Infrastructure.Services.AuthService.RegisterAsync(RegisterRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/AuthService.cs:line 99
+[2026-06-08 16:47:32.207 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/register responded 200 in 861.1088 ms
+[2026-06-08 16:50:55.369 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Admin/registrations/d6fcc9dc-e6cc-4708-98ba-9c7e13249f10/approve responded 401 in 49.9393 ms
+[2026-06-08 16:57:41.874 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:9021:b15668fe caught stopping signal...
+[2026-06-08 16:57:41.892 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 16:57:41.927 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:9021:b15668fe All dispatchers stopped
+[2026-06-08 16:57:42.010 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:9021:b15668fe successfully reported itself as stopped in 50.4041 ms
+[2026-06-08 16:57:42.010 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:9021:b15668fe has been stopped in total 125.979 ms
+[2026-06-08 16:57:53.959 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-08 16:57:54.096 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-08 16:57:54.717 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:57:54.718 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:57:54.719 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-08 16:57:55.068 INF] : Database migrated and seeded successfully.
+[2026-06-08 16:57:55.119 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+[2026-06-08 16:57:55.121 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-08 16:57:55.121 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-08 16:57:55.121 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-08 16:57:55.121 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-08 16:57:55.121 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-08 16:57:55.122 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-08 16:57:55.131 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-08 16:57:55.131 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-08 16:57:55.131 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-08 16:57:55.193 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:12326:25df68c1 successfully announced in 59.292 ms
+[2026-06-08 16:57:55.194 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:12326:25df68c1 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-08 16:57:55.196 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:12326:25df68c1 all the dispatchers started
+[2026-06-08 16:58:35.711 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-08 16:58:35.807 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Admin/registrations/d6fcc9dc-e6cc-4708-98ba-9c7e13249f10/approve responded 401 in 104.8170 ms
+[2026-06-08 16:59:30.758 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-08 16:59:30.910 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Auth/login responded 200 in 616.6780 ms
+[2026-06-08 17:00:52.226 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Admin/registrations/d6fcc9dc-e6cc-4708-98ba-9c7e13249f10/approve responded 400 in 302.5302 ms
+[2026-06-08 17:04:28.979 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/v1/Admin/registrations/d6fcc9dc-e6cc-4708-98ba-9c7e13249f10/approve responded 200 in 157.1764 ms
+[2026-06-08 17:09:14.413 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:12326:25df68c1 caught stopping signal...
+[2026-06-08 17:09:14.458 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-08 17:09:14.483 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:12326:25df68c1 All dispatchers stopped
+[2026-06-08 17:09:14.545 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:12326:25df68c1 successfully reported itself as stopped in 51.7699 ms
+[2026-06-08 17:09:14.546 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:12326:25df68c1 has been stopped in total 98.7388 ms

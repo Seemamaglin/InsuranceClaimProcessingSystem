@@ -97,7 +97,8 @@ public class ClaimService : IClaimService
                 NomineeId = request.ClaimantType == ClaimantType.Nominee ? request.NomineeId : null,
                 DeductibleAmount = validationResult.DeductibleAmount,
                 CoPayPercentage = validationResult.CoPayPercentage,
-                Status = ClaimStatus.Submitted
+                Status = ClaimStatus.Submitted,
+                RowVersion = Guid.NewGuid().ToByteArray()
             };
 
             await _claimRepository.AddAsync(claim);

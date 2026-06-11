@@ -9,3 +9,4 @@
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Domain/obj/Debug/net8.0/refint/InsuranceClaimSystem.Domain.dll
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Domain/obj/Debug/net8.0/InsuranceClaimSystem.Domain.pdb
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Domain/obj/Debug/net8.0/ref/InsuranceClaimSystem.Domain.dll
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Domain/obj/Debug/net8.0/InsuranceClaimSystem.Domain.sourcelink.json

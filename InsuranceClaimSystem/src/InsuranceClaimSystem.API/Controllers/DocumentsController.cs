@@ -7,7 +7,7 @@ using InsuranceClaimSystem.Domain.Enums;
 namespace InsuranceClaimSystem.API.Controllers;
 
 [ApiController]
-[Route("api/v1/documents")]
+[Route("api/documents")]
 [Authorize]
 public class DocumentsController : ControllerBase
 {

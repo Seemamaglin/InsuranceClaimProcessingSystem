@@ -5,7 +5,7 @@ using InsuranceClaimSystem.Application.Interfaces.Services;
 namespace InsuranceClaimSystem.API.Controllers;
 
 [ApiController]
-[Route("api/v1/[controller]")]
+[Route("api/payments")]
 public class PaymentsController : ControllerBase
 {
     private readonly IPaymentService _paymentService;
