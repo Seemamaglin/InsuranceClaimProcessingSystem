@@ -25,17 +25,21 @@ public class NotificationsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetNotifications([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
+        _logger.LogInformation("API: {Action} called", nameof(GetNotifications));
         var userId = GetCurrentUserId();
         if (userId == null)
         {
+            _logger.LogWarning("API: {Action} failed - Unauthorized", nameof(GetNotifications));
             return Unauthorized(new { message = "User not authenticated." });
         }
 
         var result = await _notificationService.GetNotificationsAsync(userId.Value, page, pageSize);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetNotifications), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(GetNotifications));
         return Ok(result.Value);
     }
 
@@ -45,15 +49,18 @@ public class NotificationsController : ControllerBase
     [HttpPost("{id:guid}/read")]
     public async Task<IActionResult> MarkAsRead(Guid id)
     {
+        _logger.LogInformation("API: {Action} called", nameof(MarkAsRead));
         var userId = GetCurrentUserId();
         if (userId == null)
         {
+            _logger.LogWarning("API: {Action} failed - Unauthorized", nameof(MarkAsRead));
             return Unauthorized(new { message = "User not authenticated." });
         }
 
         var result = await _notificationService.MarkAsReadAsync(id, userId.Value);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(MarkAsRead), result.Error.Code);
             if (result.Error.Code == "NotificationNotFound")
             {
                 return NotFound(result.Error);
@@ -64,6 +71,7 @@ public class NotificationsController : ControllerBase
             }
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(MarkAsRead));
         return Ok(new { success = result.Value });
     }
 
@@ -73,17 +81,21 @@ public class NotificationsController : ControllerBase
     [HttpPost("read-all")]
     public async Task<IActionResult> MarkAllAsRead()
     {
+        _logger.LogInformation("API: {Action} called", nameof(MarkAllAsRead));
         var userId = GetCurrentUserId();
         if (userId == null)
         {
+            _logger.LogWarning("API: {Action} failed - Unauthorized", nameof(MarkAllAsRead));
             return Unauthorized(new { message = "User not authenticated." });
         }
 
         var result = await _notificationService.MarkAllAsReadAsync(userId.Value);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(MarkAllAsRead), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(MarkAllAsRead));
         return Ok(new { success = result.Value });
     }
 

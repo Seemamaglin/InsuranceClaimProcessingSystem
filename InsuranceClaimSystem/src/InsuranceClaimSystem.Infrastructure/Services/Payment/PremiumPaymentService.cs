@@ -30,25 +30,23 @@ public class PremiumPaymentService : IPremiumPaymentService
         _logger = logger;
     }
 
-    public async Task<Result<PolicyPayment>> RecordFirstPremiumAsync(Guid policyId, decimal amount, string stripePaymentIntentId)
+    public async Task<Result<PolicyPayment>> RecordFirstPremiumAsync(
+        Guid policyId, 
+        decimal amount, 
+        string stripePaymentIntentId)
     {
+        _logger.LogInformation("Recording first premium for policy {PolicyId}", policyId);
         try
         {
             var policy = await _policyRepository.GetByIdAsync(policyId);
             if (policy == null)
             {
+                _logger.LogWarning("Policy {PolicyId} not found", policyId);
                 return Result<PolicyPayment>.Failure(
                     Error.NotFound("PolicyNotFound", "Policy not found."));
             }
 
-            var payment = new PolicyPayment
-            {
-                PolicyId = policyId,
-                Amount = amount,
-                PaymentDate = DateTime.UtcNow,
-                Status = PolicyPaymentStatus.Paid,
-                StripePaymentIntentId = stripePaymentIntentId
-            };
+            var payment = BuildPolicyPayment(policyId, amount, stripePaymentIntentId);
 
             await _policyPaymentRepository.AddAsync(payment);
 
@@ -57,8 +55,7 @@ public class PremiumPaymentService : IPremiumPaymentService
 
             await _unitOfWork.SaveChangesAsync();
 
-            _logger.LogInformation("First premium recorded for policy {PolicyId}", policyId);
-
+            _logger.LogInformation("First premium recorded successfully for policy {PolicyId}", policyId);
             return Result<PolicyPayment>.Success(payment);
         }
         catch (Exception ex)
@@ -69,25 +66,23 @@ public class PremiumPaymentService : IPremiumPaymentService
         }
     }
 
-    public async Task<Result<PolicyPayment>> RecordPremiumPaymentAsync(Guid policyId, decimal amount, string stripePaymentIntentId)
+    public async Task<Result<PolicyPayment>> RecordPremiumPaymentAsync(
+        Guid policyId, 
+        decimal amount, 
+        string stripePaymentIntentId)
     {
+        _logger.LogInformation("Recording premium payment for policy {PolicyId}", policyId);
         try
         {
             var policy = await _policyRepository.GetByIdAsync(policyId);
             if (policy == null)
             {
+                _logger.LogWarning("Policy {PolicyId} not found", policyId);
                 return Result<PolicyPayment>.Failure(
                     Error.NotFound("PolicyNotFound", "Policy not found."));
             }
 
-            var payment = new PolicyPayment
-            {
-                PolicyId = policyId,
-                Amount = amount,
-                PaymentDate = DateTime.UtcNow,
-                Status = PolicyPaymentStatus.Paid,
-                StripePaymentIntentId = stripePaymentIntentId
-            };
+            var payment = BuildPolicyPayment(policyId, amount, stripePaymentIntentId);
 
             await _policyPaymentRepository.AddAsync(payment);
 
@@ -96,8 +91,7 @@ public class PremiumPaymentService : IPremiumPaymentService
 
             await _unitOfWork.SaveChangesAsync();
 
-            _logger.LogInformation("Premium payment recorded for policy {PolicyId}", policyId);
-
+            _logger.LogInformation("Premium payment recorded successfully for policy {PolicyId}", policyId);
             return Result<PolicyPayment>.Success(payment);
         }
         catch (Exception ex)
@@ -110,15 +104,18 @@ public class PremiumPaymentService : IPremiumPaymentService
 
     public async Task<Result<PolicyPayment>> GetLastPaymentAsync(Guid policyId)
     {
+        _logger.LogInformation("Getting last payment for policy {PolicyId}", policyId);
         try
         {
             var payment = await _policyPaymentRepository.GetLastPaymentAsync(policyId);
             if (payment == null)
             {
+                _logger.LogWarning("No payment found for policy {PolicyId}", policyId);
                 return Result<PolicyPayment>.Failure(
                     Error.NotFound("PaymentNotFound", "No payment found for this policy."));
             }
 
+            _logger.LogInformation("Last payment retrieved for policy {PolicyId}", policyId);
             return Result<PolicyPayment>.Success(payment);
         }
         catch (Exception ex)
@@ -127,6 +124,21 @@ public class PremiumPaymentService : IPremiumPaymentService
             return Result<PolicyPayment>.Failure(
                 Error.Validation("GetPaymentFailed", "An error occurred while retrieving the payment."));
         }
+    }
+
+    private static PolicyPayment BuildPolicyPayment(
+        Guid policyId, 
+        decimal amount, 
+        string stripePaymentIntentId)
+    {
+        return new PolicyPayment
+        {
+            PolicyId = policyId,
+            Amount = amount,
+            PaymentDate = DateTime.UtcNow,
+            Status = PolicyPaymentStatus.Paid,
+            StripePaymentIntentId = stripePaymentIntentId
+        };
     }
 
     private static DateTime CalculateNextPremiumDueDate(DateTime fromDate, PremiumFrequency frequency)

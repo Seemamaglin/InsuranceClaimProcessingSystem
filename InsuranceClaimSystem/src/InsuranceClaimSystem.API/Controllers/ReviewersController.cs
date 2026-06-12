@@ -33,11 +33,14 @@ public class ReviewersController : ControllerBase
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 10)
     {
+        _logger.LogInformation("API: {Action} called", nameof(GetAssignedClaims));
         var result = await _claimService.GetClaimsByReviewerAsync(reviewerId, page, pageSize);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetAssignedClaims), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(GetAssignedClaims));
         return Ok(result.Value);
     }
 
@@ -47,24 +50,24 @@ public class ReviewersController : ControllerBase
     [HttpPost("claims/{id:guid}/request-documents")]
     public async Task<IActionResult> RequestDocuments(Guid id, [FromBody] RequestDocumentsRequest request)
     {
-        // This would typically create a notification to the policy holder
-        // and optionally update claim status to DocumentsPending
+        _logger.LogInformation("API: {Action} called", nameof(RequestDocuments));
         _logger.LogInformation("Document request for claim {ClaimId}: {Message}", id, request.Message);
-        
-        // Update claim status to documents pending if needed
+
         var statusUpdate = new UpdateClaimStatusRequest
         {
             NewStatus = Domain.Enums.ClaimStatus.DocumentsPending,
             ChangedByUserId = request.ReviewerId,
             RejectionReason = null
         };
-        
+
         var updateResult = await _claimService.UpdateStatusAsync(id, statusUpdate);
         if (updateResult.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(RequestDocuments), updateResult.Error.Code);
             return BadRequest(updateResult.Error);
         }
 
+        _logger.LogInformation("API: {Action} succeeded", nameof(RequestDocuments));
         return Ok(new { message = "Document request sent successfully" });
     }
 
@@ -74,7 +77,8 @@ public class ReviewersController : ControllerBase
     [HttpPost("claims/{id:guid}/verify-documents")]
     public async Task<IActionResult> VerifyDocuments(Guid id, [FromBody] VerifyDocumentsRequest request)
     {
-        // Verify each document
+        _logger.LogInformation("API: {Action} called", nameof(VerifyDocuments));
+
         foreach (var docVerification in request.DocumentVerifications)
         {
             var result = await _documentService.VerifyDocumentAsync(
@@ -85,12 +89,11 @@ public class ReviewersController : ControllerBase
 
             if (result.IsFailure)
             {
-                _logger.LogWarning("Failed to verify document {DocumentId}: {Error}", 
+                _logger.LogWarning("Failed to verify document {DocumentId}: {Error}",
                     docVerification.DocumentId, result.Error);
             }
         }
 
-        // If all documents are verified, move claim to UnderReview
         var statusUpdate = new UpdateClaimStatusRequest
         {
             NewStatus = Domain.Enums.ClaimStatus.UnderReview,
@@ -101,9 +104,11 @@ public class ReviewersController : ControllerBase
         var updateResult = await _claimService.UpdateStatusAsync(id, statusUpdate);
         if (updateResult.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(VerifyDocuments), updateResult.Error.Code);
             return BadRequest(updateResult.Error);
         }
 
+        _logger.LogInformation("API: {Action} succeeded", nameof(VerifyDocuments));
         return Ok(new { message = "Documents verified and claim updated" });
     }
 }

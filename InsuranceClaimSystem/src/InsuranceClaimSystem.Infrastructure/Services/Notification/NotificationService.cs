@@ -42,42 +42,28 @@ public class NotificationService : INotificationService
         NotificationChannel channel,
         Guid? claimId = null)
     {
+        _logger.LogInformation(
+            "Creating notification for recipient {RecipientId} of type {Type} via {Channel}",
+            recipientId, type, channel);
         try
         {
             var recipient = await _userRepository.GetByIdAsync(recipientId);
             if (recipient == null)
             {
-                return Result<bool>.Failure(Error.NotFound("RecipientNotFound", "Recipient user not found."));
+                _logger.LogWarning("Recipient {RecipientId} not found", recipientId);
+                return Result<bool>.Failure(
+                    Error.NotFound("RecipientNotFound", "Recipient user not found."));
             }
 
-            var notification = new Notification
-            {
-                RecipientUserId = recipientId,
-                ClaimId = claimId,
-                Title = title,
-                Message = message,
-                Type = type,
-                Channel = channel,
-                IsRead = false,
-                SentAt = DateTime.UtcNow
-            };
+            var notification = BuildNotificationEntity(recipientId, claimId, title, message, type, channel);
 
             await _notificationRepository.AddAsync(notification);
             await _unitOfWork.SaveChangesAsync();
 
-            // Send via configured channels
-            if (channel.HasFlag(NotificationChannel.Email))
-            {
-                await SendEmailNotificationAsync(recipient.Email, title, message);
-            }
-
-            if (channel.HasFlag(NotificationChannel.InApp))
-            {
-                await SendInAppNotificationAsync(notification);
-            }
+            await SendViaChannelsAsync(recipient.Email, channel, notification);
 
             _logger.LogInformation(
-                "Notification created for user {RecipientId} of type {Type} via {Channel}",
+                "Notification created successfully for user {RecipientId} of type {Type} via {Channel}",
                 recipientId, type, channel);
 
             return Result<bool>.Success(true);
@@ -90,7 +76,10 @@ public class NotificationService : INotificationService
         }
     }
 
-    public async Task<Result<PagedResult<NotificationDto>>> GetNotificationsAsync(Guid recipientId, int page, int pageSize)
+    public async Task<Result<PagedResult<NotificationDto>>> GetNotificationsAsync(
+        Guid recipientId, 
+        int page, 
+        int pageSize)
     {
         try
         {
@@ -132,7 +121,8 @@ public class NotificationService : INotificationService
             var notification = await _notificationRepository.GetByIdAsync(notificationId);
             if (notification == null)
             {
-                return Result<bool>.Failure(Error.NotFound("NotificationNotFound", "Notification not found."));
+                return Result<bool>.Failure(
+                    Error.NotFound("NotificationNotFound", "Notification not found."));
             }
 
             if (notification.RecipientUserId != recipientId)
@@ -147,7 +137,9 @@ public class NotificationService : INotificationService
             await _notificationRepository.UpdateAsync(notification);
             await _unitOfWork.SaveChangesAsync();
 
-            _logger.LogInformation("Notification {NotificationId} marked as read by user {RecipientId}", notificationId, recipientId);
+            _logger.LogInformation(
+                "Notification {NotificationId} marked as read by user {RecipientId}",
+                notificationId, recipientId);
 
             return Result<bool>.Success(true);
         }
@@ -175,6 +167,43 @@ public class NotificationService : INotificationService
             _logger.LogError(ex, "Error marking all notifications as read for recipient {RecipientId}", recipientId);
             return Result<bool>.Failure(
                 Error.Validation("MarkAllAsReadFailed", "An error occurred while marking notifications as read."));
+        }
+    }
+
+    private static Notification BuildNotificationEntity(
+        Guid recipientId,
+        Guid? claimId,
+        string title,
+        string message,
+        NotificationType type,
+        NotificationChannel channel)
+    {
+        return new Notification
+        {
+            RecipientUserId = recipientId,
+            ClaimId = claimId,
+            Title = title,
+            Message = message,
+            Type = type,
+            Channel = channel,
+            IsRead = false,
+            SentAt = DateTime.UtcNow
+        };
+    }
+
+    private async Task SendViaChannelsAsync(
+        string recipientEmail, 
+        NotificationChannel channel, 
+        Notification notification)
+    {
+        if (channel.HasFlag(NotificationChannel.Email))
+        {
+            await SendEmailNotificationAsync(recipientEmail, notification.Title, notification.Message);
+        }
+
+        if (channel.HasFlag(NotificationChannel.InApp))
+        {
+            await SendInAppNotificationAsync(notification);
         }
     }
 

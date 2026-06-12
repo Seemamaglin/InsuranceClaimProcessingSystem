@@ -40,37 +40,16 @@ public class PaymentService : IPaymentService
 
     public async Task<Result<string>> CreatePaymentIntentAsync(Guid claimId)
     {
+        _logger.LogInformation("Creating payment intent for claim {ClaimId}", claimId);
         try
         {
-            var claim = await _claimRepository.GetByIdWithDetailsAsync(claimId);
-            if (claim == null)
+            var validationResult = await ValidateClaimForPaymentAsync(claimId);
+            if (validationResult.IsFailure)
             {
-                return Result<string>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
+                return Result<string>.Failure(validationResult.Error);
             }
 
-            // Verify claim is approved
-            if (claim.Status != ClaimStatus.Approved)
-            {
-                return Result<string>.Failure(
-                    Error.Validation("ClaimNotApproved", "Payment can only be initiated for approved claims."));
-            }
-
-            // Check if payment already exists and is completed
-            var existingPayments = await _paymentRepository.GetByClaimIdAsync(claimId);
-            var completedPayment = existingPayments.FirstOrDefault(p => p.PaymentStatus == ClaimPaymentStatus.Completed);
-            if (completedPayment != null)
-            {
-                return Result<string>.Failure(
-                    Error.Conflict("PaymentAlreadyCompleted", "Payment for this claim has already been completed."));
-            }
-
-            var amount = claim.FinalPayableAmount;
-            if (amount <= 0)
-            {
-                return Result<string>.Failure(
-                    Error.Validation("InvalidAmount", "Final payable amount must be greater than zero."));
-            }
-
+            var claim = validationResult.Value!;
             var idempotencyKey = Guid.NewGuid();
             var metadata = new Dictionary<string, string>
             {
@@ -79,31 +58,18 @@ public class PaymentService : IPaymentService
             };
 
             var paymentIntent = await _stripeService.CreatePaymentIntentAsync(
-                amount,
+                claim.FinalPayableAmount,
                 "inr",
                 idempotencyKey.ToString(),
                 metadata);
 
-            var claimPayment = new ClaimPayment
-            {
-                ClaimId = claimId,
-                Amount = amount,
-                RecipientType = claim.PaymentRecipientType,
-                RecipientName = claim.RecipientName,
-                RecipientAccountNumber = claim.RecipientAccountNumber,
-                RecipientBankName = claim.RecipientBankName,
-                PaymentMethod = PaymentMethod.BankTransfer,
-                PaymentStatus = ClaimPaymentStatus.Pending,
-                StripePaymentIntentId = paymentIntent.Id,
-                IdempotencyKey = idempotencyKey
-            };
-
+            var claimPayment = BuildClaimPayment(claim, paymentIntent.Id, idempotencyKey);
             await _paymentRepository.AddAsync(claimPayment);
             await _unitOfWork.SaveChangesAsync();
 
             _logger.LogInformation(
                 "Payment intent created for claim {ClaimId} with amount {Amount}",
-                claimId, amount);
+                claimId, claim.FinalPayableAmount);
 
             return Result<string>.Success(paymentIntent.Id);
         }
@@ -122,11 +88,13 @@ public class PaymentService : IPaymentService
 
     public async Task<Result<bool>> ConfirmPaymentAsync(Guid claimId, string paymentIntentId)
     {
+        _logger.LogInformation("Confirming payment for claim {ClaimId}", claimId);
         try
         {
             var claim = await _claimRepository.GetByIdAsync(claimId);
             if (claim == null)
             {
+                _logger.LogWarning("Claim {ClaimId} not found during payment confirmation", claimId);
                 return Result<bool>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
             }
 
@@ -134,63 +102,33 @@ public class PaymentService : IPaymentService
             var claimPayment = payments.FirstOrDefault(p => p.StripePaymentIntentId == paymentIntentId);
             if (claimPayment == null)
             {
+                _logger.LogWarning("Payment not found for payment intent {PaymentIntentId}", paymentIntentId);
                 return Result<bool>.Failure(
                     Error.NotFound("PaymentNotFound", "Payment record not found for the specified payment intent."));
             }
 
             if (claimPayment.PaymentStatus == ClaimPaymentStatus.Completed)
             {
+                _logger.LogWarning("Payment already completed for claim {ClaimId}", claimId);
                 return Result<bool>.Failure(
                     Error.Conflict("PaymentAlreadyCompleted", "Payment has already been completed."));
             }
 
-            // Verify payment status with Stripe
             var confirmation = await _stripeService.ConfirmPaymentAsync(paymentIntentId);
-
             if (confirmation.Status.ToLower() != "succeeded")
             {
                 claimPayment.PaymentStatus = ClaimPaymentStatus.Failed;
                 await _paymentRepository.UpdateAsync(claimPayment);
                 await _unitOfWork.SaveChangesAsync();
-
+                _logger.LogWarning("Payment failed for claim {ClaimId}: {FailureMessage}", claimId, confirmation.FailureMessage);
                 return Result<bool>.Failure(
                     Error.Validation("PaymentFailed", $"Payment failed: {confirmation.FailureMessage ?? "Unknown error"}"));
             }
 
-            // Update claim payment status
-            claimPayment.PaymentStatus = ClaimPaymentStatus.Completed;
-            claimPayment.ProcessedAt = DateTime.UtcNow;
-
-            // Update claim status to Closed
-            var previousStatus = claim.Status;
-            claim.Status = ClaimStatus.Closed;
-            claim.ResolvedAt = DateTime.UtcNow;
-
-            // Decrement policy remaining coverage
-            var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
-            if (policy != null)
-            {
-                policy.RemainingCoverageAmount -= claim.FinalPayableAmount;
-                if (policy.RemainingCoverageAmount <= 0)
-                {
-                    policy.RemainingCoverageAmount = 0;
-                    policy.Status = PolicyStatus.CoverageExhausted;
-                }
-                await _policyRepository.UpdateAsync(policy);
-            }
-
-            // Create workflow history entry
-            var workflowEntry = new ClaimWorkflowHistory
-            {
-                ClaimId = claim.Id,
-                ChangedByUserId = claim.AssignedManagerId ?? Guid.Empty,
-                ActionType = WorkflowActionType.StatusChange,
-                PreviousStatus = previousStatus,
-                NewStatus = ClaimStatus.Closed,
-                Comments = $"Payment of {claim.FinalPayableAmount} completed via Stripe"
-            };
+            await UpdateClaimOnPaymentAsync(claim, claimPayment);
+            await UpdatePolicyCoverageAsync(claim);
+            var workflowEntry = BuildPaymentWorkflowEntry(claim);
             await _workflowHistoryRepository.AddAsync(workflowEntry);
-
             await _unitOfWork.SaveChangesAsync();
 
             _logger.LogInformation(
@@ -241,5 +179,90 @@ public class PaymentService : IPaymentService
             return Result<ClaimPaymentDto?>.Failure(
                 Error.Validation("GetPaymentFailed", "An error occurred while retrieving the payment."));
         }
+    }
+
+    private async Task<Result<Claim>> ValidateClaimForPaymentAsync(Guid claimId)
+    {
+        var claim = await _claimRepository.GetByIdWithDetailsAsync(claimId);
+        if (claim == null)
+        {
+            return Result<Claim>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
+        }
+
+        if (claim.Status != ClaimStatus.Approved)
+        {
+            return Result<Claim>.Failure(
+                Error.Validation("ClaimNotApproved", "Payment can only be initiated for approved claims."));
+        }
+
+        var existingPayments = await _paymentRepository.GetByClaimIdAsync(claimId);
+        var completedPayment = existingPayments.FirstOrDefault(p => p.PaymentStatus == ClaimPaymentStatus.Completed);
+        if (completedPayment != null)
+        {
+            return Result<Claim>.Failure(
+                Error.Conflict("PaymentAlreadyCompleted", "Payment for this claim has already been completed."));
+        }
+
+        if (claim.FinalPayableAmount <= 0)
+        {
+            return Result<Claim>.Failure(
+                Error.Validation("InvalidAmount", "Final payable amount must be greater than zero."));
+        }
+
+        return Result<Claim>.Success(claim);
+    }
+
+    private static ClaimPayment BuildClaimPayment(Claim claim, string paymentIntentId, Guid idempotencyKey)
+    {
+        return new ClaimPayment
+        {
+            ClaimId = claim.Id,
+            Amount = claim.FinalPayableAmount,
+            RecipientType = claim.PaymentRecipientType,
+            RecipientName = claim.RecipientName,
+            RecipientAccountNumber = claim.RecipientAccountNumber,
+            RecipientBankName = claim.RecipientBankName,
+            PaymentMethod = PaymentMethod.BankTransfer,
+            PaymentStatus = ClaimPaymentStatus.Pending,
+            StripePaymentIntentId = paymentIntentId,
+            IdempotencyKey = idempotencyKey
+        };
+    }
+
+    private static async Task UpdateClaimOnPaymentAsync(Claim claim, ClaimPayment claimPayment)
+    {
+        claimPayment.PaymentStatus = ClaimPaymentStatus.Completed;
+        claimPayment.ProcessedAt = DateTime.UtcNow;
+
+        claim.Status = ClaimStatus.Closed;
+        claim.ResolvedAt = DateTime.UtcNow;
+    }
+
+    private async Task UpdatePolicyCoverageAsync(Claim claim)
+    {
+        var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
+        if (policy != null)
+        {
+            policy.RemainingCoverageAmount -= claim.FinalPayableAmount;
+            if (policy.RemainingCoverageAmount <= 0)
+            {
+                policy.RemainingCoverageAmount = 0;
+                policy.Status = PolicyStatus.CoverageExhausted;
+            }
+            await _policyRepository.UpdateAsync(policy);
+        }
+    }
+
+    private static ClaimWorkflowHistory BuildPaymentWorkflowEntry(Claim claim)
+    {
+        return new ClaimWorkflowHistory
+        {
+            ClaimId = claim.Id,
+            ChangedByUserId = claim.AssignedManagerId ?? Guid.Empty,
+            ActionType = WorkflowActionType.StatusChange,
+            PreviousStatus = claim.Status,
+            NewStatus = ClaimStatus.Closed,
+            Comments = $"Payment of {claim.FinalPayableAmount} completed via Stripe"
+        };
     }
 }

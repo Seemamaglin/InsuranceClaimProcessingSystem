@@ -7,7 +7,6 @@ using InsuranceClaimSystem.Application.Interfaces.Services;
 using InsuranceClaimSystem.Domain.Entities;
 using InsuranceClaimSystem.Domain.Enums;
 using InsuranceClaimSystem.Domain.Exceptions;
-using InsuranceClaimSystem.Infrastructure.Data;
 using Microsoft.Extensions.Logging;
 
 namespace InsuranceClaimSystem.Infrastructure.Services;
@@ -25,7 +24,6 @@ public class ClaimService : IClaimService
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly ILogger<ClaimService> _logger;
-    private readonly AppDbContext _dbContext;
 
     public ClaimService(
         IClaimRepository claimRepository,
@@ -38,8 +36,7 @@ public class ClaimService : IClaimService
         IClaimValidationService validationService,
         IUnitOfWork unitOfWork,
         IMapper mapper,
-        ILogger<ClaimService> logger,
-        AppDbContext dbContext)
+        ILogger<ClaimService> logger)
     {
         _claimRepository = claimRepository;
         _policyRepository = policyRepository;
@@ -52,72 +49,31 @@ public class ClaimService : IClaimService
         _unitOfWork = unitOfWork;
         _mapper = mapper;
         _logger = logger;
-        _dbContext = dbContext;
     }
 
     public async Task<Result<ClaimDetailDto>> SubmitClaimAsync(SubmitClaimRequest request)
     {
+        _logger.LogInformation("Submitting claim for policy {PolicyId}", request.PolicyId);
         try
         {
             var policy = await _policyRepository.GetByIdAsync(request.PolicyId);
             if (policy == null)
-            {
                 return Result<ClaimDetailDto>.Failure(Error.NotFound("PolicyNotFound", "Policy not found."));
-            }
 
-            // Validate submission
             var validationResult = await _validationService.ValidateSubmissionAsync(request, policy.PolicyHolderId);
-
-            // Get claim type
             var claimType = await _claimTypeRepository.GetByIdAsync(request.ClaimTypeId);
             if (claimType == null)
-            {
                 return Result<ClaimDetailDto>.Failure(Error.NotFound("ClaimTypeNotFound", "Claim type not found."));
-            }
 
-            // Generate claim number
-            var year = DateTime.UtcNow.Year;
-            var sequence = await _claimRepository.CountByStatusAsync(ClaimStatus.Submitted) + 1;
-            var claimNumber = $"CLM-{year}-{sequence:D4}";
-
-            // Create claim entity
-            var claim = new Claim
-            {
-                ClaimNumber = claimNumber,
-                PolicyId = request.PolicyId,
-                ClaimTypeId = request.ClaimTypeId,
-                ClaimantId = policy.PolicyHolderId,
-                ClaimantType = request.ClaimantType,
-                IncidentDate = claimType.IsMaturityClaim ? null : request.IncidentDate,
-                IncidentDescription = request.IncidentDescription,
-                IncidentLocation = request.IncidentLocation,
-                IntimationDate = DateTime.UtcNow,
-                IsLateIntimation = validationResult.IsLateIntimation,
-                ClaimedAmount = request.ClaimedAmount,
-                NomineeId = request.ClaimantType == ClaimantType.Nominee ? request.NomineeId : null,
-                DeductibleAmount = validationResult.DeductibleAmount,
-                CoPayPercentage = validationResult.CoPayPercentage,
-                Status = ClaimStatus.Submitted,
-                RowVersion = Guid.NewGuid().ToByteArray()
-            };
+            var claimNumber = await GenerateClaimNumberAsync();
+            var claim = BuildClaimEntity(request, policy, claimType, claimNumber, validationResult);
 
             await _claimRepository.AddAsync(claim);
-
-            // Create workflow history entry
-            var workflowEntry = new ClaimWorkflowHistory
-            {
-                ClaimId = claim.Id,
-                ChangedByUserId = policy.PolicyHolderId,
-                ActionType = WorkflowActionType.StatusChange,
-                PreviousStatus = null,
-                NewStatus = ClaimStatus.Submitted,
-                Comments = "Claim submitted"
-            };
-            await _workflowHistoryRepository.AddAsync(workflowEntry);
-
+            await _workflowHistoryRepository.AddAsync(BuildWorkflowEntry(claim, policy.PolicyHolderId, null, ClaimStatus.Submitted, "Claim submitted"));
             await _unitOfWork.SaveChangesAsync();
 
             var claimWithDetails = await _claimRepository.GetByIdWithDetailsAsync(claim.Id);
+            _logger.LogInformation("Claim {ClaimId} submitted successfully", claim.Id);
             return Result<ClaimDetailDto>.Success(_mapper.Map<ClaimDetailDto>(claimWithDetails));
         }
         catch (BusinessRuleException ex)
@@ -127,21 +83,21 @@ public class ClaimService : IClaimService
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error submitting claim");
+            _logger.LogError(ex, "Error submitting claim for policy {PolicyId}", request.PolicyId);
             return Result<ClaimDetailDto>.Failure(Error.Validation("SubmitClaimFailed", "An error occurred while submitting the claim."));
         }
     }
 
     public async Task<Result<ClaimDetailDto>> GetClaimByIdAsync(Guid claimId)
     {
+        _logger.LogInformation("Getting claim {ClaimId}", claimId);
         try
         {
             var claim = await _claimRepository.GetByIdWithDetailsAsync(claimId);
             if (claim == null)
-            {
                 return Result<ClaimDetailDto>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
-            }
 
+            _logger.LogInformation("Claim {ClaimId} retrieved successfully", claimId);
             return Result<ClaimDetailDto>.Success(_mapper.Map<ClaimDetailDto>(claim));
         }
         catch (Exception ex)
@@ -153,15 +109,15 @@ public class ClaimService : IClaimService
 
     public async Task<Result<ClaimDetailDto>> GetClaimByNumberAsync(string claimNumber)
     {
+        _logger.LogInformation("Getting claim by number {ClaimNumber}", claimNumber);
         try
         {
             var claim = await _claimRepository.GetClaimByNumberAsync(claimNumber);
             if (claim == null)
-            {
                 return Result<ClaimDetailDto>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
-            }
 
             var claimWithDetails = await _claimRepository.GetByIdWithDetailsAsync(claim.Id);
+            _logger.LogInformation("Claim {ClaimNumber} retrieved successfully", claimNumber);
             return Result<ClaimDetailDto>.Success(_mapper.Map<ClaimDetailDto>(claimWithDetails));
         }
         catch (Exception ex)
@@ -173,72 +129,31 @@ public class ClaimService : IClaimService
 
     public async Task<Result<bool>> UpdateStatusAsync(Guid claimId, UpdateClaimStatusRequest request)
     {
+        _logger.LogInformation("Updating status for claim {ClaimId} to {NewStatus}", claimId, request.NewStatus);
         try
         {
             var claim = await _claimRepository.GetByIdAsync(claimId);
             if (claim == null)
-            {
                 return Result<bool>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
-            }
 
-            // Validate state transition
             ClaimStateMachine.ValidateTransition(claim.Status, request.NewStatus);
 
             var previousStatus = claim.Status;
             claim.Status = request.NewStatus;
 
             if (request.NewStatus == ClaimStatus.Approved)
-            {
-                // Calculate final payable amount
-                var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
-                if (policy != null)
-                {
-                    claim.FinalPayableAmount = await _validationService.CalculatePayoutAsync(
-                        claim.ClaimedAmount, claim.ClaimTypeId, policy.PolicyTypeId);
-                }
-            }
-
-            if (request.NewStatus == ClaimStatus.Rejected && !string.IsNullOrEmpty(request.RejectionReason))
-            {
-                claim.RejectionReason = request.RejectionReason;
-            }
-
-            if (request.NewStatus == ClaimStatus.Closed)
-            {
-                claim.ResolvedAt = DateTime.UtcNow;
-
-                // Decrement policy remaining coverage
-                if (claim.FinalPayableAmount > 0)
-                {
-                    var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
-                    if (policy != null)
-                    {
-                        policy.RemainingCoverageAmount -= claim.FinalPayableAmount;
-                        if (policy.RemainingCoverageAmount <= 0)
-                        {
-                            policy.RemainingCoverageAmount = 0;
-                            policy.Status = PolicyStatus.CoverageExhausted;
-                        }
-                        await _policyRepository.UpdateAsync(policy);
-                    }
-                }
-            }
+                await HandleApprovedStatusAsync(claim, request);
+            else if (request.NewStatus == ClaimStatus.Rejected)
+                HandleRejectedStatusAsync(claim, request);
+            else if (request.NewStatus == ClaimStatus.Closed)
+                await HandleClosedStatusAsync(claim);
 
             await _claimRepository.UpdateAsync(claim);
-
-            // Create workflow history
-            var workflowEntry = new ClaimWorkflowHistory
-            {
-                ClaimId = claim.Id,
-                ChangedByUserId = request.ChangedByUserId,
-                ActionType = WorkflowActionType.StatusChange,
-                PreviousStatus = previousStatus,
-                NewStatus = request.NewStatus,
-                Comments = $"Status changed from {previousStatus} to {request.NewStatus}"
-            };
-            await _workflowHistoryRepository.AddAsync(workflowEntry);
-
+            await _workflowHistoryRepository.AddAsync(BuildWorkflowEntry(claim, request.ChangedByUserId, previousStatus, request.NewStatus,
+                $"Status changed from {previousStatus} to {request.NewStatus}"));
             await _unitOfWork.SaveChangesAsync();
+
+            _logger.LogInformation("Claim {ClaimId} status updated to {NewStatus}", claimId, request.NewStatus);
             return Result<bool>.Success(true);
         }
         catch (BusinessRuleException ex)
@@ -255,50 +170,34 @@ public class ClaimService : IClaimService
 
     public async Task<Result<bool>> AssignReviewerAsync(AssignReviewerRequest request)
     {
+        _logger.LogInformation("Assigning reviewer {ReviewerId} to claim {ClaimId}", request.ReviewerId, request.ClaimId);
         try
         {
             var claim = await _claimRepository.GetByIdAsync(request.ClaimId);
             if (claim == null)
-            {
                 return Result<bool>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
-            }
 
             var reviewer = await _userRepository.GetByIdAsync(request.ReviewerId);
             if (reviewer == null)
-            {
                 return Result<bool>.Failure(Error.NotFound("ReviewerNotFound", "Reviewer not found."));
-            }
 
             if (reviewer.Role != UserRole.ClaimReviewer)
-            {
                 return Result<bool>.Failure(Error.Validation("InvalidRole", "The specified user is not a claim reviewer."));
-            }
 
-            // Verify specialization matches
             var claimType = await _claimTypeRepository.GetByIdAsync(claim.ClaimTypeId);
             if (claimType != null && reviewer.Specialization != Specialization.All)
             {
-                var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
-                if (policy != null && !SpecializationsMatch(reviewer.Specialization, claimType.PolicyTypeId))
-                {
+                if (!SpecializationsMatch(reviewer.Specialization, claimType.PolicyTypeId))
                     return Result<bool>.Failure(Error.Validation("SpecializationMismatch", "Reviewer specialization does not match the claim type."));
-                }
             }
 
             claim.AssignedReviewerId = request.ReviewerId;
             await _claimRepository.UpdateAsync(claim);
-
-            // Create workflow history
-            var workflowEntry = new ClaimWorkflowHistory
-            {
-                ClaimId = claim.Id,
-                ChangedByUserId = request.AssignedByUserId,
-                ActionType = WorkflowActionType.Assignment,
-                Comments = $"Reviewer {reviewer.FirstName} {reviewer.LastName} assigned"
-            };
-            await _workflowHistoryRepository.AddAsync(workflowEntry);
-
+            await _workflowHistoryRepository.AddAsync(BuildWorkflowEntry(claim, request.AssignedByUserId, null, claim.Status,
+                $"Reviewer {reviewer.FirstName} {reviewer.LastName} assigned"));
             await _unitOfWork.SaveChangesAsync();
+
+            _logger.LogInformation("Reviewer {ReviewerId} assigned to claim {ClaimId}", request.ReviewerId, request.ClaimId);
             return Result<bool>.Success(true);
         }
         catch (Exception ex)
@@ -310,61 +209,24 @@ public class ClaimService : IClaimService
 
     public async Task<Result<bool>> AutoAssignReviewerAsync(Guid claimId)
     {
+        _logger.LogInformation("Auto-assigning reviewer to claim {ClaimId}", claimId);
         try
         {
             var claim = await _claimRepository.GetByIdAsync(claimId);
             if (claim == null)
-            {
                 return Result<bool>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
-            }
 
-            var claimType = await _claimTypeRepository.GetByIdAsync(claim.ClaimTypeId);
-            
-            // Find reviewers with matching specialization first
-            var matchingReviewers = new List<User>();
-            var allReviewers = await _userRepository.GetUsersByRoleAsync(UserRole.ClaimReviewer);
-
-            foreach (var reviewer in allReviewers.Where(r => r.IsActive))
-            {
-                if (reviewer.Specialization == Specialization.All)
-                {
-                    matchingReviewers.Add(reviewer);
-                }
-                else if (claimType != null && SpecializationsMatch(reviewer.Specialization, claimType.PolicyTypeId))
-                {
-                    matchingReviewers.Add(reviewer);
-                }
-            }
-
-            if (!matchingReviewers.Any())
-            {
-                // Fall back to any available reviewer
-                matchingReviewers = allReviewers.Where(r => r.IsActive).ToList();
-            }
-
-            // Sort by active claim count (workload balancing)
-            var reviewerWorkloads = new List<(User Reviewer, int Count)>();
-            foreach (var reviewer in matchingReviewers)
-            {
-                var count = await _claimRepository.GetActiveClaimCountByReviewerAsync(reviewer.Id);
-                reviewerWorkloads.Add((reviewer, count));
-            }
-
-            var selectedReviewer = reviewerWorkloads.OrderBy(x => x.Count).First().Reviewer;
+            var selectedReviewer = await FindBestReviewerAsync(claim);
+            if (selectedReviewer == null)
+                return Result<bool>.Failure(Error.Validation("NoReviewerAvailable", "No available reviewer found."));
 
             claim.AssignedReviewerId = selectedReviewer.Id;
             await _claimRepository.UpdateAsync(claim);
-
-            var workflowEntry = new ClaimWorkflowHistory
-            {
-                ClaimId = claim.Id,
-                ChangedByUserId = selectedReviewer.Id,
-                ActionType = WorkflowActionType.Assignment,
-                Comments = $"Auto-assigned reviewer {selectedReviewer.FirstName} {selectedReviewer.LastName}"
-            };
-            await _workflowHistoryRepository.AddAsync(workflowEntry);
-
+            await _workflowHistoryRepository.AddAsync(BuildWorkflowEntry(claim, selectedReviewer.Id, null, claim.Status,
+                $"Auto-assigned reviewer {selectedReviewer.FirstName} {selectedReviewer.LastName}"));
             await _unitOfWork.SaveChangesAsync();
+
+            _logger.LogInformation("Reviewer {ReviewerId} auto-assigned to claim {ClaimId}", selectedReviewer.Id, claimId);
             return Result<bool>.Success(true);
         }
         catch (Exception ex)
@@ -376,23 +238,19 @@ public class ClaimService : IClaimService
 
     public async Task<Result<decimal>> CalculatePayoutAsync(Guid claimId)
     {
+        _logger.LogInformation("Calculating payout for claim {ClaimId}", claimId);
         try
         {
             var claim = await _claimRepository.GetByIdAsync(claimId);
             if (claim == null)
-            {
                 return Result<decimal>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
-            }
 
             var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
             if (policy == null)
-            {
                 return Result<decimal>.Failure(Error.NotFound("PolicyNotFound", "Policy not found."));
-            }
 
-            var payout = await _validationService.CalculatePayoutAsync(
-                claim.ClaimedAmount, claim.ClaimTypeId, policy.PolicyTypeId);
-
+            var payout = await _validationService.CalculatePayoutAsync(claim.ClaimedAmount, claim.ClaimTypeId, policy.PolicyTypeId);
+            _logger.LogInformation("Payout {Payout} calculated for claim {ClaimId}", payout, claimId);
             return Result<decimal>.Success(payout);
         }
         catch (Exception ex)
@@ -404,10 +262,12 @@ public class ClaimService : IClaimService
 
     public async Task<Result<PagedResult<ClaimDto>>> GetClaimsAsync(int page, int pageSize)
     {
+        _logger.LogInformation("Getting claims page {Page} size {PageSize}", page, pageSize);
         try
         {
             var result = await _claimRepository.GetPagedAsync(page, pageSize);
             var mappedItems = _mapper.Map<List<ClaimDto>>(result.Items);
+            _logger.LogInformation("Retrieved {Count} claims", result.TotalCount);
             return Result<PagedResult<ClaimDto>>.Success(PagedResult<ClaimDto>.Create(mappedItems, result.TotalCount, page, pageSize));
         }
         catch (Exception ex)
@@ -419,10 +279,12 @@ public class ClaimService : IClaimService
 
     public async Task<Result<PagedResult<ClaimDto>>> GetClaimsByPolicyAsync(Guid policyId, int page, int pageSize)
     {
+        _logger.LogInformation("Getting claims for policy {PolicyId}", policyId);
         try
         {
             var result = await _claimRepository.GetPagedAsync(page, pageSize, c => c.PolicyId == policyId);
             var mappedItems = _mapper.Map<List<ClaimDto>>(result.Items);
+            _logger.LogInformation("Retrieved {Count} claims for policy {PolicyId}", result.TotalCount, policyId);
             return Result<PagedResult<ClaimDto>>.Success(PagedResult<ClaimDto>.Create(mappedItems, result.TotalCount, page, pageSize));
         }
         catch (Exception ex)
@@ -434,10 +296,12 @@ public class ClaimService : IClaimService
 
     public async Task<Result<PagedResult<ClaimDto>>> GetClaimsByReviewerAsync(Guid reviewerId, int page, int pageSize)
     {
+        _logger.LogInformation("Getting claims for reviewer {ReviewerId}", reviewerId);
         try
         {
             var result = await _claimRepository.GetPagedAsync(page, pageSize, c => c.AssignedReviewerId == reviewerId);
             var mappedItems = _mapper.Map<List<ClaimDto>>(result.Items);
+            _logger.LogInformation("Retrieved {Count} claims for reviewer {ReviewerId}", result.TotalCount, reviewerId);
             return Result<PagedResult<ClaimDto>>.Success(PagedResult<ClaimDto>.Create(mappedItems, result.TotalCount, page, pageSize));
         }
         catch (Exception ex)
@@ -447,10 +311,119 @@ public class ClaimService : IClaimService
         }
     }
 
+    // Private helper methods
+
+    private async Task<string> GenerateClaimNumberAsync()
+    {
+        var year = DateTime.UtcNow.Year;
+        var sequence = await _claimRepository.CountByStatusAsync(ClaimStatus.Submitted) + 1;
+        return $"CLM-{year}-{sequence:D4}";
+    }
+
+    private Claim BuildClaimEntity(SubmitClaimRequest request, Policy policy, ClaimType claimType, string claimNumber, ClaimValidationResult validationResult)
+    {
+        return new Claim
+        {
+            ClaimNumber = claimNumber,
+            PolicyId = request.PolicyId,
+            ClaimTypeId = request.ClaimTypeId,
+            ClaimantId = policy.PolicyHolderId,
+            ClaimantType = request.ClaimantType,
+            IncidentDate = claimType.IsMaturityClaim ? null : request.IncidentDate,
+            IncidentDescription = request.IncidentDescription,
+            IncidentLocation = request.IncidentLocation,
+            IntimationDate = DateTime.UtcNow,
+            IsLateIntimation = validationResult.IsLateIntimation,
+            ClaimedAmount = request.ClaimedAmount,
+            NomineeId = request.ClaimantType == ClaimantType.Nominee ? request.NomineeId : null,
+            DeductibleAmount = validationResult.DeductibleAmount,
+            CoPayPercentage = validationResult.CoPayPercentage,
+            Status = ClaimStatus.Submitted,
+            RowVersion = Guid.NewGuid().ToByteArray()
+        };
+    }
+
+    private ClaimWorkflowHistory BuildWorkflowEntry(Claim claim, Guid changedByUserId, ClaimStatus? previousStatus, ClaimStatus newStatus, string comments)
+    {
+        return new ClaimWorkflowHistory
+        {
+            ClaimId = claim.Id,
+            ChangedByUserId = changedByUserId,
+            ActionType = WorkflowActionType.StatusChange,
+            PreviousStatus = previousStatus,
+            NewStatus = newStatus,
+            Comments = comments
+        };
+    }
+
+    private async Task HandleApprovedStatusAsync(Claim claim, UpdateClaimStatusRequest request)
+    {
+        var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
+        if (policy != null)
+        {
+            claim.FinalPayableAmount = await _validationService.CalculatePayoutAsync(
+                claim.ClaimedAmount, claim.ClaimTypeId, policy.PolicyTypeId);
+        }
+    }
+
+    private async Task HandleClosedStatusAsync(Claim claim)
+    {
+        claim.ResolvedAt = DateTime.UtcNow;
+
+        if (claim.FinalPayableAmount > 0)
+        {
+            var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
+            if (policy != null)
+            {
+                policy.RemainingCoverageAmount -= claim.FinalPayableAmount;
+                if (policy.RemainingCoverageAmount <= 0)
+                {
+                    policy.RemainingCoverageAmount = 0;
+                    policy.Status = PolicyStatus.CoverageExhausted;
+                }
+                await _policyRepository.UpdateAsync(policy);
+            }
+        }
+    }
+
+    private void HandleRejectedStatusAsync(Claim claim, UpdateClaimStatusRequest request)
+    {
+        if (!string.IsNullOrEmpty(request.RejectionReason))
+            claim.RejectionReason = request.RejectionReason;
+    }
+
+    private async Task<User?> FindBestReviewerAsync(Claim claim)
+    {
+        var claimType = await _claimTypeRepository.GetByIdAsync(claim.ClaimTypeId);
+        var allReviewers = await _userRepository.GetUsersByRoleAsync(UserRole.ClaimReviewer);
+
+        var matchingReviewers = allReviewers.Where(r => r.IsActive).Where(r =>
+            r.Specialization == Specialization.All ||
+            (claimType != null && SpecializationsMatch(r.Specialization, claimType.PolicyTypeId))
+        ).ToList();
+
+        if (!matchingReviewers.Any())
+            matchingReviewers = allReviewers.Where(r => r.IsActive).ToList();
+
+        var reviewerWorkloads = new List<(User Reviewer, int Count)>();
+        foreach (var reviewer in matchingReviewers)
+        {
+            var count = await _claimRepository.GetActiveClaimCountByReviewerAsync(reviewer.Id);
+            reviewerWorkloads.Add((reviewer, count));
+        }
+
+        return reviewerWorkloads.OrderBy(x => x.Count).FirstOrDefault().Reviewer;
+    }
+
     private bool SpecializationsMatch(Specialization? specialization, Guid policyTypeId)
     {
-        // Map policy type to specialization based on naming conventions or additional data
-        // For now, simplified matching logic
-        return true; // Accept all for now, would need policy type to have specialization info
+        // Map specialization to policy type based on domain conventions
+        // Health -> policy types with health coverage, Auto -> vehicle policies, etc.
+        // This is a simplified implementation - a real system would have explicit mapping
+        if (specialization == Specialization.All)
+            return true;
+
+        // For now, accept the match - proper implementation would query PolicyType to check coverage types
+        return true;
     }
 }

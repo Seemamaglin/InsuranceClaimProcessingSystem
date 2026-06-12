@@ -30,7 +30,7 @@ namespace InsuranceClaimSystem.Domain.Entities
         public DateTime? LockoutUntil { get; set; }
 
         public ICollection<Policy> Policies { get; set; }
-        public ICollection<Claim> Claims { get; set; } //creates one to many relationships
+        public ICollection<Claim> Claims { get; set; }
         public ICollection<Notification> Notifications { get; set; }
         public ICollection<RefreshToken> RefreshTokens { get; set; }
         public ICollection<KYCDocument> KYCDocuments { get; set; }

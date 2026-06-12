@@ -61,8 +61,7 @@ public class ClaimServiceTests
             _validationServiceMock.Object,
             _unitOfWorkMock.Object,
             _mapperMock.Object,
-            _loggerMock.Object,
-            _dbContext);
+            _loggerMock.Object);
     }
 
     [Fact]

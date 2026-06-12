@@ -50,86 +50,43 @@ public class DocumentService : IDocumentService
         _logger = logger;
     }
 
-    public async Task<Result<DocumentDto>> UploadDocumentAsync(Guid claimId, Guid uploadedByUserId, IFormFile file, DocumentType documentType)
+    public async Task<Result<DocumentDto>> UploadDocumentAsync(
+        Guid claimId, 
+        Guid uploadedByUserId, 
+        IFormFile file, 
+        DocumentType documentType)
     {
+        _logger.LogInformation("Uploading document for claim {ClaimId}", claimId);
         try
         {
-            // Validate file
-            if (file == null || file.Length == 0)
+            var validationResult = await ValidateFileAsync(claimId, file);
+            if (validationResult.IsFailure)
             {
-                return Result<DocumentDto>.Failure(Error.Validation("FileRequired", "File is required."));
+                _logger.LogWarning("File validation failed for claim {ClaimId}: {Error}", claimId, validationResult.Error.Description);
+                return Result<DocumentDto>.Failure(validationResult.Error);
             }
 
-            if (file.Length > MaxFileSizeBytes)
-            {
-                return Result<DocumentDto>.Failure(Error.Validation("FileTooLarge", "File size exceeds the maximum allowed size of 10MB."));
-            }
+            var claim = validationResult.Value!;
+            var (fileBytes, contentType, fileName) = await ProcessFileAsync(file);
 
-            // Validate MIME type
-            if (!AllowedMimeTypes.Contains(file.ContentType))
-            {
-                return Result<DocumentDto>.Failure(Error.Validation("InvalidFileType", "File type is not allowed."));
-            }
-
-            // Verify claim exists
-            var claim = await _claimRepository.GetByIdAsync(claimId);
-            if (claim == null)
-            {
-                return Result<DocumentDto>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
-            }
-
-            // Process file (compression for images if needed)
-            var fileName = $"{Guid.NewGuid()}_{SanitizeFileName(file.FileName)}";
-            var contentType = file.ContentType;
-
-            using var memoryStream = new MemoryStream();
-            await file.CopyToAsync(memoryStream);
-            var fileBytes = memoryStream.ToArray();
-
-            // Auto-convert large images to WebP
-            if (IsImageFile(contentType) && fileBytes.Length > ImageCompressionThreshold)
-            {
-                try
-                {
-                    fileBytes = await ConvertToWebPAsync(fileBytes, contentType);
-                    contentType = "image/webp";
-                    fileName = Path.ChangeExtension(fileName, ".webp");
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogWarning(ex, "Failed to compress image, using original");
-                }
-            }
-
-            // Save file
             var fileUrl = await _fileStorageService.SaveFileAsync(
                 new MemoryStream(fileBytes), 
                 fileName, 
                 contentType);
 
-            // Create document entity
-            var document = new Document
-            {
-                ClaimId = claimId,
-                UploadedByUserId = uploadedByUserId,
-                UploadedAt = DateTime.UtcNow,
-                FileName = file.FileName,
-                FileUrl = fileUrl,
-                MimeType = contentType,
-                FileSizeInBytes = fileBytes.Length,
-                DocumentType = documentType,
-                VerificationStatus = VerificationStatus.Pending
-            };
+            var document = BuildDocumentEntity(claimId, uploadedByUserId, file, fileUrl, fileBytes, contentType, documentType);
 
             await _documentRepository.AddAsync(document);
             await _unitOfWork.SaveChangesAsync();
 
+            _logger.LogInformation("Document uploaded successfully for claim {ClaimId}", claimId);
             return Result<DocumentDto>.Success(_mapper.Map<DocumentDto>(document));
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error uploading document for claim {ClaimId}", claimId);
-            return Result<DocumentDto>.Failure(Error.Validation("UploadFailed", "An error occurred while uploading the document."));
+            return Result<DocumentDto>.Failure(
+                Error.Validation("UploadFailed", "An error occurred while uploading the document."));
         }
     }
 
@@ -140,7 +97,8 @@ public class DocumentService : IDocumentService
             var document = await _documentRepository.GetByIdAsync(documentId);
             if (document == null)
             {
-                return Result<DocumentDownloadResult>.Failure(Error.NotFound("DocumentNotFound", "Document not found."));
+                return Result<DocumentDownloadResult>.Failure(
+                    Error.NotFound("DocumentNotFound", "Document not found."));
             }
 
             var fileContent = await _fileStorageService.GetFileAsync(document.FileUrl);
@@ -155,18 +113,24 @@ public class DocumentService : IDocumentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error downloading document {DocumentId}", documentId);
-            return Result<DocumentDownloadResult>.Failure(Error.Validation("DownloadFailed", "An error occurred while downloading the document."));
+            return Result<DocumentDownloadResult>.Failure(
+                Error.Validation("DownloadFailed", "An error occurred while downloading the document."));
         }
     }
 
-    public async Task<Result<DocumentDto>> VerifyDocumentAsync(Guid documentId, Guid verifiedByUserId, VerificationStatus status, string? rejectionReason)
+    public async Task<Result<DocumentDto>> VerifyDocumentAsync(
+        Guid documentId, 
+        Guid verifiedByUserId, 
+        VerificationStatus status, 
+        string? rejectionReason)
     {
         try
         {
             var document = await _documentRepository.GetByIdAsync(documentId);
             if (document == null)
             {
-                return Result<DocumentDto>.Failure(Error.NotFound("DocumentNotFound", "Document not found."));
+                return Result<DocumentDto>.Failure(
+                    Error.NotFound("DocumentNotFound", "Document not found."));
             }
 
             document.VerifiedByUserId = verifiedByUserId;
@@ -186,7 +150,8 @@ public class DocumentService : IDocumentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error verifying document {DocumentId}", documentId);
-            return Result<DocumentDto>.Failure(Error.Validation("VerifyFailed", "An error occurred while verifying the document."));
+            return Result<DocumentDto>.Failure(
+                Error.Validation("VerifyFailed", "An error occurred while verifying the document."));
         }
     }
 
@@ -197,13 +162,12 @@ public class DocumentService : IDocumentService
             var document = await _documentRepository.GetByIdAsync(documentId);
             if (document == null)
             {
-                return Result<bool>.Failure(Error.NotFound("DocumentNotFound", "Document not found."));
+                return Result<bool>.Failure(
+                    Error.NotFound("DocumentNotFound", "Document not found."));
             }
 
-            // Delete file from storage
             await _fileStorageService.DeleteFileAsync(document.FileUrl);
 
-            // Soft delete
             await _documentRepository.DeleteAsync(documentId);
             await _unitOfWork.SaveChangesAsync();
 
@@ -212,7 +176,97 @@ public class DocumentService : IDocumentService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error deleting document {DocumentId}", documentId);
-            return Result<bool>.Failure(Error.Validation("DeleteFailed", "An error occurred while deleting the document."));
+            return Result<bool>.Failure(
+                Error.Validation("DeleteFailed", "An error occurred while deleting the document."));
+        }
+    }
+
+    private async Task<Result<Claim>> ValidateFileAsync(Guid claimId, IFormFile file)
+    {
+        if (file == null || file.Length == 0)
+        {
+            return Result<Claim>.Failure(
+                Error.Validation("FileRequired", "File is required."));
+        }
+
+        if (file.Length > MaxFileSizeBytes)
+        {
+            return Result<Claim>.Failure(
+                Error.Validation("FileTooLarge", "File size exceeds the maximum allowed size of 10MB."));
+        }
+
+        if (!AllowedMimeTypes.Contains(file.ContentType))
+        {
+            return Result<Claim>.Failure(
+                Error.Validation("InvalidFileType", "File type is not allowed."));
+        }
+
+        var claim = await _claimRepository.GetByIdAsync(claimId);
+        if (claim == null)
+        {
+            return Result<Claim>.Failure(
+                Error.NotFound("ClaimNotFound", "Claim not found."));
+        }
+
+        return Result<Claim>.Success(claim);
+    }
+
+    private async Task<(byte[] fileBytes, string contentType, string fileName)> ProcessFileAsync(IFormFile file)
+    {
+        using var memoryStream = new MemoryStream();
+        await file.CopyToAsync(memoryStream);
+        var fileBytes = memoryStream.ToArray();
+        var contentType = file.ContentType;
+        var fileName = $"{Guid.NewGuid()}_{SanitizeFileName(file.FileName)}";
+
+        if (IsImageFile(contentType) && fileBytes.Length > ImageCompressionThreshold)
+        {
+            var (compressedBytes, newContentType, newFileName) = await CompressImageIfNeededAsync(fileBytes, contentType, fileName);
+            fileBytes = compressedBytes;
+            contentType = newContentType;
+            fileName = newFileName;
+        }
+
+        return (fileBytes, contentType, fileName);
+    }
+
+    private static Document BuildDocumentEntity(
+        Guid claimId, 
+        Guid uploadedByUserId, 
+        IFormFile file, 
+        string fileUrl, 
+        byte[] fileBytes, 
+        string contentType, 
+        DocumentType documentType)
+    {
+        return new Document
+        {
+            ClaimId = claimId,
+            UploadedByUserId = uploadedByUserId,
+            UploadedAt = DateTime.UtcNow,
+            FileName = file.FileName,
+            FileUrl = fileUrl,
+            MimeType = contentType,
+            FileSizeInBytes = fileBytes.Length,
+            DocumentType = documentType,
+            VerificationStatus = VerificationStatus.Pending
+        };
+    }
+
+    private async Task<(byte[] fileBytes, string contentType, string fileName)> CompressImageIfNeededAsync(
+        byte[] fileBytes, 
+        string contentType, 
+        string fileName)
+    {
+        try
+        {
+            var compressed = await ConvertToWebPAsync(fileBytes, contentType);
+            return (compressed, "image/webp", Path.ChangeExtension(fileName, ".webp"));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Failed to compress image, using original");
+            return (fileBytes, contentType, fileName);
         }
     }
 
@@ -230,9 +284,6 @@ public class DocumentService : IDocumentService
 
     private Task<byte[]> ConvertToWebPAsync(byte[] originalBytes, string originalMimeType)
     {
-        // Note: This requires SixLabors.ImageSharp package
-        // For now, return original bytes as fallback
-        // In production, implement actual WebP conversion
         return Task.FromResult(originalBytes);
     }
 }

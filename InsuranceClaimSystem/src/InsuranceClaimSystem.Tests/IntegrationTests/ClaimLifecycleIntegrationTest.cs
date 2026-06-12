@@ -54,7 +54,7 @@ public class ClaimLifecycleIntegrationTest : IDisposable
         var validationService = new ClaimValidationService(policyRepository, claimRepository, nomineeRepository, claimTypeRepository, _context, validationLogger.Object);
 
         var claimLogger = new Mock<ILogger<ClaimService>>();
-        _claimService = new ClaimService(claimRepository, policyRepository, userRepository, nomineeRepository, claimTypeRepository, workflowHistoryRepository, documentRepository, validationService, unitOfWork, _mapper, claimLogger.Object, _context);
+        _claimService = new ClaimService(claimRepository, policyRepository, userRepository, nomineeRepository, claimTypeRepository, workflowHistoryRepository, documentRepository, validationService, unitOfWork, _mapper, claimLogger.Object);
 
         var policyLogger = new Mock<ILogger<PolicyService>>();
         _policyService = new PolicyService(policyRepository, policyTypeRepository, userRepository, unitOfWork, _mapper, policyLogger.Object);

@@ -24,15 +24,18 @@ public class PaymentsController : ControllerBase
     [Authorize(Policy = "FinanceOfficerOnly")]
     public async Task<IActionResult> CreatePaymentIntent(Guid claimId)
     {
+        _logger.LogInformation("API: {Action} called", nameof(CreatePaymentIntent));
         var result = await _paymentService.CreatePaymentIntentAsync(claimId);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(CreatePaymentIntent), result.Error.Code);
             if (result.Error.Code == "ClaimNotFound")
             {
                 return NotFound(result.Error);
             }
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(CreatePaymentIntent));
         return Ok(new { paymentIntentId = result.Value });
     }
 
@@ -43,9 +46,11 @@ public class PaymentsController : ControllerBase
     [Authorize(Policy = "FinanceOfficerOnly")]
     public async Task<IActionResult> ConfirmPayment(Guid claimId, [FromBody] ConfirmPaymentRequest request)
     {
+        _logger.LogInformation("API: {Action} called", nameof(ConfirmPayment));
         var result = await _paymentService.ConfirmPaymentAsync(claimId, request.PaymentIntentId);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(ConfirmPayment), result.Error.Code);
             if (result.Error.Code == "ClaimNotFound" || result.Error.Code == "PaymentNotFound")
             {
                 return NotFound(result.Error);
@@ -56,6 +61,7 @@ public class PaymentsController : ControllerBase
             }
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(ConfirmPayment));
         return Ok(new { success = result.Value });
     }
 
@@ -66,15 +72,19 @@ public class PaymentsController : ControllerBase
     [Authorize(Policy = "StaffOnly")]
     public async Task<IActionResult> GetPaymentByClaimId(Guid claimId)
     {
+        _logger.LogInformation("API: {Action} called", nameof(GetPaymentByClaimId));
         var result = await _paymentService.GetPaymentByClaimIdAsync(claimId);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetPaymentByClaimId), result.Error.Code);
             return BadRequest(result.Error);
         }
         if (result.Value == null)
         {
+            _logger.LogWarning("API: {Action} failed - PaymentNotFound", nameof(GetPaymentByClaimId));
             return NotFound(new { message = "No payment found for this claim." });
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(GetPaymentByClaimId));
         return Ok(result.Value);
     }
 }

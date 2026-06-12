@@ -31,11 +31,14 @@ public class DocumentsController : ControllerBase
         [FromQuery] DocumentType documentType,
         IFormFile file)
     {
+        _logger.LogInformation("API: {Action} called", nameof(UploadDocument));
         var result = await _documentService.UploadDocumentAsync(claimId, uploadedByUserId, file, documentType);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(UploadDocument), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(UploadDocument));
         return CreatedAtAction(nameof(DownloadDocument), new { id = result.Value.Id }, result.Value);
     }
 
@@ -45,11 +48,14 @@ public class DocumentsController : ControllerBase
     [HttpGet("{id:guid}/download")]
     public async Task<IActionResult> DownloadDocument(Guid id)
     {
+        _logger.LogInformation("API: {Action} called", nameof(DownloadDocument));
         var result = await _documentService.DownloadDocumentAsync(id);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(DownloadDocument), result.Error.Code);
             return NotFound(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(DownloadDocument));
         return File(result.Value.FileContent, result.Value.ContentType, result.Value.FileName);
     }
 
@@ -64,11 +70,14 @@ public class DocumentsController : ControllerBase
         [FromQuery] VerificationStatus status,
         [FromBody] VerifyDocumentRequest? request = null)
     {
+        _logger.LogInformation("API: {Action} called", nameof(VerifyDocument));
         var result = await _documentService.VerifyDocumentAsync(id, verifiedByUserId, status, request?.RejectionReason);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(VerifyDocument), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(VerifyDocument));
         return Ok(result.Value);
     }
 
@@ -79,11 +88,14 @@ public class DocumentsController : ControllerBase
     [Authorize(Policy = "PolicyHolderOnly")]
     public async Task<IActionResult> DeleteDocument(Guid id)
     {
+        _logger.LogInformation("API: {Action} called", nameof(DeleteDocument));
         var result = await _documentService.DeleteDocumentAsync(id);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(DeleteDocument), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(DeleteDocument));
         return NoContent();
     }
 }

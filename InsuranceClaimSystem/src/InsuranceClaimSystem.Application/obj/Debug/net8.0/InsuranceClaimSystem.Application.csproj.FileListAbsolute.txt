@@ -8,9 +8,9 @@
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Application/obj/Debug/net8.0/InsuranceClaimSystem.Application.AssemblyInfoInputs.cache
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Application/obj/Debug/net8.0/InsuranceClaimSystem.Application.AssemblyInfo.cs
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Application/obj/Debug/net8.0/InsuranceClaimSystem.Application.csproj.CoreCompileInputs.cache
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Application/obj/Debug/net8.0/InsuranceClaimSystem.Application.sourcelink.json
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Application/obj/Debug/net8.0/Insuranc.C341EF40.Up2Date
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Application/obj/Debug/net8.0/InsuranceClaimSystem.Application.dll
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Application/obj/Debug/net8.0/refint/InsuranceClaimSystem.Application.dll
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Application/obj/Debug/net8.0/InsuranceClaimSystem.Application.pdb
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Application/obj/Debug/net8.0/ref/InsuranceClaimSystem.Application.dll
-/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Application/obj/Debug/net8.0/InsuranceClaimSystem.Application.sourcelink.json

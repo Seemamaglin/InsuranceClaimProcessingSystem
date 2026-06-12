@@ -16,23 +16,28 @@ public class AdminController : ControllerBase
 {
     private readonly IUserRepository _userRepository;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly ILogger<AdminController> _logger;
 
-    public AdminController(IUserRepository userRepository, IUnitOfWork unitOfWork)
+    public AdminController(IUserRepository userRepository, IUnitOfWork unitOfWork, ILogger<AdminController> logger)
     {
         _userRepository = userRepository;
         _unitOfWork = unitOfWork;
+        _logger = logger;
     }
 
     [HttpGet("registrations/pending")]
     public async Task<IActionResult> GetPendingRegistrations([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
+        _logger.LogInformation("API: {Action} called", nameof(GetPendingRegistrations));
         try
         {
             var result = await _userRepository.GetPendingRegistrationsAsync(page, pageSize);
+            _logger.LogInformation("API: {Action} succeeded", nameof(GetPendingRegistrations));
             return Ok(result);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogWarning("API: {Action} failed - {Error}", nameof(GetPendingRegistrations), ex.Message);
             return StatusCode(500, new { error = "An unexpected error occurred." });
         }
     }
@@ -40,16 +45,19 @@ public class AdminController : ControllerBase
     [HttpPost("registrations/{userId}/approve")]
     public async Task<IActionResult> ApproveRegistration(Guid userId)
     {
+        _logger.LogInformation("API: {Action} called", nameof(ApproveRegistration));
         try
         {
             var user = await _userRepository.GetByIdAsync(userId);
             if (user == null)
             {
+                _logger.LogWarning("API: {Action} failed - UserNotFound", nameof(ApproveRegistration));
                 return NotFound(new { error = "User not found." });
             }
 
             if (user.RegistrationStatus != RegistrationStatus.PendingApproval)
             {
+                _logger.LogWarning("API: {Action} failed - InvalidStatus", nameof(ApproveRegistration));
                 return BadRequest(new { error = "User is not pending approval." });
             }
 
@@ -57,10 +65,12 @@ public class AdminController : ControllerBase
             user.IsActive = true;
             await _unitOfWork.SaveChangesAsync();
 
+            _logger.LogInformation("API: {Action} succeeded", nameof(ApproveRegistration));
             return Ok(new { success = true, message = "Registration approved successfully." });
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogWarning("API: {Action} failed - {Error}", nameof(ApproveRegistration), ex.Message);
             return StatusCode(500, new { error = "An unexpected error occurred." });
         }
     }
@@ -68,21 +78,25 @@ public class AdminController : ControllerBase
     [HttpPost("registrations/{userId}/reject")]
     public async Task<IActionResult> RejectRegistration(Guid userId, [FromBody] RejectRegistrationRequest request)
     {
+        _logger.LogInformation("API: {Action} called", nameof(RejectRegistration));
         try
         {
             var user = await _userRepository.GetByIdAsync(userId);
             if (user == null)
             {
+                _logger.LogWarning("API: {Action} failed - UserNotFound", nameof(RejectRegistration));
                 return NotFound(new { error = "User not found." });
             }
 
             if (user.RegistrationStatus != RegistrationStatus.PendingApproval)
             {
+                _logger.LogWarning("API: {Action} failed - InvalidStatus", nameof(RejectRegistration));
                 return BadRequest(new { error = "User is not pending approval." });
             }
 
             if (string.IsNullOrWhiteSpace(request.Reason))
             {
+                _logger.LogWarning("API: {Action} failed - MissingReason", nameof(RejectRegistration));
                 return BadRequest(new { error = "Rejection reason is required." });
             }
 
@@ -90,10 +104,12 @@ public class AdminController : ControllerBase
             user.RegistrationRejectionReason = request.Reason;
             await _unitOfWork.SaveChangesAsync();
 
+            _logger.LogInformation("API: {Action} succeeded", nameof(RejectRegistration));
             return Ok(new { success = true, message = "Registration rejected." });
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogWarning("API: {Action} failed - {Error}", nameof(RejectRegistration), ex.Message);
             return StatusCode(500, new { error = "An unexpected error occurred." });
         }
     }
@@ -101,6 +117,7 @@ public class AdminController : ControllerBase
     [HttpGet("users")]
     public async Task<IActionResult> GetAllUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
+        _logger.LogInformation("API: {Action} called", nameof(GetAllUsers));
         try
         {
             var allUsers = await _userRepository.GetAllAsync();
@@ -110,10 +127,12 @@ public class AdminController : ControllerBase
                 .Take(pageSize)
                 .ToList();
             var result = PagedResult<User>.Create(pagedUsers, totalCount, page, pageSize);
+            _logger.LogInformation("API: {Action} succeeded", nameof(GetAllUsers));
             return Ok(result);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogWarning("API: {Action} failed - {Error}", nameof(GetAllUsers), ex.Message);
             return StatusCode(500, new { error = "An unexpected error occurred." });
         }
     }

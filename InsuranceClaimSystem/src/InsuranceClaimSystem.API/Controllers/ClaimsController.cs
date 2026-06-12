@@ -26,11 +26,14 @@ public class ClaimsController : ControllerBase
     [Authorize(Policy = "PolicyHolderOnly")]
     public async Task<IActionResult> SubmitClaim([FromBody] SubmitClaimRequest request)
     {
+        _logger.LogInformation("API: {Action} called", nameof(SubmitClaim));
         var result = await _claimService.SubmitClaimAsync(request);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(SubmitClaim), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(SubmitClaim));
         return CreatedAtAction(nameof(GetClaimById), new { id = result.Value.Id }, result.Value);
     }
 
@@ -41,11 +44,14 @@ public class ClaimsController : ControllerBase
     [Authorize(Policy = "StaffOnly")]
     public async Task<IActionResult> GetClaims([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
+        _logger.LogInformation("API: {Action} called", nameof(GetClaims));
         var result = await _claimService.GetClaimsAsync(page, pageSize);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetClaims), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(GetClaims));
         return Ok(result.Value);
     }
 
@@ -55,11 +61,14 @@ public class ClaimsController : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetClaimById(Guid id)
     {
+        _logger.LogInformation("API: {Action} called", nameof(GetClaimById));
         var result = await _claimService.GetClaimByIdAsync(id);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetClaimById), result.Error.Code);
             return NotFound(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(GetClaimById));
         return Ok(result.Value);
     }
 
@@ -69,11 +78,14 @@ public class ClaimsController : ControllerBase
     [HttpGet("number/{claimNumber}")]
     public async Task<IActionResult> GetClaimByNumber(string claimNumber)
     {
+        _logger.LogInformation("API: {Action} called", nameof(GetClaimByNumber));
         var result = await _claimService.GetClaimByNumberAsync(claimNumber);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetClaimByNumber), result.Error.Code);
             return NotFound(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(GetClaimByNumber));
         return Ok(result.Value);
     }
 
@@ -84,11 +96,14 @@ public class ClaimsController : ControllerBase
     [Authorize(Policy = "ReviewerOrManager")]
     public async Task<IActionResult> UpdateStatus(Guid id, [FromBody] UpdateClaimStatusRequest request)
     {
+        _logger.LogInformation("API: {Action} called", nameof(UpdateStatus));
         var result = await _claimService.UpdateStatusAsync(id, request);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(UpdateStatus), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(UpdateStatus));
         return Ok(result.Value);
     }
 
@@ -99,12 +114,15 @@ public class ClaimsController : ControllerBase
     [Authorize(Policy = "ManagerOrAdmin")]
     public async Task<IActionResult> AssignReviewer(Guid id, [FromBody] AssignReviewerRequest request)
     {
+        _logger.LogInformation("API: {Action} called", nameof(AssignReviewer));
         request.ClaimId = id;
         var result = await _claimService.AssignReviewerAsync(request);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(AssignReviewer), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(AssignReviewer));
         return Ok(result.Value);
     }
 
@@ -115,11 +133,14 @@ public class ClaimsController : ControllerBase
     [Authorize(Policy = "ManagerOrAdmin")]
     public async Task<IActionResult> AutoAssignReviewer(Guid id)
     {
+        _logger.LogInformation("API: {Action} called", nameof(AutoAssignReviewer));
         var result = await _claimService.AutoAssignReviewerAsync(id);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(AutoAssignReviewer), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(AutoAssignReviewer));
         return Ok(result.Value);
     }
 
@@ -130,8 +151,10 @@ public class ClaimsController : ControllerBase
     [Authorize(Policy = "ClaimsManagerOnly")]
     public async Task<IActionResult> ApproveClaim(Guid id, [FromQuery] Guid managerId, [FromQuery] decimal? approvedAmount = null)
     {
+        _logger.LogInformation("API: {Action} called", nameof(ApproveClaim));
         // Note: This would call a dedicated ApproveClaimAsync method
         // For now, returning not implemented
+        _logger.LogInformation("API: {Action} succeeded (not implemented)", nameof(ApproveClaim));
         return StatusCode(501, "Claim approval endpoint - use UpdateStatus with Approved status");
     }
 
@@ -142,8 +165,10 @@ public class ClaimsController : ControllerBase
     [Authorize(Policy = "ClaimsManagerOnly")]
     public async Task<IActionResult> RejectClaim(Guid id, [FromQuery] Guid managerId, [FromBody] RejectClaimRequest request)
     {
+        _logger.LogInformation("API: {Action} called", nameof(RejectClaim));
         // Note: This would call a dedicated RejectClaimAsync method
         // For now, returning not implemented
+        _logger.LogInformation("API: {Action} succeeded (not implemented)", nameof(RejectClaim));
         return StatusCode(501, "Claim rejection endpoint - use UpdateStatus with Rejected status");
     }
 
@@ -153,11 +178,14 @@ public class ClaimsController : ControllerBase
     [HttpGet("policy/{policyId:guid}")]
     public async Task<IActionResult> GetClaimsByPolicy(Guid policyId, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
+        _logger.LogInformation("API: {Action} called", nameof(GetClaimsByPolicy));
         var result = await _claimService.GetClaimsByPolicyAsync(policyId, page, pageSize);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetClaimsByPolicy), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(GetClaimsByPolicy));
         return Ok(result.Value);
     }
 
@@ -168,11 +196,14 @@ public class ClaimsController : ControllerBase
     [Authorize(Policy = "ClaimReviewerOnly")]
     public async Task<IActionResult> GetClaimsByReviewer(Guid reviewerId, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
+        _logger.LogInformation("API: {Action} called", nameof(GetClaimsByReviewer));
         var result = await _claimService.GetClaimsByReviewerAsync(reviewerId, page, pageSize);
         if (result.IsFailure)
         {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetClaimsByReviewer), result.Error.Code);
             return BadRequest(result.Error);
         }
+        _logger.LogInformation("API: {Action} succeeded", nameof(GetClaimsByReviewer));
         return Ok(result.Value);
     }
 }

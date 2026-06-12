@@ -166,6 +166,7 @@
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/InsuranceClaimSystem.API.csproj.CoreCompileInputs.cache
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/InsuranceClaimSystem.API.MvcApplicationPartsAssemblyInfo.cs
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/InsuranceClaimSystem.API.MvcApplicationPartsAssemblyInfo.cache
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/InsuranceClaimSystem.API.sourcelink.json
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/rjimswa.dswa.cache.json
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
@@ -181,4 +182,3 @@
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/InsuranceClaimSystem.API.pdb
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/InsuranceClaimSystem.API.genruntimeconfig.cache
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/ref/InsuranceClaimSystem.API.dll
-/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/InsuranceClaimSystem.API.sourcelink.json

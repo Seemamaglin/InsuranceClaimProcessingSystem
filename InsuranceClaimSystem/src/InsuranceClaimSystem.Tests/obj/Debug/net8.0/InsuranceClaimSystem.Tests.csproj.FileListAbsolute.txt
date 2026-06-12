@@ -1,4 +1,10 @@
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/bin/Debug/net8.0/CoverletSourceRootsMapping_InsuranceClaimSystem.Tests
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.csproj.AssemblyReference.cache
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.AssemblyInfoInputs.cache
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.AssemblyInfo.cs
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.csproj.CoreCompileInputs.cache
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.sourcelink.json
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/bin/Debug/net8.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/bin/Debug/net8.0/xunit.runner.reporters.netcoreapp10.dll
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/bin/Debug/net8.0/xunit.runner.utility.netcoreapp10.dll
@@ -168,15 +174,9 @@
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/bin/Debug/net8.0/InsuranceClaimSystem.Domain.pdb
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/bin/Debug/net8.0/InsuranceClaimSystem.Application.pdb
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/bin/Debug/net8.0/InsuranceClaimSystem.Infrastructure.pdb
-/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.csproj.AssemblyReference.cache
-/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.GeneratedMSBuildEditorConfig.editorconfig
-/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.AssemblyInfoInputs.cache
-/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.AssemblyInfo.cs
-/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.csproj.CoreCompileInputs.cache
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/Insuranc.109EA730.Up2Date
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.dll
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/refint/InsuranceClaimSystem.Tests.dll
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.pdb
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.genruntimeconfig.cache
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/ref/InsuranceClaimSystem.Tests.dll
-/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Tests/obj/Debug/net8.0/InsuranceClaimSystem.Tests.sourcelink.json

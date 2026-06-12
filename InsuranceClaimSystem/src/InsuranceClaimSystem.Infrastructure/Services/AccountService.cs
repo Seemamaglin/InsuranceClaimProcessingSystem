@@ -5,6 +5,7 @@ using InsuranceClaimSystem.Application.Common;
 using InsuranceClaimSystem.Application.DTOs.Accounts;
 using InsuranceClaimSystem.Application.Interfaces.Repositories;
 using InsuranceClaimSystem.Application.Interfaces.Services;
+using InsuranceClaimSystem.Domain.Entities;
 using Microsoft.Extensions.Logging;
 
 namespace InsuranceClaimSystem.Infrastructure.Services;
@@ -27,15 +28,18 @@ public class AccountService : IAccountService
 
     public async Task<Result<AccountDto>> GetAccountAsync(Guid userId)
     {
+        _logger.LogInformation("Getting account for user {UserId}", userId);
         try
         {
             var user = await _userRepository.GetByIdAsync(userId);
             if (user == null)
             {
+                _logger.LogWarning("User {UserId} not found", userId);
                 return Result<AccountDto>.Failure(
                     Error.NotFound("UserNotFound", "User not found."));
             }
 
+            _logger.LogInformation("Account retrieved successfully for user {UserId}", userId);
             return Result<AccountDto>.Success(MapToAccountDto(user));
         }
         catch (Exception ex)
@@ -48,40 +52,26 @@ public class AccountService : IAccountService
 
     public async Task<Result<AccountDto>> UpdateProfileAsync(UpdateProfileRequest request)
     {
+        _logger.LogInformation("Updating profile for user {UserId}", request.UserId);
         try
         {
             var user = await _userRepository.GetByIdAsync(request.UserId);
             if (user == null)
             {
+                _logger.LogWarning("User {UserId} not found for profile update", request.UserId);
                 return Result<AccountDto>.Failure(
                     Error.NotFound("UserNotFound", "User not found."));
             }
 
-            if (!string.IsNullOrWhiteSpace(request.FirstName))
-                user.FirstName = request.FirstName;
-
-            if (!string.IsNullOrWhiteSpace(request.LastName))
-                user.LastName = request.LastName;
-
-            if (!string.IsNullOrWhiteSpace(request.PhoneNumber))
-                user.PhoneNumber = request.PhoneNumber;
-
-            if (request.DateOfBirth.HasValue)
-                user.DateOfBirth = request.DateOfBirth.Value;
-
-            if (!string.IsNullOrWhiteSpace(request.Password) && !string.IsNullOrWhiteSpace(request.NewPassword))
+            var updateResult = UpdateUserProfile(user, request);
+            if (updateResult.IsFailure)
             {
-                if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
-                {
-                    return Result<AccountDto>.Failure(
-                        Error.Validation("InvalidPassword", "Current password is incorrect."));
-                }
-
-                user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.NewPassword, 12);
+                return Result<AccountDto>.Failure(updateResult.Error);
             }
 
             await _unitOfWork.SaveChangesAsync();
 
+            _logger.LogInformation("Profile updated successfully for user {UserId}", request.UserId);
             return Result<AccountDto>.Success(MapToAccountDto(user));
         }
         catch (Exception ex)
@@ -94,17 +84,20 @@ public class AccountService : IAccountService
 
     public async Task<Result<bool>> UpdatePasswordAsync(Guid userId, string currentPassword, string newPassword)
     {
+        _logger.LogInformation("Updating password for user {UserId}", userId);
         try
         {
             var user = await _userRepository.GetByIdAsync(userId);
             if (user == null)
             {
+                _logger.LogWarning("User {UserId} not found for password update", userId);
                 return Result<bool>.Failure(
                     Error.NotFound("UserNotFound", "User not found."));
             }
 
             if (!BCrypt.Net.BCrypt.Verify(currentPassword, user.PasswordHash))
             {
+                _logger.LogWarning("Invalid current password for user {UserId}", userId);
                 return Result<bool>.Failure(
                     Error.Validation("InvalidPassword", "Current password is incorrect."));
             }
@@ -114,6 +107,7 @@ public class AccountService : IAccountService
 
             await _unitOfWork.SaveChangesAsync();
 
+            _logger.LogInformation("Password updated successfully for user {UserId}", userId);
             return Result<bool>.Success(true);
         }
         catch (Exception ex)
@@ -126,17 +120,20 @@ public class AccountService : IAccountService
 
     public async Task<Result<bool>> DeactivateAccountAsync(DeactivateAccountRequest request)
     {
+        _logger.LogInformation("Deactivating account for user {UserId}", request.UserId);
         try
         {
             var user = await _userRepository.GetByIdAsync(request.UserId);
             if (user == null)
             {
+                _logger.LogWarning("User {UserId} not found for deactivation", request.UserId);
                 return Result<bool>.Failure(
                     Error.NotFound("UserNotFound", "User not found."));
             }
 
             if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
             {
+                _logger.LogWarning("Invalid password for account deactivation {UserId}", request.UserId);
                 return Result<bool>.Failure(
                     Error.Validation("InvalidPassword", "Password is incorrect."));
             }
@@ -145,6 +142,7 @@ public class AccountService : IAccountService
 
             await _unitOfWork.SaveChangesAsync();
 
+            _logger.LogInformation("Account deactivated successfully for user {UserId}", request.UserId);
             return Result<bool>.Success(true);
         }
         catch (Exception ex)
@@ -157,11 +155,13 @@ public class AccountService : IAccountService
 
     public async Task<Result<bool>> DeleteAccountAsync(Guid userId)
     {
+        _logger.LogInformation("Deleting account for user {UserId}", userId);
         try
         {
             var user = await _userRepository.GetByIdAsync(userId);
             if (user == null)
             {
+                _logger.LogWarning("User {UserId} not found for deletion", userId);
                 return Result<bool>.Failure(
                     Error.NotFound("UserNotFound", "User not found."));
             }
@@ -170,6 +170,7 @@ public class AccountService : IAccountService
 
             await _unitOfWork.SaveChangesAsync();
 
+            _logger.LogInformation("Account deleted successfully for user {UserId}", userId);
             return Result<bool>.Success(true);
         }
         catch (Exception ex)
@@ -182,11 +183,13 @@ public class AccountService : IAccountService
 
     public async Task<Result<bool>> ReactivateAccountAsync(Guid userId)
     {
+        _logger.LogInformation("Reactivating account for user {UserId}", userId);
         try
         {
             var user = await _userRepository.GetByIdAsync(userId);
             if (user == null)
             {
+                _logger.LogWarning("User {UserId} not found for reactivation", userId);
                 return Result<bool>.Failure(
                     Error.NotFound("UserNotFound", "User not found."));
             }
@@ -195,6 +198,7 @@ public class AccountService : IAccountService
 
             await _unitOfWork.SaveChangesAsync();
 
+            _logger.LogInformation("Account reactivated successfully for user {UserId}", userId);
             return Result<bool>.Success(true);
         }
         catch (Exception ex)
@@ -207,6 +211,7 @@ public class AccountService : IAccountService
 
     public async Task<Result<IEnumerable<AccountDto>>> GetAllAccountsAsync()
     {
+        _logger.LogInformation("Getting all accounts");
         try
         {
             var users = await _userRepository.GetAllAsync();
@@ -216,6 +221,7 @@ public class AccountService : IAccountService
                 accountDtos.Add(MapToAccountDto(user));
             }
 
+            _logger.LogInformation("Retrieved {Count} accounts", accountDtos.Count);
             return Result<IEnumerable<AccountDto>>.Success(accountDtos);
         }
         catch (Exception ex)
@@ -228,6 +234,7 @@ public class AccountService : IAccountService
 
     public async Task<Result<PagedResult<AccountDto>>> GetAllAccountsPagedAsync(int page, int pageSize)
     {
+        _logger.LogInformation("Getting paged accounts - page {Page}, size {PageSize}", page, pageSize);
         try
         {
             var allUsers = await _userRepository.GetAllAsync();
@@ -244,6 +251,7 @@ public class AccountService : IAccountService
             }
 
             var pagedResult = PagedResult<AccountDto>.Create(accountDtos, totalCount, page, pageSize);
+            _logger.LogInformation("Retrieved paged accounts - total {Total}, page {Page}", totalCount, page);
             return Result<PagedResult<AccountDto>>.Success(pagedResult);
         }
         catch (Exception ex)
@@ -254,7 +262,7 @@ public class AccountService : IAccountService
         }
     }
 
-    private static AccountDto MapToAccountDto(dynamic user)
+    private static AccountDto MapToAccountDto(User user)
     {
         return new AccountDto
         {
@@ -272,5 +280,33 @@ public class AccountService : IAccountService
             IsFirstLogin = user.IsFirstLogin,
             CreatedAt = user.CreatedAt
         };
+    }
+
+    private static Result<bool> UpdateUserProfile(User user, UpdateProfileRequest request)
+    {
+        if (!string.IsNullOrWhiteSpace(request.FirstName))
+            user.FirstName = request.FirstName;
+
+        if (!string.IsNullOrWhiteSpace(request.LastName))
+            user.LastName = request.LastName;
+
+        if (!string.IsNullOrWhiteSpace(request.PhoneNumber))
+            user.PhoneNumber = request.PhoneNumber;
+
+        if (request.DateOfBirth.HasValue)
+            user.DateOfBirth = request.DateOfBirth.Value;
+
+        if (!string.IsNullOrWhiteSpace(request.Password) && !string.IsNullOrWhiteSpace(request.NewPassword))
+        {
+            if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+            {
+                return Result<bool>.Failure(
+                    Error.Validation("InvalidPassword", "Current password is incorrect."));
+            }
+
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.NewPassword, 12);
+        }
+
+        return Result<bool>.Success(true);
     }
 }
