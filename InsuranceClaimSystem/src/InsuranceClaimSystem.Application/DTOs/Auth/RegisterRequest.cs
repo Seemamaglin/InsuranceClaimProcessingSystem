@@ -1,3 +1,5 @@
+using InsuranceClaimSystem.Domain.Enums;
+
 namespace InsuranceClaimSystem.Application.DTOs.Auth;
 
 public class RegisterRequest
@@ -10,4 +12,5 @@ public class RegisterRequest
     public string Password { get; set; } = string.Empty;
     public string ConfirmPassword { get; set; } = string.Empty;
     public string PhoneNumber { get; set; } = string.Empty;
+    public UserRole Role { get; set; } = UserRole.PolicyHolder;
 }

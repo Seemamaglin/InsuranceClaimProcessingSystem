@@ -2,9 +2,8 @@ using InsuranceClaimSystem.Domain.Enums;
 
 namespace InsuranceClaimSystem.Application.DTOs.Policies;
 
-public class CreatePolicyRequest
+public class ApplyForPolicyRequest
 {
-    public Guid PolicyHolderId { get; set; }
     public Guid PolicyTypeId { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }

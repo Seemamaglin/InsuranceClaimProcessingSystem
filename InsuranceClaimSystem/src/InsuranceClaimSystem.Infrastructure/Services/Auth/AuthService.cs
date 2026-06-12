@@ -53,7 +53,11 @@ public class AuthService : IAuthService
             var usernameCheck = await CheckUsernameAvailabilityAsync(request.UserName);
             if (usernameCheck.IsFailure) return Result<AuthResponse>.Failure(usernameCheck.Error);
 
-            var user = BuildUserEntity(request);
+            var roleValidation = ValidateRegistrationRole(request.Role);
+            if (roleValidation.IsFailure)
+                return Result<AuthResponse>.Failure(roleValidation.Error);
+
+            var user = BuildUserEntity(request, roleValidation.Value);
             await _userRepository.AddAsync(user);
 
             var code = GenerateVerificationCode();
@@ -273,7 +277,18 @@ public class AuthService : IAuthService
         return Result<bool>.Success(true);
     }
 
-    private User BuildUserEntity(RegisterRequest request)
+    private static Result<UserRole> ValidateRegistrationRole(UserRole requestedRole)
+    {
+        var allowedRoles = new[] { UserRole.PolicyHolder };
+        if (!allowedRoles.Contains(requestedRole))
+        {
+            return Result<UserRole>.Failure(
+                Error.Validation("InvalidRole", $"Role '{requestedRole}' is not allowed for public registration. Only PolicyHolder registration is permitted."));
+        }
+        return Result<UserRole>.Success(requestedRole);
+    }
+
+    private User BuildUserEntity(RegisterRequest request, UserRole validatedRole)
     {
         return new User
         {
@@ -285,7 +300,7 @@ public class AuthService : IAuthService
             Username = request.UserName,
             PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password, 12),
             PhoneNumber = request.PhoneNumber,
-            Role = UserRole.PolicyHolder,
+            Role = validatedRole,
             RegistrationStatus = RegistrationStatus.PendingEmailVerification,
             IsActive = false,
             IsFirstLogin = true,

@@ -135,9 +135,8 @@ public class ClaimLifecycleIntegrationTest : IDisposable
         await _context.SaveChangesAsync();
 
         // 3. Create and approve policy
-        var createResult = await _policyService.CreatePolicyAsync(new CreatePolicyRequest
+        var createResult = await _policyService.ApplyForPolicyAsync(policyHolder.Id, new ApplyForPolicyRequest
         {
-            PolicyHolderId = policyHolder.Id,
             PolicyTypeId = policyType.Id,
             StartDate = DateTime.UtcNow.Date.AddDays(-30),
             EndDate = DateTime.UtcNow.Date.AddYears(1),
@@ -146,6 +145,7 @@ public class ClaimLifecycleIntegrationTest : IDisposable
             PremiumFrequency = PremiumFrequency.Monthly
         });
         createResult.IsSuccess.Should().BeTrue();
+
 
         var policyId = createResult.Value!.Id;
         var approveResult = await _policyService.ApprovePolicyAsync(policyId);

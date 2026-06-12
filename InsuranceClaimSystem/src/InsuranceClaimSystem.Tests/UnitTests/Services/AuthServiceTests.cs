@@ -299,4 +299,77 @@ public class AuthServiceTests
         result.IsSuccess.Should().BeFalse();
         result.Error.Code.Should().Be("InvalidCredentials");
     }
+
+    [Fact]
+    public async Task Register_WithAllowedRole_ShouldCreateUserWithThatRole()
+    {
+        var request = new RegisterRequest
+        {
+            FirstName = "John",
+            LastName = "Doe",
+            DateOfBirth = new DateTime(1990, 1, 1),
+            Email = "john.doe@example.com",
+            UserName = "johndoe",
+            Password = "Password123!",
+            PhoneNumber = "1234567890",
+            Role = UserRole.PolicyHolder
+        };
+
+        _userRepositoryMock.Setup(x => x.GetByEmailAsync(request.Email)).ReturnsAsync((User?)null);
+        _userRepositoryMock.Setup(x => x.GetByUsernameAsync(request.UserName)).ReturnsAsync((User?)null);
+        _userRepositoryMock.Setup(x => x.AddAsync(It.IsAny<User>())).ReturnsAsync((User u) => u);
+        _emailVerificationCodeRepositoryMock.Setup(x => x.AddAsync(It.IsAny<EmailVerificationCode>())).Returns(Task.CompletedTask);
+        _unitOfWorkMock.Setup(x => x.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
+        _emailServiceMock.Setup(x => x.SendEmailAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<bool>())).Returns(Task.CompletedTask);
+
+        var result = await _authService.RegisterAsync(request);
+
+        result.IsSuccess.Should().BeTrue();
+        result.Value.Should().NotBeNull();
+        result.Value!.Role.Should().Be(UserRole.PolicyHolder);
+    }
+
+    [Theory]
+    [InlineData(UserRole.Admin)]
+    [InlineData(UserRole.ClaimsManager)]
+    [InlineData(UserRole.ClaimReviewer)]
+    [InlineData(UserRole.FinanceOfficer)]
+    public async Task Register_WithPrivilegedRole_ShouldReturnFailure(UserRole privilegedRole)
+    {
+        var request = new RegisterRequest
+        {
+            FirstName = "John",
+            LastName = "Doe",
+            Email = "john.doe@example.com",
+            UserName = "johndoe",
+            Password = "Password123!",
+            PhoneNumber = "1234567890",
+            Role = privilegedRole
+        };
+
+        var result = await _authService.RegisterAsync(request);
+
+        result.IsSuccess.Should().BeFalse();
+        result.Error.Code.Should().Be("InvalidRole");
+    }
+
+    [Fact]
+    public async Task Register_WithInvalidRoleValue_ShouldReturnFailure()
+    {
+        var request = new RegisterRequest
+        {
+            FirstName = "John",
+            LastName = "Doe",
+            Email = "john.doe@example.com",
+            UserName = "johndoe",
+            Password = "Password123!",
+            PhoneNumber = "1234567890",
+            Role = (UserRole)999
+        };
+
+        var result = await _authService.RegisterAsync(request);
+
+        result.IsSuccess.Should().BeFalse();
+        result.Error.Code.Should().Be("InvalidRole");
+    }
 }

@@ -12,8 +12,7 @@ public class PolicyProfile : Profile
             .ForMember(dest => dest.PolicyHolderName, opt => opt.MapFrom(src => $"{src.PolicyHolder.FirstName} {src.PolicyHolder.LastName}"))
             .ForMember(dest => dest.PolicyTypeName, opt => opt.MapFrom(src => src.PolicyType.TypeName));
 
-        CreateMap<CreatePolicyRequest, Policy>()
-            .ForMember(dest => dest.PolicyHolderId, opt => opt.MapFrom(src => src.PolicyHolderId))
+        CreateMap<ApplyForPolicyRequest, Policy>()
             .ForMember(dest => dest.PolicyTypeId, opt => opt.MapFrom(src => src.PolicyTypeId))
             .ForMember(dest => dest.StartDate, opt => opt.MapFrom(src => src.StartDate))
             .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.EndDate))

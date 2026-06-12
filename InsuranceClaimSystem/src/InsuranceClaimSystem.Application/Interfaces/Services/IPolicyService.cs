@@ -5,7 +5,8 @@ namespace InsuranceClaimSystem.Application.Interfaces.Services;
 
 public interface IPolicyService
 {
-    Task<Result<PolicyResponse>> CreatePolicyAsync(CreatePolicyRequest request);
+    Task<Result<PolicyTypeDto>> CreatePolicyTypeAsync(CreatePolicyTypeRequest request);
+    Task<Result<PolicyResponse>> ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request);
     Task<Result<PolicyResponse>> GetPolicyByIdAsync(Guid policyId);
     Task<Result<PolicyResponse>> GetPolicyByNumberAsync(string policyNumber);
     Task<Result<PolicyResponse>> UpdatePolicyAsync(UpdatePolicyRequest request);

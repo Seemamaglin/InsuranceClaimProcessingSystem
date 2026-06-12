@@ -4,14 +4,10 @@ using InsuranceClaimSystem.Domain.Enums;
 
 namespace InsuranceClaimSystem.Application.Validators;
 
-public class CreatePolicyRequestValidator : AbstractValidator<CreatePolicyRequest>
+public class ApplyForPolicyRequestValidator : AbstractValidator<ApplyForPolicyRequest>
 {
-    public CreatePolicyRequestValidator()
+    public ApplyForPolicyRequestValidator()
     {
-        RuleFor(x => x.PolicyHolderId)
-            .NotEmpty().WithMessage("Policy holder ID is required")
-            .NotEqual(Guid.Empty).WithMessage("Policy holder ID cannot be empty");
-
         RuleFor(x => x.PolicyTypeId)
             .NotEmpty().WithMessage("Policy type ID is required")
             .NotEqual(Guid.Empty).WithMessage("Policy type ID cannot be empty");

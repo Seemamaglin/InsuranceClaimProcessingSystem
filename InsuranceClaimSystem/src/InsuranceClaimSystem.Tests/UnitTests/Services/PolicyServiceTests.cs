@@ -42,18 +42,42 @@ public class PolicyServiceTests
     }
 
     [Fact]
-    public async Task CreatePolicy_WithValidData_ShouldReturnPolicyResponse()
+    public async Task CreatePolicyType_WithValidData_ShouldReturnPolicyTypeDto()
     {
-        // Arrange
+        var request = new CreatePolicyTypeRequest
+        {
+            TypeName = "Health Gold",
+            Description = "Premium health coverage",
+            DefaultBenefitType = BenefitType.Reimbursement,
+            AllowsNomineeClaim = true,
+            AllowsThirdPartyClaim = false,
+            DefaultCoverageAmount = 500000
+        };
+
+        var policyType = new PolicyType { Id = Guid.NewGuid(), TypeName = request.TypeName, IsActive = true };
+        var policyTypeDto = new PolicyTypeDto { Id = policyType.Id, TypeName = policyType.TypeName };
+
+        _policyTypeRepositoryMock.Setup(x => x.AddAsync(It.IsAny<PolicyType>())).ReturnsAsync((PolicyType pt) => pt);
+        _unitOfWorkMock.Setup(x => x.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
+        _mapperMock.Setup(x => x.Map<PolicyTypeDto>(It.IsAny<PolicyType>())).Returns(policyTypeDto);
+
+        var result = await _policyService.CreatePolicyTypeAsync(request);
+
+        result.IsSuccess.Should().BeTrue();
+        result.Value!.TypeName.Should().Be("Health Gold");
+    }
+
+    [Fact]
+    public async Task ApplyForPolicy_WithValidData_ShouldReturnPolicyResponse()
+    {
         var policyHolderId = Guid.NewGuid();
         var policyTypeId = Guid.NewGuid();
 
         var policyHolder = new User { Id = policyHolderId, FirstName = "John", LastName = "Doe", Email = "john@example.com" };
         var policyType = new PolicyType { Id = policyTypeId, TypeName = "Health", IsActive = true };
 
-        var request = new CreatePolicyRequest
+        var request = new ApplyForPolicyRequest
         {
-            PolicyHolderId = policyHolderId,
             PolicyTypeId = policyTypeId,
             StartDate = DateTime.UtcNow.Date,
             EndDate = DateTime.UtcNow.Date.AddYears(1),
@@ -62,7 +86,7 @@ public class PolicyServiceTests
             PremiumFrequency = PremiumFrequency.Annually
         };
 
-        var policy = new Policy { Id = Guid.NewGuid(), PolicyNumber = "POL-2026-0001", PolicyHolderId = policyHolderId, PolicyTypeId = policyTypeId, Status = PolicyStatus.PendingApproval, CoverageAmount = 500000 };
+        var policy = new Policy { Id = Guid.NewGuid(), PolicyNumber = "POL-2026-0001", PolicyHolderId = policyHolderId, PolicyTypeId = policyTypeId, Status = PolicyStatus.PendingApproval };
         var policyResponse = new PolicyResponse { Id = policy.Id, PolicyNumber = policy.PolicyNumber, Status = PolicyStatus.PendingApproval };
 
         _userRepositoryMock.Setup(x => x.GetByIdAsync(policyHolderId)).ReturnsAsync(policyHolder);
@@ -73,42 +97,35 @@ public class PolicyServiceTests
         _policyRepositoryMock.Setup(x => x.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync(policy);
         _mapperMock.Setup(x => x.Map<PolicyResponse>(policy)).Returns(policyResponse);
 
-        // Act
-        var result = await _policyService.CreatePolicyAsync(request);
+        var result = await _policyService.ApplyForPolicyAsync(policyHolderId, request);
 
-        // Assert
         result.IsSuccess.Should().BeTrue();
         result.Value!.PolicyNumber.Should().Be("POL-2026-0001");
+        result.Value.Status.Should().Be(PolicyStatus.PendingApproval);
     }
 
     [Fact]
-    public async Task CreatePolicy_WithInvalidHolder_ShouldReturnNotFound()
+    public async Task ApplyForPolicy_WithInvalidHolder_ShouldReturnNotFound()
     {
-        // Arrange
-        var request = new CreatePolicyRequest { PolicyHolderId = Guid.NewGuid(), PolicyTypeId = Guid.NewGuid(), CoverageAmount = 500000 };
+        var request = new ApplyForPolicyRequest { PolicyTypeId = Guid.NewGuid(), CoverageAmount = 500000 };
         _userRepositoryMock.Setup(x => x.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync((User?)null);
 
-        // Act
-        var result = await _policyService.CreatePolicyAsync(request);
+        var result = await _policyService.ApplyForPolicyAsync(Guid.NewGuid(), request);
 
-        // Assert
         result.IsSuccess.Should().BeFalse();
         result.Error.Code.Should().Be("PolicyHolderNotFound");
     }
 
     [Fact]
-    public async Task CreatePolicy_WithInvalidType_ShouldReturnNotFound()
+    public async Task ApplyForPolicy_WithInvalidPolicyType_ShouldReturnNotFound()
     {
-        // Arrange
         var policyHolder = new User { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe" };
-        var request = new CreatePolicyRequest { PolicyHolderId = policyHolder.Id, PolicyTypeId = Guid.NewGuid(), CoverageAmount = 500000 };
+        var request = new ApplyForPolicyRequest { PolicyTypeId = Guid.NewGuid(), CoverageAmount = 500000 };
         _userRepositoryMock.Setup(x => x.GetByIdAsync(policyHolder.Id)).ReturnsAsync(policyHolder);
         _policyTypeRepositoryMock.Setup(x => x.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync((PolicyType?)null);
 
-        // Act
-        var result = await _policyService.CreatePolicyAsync(request);
+        var result = await _policyService.ApplyForPolicyAsync(policyHolder.Id, request);
 
-        // Assert
         result.IsSuccess.Should().BeFalse();
         result.Error.Code.Should().Be("PolicyTypeNotFound");
     }

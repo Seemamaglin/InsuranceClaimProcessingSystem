@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using InsuranceClaimSystem.Application.DTOs.Policies;
 using InsuranceClaimSystem.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -20,13 +21,34 @@ public class PolicyController : ControllerBase
 
     [HttpPost]
     [Authorize(Policy = "AdminOnly")]
-    public async Task<IActionResult> CreatePolicy([FromBody] CreatePolicyRequest request)
+    public async Task<IActionResult> CreatePolicyType([FromBody] CreatePolicyTypeRequest request)
     {
-        _logger.LogInformation("API: {Action} called", nameof(CreatePolicy));
-        var result = await _policyService.CreatePolicyAsync(request);
+        _logger.LogInformation("API: {Action} called", nameof(CreatePolicyType));
+        var result = await _policyService.CreatePolicyTypeAsync(request);
         if (result.IsFailure)
         {
-            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(CreatePolicy), result.Error.Code);
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(CreatePolicyType), result.Error.Code);
+            return BadRequest(result.Error);
+        }
+        _logger.LogInformation("API: {Action} succeeded", nameof(CreatePolicyType));
+        return StatusCode(201, result.Value);
+    }
+
+    [HttpPost("apply")]
+    [Authorize(Policy = "PolicyHolderOnly")]
+    public async Task<IActionResult> ApplyForPolicy([FromBody] ApplyForPolicyRequest request)
+    {
+        _logger.LogInformation("API: {Action} called", nameof(ApplyForPolicy));
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var policyHolderId))
+        {
+            _logger.LogWarning("API: {Action} failed - InvalidUserId", nameof(ApplyForPolicy));
+            return Unauthorized(new { error = "Invalid user identity." });
+        }
+        var result = await _policyService.ApplyForPolicyAsync(policyHolderId, request);
+        if (result.IsFailure)
+        {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(ApplyForPolicy), result.Error.Code);
             return result.Error.Code switch
             {
                 "PolicyHolderNotFound" => NotFound(result.Error),
@@ -34,7 +56,7 @@ public class PolicyController : ControllerBase
                 _ => BadRequest(result.Error)
             };
         }
-        _logger.LogInformation("API: {Action} succeeded", nameof(CreatePolicy));
+        _logger.LogInformation("API: {Action} succeeded", nameof(ApplyForPolicy));
         return CreatedAtAction(nameof(GetPolicyById), new { id = result.Value.Id }, result.Value);
     }
 
@@ -182,5 +204,20 @@ public class PolicyController : ControllerBase
         }
         _logger.LogInformation("API: {Action} succeeded", nameof(GetPolicyTypes));
         return Ok(result.Value);
+    }
+
+    [HttpPost("~/api/policy-types")]
+    [Authorize(Policy = "AdminOnly")]
+    public async Task<IActionResult> CreatePolicyTypeFromRoute([FromBody] CreatePolicyTypeRequest request)
+    {
+        _logger.LogInformation("API: {Action} called", nameof(CreatePolicyTypeFromRoute));
+        var result = await _policyService.CreatePolicyTypeAsync(request);
+        if (result.IsFailure)
+        {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(CreatePolicyTypeFromRoute), result.Error.Code);
+            return BadRequest(result.Error);
+        }
+        _logger.LogInformation("API: {Action} succeeded", nameof(CreatePolicyTypeFromRoute));
+        return StatusCode(201, result.Value);
     }
 }

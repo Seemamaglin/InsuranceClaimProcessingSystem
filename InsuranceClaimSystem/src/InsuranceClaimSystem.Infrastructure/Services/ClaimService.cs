@@ -260,12 +260,12 @@ public class ClaimService : IClaimService
         }
     }
 
-    public async Task<Result<PagedResult<ClaimDto>>> GetClaimsAsync(int page, int pageSize)
+    public async Task<Result<PagedResult<ClaimDto>>> GetClaimsAsync(int page, int pageSize, ClaimStatus? status = null)
     {
-        _logger.LogInformation("Getting claims page {Page} size {PageSize}", page, pageSize);
+        _logger.LogInformation("Getting claims page {Page} size {PageSize} status {Status}", page, pageSize, status);
         try
         {
-            var result = await _claimRepository.GetPagedAsync(page, pageSize);
+            var result = await _claimRepository.GetPagedAsync(page, pageSize, status.HasValue ? c => c.Status == status.Value : null);
             var mappedItems = _mapper.Map<List<ClaimDto>>(result.Items);
             _logger.LogInformation("Retrieved {Count} claims", result.TotalCount);
             return Result<PagedResult<ClaimDto>>.Success(PagedResult<ClaimDto>.Create(mappedItems, result.TotalCount, page, pageSize));

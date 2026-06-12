@@ -34,65 +34,35 @@ public class PolicyService : IPolicyService
         _logger = logger;
     }
 
-    public async Task<Result<PolicyResponse>> CreatePolicyAsync(CreatePolicyRequest request)
+    public async Task<Result<PolicyTypeDto>> CreatePolicyTypeAsync(CreatePolicyTypeRequest request)
     {
         try
         {
-            var policyHolder = await _userRepository.GetByIdAsync(request.PolicyHolderId);
-            if (policyHolder == null)
+            var policyType = new PolicyType
             {
-                return Result<PolicyResponse>.Failure(
-                    Error.NotFound("PolicyHolderNotFound", "Policy holder not found."));
-            }
-
-            var policyType = await _policyTypeRepository.GetByIdAsync(request.PolicyTypeId);
-            if (policyType == null)
-            {
-                return Result<PolicyResponse>.Failure(
-                    Error.NotFound("PolicyTypeNotFound", "Policy type not found."));
-            }
-
-            var policyCount = await _policyRepository.CountByStatusAsync(PolicyStatus.PendingApproval);
-            var sequenceNumber = (policyCount + 1).ToString("D4");
-            var policyNumber = $"POL-{DateTime.UtcNow.Year}-{sequenceNumber}";
-
-            var gracePeriodDays = request.PremiumFrequency switch
-            {
-                PremiumFrequency.Monthly => 15,
-                _ => 30
+                TypeName = request.TypeName,
+                Description = request.Description,
+                DefaultBenefitType = request.DefaultBenefitType,
+                AllowsNomineeClaim = request.AllowsNomineeClaim,
+                AllowsThirdPartyClaim = request.AllowsThirdPartyClaim,
+                DefaultCoverageAmount = request.DefaultCoverageAmount,
+                IsActive = true
             };
 
-            var policy = new Policy
-            {
-                PolicyNumber = policyNumber,
-                PolicyHolderId = request.PolicyHolderId,
-                PolicyTypeId = request.PolicyTypeId,
-                Status = PolicyStatus.PendingApproval,
-                StartDate = request.StartDate,
-                EndDate = request.EndDate,
-                CoverageAmount = request.CoverageAmount,
-                RemainingCoverageAmount = request.CoverageAmount,
-                PremiumAmount = request.PremiumAmount,
-                PremiumFrequency = request.PremiumFrequency,
-                GracePeriodDays = gracePeriodDays,
-                RowVersion = Guid.NewGuid().ToByteArray()
-            };
-
-            await _policyRepository.AddAsync(policy);
+            await _policyTypeRepository.AddAsync(policyType);
             await _unitOfWork.SaveChangesAsync();
 
-            _logger.LogInformation("Policy created successfully: {PolicyNumber}", policyNumber);
+            _logger.LogInformation("PolicyType created: {TypeName}", policyType.TypeName);
 
-            var createdPolicy = await _policyRepository.GetByIdAsync(policy.Id);
-            return Result<PolicyResponse>.Success(_mapper.Map<PolicyResponse>(createdPolicy));
+            return Result<PolicyTypeDto>.Success(_mapper.Map<PolicyTypeDto>(policyType));
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error creating policy");
-            return Result<PolicyResponse>.Failure(
-                Error.Validation("CreatePolicyFailed", "An error occurred while creating the policy."));
+            _logger.LogError(ex, "Error creating policy type");
+            return Result<PolicyTypeDto>.Failure(Error.Validation("CreatePolicyTypeFailed", "An error occurred while creating the policy type."));
         }
     }
+
 
     public async Task<Result<PolicyResponse>> GetPolicyByIdAsync(Guid policyId)
     {
@@ -202,6 +172,54 @@ public class PolicyService : IPolicyService
             _logger.LogError(ex, "Error deleting policy {PolicyId}", policyId);
             return Result<bool>.Failure(
                 Error.Validation("DeletePolicyFailed", "An error occurred while deleting the policy."));
+        }
+    }
+
+    public async Task<Result<PolicyResponse>> ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request)
+    {
+        try
+        {
+            var policyHolder = await _userRepository.GetByIdAsync(policyHolderId);
+            if (policyHolder == null)
+                return Result<PolicyResponse>.Failure(Error.NotFound("PolicyHolderNotFound", "Policy holder not found."));
+
+            var policyType = await _policyTypeRepository.GetByIdAsync(request.PolicyTypeId);
+            if (policyType == null)
+                return Result<PolicyResponse>.Failure(Error.NotFound("PolicyTypeNotFound", "Policy type not found."));
+
+            var policyCount = await _policyRepository.CountByStatusAsync(PolicyStatus.PendingApproval);
+            var policyNumber = $"POL-{DateTime.UtcNow.Year}-{(policyCount + 1):D4}";
+
+            var gracePeriodDays = request.PremiumFrequency == PremiumFrequency.Monthly ? 15 : 30;
+
+            var policy = new Policy
+            {
+                PolicyNumber = policyNumber,
+                PolicyHolderId = policyHolderId,
+                PolicyTypeId = request.PolicyTypeId,
+                Status = PolicyStatus.PendingApproval,
+                StartDate = request.StartDate,
+                EndDate = request.EndDate,
+                CoverageAmount = request.CoverageAmount,
+                RemainingCoverageAmount = request.CoverageAmount,
+                PremiumAmount = request.PremiumAmount,
+                PremiumFrequency = request.PremiumFrequency,
+                GracePeriodDays = gracePeriodDays,
+                RowVersion = Guid.NewGuid().ToByteArray()
+            };
+
+            await _policyRepository.AddAsync(policy);
+            await _unitOfWork.SaveChangesAsync();
+
+            _logger.LogInformation("Policy application submitted: {PolicyNumber} by holder {PolicyHolderId}", policyNumber, policyHolderId);
+
+            var createdPolicy = await _policyRepository.GetByIdAsync(policy.Id);
+            return Result<PolicyResponse>.Success(_mapper.Map<PolicyResponse>(createdPolicy));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error applying for policy by holder {PolicyHolderId}", policyHolderId);
+            return Result<PolicyResponse>.Failure(Error.Validation("ApplyForPolicyFailed", "An error occurred while submitting the policy application."));
         }
     }
 
