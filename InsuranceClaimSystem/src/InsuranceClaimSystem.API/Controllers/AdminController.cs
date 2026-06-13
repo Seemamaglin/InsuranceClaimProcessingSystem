@@ -134,9 +134,92 @@ public class AdminController : ControllerBase
         _logger.LogInformation("API: {Action} succeeded", nameof(GetAllUsers));
         return Ok(result.Value);
     }
+
+    [HttpPost("users/create-staff")]
+    public async Task<IActionResult> CreateStaff([FromBody] CreateStaffRequest request)
+    {
+        _logger.LogInformation("API: {Action} called for role {Role}", nameof(CreateStaff), request.Role);
+        try
+        {
+            // Validate role
+            var allowedRoles = new[] { UserRole.ClaimReviewer, UserRole.ClaimsManager, UserRole.FinanceOfficer };
+            if (!Enum.IsDefined(typeof(UserRole), request.Role) || !allowedRoles.Contains(request.Role))
+            {
+                _logger.LogWarning("API: {Action} failed - InvalidRole", nameof(CreateStaff));
+                return BadRequest(new { error = "Invalid staff role. Allowed: ClaimReviewer(3), ClaimsManager(2), FinanceOfficer(4)." });
+            }
+
+            // Check email uniqueness
+            var existingByEmail = await _userRepository.GetByEmailAsync(request.Email);
+            if (existingByEmail != null)
+            {
+                _logger.LogWarning("API: {Action} failed - EmailExists", nameof(CreateStaff));
+                return Conflict(new { error = "A user with this email already exists." });
+            }
+
+            // Check username uniqueness
+            var existingByUsername = await _userRepository.GetByUsernameAsync(request.UserName);
+            if (existingByUsername != null)
+            {
+                _logger.LogWarning("API: {Action} failed - UsernameExists", nameof(CreateStaff));
+                return Conflict(new { error = "A user with this username already exists." });
+            }
+
+            var staffUser = new User
+            {
+                Id = Guid.NewGuid(),
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                DateOfBirth = request.DateOfBirth,
+                Username = request.UserName,
+                Email = request.Email,
+                EmailVerifiedAt = DateTime.UtcNow,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password, 12),
+                PhoneNumber = request.PhoneNumber,
+                Role = request.Role,
+                Specialization = request.Specialization,
+                RegistrationStatus = RegistrationStatus.Approved,
+                IsActive = true,
+                IsFirstLogin = true,
+                FailedLoginAttempts = 0,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            };
+
+            await _userRepository.AddAsync(staffUser);
+            await _unitOfWork.SaveChangesAsync();
+
+            _logger.LogInformation("API: {Action} succeeded - UserId {UserId}", nameof(CreateStaff), staffUser.Id);
+            return StatusCode(201, new
+            {
+                userId = staffUser.Id,
+                email = staffUser.Email,
+                role = staffUser.Role,
+                message = "Staff account created successfully."
+            });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error creating staff account");
+            return StatusCode(500, new { error = "An unexpected error occurred." });
+        }
+    }
 }
 
 public class RejectRegistrationRequest
 {
     public string Reason { get; set; } = string.Empty;
+}
+
+public class CreateStaffRequest
+{
+    public string FirstName { get; set; } = string.Empty;
+    public string LastName { get; set; } = string.Empty;
+    public DateTime DateOfBirth { get; set; }
+    public string Email { get; set; } = string.Empty;
+    public string UserName { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+    public string PhoneNumber { get; set; } = string.Empty;
+    public UserRole Role { get; set; }
+    public Specialization? Specialization { get; set; }
 }
