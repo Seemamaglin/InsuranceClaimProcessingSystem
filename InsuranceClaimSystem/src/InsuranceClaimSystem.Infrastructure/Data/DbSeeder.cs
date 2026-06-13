@@ -11,7 +11,7 @@ public static class DbSeeder
         // Seed only if tables are empty
         if (await context.Users.AnyAsync())
             return;
-
+            
         // --- a) Admin User ---
         var adminUser = new User
         {

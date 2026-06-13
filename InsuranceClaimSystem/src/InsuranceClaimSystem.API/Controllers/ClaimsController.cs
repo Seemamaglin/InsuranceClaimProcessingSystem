@@ -42,10 +42,10 @@ public class ClaimsController : ControllerBase
     /// </summary>
     [HttpGet]
     [Authorize(Policy = "StaffOnly")]
-    public async Task<IActionResult> GetClaims([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] InsuranceClaimSystem.Domain.Enums.ClaimStatus? status = null)
+    public async Task<IActionResult> GetClaims([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] InsuranceClaimSystem.Domain.Enums.ClaimStatus? status = null, [FromQuery] DateTime? dateFrom = null, [FromQuery] DateTime? dateTo = null)
     {
-        _logger.LogInformation("API: {Action} called", nameof(GetClaims));
-        var result = await _claimService.GetClaimsAsync(page, pageSize, status);
+        _logger.LogInformation("API: {Action} called with status {Status} dateFrom {DateFrom} dateTo {DateTo}", nameof(GetClaims), status, dateFrom, dateTo);
+        var result = await _claimService.GetClaimsAsync(page, pageSize, status, dateFrom, dateTo);
         if (result.IsFailure)
         {
             _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetClaims), result.Error.Code);

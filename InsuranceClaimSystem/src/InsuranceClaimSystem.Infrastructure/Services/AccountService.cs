@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using InsuranceClaimSystem.Application.Common;
 using InsuranceClaimSystem.Application.DTOs.Accounts;
 using InsuranceClaimSystem.Application.Interfaces.Repositories;
 using InsuranceClaimSystem.Application.Interfaces.Services;
 using InsuranceClaimSystem.Domain.Entities;
+using InsuranceClaimSystem.Domain.Enums;
 using Microsoft.Extensions.Logging;
 
 namespace InsuranceClaimSystem.Infrastructure.Services;
@@ -232,27 +234,24 @@ public class AccountService : IAccountService
         }
     }
 
-    public async Task<Result<PagedResult<AccountDto>>> GetAllAccountsPagedAsync(int page, int pageSize)
+    public async Task<Result<PagedResult<AccountDto>>> GetAllAccountsPagedAsync(int page, int pageSize, UserRole? role = null)
     {
-        _logger.LogInformation("Getting paged accounts - page {Page}, size {PageSize}", page, pageSize);
+        _logger.LogInformation("Getting paged accounts - page {Page}, size {PageSize}, role {Role}", page, pageSize, role);
         try
         {
-            var allUsers = await _userRepository.GetAllAsync();
-            var totalCount = allUsers.Count();
-            var pagedUsers = allUsers
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
+            var predicate = role.HasValue
+                ? (Expression<Func<User, bool>>)(x => x.Role == role.Value)
+                : x => true;
+
+            var pagedResult = await _userRepository.GetPagedAsync(page, pageSize, predicate);
+
+            var accountDtos = pagedResult.Items
+                .Select(MapToAccountDto)
                 .ToList();
 
-            var accountDtos = new List<AccountDto>();
-            foreach (var user in pagedUsers)
-            {
-                accountDtos.Add(MapToAccountDto(user));
-            }
-
-            var pagedResult = PagedResult<AccountDto>.Create(accountDtos, totalCount, page, pageSize);
-            _logger.LogInformation("Retrieved paged accounts - total {Total}, page {Page}", totalCount, page);
-            return Result<PagedResult<AccountDto>>.Success(pagedResult);
+            var result = PagedResult<AccountDto>.Create(accountDtos, pagedResult.TotalCount, page, pageSize);
+            _logger.LogInformation("Retrieved paged accounts - total {Total}, page {Page}", pagedResult.TotalCount, page);
+            return Result<PagedResult<AccountDto>>.Success(result);
         }
         catch (Exception ex)
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using InsuranceClaimSystem.Application.Common;
 using InsuranceClaimSystem.Application.DTOs.Accounts;
+using InsuranceClaimSystem.Domain.Enums;
 
 namespace InsuranceClaimSystem.Application.Interfaces.Services;
 
@@ -15,5 +16,5 @@ public interface IAccountService
     Task<Result<bool>> DeleteAccountAsync(Guid userId);
     Task<Result<bool>> ReactivateAccountAsync(Guid userId);
     Task<Result<IEnumerable<AccountDto>>> GetAllAccountsAsync();
-    Task<Result<PagedResult<AccountDto>>> GetAllAccountsPagedAsync(int page, int pageSize);
+    Task<Result<PagedResult<AccountDto>>> GetAllAccountsPagedAsync(int page, int pageSize, UserRole? role = null);
 }

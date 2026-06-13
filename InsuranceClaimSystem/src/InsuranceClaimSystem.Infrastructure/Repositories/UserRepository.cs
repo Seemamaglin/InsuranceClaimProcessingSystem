@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using InsuranceClaimSystem.Domain.Entities;
 using InsuranceClaimSystem.Domain.Enums;
@@ -59,5 +60,25 @@ public class UserRepository : Repository<User>, IUserRepository
             .FirstOrDefaultAsync(u => u.Id == userId);
 
         return user?.FailedLoginAttempts ?? 0;
+    }
+
+    public async Task<PagedResult<User>> GetPagedAsync(int page, int pageSize, Expression<Func<User, bool>>? predicate = null)
+    {
+        var query = _dbContext.Users.AsNoTracking().AsQueryable();
+
+        if (predicate != null)
+        {
+            query = query.Where(predicate);
+        }
+
+        var totalCount = await query.CountAsync();
+
+        var items = await query
+            .OrderByDescending(u => u.CreatedAt)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return PagedResult<User>.Create(items, totalCount, page, pageSize);
     }
 }

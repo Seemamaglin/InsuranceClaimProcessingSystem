@@ -12,4 +12,5 @@ public interface IUserRepository : IRepository<User>
     Task<IEnumerable<User>> GetUsersByRoleAsync(UserRole role);
     Task<PagedResult<User>> GetPendingRegistrationsAsync(int page, int pageSize);
     Task<int> CountFailedLoginAttemptsAsync(Guid userId);
+    Task<PagedResult<User>> GetPagedAsync(int page, int pageSize, Expression<Func<User, bool>>? predicate = null);
 }

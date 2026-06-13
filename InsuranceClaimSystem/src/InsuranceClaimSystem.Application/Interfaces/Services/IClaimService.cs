@@ -11,7 +11,7 @@ public interface IClaimService
     Task<Result<bool>> UpdateStatusAsync(Guid claimId, UpdateClaimStatusRequest request);
     Task<Result<bool>> AssignReviewerAsync(AssignReviewerRequest request);
     Task<Result<bool>> AutoAssignReviewerAsync(Guid claimId);
-    Task<Result<PagedResult<ClaimDto>>> GetClaimsAsync(int page, int pageSize, InsuranceClaimSystem.Domain.Enums.ClaimStatus? status = null);
+    Task<Result<PagedResult<ClaimDto>>> GetClaimsAsync(int page, int pageSize, InsuranceClaimSystem.Domain.Enums.ClaimStatus? status = null, DateTime? dateFrom = null, DateTime? dateTo = null);
     Task<Result<PagedResult<ClaimDto>>> GetClaimsByPolicyAsync(Guid policyId, int page, int pageSize);
     Task<Result<PagedResult<ClaimDto>>> GetClaimsByReviewerAsync(Guid reviewerId, int page, int pageSize);
     Task<Result<decimal>> CalculatePayoutAsync(Guid claimId);

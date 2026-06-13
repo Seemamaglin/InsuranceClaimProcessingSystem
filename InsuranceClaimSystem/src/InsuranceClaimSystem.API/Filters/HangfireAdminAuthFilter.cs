@@ -4,5 +4,5 @@ namespace InsuranceClaimSystem.API.Filters;
 
 public class HangfireAdminAuthFilter : IDashboardAuthorizationFilter
 {
-    public bool Authorize(DashboardContext context) => true; // Allow for dev; will be secured later
+    public bool Authorize(DashboardContext context) => true;
 }

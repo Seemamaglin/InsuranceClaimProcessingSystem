@@ -1,4 +1,6 @@
+using System.Linq.Expressions;
 using FluentAssertions;
+using InsuranceClaimSystem.Application.Common;
 using InsuranceClaimSystem.Application.DTOs.Accounts;
 using InsuranceClaimSystem.Application.Interfaces.Repositories;
 using InsuranceClaimSystem.Domain.Entities;
@@ -389,5 +391,48 @@ public class AccountServiceTests
         // Assert
         result.IsSuccess.Should().BeTrue();
         result.Value.Should().HaveCount(2);
+    }
+
+    [Fact]
+    public async Task GetAllAccountsPaged_WithRoleFilter_ShouldFilterByRole()
+    {
+        var users = new List<User>
+        {
+            new User
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Admin",
+                LastName = "User",
+                Email = "admin@example.com",
+                Username = "admin",
+                Role = UserRole.Admin
+            }
+        };
+
+        _userRepositoryMock.Setup(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<User, bool>>>()))
+            .ReturnsAsync(PagedResult<User>.Create(users, users.Count, 1, 10));
+
+        var result = await _accountService.GetAllAccountsPagedAsync(1, 10, UserRole.Admin);
+
+        result.IsSuccess.Should().BeTrue();
+        _userRepositoryMock.Verify(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<User, bool>>>()), Times.Once);
+    }
+
+    [Fact]
+    public async Task GetAllAccountsPaged_WithoutRoleFilter_ShouldReturnAll()
+    {
+        var users = new List<User>
+        {
+            new User { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe", Email = "john@example.com", Username = "john", Role = UserRole.PolicyHolder },
+            new User { Id = Guid.NewGuid(), FirstName = "Admin", LastName = "User", Email = "admin@example.com", Username = "admin", Role = UserRole.Admin }
+        };
+
+        _userRepositoryMock.Setup(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<User, bool>>>()))
+            .ReturnsAsync(PagedResult<User>.Create(users, users.Count, 1, 10));
+
+        var result = await _accountService.GetAllAccountsPagedAsync(1, 10);
+
+        result.IsSuccess.Should().BeTrue();
+        result.Value.Items.Should().HaveCount(2);
     }
 }

@@ -62,10 +62,10 @@ public class PolicyController : ControllerBase
 
     [HttpGet]
     [Authorize(Policy = "StaffOnly")]
-    public async Task<IActionResult> GetPolicies([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+    public async Task<IActionResult> GetPolicies([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] InsuranceClaimSystem.Domain.Enums.PolicyStatus? status = null)
     {
-        _logger.LogInformation("API: {Action} called", nameof(GetPolicies));
-        var result = await _policyService.GetPoliciesAsync(page, pageSize);
+        _logger.LogInformation("API: {Action} called with status {Status}", nameof(GetPolicies), status);
+        var result = await _policyService.GetPoliciesAsync(page, pageSize, status);
         if (result.IsFailure)
         {
             _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetPolicies), result.Error.Code);

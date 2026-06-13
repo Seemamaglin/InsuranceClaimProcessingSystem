@@ -13,7 +13,7 @@ public interface IPolicyService
     Task<Result<PolicyResponse>> ApprovePolicyAsync(Guid policyId);
     Task<Result<PolicyResponse>> RejectPolicyAsync(Guid policyId, string? reason);
     Task<Result<bool>> DeletePolicyAsync(Guid policyId);
-    Task<Result<PagedResult<PolicyResponse>>> GetPoliciesAsync(int page, int pageSize);
+    Task<Result<PagedResult<PolicyResponse>>> GetPoliciesAsync(int page, int pageSize, InsuranceClaimSystem.Domain.Enums.PolicyStatus? status = null);
     Task<Result<PagedResult<PolicyResponse>>> GetPoliciesByHolderAsync(Guid policyHolderId, int page, int pageSize);
     Task<Result<IEnumerable<PolicyTypeDto>>> GetPolicyTypesAsync();
 }

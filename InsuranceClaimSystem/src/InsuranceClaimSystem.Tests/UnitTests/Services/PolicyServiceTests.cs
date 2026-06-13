@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using AutoMapper;
 using FluentAssertions;
 using InsuranceClaimSystem.Application.Common;
@@ -229,6 +230,50 @@ public class PolicyServiceTests
         // Assert
         result.IsSuccess.Should().BeFalse();
         result.Error.Code.Should().Be("PolicyHasClaims");
+    }
+
+    [Fact]
+    public async Task GetPolicies_WithStatusFilter_ShouldFilterByStatus()
+    {
+        var policies = new List<Policy>
+        {
+            new Policy
+            {
+                Id = Guid.NewGuid(),
+                PolicyNumber = "POL-2026-0001",
+                Status = PolicyStatus.Active
+            }
+        };
+
+        _policyRepositoryMock.Setup(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<Policy, bool>>>()))
+            .ReturnsAsync(PagedResult<Policy>.Create(policies, policies.Count, 1, 10));
+        _mapperMock.Setup(x => x.Map<PolicyResponse>(It.IsAny<Policy>()))
+            .Returns((Policy p) => new PolicyResponse { Id = p.Id, PolicyNumber = p.PolicyNumber, Status = p.Status });
+
+        var result = await _policyService.GetPoliciesAsync(1, 10, PolicyStatus.Active);
+
+        result.IsSuccess.Should().BeTrue();
+        _policyRepositoryMock.Verify(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<Policy, bool>>>()), Times.Once);
+    }
+
+    [Fact]
+    public async Task GetPolicies_WithoutStatusFilter_ShouldReturnAll()
+    {
+        var policies = new List<Policy>
+        {
+            new Policy { Id = Guid.NewGuid(), PolicyNumber = "POL-2026-0001", Status = PolicyStatus.Active },
+            new Policy { Id = Guid.NewGuid(), PolicyNumber = "POL-2026-0002", Status = PolicyStatus.Lapsed }
+        };
+
+        _policyRepositoryMock.Setup(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<Policy, bool>>>()))
+            .ReturnsAsync(PagedResult<Policy>.Create(policies, policies.Count, 1, 10));
+        _mapperMock.Setup(x => x.Map<PolicyResponse>(It.IsAny<Policy>()))
+            .Returns((Policy p) => new PolicyResponse { Id = p.Id, PolicyNumber = p.PolicyNumber, Status = p.Status });
+
+        var result = await _policyService.GetPoliciesAsync(1, 10);
+
+        result.IsSuccess.Should().BeTrue();
+        result.Value.Items.Should().HaveCount(2);
     }
 
     [Fact]

@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using InsuranceClaimSystem.Application.Common;
 using InsuranceClaimSystem.Application.Interfaces.Repositories;
+using InsuranceClaimSystem.Application.Interfaces.Services;
 using InsuranceClaimSystem.Domain.Entities;
 using InsuranceClaimSystem.Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
@@ -16,12 +17,18 @@ public class AdminController : ControllerBase
 {
     private readonly IUserRepository _userRepository;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IAccountService _accountService;
     private readonly ILogger<AdminController> _logger;
 
-    public AdminController(IUserRepository userRepository, IUnitOfWork unitOfWork, ILogger<AdminController> logger)
+    public AdminController(
+        IUserRepository userRepository,
+        IUnitOfWork unitOfWork,
+        IAccountService accountService,
+        ILogger<AdminController> logger)
     {
         _userRepository = userRepository;
         _unitOfWork = unitOfWork;
+        _accountService = accountService;
         _logger = logger;
     }
 
@@ -115,26 +122,17 @@ public class AdminController : ControllerBase
     }
 
     [HttpGet("users")]
-    public async Task<IActionResult> GetAllUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+    public async Task<IActionResult> GetAllUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] UserRole? role = null)
     {
-        _logger.LogInformation("API: {Action} called", nameof(GetAllUsers));
-        try
+        _logger.LogInformation("API: {Action} called with role {Role}", nameof(GetAllUsers), role);
+        var result = await _accountService.GetAllAccountsPagedAsync(page, pageSize, role);
+        if (result.IsFailure)
         {
-            var allUsers = await _userRepository.GetAllAsync();
-            var totalCount = allUsers.Count();
-            var pagedUsers = allUsers
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .ToList();
-            var result = PagedResult<User>.Create(pagedUsers, totalCount, page, pageSize);
-            _logger.LogInformation("API: {Action} succeeded", nameof(GetAllUsers));
-            return Ok(result);
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(GetAllUsers), result.Error.Code);
+            return BadRequest(result.Error);
         }
-        catch (Exception ex)
-        {
-            _logger.LogWarning("API: {Action} failed - {Error}", nameof(GetAllUsers), ex.Message);
-            return StatusCode(500, new { error = "An unexpected error occurred." });
-        }
+        _logger.LogInformation("API: {Action} succeeded", nameof(GetAllUsers));
+        return Ok(result.Value);
     }
 }
 

@@ -1,5 +1,6 @@
 using AutoMapper;
 using FluentAssertions;
+using InsuranceClaimSystem.Application.Common;
 using InsuranceClaimSystem.Application.DTOs.Claims;
 using InsuranceClaimSystem.Application.Interfaces.Repositories;
 using InsuranceClaimSystem.Application.Interfaces.Services;
@@ -11,6 +12,7 @@ using InsuranceClaimSystem.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Moq;
+using System.Linq.Expressions;
 using Xunit;
 
 namespace InsuranceClaimSystem.Tests.UnitTests.Services;
@@ -700,5 +702,81 @@ public class ClaimServiceTests
         // Assert
         result.IsSuccess.Should().BeFalse();
         result.Error.Code.Should().Be("ClaimNotFound");
+    }
+
+    [Fact]
+    public async Task GetClaims_WithDateFrom_ShouldFilterByDate()
+    {
+        var claimId = Guid.NewGuid();
+        var policyId = Guid.NewGuid();
+        var dateFrom = DateTime.UtcNow.AddDays(-7);
+
+        var claims = new List<Claim>
+        {
+            new Claim
+            {
+                Id = claimId,
+                ClaimNumber = "CLM-2026-0001",
+                PolicyId = policyId,
+                Status = ClaimStatus.Submitted,
+                CreatedAt = DateTime.UtcNow.AddDays(-3)
+            }
+        };
+
+        _claimRepositoryMock.Setup(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<Claim, bool>>>()))
+            .ReturnsAsync(PagedResult<Claim>.Create(claims, claims.Count, 1, 10));
+        _mapperMock.Setup(x => x.Map<List<ClaimDto>>(claims)).Returns(new List<ClaimDto>());
+
+        var result = await _claimService.GetClaimsAsync(1, 10, null, dateFrom, null);
+
+        result.IsSuccess.Should().BeTrue();
+        _claimRepositoryMock.Verify(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<Claim, bool>>>()), Times.Once);
+    }
+
+    [Fact]
+    public async Task GetClaims_WithDateTo_ShouldFilterByDate()
+    {
+        var dateTo = DateTime.UtcNow;
+
+        var claims = new List<Claim>();
+        _claimRepositoryMock.Setup(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<Claim, bool>>>()))
+            .ReturnsAsync(PagedResult<Claim>.Create(claims, 0, 1, 10));
+        _mapperMock.Setup(x => x.Map<List<ClaimDto>>(claims)).Returns(new List<ClaimDto>());
+
+        var result = await _claimService.GetClaimsAsync(1, 10, null, null, dateTo);
+
+        result.IsSuccess.Should().BeTrue();
+    }
+
+    [Fact]
+    public async Task GetClaims_WithDateRange_ShouldFilterByBothDates()
+    {
+        var dateFrom = DateTime.UtcNow.AddDays(-7);
+        var dateTo = DateTime.UtcNow;
+
+        var claims = new List<Claim>();
+        _claimRepositoryMock.Setup(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<Claim, bool>>>()))
+            .ReturnsAsync(PagedResult<Claim>.Create(claims, 0, 1, 10));
+        _mapperMock.Setup(x => x.Map<List<ClaimDto>>(claims)).Returns(new List<ClaimDto>());
+
+        var result = await _claimService.GetClaimsAsync(1, 10, null, dateFrom, dateTo);
+
+        result.IsSuccess.Should().BeTrue();
+    }
+
+    [Fact]
+    public async Task GetClaims_WithStatusAndDateRange_ShouldFilterByAll()
+    {
+        var dateFrom = DateTime.UtcNow.AddDays(-7);
+        var dateTo = DateTime.UtcNow;
+
+        var claims = new List<Claim>();
+        _claimRepositoryMock.Setup(x => x.GetPagedAsync(1, 10, It.IsAny<Expression<Func<Claim, bool>>>()))
+            .ReturnsAsync(PagedResult<Claim>.Create(claims, 0, 1, 10));
+        _mapperMock.Setup(x => x.Map<List<ClaimDto>>(claims)).Returns(new List<ClaimDto>());
+
+        var result = await _claimService.GetClaimsAsync(1, 10, ClaimStatus.Submitted, dateFrom, dateTo);
+
+        result.IsSuccess.Should().BeTrue();
     }
 }

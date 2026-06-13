@@ -7,4 +7,4 @@ namespace InsuranceClaimSystem.Application.Interfaces.External;
        string MaskAadhaar(string aadhaar);                                                         
        Task<byte[]> EncryptAsync(byte[] plainData);                                                
        Task<byte[]> DecryptAsync(byte[] cipherData);                                               
-   } 
+   }

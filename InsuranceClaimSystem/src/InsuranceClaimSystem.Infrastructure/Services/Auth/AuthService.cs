@@ -279,11 +279,11 @@ public class AuthService : IAuthService
 
     private static Result<UserRole> ValidateRegistrationRole(UserRole requestedRole)
     {
-        var allowedRoles = new[] { UserRole.PolicyHolder };
+        var allowedRoles = new[] { UserRole.PolicyHolder, UserRole.ClaimReviewer, UserRole.ClaimsManager, UserRole.FinanceOfficer };
         if (!allowedRoles.Contains(requestedRole))
         {
             return Result<UserRole>.Failure(
-                Error.Validation("InvalidRole", $"Role '{requestedRole}' is not allowed for public registration. Only PolicyHolder registration is permitted."));
+                Error.Validation("InvalidRole", $"Role '{requestedRole}' is not allowed for public registration. Admins cannot be registered publicly."));
         }
         return Result<UserRole>.Success(requestedRole);
     }

@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using InsuranceClaimSystem.Application.Common;
 using InsuranceClaimSystem.Application.DTOs.Claims;
 using InsuranceClaimSystem.Application.Interfaces.Repositories;
@@ -260,12 +261,13 @@ public class ClaimService : IClaimService
         }
     }
 
-    public async Task<Result<PagedResult<ClaimDto>>> GetClaimsAsync(int page, int pageSize, ClaimStatus? status = null)
+    public async Task<Result<PagedResult<ClaimDto>>> GetClaimsAsync(int page, int pageSize, ClaimStatus? status = null, DateTime? dateFrom = null, DateTime? dateTo = null)
     {
-        _logger.LogInformation("Getting claims page {Page} size {PageSize} status {Status}", page, pageSize, status);
+        _logger.LogInformation("Getting claims page {Page} size {PageSize} status {Status} dateFrom {DateFrom} dateTo {DateTo}", page, pageSize, status, dateFrom, dateTo);
         try
         {
-            var result = await _claimRepository.GetPagedAsync(page, pageSize, status.HasValue ? c => c.Status == status.Value : null);
+            var predicate = BuildClaimPredicate(status, dateFrom, dateTo);
+            var result = await _claimRepository.GetPagedAsync(page, pageSize, predicate);
             var mappedItems = _mapper.Map<List<ClaimDto>>(result.Items);
             _logger.LogInformation("Retrieved {Count} claims", result.TotalCount);
             return Result<PagedResult<ClaimDto>>.Success(PagedResult<ClaimDto>.Create(mappedItems, result.TotalCount, page, pageSize));
@@ -425,5 +427,31 @@ public class ClaimService : IClaimService
 
         // For now, accept the match - proper implementation would query PolicyType to check coverage types
         return true;
+    }
+
+    private static Expression<Func<Claim, bool>> BuildClaimPredicate(ClaimStatus? status, DateTime? dateFrom, DateTime? dateTo)
+    {
+        if (!status.HasValue && !dateFrom.HasValue && !dateTo.HasValue)
+            return x => true;
+
+        if (status.HasValue && dateFrom.HasValue && dateTo.HasValue)
+            return x => x.Status == status.Value && x.CreatedAt >= dateFrom.Value && x.CreatedAt <= dateTo.Value;
+
+        if (status.HasValue && dateFrom.HasValue)
+            return x => x.Status == status.Value && x.CreatedAt >= dateFrom.Value;
+
+        if (status.HasValue && dateTo.HasValue)
+            return x => x.Status == status.Value && x.CreatedAt <= dateTo.Value;
+
+        if (dateFrom.HasValue && dateTo.HasValue)
+            return x => x.CreatedAt >= dateFrom.Value && x.CreatedAt <= dateTo.Value;
+
+        if (status.HasValue)
+            return x => x.Status == status.Value;
+
+        if (dateFrom.HasValue)
+            return x => x.CreatedAt >= dateFrom.Value;
+
+        return x => x.CreatedAt <= dateTo.Value;
     }
 }

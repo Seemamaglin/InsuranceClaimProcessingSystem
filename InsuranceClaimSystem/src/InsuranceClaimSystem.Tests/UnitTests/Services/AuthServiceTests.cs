@@ -331,9 +331,6 @@ public class AuthServiceTests
 
     [Theory]
     [InlineData(UserRole.Admin)]
-    [InlineData(UserRole.ClaimsManager)]
-    [InlineData(UserRole.ClaimReviewer)]
-    [InlineData(UserRole.FinanceOfficer)]
     public async Task Register_WithPrivilegedRole_ShouldReturnFailure(UserRole privilegedRole)
     {
         var request = new RegisterRequest

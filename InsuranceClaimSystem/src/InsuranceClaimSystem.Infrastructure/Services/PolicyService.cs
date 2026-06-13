@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using AutoMapper;
 using InsuranceClaimSystem.Application.Common;
 using InsuranceClaimSystem.Application.DTOs.Policies;
@@ -280,14 +281,20 @@ public class PolicyService : IPolicyService
         }
     }
 
-    public async Task<Result<PagedResult<PolicyResponse>>> GetPoliciesAsync(int page, int pageSize)
+    public async Task<Result<PagedResult<PolicyResponse>>> GetPoliciesAsync(int page, int pageSize, PolicyStatus? status = null)
     {
+        _logger.LogInformation("Getting policies page {Page} size {PageSize} status {Status}", page, pageSize, status);
         try
         {
-            var pagedPolicies = await _policyRepository.GetPagedAsync(page, pageSize);
+            var predicate = status.HasValue
+                ? (Expression<Func<Policy, bool>>)(x => x.Status == status.Value)
+                : x => true;
+
+            var pagedPolicies = await _policyRepository.GetPagedAsync(page, pageSize, predicate);
             var policyResponses = pagedPolicies.Items.Select(p => _mapper.Map<PolicyResponse>(p)).ToList();
 
             var result = PagedResult<PolicyResponse>.Create(policyResponses, pagedPolicies.TotalCount, page, pageSize);
+            _logger.LogInformation("Retrieved {Count} policies", pagedPolicies.TotalCount);
             return Result<PagedResult<PolicyResponse>>.Success(result);
         }
         catch (Exception ex)
