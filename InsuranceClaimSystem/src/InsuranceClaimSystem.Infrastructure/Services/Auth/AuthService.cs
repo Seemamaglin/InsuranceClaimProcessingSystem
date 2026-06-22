@@ -53,6 +53,12 @@ public class AuthService : IAuthService
             var usernameCheck = await CheckUsernameAvailabilityAsync(request.UserName);
             if (usernameCheck.IsFailure) return Result<AuthResponse>.Failure(usernameCheck.Error);
 
+            if (!string.IsNullOrWhiteSpace(request.PhoneNumber))
+            {
+                var phoneCheck = await CheckPhoneNumberAvailabilityAsync(request.PhoneNumber);
+                if (phoneCheck.IsFailure) return Result<AuthResponse>.Failure(phoneCheck.Error);
+            }
+
             var roleValidation = ValidateRegistrationRole(request.Role);
             if (roleValidation.IsFailure)
                 return Result<AuthResponse>.Failure(roleValidation.Error);
@@ -64,7 +70,7 @@ public class AuthService : IAuthService
             var verification = BuildEmailVerificationCode(user, code);
             await _emailVerificationCodeRepository.AddAsync(verification);
 
-            await AutoVerifyAndApproveAsync(user, verification);
+            await _unitOfWork.SaveChangesAsync();
 
             await TrySendVerificationEmailAsync(user, code);
 
@@ -94,8 +100,9 @@ public class AuthService : IAuthService
                 return Result<AuthResponse>.Failure(Error.Unauthorized("InvalidCredentials", "Invalid email/username or password."));
             }
 
-            var (accessToken, refreshToken, refreshTokenEntity) = await CompleteLoginAsync(user);
+            var (accessToken, refreshToken, refreshTokenEntity, isFirstLogin) = await CompleteLoginAsync(user);
             var response = BuildAuthResponse(user, accessToken, refreshToken, refreshTokenEntity.ExpiresAt);
+            response.IsFirstLogin = isFirstLogin;
             _logger.LogInformation("Login succeeded for user: {UserId}", user.Id);
             return Result<AuthResponse>.Success(response);
         }
@@ -152,8 +159,8 @@ public class AuthService : IAuthService
             var user = await _userRepository.GetByEmailAsync(request.Email);
             if (user == null)
             {
-                _logger.LogInformation("Forgot password - email not found, returning success");
-                return Result<bool>.Success(true);
+                _logger.LogWarning("Forgot password - email not found: {Email}", request.Email);
+                return Result<bool>.Failure(Error.NotFound("UserNotFound", "The email address does not exist in our system."));
             }
 
             var resetToken = Guid.NewGuid().ToString("N");
@@ -184,24 +191,48 @@ public class AuthService : IAuthService
                 return Result<bool>.Failure(Error.NotFound("UserNotFound", "User not found."));
             }
 
-            var resetToken = await _passwordResetTokenRepository.GetActiveTokenByUserIdAsync(user.Id);
-            if (resetToken == null)
-            {
-                _logger.LogWarning("Password reset failed - no active token for user: {UserId}", user.Id);
-                return Result<bool>.Failure(Error.Unauthorized("InvalidToken", "Invalid or expired reset token."));
-            }
+            bool isChangePassword = BCrypt.Net.BCrypt.Verify(request.OldPassword, user.PasswordHash);
+            PasswordResetToken? resetToken = null;
 
-            var tokenHash = HashToken(request.OldPassword);
-            if (resetToken.Token != tokenHash)
+            if (!isChangePassword)
             {
-                _logger.LogWarning("Password reset failed - token mismatch for user: {UserId}", user.Id);
-                return Result<bool>.Failure(Error.Unauthorized("InvalidToken", "Invalid reset token."));
+                resetToken = await _passwordResetTokenRepository.GetActiveTokenByUserIdAsync(user.Id);
+                if (resetToken == null)
+                {
+                    _logger.LogWarning("Password reset failed - no active token for user: {UserId}", user.Id);
+                    return Result<bool>.Failure(Error.Unauthorized("InvalidToken", "Invalid old password or expired reset token."));
+                }
+
+                var tokenHash = HashToken(request.OldPassword);
+                if (resetToken.Token != tokenHash)
+                {
+                    _logger.LogWarning("Password reset failed - token mismatch for user: {UserId}", user.Id);
+                    return Result<bool>.Failure(Error.Unauthorized("InvalidToken", "Invalid old password or reset token."));
+                }
             }
 
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.NewPassword, 12);
-            resetToken.IsUsed = true;
-            resetToken.UsedAt = DateTime.UtcNow;
+            
+            if (resetToken != null)
+            {
+                resetToken.IsUsed = true;
+                resetToken.UsedAt = DateTime.UtcNow;
+            }
+            await _userRepository.UpdateAsync(user);
             await _unitOfWork.SaveChangesAsync();
+
+            try
+            {
+                await _emailService.SendEmailAsync(
+                    user.Email,
+                    "Password Reset Successful",
+                    $"Hello {user.FirstName},<br><br>Your password has been successfully reset. If you did not make this change, please contact an administrator immediately.",
+                    isHtml: true);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to send password reset success email to {Email}", user.Email);
+            }
 
             _logger.LogInformation("Password reset succeeded for email: {Email}", request.Email);
             return Result<bool>.Success(true);
@@ -236,13 +267,25 @@ public class AuthService : IAuthService
             if (verificationCode.CodeHash != codeHash)
             {
                 _logger.LogWarning("Email verification failed - code mismatch for user: {UserId}", user.Id);
-                return Result<bool>.Failure(Error.Unauthorized("InvalidCode", "Invalid verification code."));
+                
+                verificationCode.IsUsed = true;
+                verificationCode.UsedAt = DateTime.UtcNow;
+
+                var newCode = GenerateVerificationCode();
+                var newVerification = BuildEmailVerificationCode(user, newCode);
+                await _emailVerificationCodeRepository.AddAsync(newVerification);
+                await _unitOfWork.SaveChangesAsync();
+
+                await TrySendVerificationEmailAsync(user, newCode);
+
+                return Result<bool>.Failure(Error.Unauthorized("InvalidCode", "Invalid verification code. A new code has been sent to your email."));
             }
 
             user.EmailVerifiedAt = DateTime.UtcNow;
             user.RegistrationStatus = RegistrationStatus.PendingApproval;
             verificationCode.IsUsed = true;
             verificationCode.UsedAt = DateTime.UtcNow;
+            await _userRepository.UpdateAsync(user);
             await _unitOfWork.SaveChangesAsync();
 
             _logger.LogInformation("Email verification succeeded for email: {Email}", request.Email);
@@ -273,6 +316,16 @@ public class AuthService : IAuthService
         if (existing != null)
         {
             return Result<bool>.Failure(Error.Conflict("UsernameExists", "A user with this username already exists."));
+        }
+        return Result<bool>.Success(true);
+    }
+
+    private async Task<Result<bool>> CheckPhoneNumberAvailabilityAsync(string phoneNumber)
+    {
+        var existing = await _userRepository.GetPagedAsync(1, 1, u => u.PhoneNumber == phoneNumber);
+        if (existing.Items.Any())
+        {
+            return Result<bool>.Failure(Error.Conflict("PhoneNumberExists", "A user with this phone number already exists."));
         }
         return Result<bool>.Success(true);
     }
@@ -321,14 +374,7 @@ public class AuthService : IAuthService
         };
     }
 
-    private async Task AutoVerifyAndApproveAsync(User user, EmailVerificationCode verification)
-    {
-        verification.IsUsed = true;
-        verification.UsedAt = DateTime.UtcNow;
-        user.EmailVerifiedAt = DateTime.UtcNow;
-        user.RegistrationStatus = RegistrationStatus.PendingApproval;
-        await _unitOfWork.SaveChangesAsync();
-    }
+
 
     private async Task TrySendVerificationEmailAsync(User user, string code)
     {
@@ -337,7 +383,8 @@ public class AuthService : IAuthService
             await _emailService.SendEmailAsync(
                 user.Email,
                 "Verify Your Email - Insurance Claim System",
-                $"Your verification code is: <strong>{code}</strong><br/><br/>This code expires in 24 hours.");
+                $"Your verification code is: <strong>{code}</strong><br/><br/>This code expires in 24 hours.",
+                isHtml: true);
         }
         catch (Exception ex)
         {
@@ -380,6 +427,7 @@ public class AuthService : IAuthService
             user.LockoutUntil = DateTime.UtcNow.AddMinutes(15);
             _logger.LogWarning("User {UserId} locked out due to too many failed login attempts", user.Id);
         }
+        await _userRepository.UpdateAsync(user);
         await _unitOfWork.SaveChangesAsync();
     }
 
@@ -394,23 +442,31 @@ public class AuthService : IAuthService
             var remainingMinutes = (user.LockoutUntil.Value - DateTime.UtcNow).TotalMinutes;
             return Result<User>.Failure(Error.Unauthorized("AccountLocked", $"Account is locked. Try again in {(int)remainingMinutes} minutes."));
         }
+        if (user.RegistrationStatus != RegistrationStatus.Approved)
+        {
+            return Result<User>.Failure(Error.Unauthorized("AccountPending", "Your account registration is pending or has been rejected. It must be approved by an administrator before you can log in."));
+        }
         return Result<User>.Success(user);
     }
 
-    private async Task<(string AccessToken, string RefreshToken, RefreshToken TokenEntity)> CompleteLoginAsync(User user)
+    private async Task<(string AccessToken, string RefreshToken, RefreshToken TokenEntity, bool IsFirstLogin)> CompleteLoginAsync(User user)
     {
+        var isFirstLogin = user.IsFirstLogin;
+        
         user.FailedLoginAttempts = 0;
         user.LockoutUntil = null;
         user.LastLoginAt = DateTime.UtcNow;
+        user.IsFirstLogin = false;
 
         var accessToken = _jwtTokenService.GenerateAccessToken(user);
         var refreshToken = _jwtTokenService.GenerateRefreshToken();
 
         var refreshTokenEntity = BuildRefreshTokenEntity(user, refreshToken);
         await _refreshTokenRepository.AddAsync(refreshTokenEntity);
+        await _userRepository.UpdateAsync(user);
         await _unitOfWork.SaveChangesAsync();
 
-        return (accessToken, refreshToken, refreshTokenEntity);
+        return (accessToken, refreshToken, refreshTokenEntity, isFirstLogin);
     }
 
     private RefreshToken BuildRefreshTokenEntity(User user, string refreshToken)
@@ -479,7 +535,7 @@ public class AuthService : IAuthService
             await _emailService.SendEmailAsync(
                 user.Email,
                 "Reset Your Password - Insurance Claim System",
-                $"Click the link to reset your password: <a href='https://your-frontend-url/reset-password?token={resetToken}&email={user.Email}'>Reset Password</a><br/><br/>This link expires in 30 minutes.");
+                $"Click the link to reset your password: <a href='http://localhost:5016/api/auth/reset-password?token={resetToken}&email={user.Email}'>Reset Password</a><br/><br/>This link expires in 30 minutes.");
         }
         catch (Exception ex)
         {

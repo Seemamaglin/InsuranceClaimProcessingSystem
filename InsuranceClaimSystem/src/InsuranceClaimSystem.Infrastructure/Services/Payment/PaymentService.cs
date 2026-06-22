@@ -18,6 +18,7 @@ public class PaymentService : IPaymentService
     private readonly IClaimWorkflowHistoryRepository _workflowHistoryRepository;
     private readonly IStripeService _stripeService;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly INotificationService _notificationService;
     private readonly ILogger<PaymentService> _logger;
 
     public PaymentService(
@@ -27,6 +28,7 @@ public class PaymentService : IPaymentService
         IClaimWorkflowHistoryRepository workflowHistoryRepository,
         IStripeService stripeService,
         IUnitOfWork unitOfWork,
+        INotificationService notificationService,
         ILogger<PaymentService> logger)
     {
         _paymentRepository = paymentRepository;
@@ -35,10 +37,11 @@ public class PaymentService : IPaymentService
         _workflowHistoryRepository = workflowHistoryRepository;
         _stripeService = stripeService;
         _unitOfWork = unitOfWork;
+        _notificationService = notificationService;
         _logger = logger;
     }
 
-    public async Task<Result<string>> CreatePaymentIntentAsync(Guid claimId)
+    public async Task<Result<(string PaymentIntentId, decimal FinalPayableAmount)>> CreatePaymentIntentAsync(Guid claimId)
     {
         _logger.LogInformation("Creating payment intent for claim {ClaimId}", claimId);
         try
@@ -46,7 +49,7 @@ public class PaymentService : IPaymentService
             var validationResult = await ValidateClaimForPaymentAsync(claimId);
             if (validationResult.IsFailure)
             {
-                return Result<string>.Failure(validationResult.Error);
+                return Result<(string PaymentIntentId, decimal FinalPayableAmount)>.Failure(validationResult.Error);
             }
 
             var claim = validationResult.Value!;
@@ -71,22 +74,22 @@ public class PaymentService : IPaymentService
                 "Payment intent created for claim {ClaimId} with amount {Amount}",
                 claimId, claim.FinalPayableAmount);
 
-            return Result<string>.Success(paymentIntent.Id);
+            return Result<(string PaymentIntentId, decimal FinalPayableAmount)>.Success((paymentIntent.Id, claim.FinalPayableAmount));
         }
         catch (BusinessRuleException ex)
         {
             _logger.LogWarning(ex, "Business rule violation during payment intent creation for claim {ClaimId}", claimId);
-            return Result<string>.Failure(Error.Validation("ValidationFailed", ex.Message));
+            return Result<(string PaymentIntentId, decimal FinalPayableAmount)>.Failure(Error.Validation("ValidationFailed", ex.Message));
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error creating payment intent for claim {ClaimId}", claimId);
-            return Result<string>.Failure(
+            return Result<(string PaymentIntentId, decimal FinalPayableAmount)>.Failure(
                 Error.Validation("CreatePaymentIntentFailed", "An error occurred while creating the payment intent."));
         }
     }
 
-    public async Task<Result<bool>> ConfirmPaymentAsync(Guid claimId, string paymentIntentId)
+    public async Task<Result<(bool Success, decimal FinalPayableAmount)>> ConfirmPaymentAsync(Guid claimId, string paymentIntentId)
     {
         _logger.LogInformation("Confirming payment for claim {ClaimId}", claimId);
         try
@@ -95,7 +98,14 @@ public class PaymentService : IPaymentService
             if (claim == null)
             {
                 _logger.LogWarning("Claim {ClaimId} not found during payment confirmation", claimId);
-                return Result<bool>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
+                return Result<(bool Success, decimal FinalPayableAmount)>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
+            }
+
+            if (claim.Status == ClaimStatus.Closed)
+            {
+                _logger.LogWarning("Claim {ClaimId} is already closed", claimId);
+                return Result<(bool Success, decimal FinalPayableAmount)>.Failure(
+                    Error.Conflict("ClaimAlreadyClosed", "Claim is already closed."));
             }
 
             var payments = await _paymentRepository.GetByClaimIdAsync(claimId);
@@ -103,14 +113,14 @@ public class PaymentService : IPaymentService
             if (claimPayment == null)
             {
                 _logger.LogWarning("Payment not found for payment intent {PaymentIntentId}", paymentIntentId);
-                return Result<bool>.Failure(
+                return Result<(bool Success, decimal FinalPayableAmount)>.Failure(
                     Error.NotFound("PaymentNotFound", "Payment record not found for the specified payment intent."));
             }
 
             if (claimPayment.PaymentStatus == ClaimPaymentStatus.Completed)
             {
                 _logger.LogWarning("Payment already completed for claim {ClaimId}", claimId);
-                return Result<bool>.Failure(
+                return Result<(bool Success, decimal FinalPayableAmount)>.Failure(
                     Error.Conflict("PaymentAlreadyCompleted", "Payment has already been completed."));
             }
 
@@ -121,31 +131,46 @@ public class PaymentService : IPaymentService
                 await _paymentRepository.UpdateAsync(claimPayment);
                 await _unitOfWork.SaveChangesAsync();
                 _logger.LogWarning("Payment failed for claim {ClaimId}: {FailureMessage}", claimId, confirmation.FailureMessage);
-                return Result<bool>.Failure(
+                return Result<(bool Success, decimal FinalPayableAmount)>.Failure(
                     Error.Validation("PaymentFailed", $"Payment failed: {confirmation.FailureMessage ?? "Unknown error"}"));
             }
 
             await UpdateClaimOnPaymentAsync(claim, claimPayment);
+            await _claimRepository.UpdateAsync(claim);
+            await _paymentRepository.UpdateAsync(claimPayment);
             await UpdatePolicyCoverageAsync(claim);
             var workflowEntry = BuildPaymentWorkflowEntry(claim);
             await _workflowHistoryRepository.AddAsync(workflowEntry);
             await _unitOfWork.SaveChangesAsync();
 
+            // Send notification about payment confirmation
+            var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
+            if (policy != null)
+            {
+                await _notificationService.CreateNotificationAsync(
+                    policy.PolicyHolderId,
+                    "Payment Confirmed",
+                    $"The payment of {claimPayment.Amount} for claim {claim.ClaimNumber} has been successfully processed and the claim is now closed.",
+                    InsuranceClaimSystem.Domain.Enums.NotificationType.StatusChanged,
+                    InsuranceClaimSystem.Domain.Enums.NotificationChannel.InApp,
+                    claim.Id);
+            }
+
             _logger.LogInformation(
                 "Payment confirmed for claim {ClaimId} with amount {Amount}",
                 claimId, claimPayment.Amount);
 
-            return Result<bool>.Success(true);
+            return Result<(bool Success, decimal FinalPayableAmount)>.Success((true, claim.FinalPayableAmount));
         }
         catch (BusinessRuleException ex)
         {
             _logger.LogWarning(ex, "Business rule violation during payment confirmation for claim {ClaimId}", claimId);
-            return Result<bool>.Failure(Error.Validation("ValidationFailed", ex.Message));
+            return Result<(bool Success, decimal FinalPayableAmount)>.Failure(Error.Validation("ValidationFailed", ex.Message));
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error confirming payment for claim {ClaimId}", claimId);
-            return Result<bool>.Failure(
+            return Result<(bool Success, decimal FinalPayableAmount)>.Failure(
                 Error.Validation("ConfirmPaymentFailed", "An error occurred while confirming the payment."));
         }
     }
@@ -187,6 +212,12 @@ public class PaymentService : IPaymentService
         if (claim == null)
         {
             return Result<Claim>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
+        }
+
+        if (claim.Status == ClaimStatus.Closed)
+        {
+            return Result<Claim>.Failure(
+                Error.Conflict("ClaimAlreadyClosed", "Claim is already closed."));
         }
 
         if (claim.Status != ClaimStatus.Approved)
@@ -258,7 +289,7 @@ public class PaymentService : IPaymentService
         return new ClaimWorkflowHistory
         {
             ClaimId = claim.Id,
-            ChangedByUserId = claim.AssignedManagerId ?? Guid.Empty,
+            ChangedByUserId = claim.AssignedManagerId ?? claim.AssignedReviewerId ?? claim.ClaimantId,
             ActionType = WorkflowActionType.StatusChange,
             PreviousStatus = claim.Status,
             NewStatus = ClaimStatus.Closed,

@@ -15,7 +15,7 @@ public class PolicyProfile : Profile
         CreateMap<ApplyForPolicyRequest, Policy>()
             .ForMember(dest => dest.PolicyTypeId, opt => opt.MapFrom(src => src.PolicyTypeId))
             .ForMember(dest => dest.StartDate, opt => opt.MapFrom(src => src.StartDate))
-            .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.EndDate))
+            .ForMember(dest => dest.EndDate, opt => opt.Ignore())
             .ForMember(dest => dest.CoverageAmount, opt => opt.MapFrom(src => src.CoverageAmount))
             .ForMember(dest => dest.PremiumAmount, opt => opt.MapFrom(src => src.PremiumAmount))
             .ForMember(dest => dest.PremiumFrequency, opt => opt.MapFrom(src => src.PremiumFrequency))

@@ -1,4 +1,5 @@
 using InsuranceClaimSystem.Application.Common;
+using InsuranceClaimSystem.Application.DTOs.Policies;
 using InsuranceClaimSystem.Application.Interfaces.External;
 using InsuranceClaimSystem.Application.Interfaces.Repositories;
 using InsuranceClaimSystem.Application.Interfaces.Services;
@@ -99,6 +100,47 @@ public class PremiumPaymentService : IPremiumPaymentService
             _logger.LogError(ex, "Error recording premium for policy {PolicyId}", policyId);
             return Result<PolicyPayment>.Failure(
                 Error.Validation("RecordPremiumFailed", "An error occurred while recording the premium payment."));
+        }
+    }
+
+    public async Task<Result<PolicyPayment>> PayPremiumAsync(Guid policyHolderId, PayPremiumRequest request)
+    {
+        _logger.LogInformation("Processing premium payment for policy {PolicyId} by holder {PolicyHolderId}", request.PolicyId, policyHolderId);
+        try
+        {
+            var policy = await _policyRepository.GetByIdAsync(request.PolicyId);
+            if (policy == null)
+                return Result<PolicyPayment>.Failure(Error.NotFound("PolicyNotFound", "Policy not found."));
+
+            if (policy.PolicyHolderId != policyHolderId)
+                return Result<PolicyPayment>.Failure(Error.Unauthorized("Unauthorized", "You are not authorized to pay for this policy."));
+
+            if (policy.Status != PolicyStatus.Active)
+                return Result<PolicyPayment>.Failure(Error.Validation("PolicyNotActive", "Cannot pay premium for an inactive policy."));
+
+            if (request.Amount != policy.PremiumAmount)
+                return Result<PolicyPayment>.Failure(Error.Validation("AmountMismatch", $"Premium amount must be exactly {policy.PremiumAmount}."));
+
+            var simulatedStripeIntentId = $"pi_sim_{Guid.NewGuid():N}";
+            
+            var payment = BuildPolicyPayment(request.PolicyId, request.Amount, simulatedStripeIntentId);
+            await _policyPaymentRepository.AddAsync(payment);
+
+            policy.LastPremiumPaidDate = DateTime.UtcNow;
+            var baseDate = policy.NextPremiumDueDate > DateTime.UtcNow 
+                ? policy.NextPremiumDueDate 
+                : DateTime.UtcNow;
+            policy.NextPremiumDueDate = CalculateNextPremiumDueDate(baseDate, policy.PremiumFrequency);
+
+            await _unitOfWork.SaveChangesAsync();
+
+            _logger.LogInformation("Premium paid successfully for policy {PolicyId}", request.PolicyId);
+            return Result<PolicyPayment>.Success(payment);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error processing premium for policy {PolicyId}", request.PolicyId);
+            return Result<PolicyPayment>.Failure(Error.Validation("PayPremiumFailed", "An error occurred while paying the premium."));
         }
     }
 

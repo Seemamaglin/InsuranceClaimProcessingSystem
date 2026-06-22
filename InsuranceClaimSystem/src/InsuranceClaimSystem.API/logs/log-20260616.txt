@@ -1,0 +1,776 @@
+[2026-06-16 01:53:45.751 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-16 01:53:45.814 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:11224:99a2e012 was considered dead by other servers, restarting...
+[2026-06-16 01:53:45.868 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:99a2e012 caught restart signal...
+[2026-06-16 01:53:45.876 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:99a2e012 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-16 01:53:45.909 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:99a2e012 successfully reported itself as stopped in 31.9636 ms
+[2026-06-16 01:53:45.909 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:99a2e012 has been stopped in total 40.5007 ms
+[2026-06-16 01:53:45.941 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:51516c21 successfully announced in 31.1917 ms
+[2026-06-16 01:53:45.941 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:51516c21 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-16 01:53:45.943 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:51516c21 all the dispatchers started
+[2026-06-16 04:34:09.321 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-16 04:34:09.902 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:11224:51516c21 was considered dead by other servers, restarting...
+[2026-06-16 04:34:09.902 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:51516c21 caught restart signal...
+[2026-06-16 04:34:09.909 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:51516c21 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-16 04:34:09.914 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:51516c21 successfully reported itself as stopped in 4.2078 ms
+[2026-06-16 04:34:09.914 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:51516c21 has been stopped in total 10.2004 ms
+[2026-06-16 04:34:09.944 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:93ba2a73 successfully announced in 29.1387 ms
+[2026-06-16 04:34:09.945 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:93ba2a73 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-16 04:34:09.949 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:93ba2a73 all the dispatchers started
+[2026-06-16 07:28:43.453 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-16 07:28:43.967 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:11224:93ba2a73 was considered dead by other servers, restarting...
+[2026-06-16 07:28:43.971 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:93ba2a73 caught restart signal...
+[2026-06-16 07:28:43.986 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:93ba2a73 stopped non-gracefully due to Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-16 07:28:44.063 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:93ba2a73 successfully reported itself as stopped in 2.8552 ms
+[2026-06-16 07:28:44.063 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:93ba2a73 has been stopped in total 89.0993 ms
+[2026-06-16 07:28:44.119 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:8adb4d0f successfully announced in 53.3771 ms
+[2026-06-16 07:28:44.128 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:8adb4d0f is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-16 07:28:44.136 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:11224:8adb4d0f all the dispatchers started
+[2026-06-16 13:58:59.039 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-16 13:58:59.128 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-16 13:58:59.615 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 13:58:59.616 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 13:58:59.616 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 13:58:59.921 INF] : Database migrated and seeded successfully.
+[2026-06-16 13:59:00.035 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-16 13:59:00.038 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-16 13:59:00.038 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-16 13:59:00.038 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-16 13:59:00.038 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-16 13:59:00.038 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-16 13:59:00.038 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-16 13:59:00.045 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-16 13:59:00.045 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-16 13:59:00.045 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-16 13:59:00.110 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:8ec91b73 successfully announced in 63.653 ms
+[2026-06-16 13:59:00.112 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:8ec91b73 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-16 13:59:00.115 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:8ec91b73 all the dispatchers started
+[2026-06-16 13:59:00.118 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-16 14:33:27.044 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-16 14:33:27.189 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 14:33:27.192 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seemamaglin@gmail.com
+[2026-06-16 14:33:27.770 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 14:33:27.878 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 14:33:27.878 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 14:33:27.896 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 864.8697 ms
+[2026-06-16 14:33:34.318 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 14:33:34.319 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: sridhar@reviewer.com
+[2026-06-16 14:33:34.686 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 14:33:34.695 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 14:33:34.695 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 14:33:34.696 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 390.0819 ms
+[2026-06-16 14:33:37.405 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 14:33:37.406 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: priya.manager@gmail.com
+[2026-06-16 14:33:37.760 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-16 14:33:37.776 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-16 14:33:37.776 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 14:33:37.777 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 379.9338 ms
+[2026-06-16 14:33:40.490 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 14:33:40.491 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-16 14:33:40.699 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-16 14:33:40.705 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-16 14:33:40.705 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 14:33:40.706 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 222.9853 ms
+[2026-06-16 14:33:46.314 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-16 14:33:46.461 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Policy application submitted: POL-2026-1C3B13 by holder "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 14:33:46.466 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy succeeded
+[2026-06-16 14:33:46.484 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 201 in 314.6929 ms
+[2026-06-16 14:33:53.362 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApprovePolicy called
+[2026-06-16 14:33:53.404 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Policy approved: "b83adf81-4091-4dfe-bedd-4829b5926f5e"
+[2026-06-16 14:33:53.410 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApprovePolicy succeeded
+[2026-06-16 14:33:53.413 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/b83adf81-4091-4dfe-bedd-4829b5926f5e/approve responded 200 in 63.6455 ms
+[2026-06-16 14:33:57.902 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-16 14:33:57.905 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "b83adf81-4091-4dfe-bedd-4829b5926f5e"
+[2026-06-16 14:33:57.911 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "b83adf81-4091-4dfe-bedd-4829b5926f5e"
+[2026-06-16 14:33:57.991 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation completed successfully for policy "b83adf81-4091-4dfe-bedd-4829b5926f5e"
+[2026-06-16 14:33:58.108 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Auto-assigning reviewer to claim "d456890b-5e7f-4754-8ede-9c7bb6949db1"
+[2026-06-16 14:33:58.139 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Reviewer "0bab6fb2-5671-42b0-a70a-567ffd32c717" auto-assigned to claim "d456890b-5e7f-4754-8ede-9c7bb6949db1"
+[2026-06-16 14:33:58.139 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Reviewer auto-assigned for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1"
+[2026-06-16 14:33:58.140 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "0bab6fb2-5671-42b0-a70a-567ffd32c717" of type "StatusChanged" via "All"
+[2026-06-16 14:33:58.266 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to sridhar@reviewer.com with subject New Claim Assigned for Review
+[2026-06-16 14:33:58.266 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to sridhar@reviewer.com
+[2026-06-16 14:33:58.269 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "87c58565-03d9-4b7f-9e5d-d49fbddaa348" sent to user "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 14:33:58.269 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "0bab6fb2-5671-42b0-a70a-567ffd32c717" of type "StatusChanged" via "All"
+[2026-06-16 14:33:58.330 WRN] Microsoft.EntityFrameworkCore.Query: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2026-06-16 14:33:58.402 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "d456890b-5e7f-4754-8ede-9c7bb6949db1" submitted successfully
+[2026-06-16 14:33:58.413 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim succeeded
+[2026-06-16 14:33:58.435 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 201 in 553.1790 ms
+[2026-06-16 14:34:02.286 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 14:34:02.289 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "04caa9e1-e8ed-44af-b1c0-6c3eda89eb55"
+[2026-06-16 14:34:02.447 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Document uploaded successfully for claim "04caa9e1-e8ed-44af-b1c0-6c3eda89eb55"
+[2026-06-16 14:34:02.448 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument succeeded
+[2026-06-16 14:34:02.450 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 201 in 191.0372 ms
+[2026-06-16 14:34:06.530 INF] InsuranceClaimSystem.API.Controllers.ReviewersController: API: VerifyDocuments called
+[2026-06-16 14:34:06.602 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "773855f0-a543-4f1b-804d-572b77828c70" to "UnderReview"
+[2026-06-16 14:34:06.612 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Invalid status transition for claim "773855f0-a543-4f1b-804d-572b77828c70"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Invalid claim status transition from Approved to UnderReview.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimStateMachine.ValidateTransition(ClaimStatus from, ClaimStatus to) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimStateMachine.cs:line 28
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.UpdateStatusAsync(Guid claimId, UpdateClaimStatusRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 172
+[2026-06-16 14:34:06.633 INF] InsuranceClaimSystem.API.Controllers.ReviewersController: API: VerifyDocuments succeeded
+[2026-06-16 14:34:06.640 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/reviewers/claims/773855f0-a543-4f1b-804d-572b77828c70/verify-documents responded 200 in 132.3155 ms
+[2026-06-16 14:34:10.915 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 14:34:10.916 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "773855f0-a543-4f1b-804d-572b77828c70" to "Approved"
+[2026-06-16 14:34:10.935 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Invalid status transition for claim "773855f0-a543-4f1b-804d-572b77828c70"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Invalid claim status transition from Approved to Approved.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimStateMachine.ValidateTransition(ClaimStatus from, ClaimStatus to) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimStateMachine.cs:line 28
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.UpdateStatusAsync(Guid claimId, UpdateClaimStatusRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 172
+[2026-06-16 14:34:10.940 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus failed - InvalidTransition
+[2026-06-16 14:34:10.945 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/773855f0-a543-4f1b-804d-572b77828c70/status responded 400 in 51.8921 ms
+[2026-06-16 14:34:34.097 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 14:34:34.098 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1" to "Approved"
+[2026-06-16 14:34:34.105 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Invalid status transition for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Invalid claim status transition from Submitted to Approved.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimStateMachine.ValidateTransition(ClaimStatus from, ClaimStatus to) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimStateMachine.cs:line 28
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.UpdateStatusAsync(Guid claimId, UpdateClaimStatusRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 172
+[2026-06-16 14:34:34.108 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus failed - InvalidTransition
+[2026-06-16 14:34:34.110 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/d456890b-5e7f-4754-8ede-9c7bb6949db1/status responded 400 in 22.1952 ms
+[2026-06-16 14:35:01.707 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/d456890b-5e7f-4754-8ede-9c7bb6949db/status responded 404 in 6.4631 ms
+[2026-06-16 14:35:07.238 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/d456890b-5e7f-4754-8ede-9c7bb6949db/status responded 404 in 11.6851 ms
+[2026-06-16 14:37:54.575 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 14:37:54.576 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: sridhar@reviewer.com
+[2026-06-16 14:37:54.976 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 14:37:55.007 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 14:37:55.008 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 14:37:55.011 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 445.7152 ms
+[2026-06-16 14:39:41.607 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/d456890b-5e7f-4754-8ede-9c7bb6949db/status responded 404 in 9.8301 ms
+[2026-06-16 14:41:05.858 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 14:41:05.859 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1" to "UnderReview"
+[2026-06-16 14:41:05.967 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 14:41:06.022 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to Seemamaglin@gmail.com with subject Claim Status Updated
+[2026-06-16 14:41:06.022 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to Seemamaglin@gmail.com
+[2026-06-16 14:41:06.023 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "49b4250c-9a38-4139-a33d-d2b82aba3b59" sent to user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 14:41:06.023 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 14:41:06.024 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "d456890b-5e7f-4754-8ede-9c7bb6949db1" status updated to "UnderReview"
+[2026-06-16 14:41:06.024 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus succeeded
+[2026-06-16 14:41:06.028 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/d456890b-5e7f-4754-8ede-9c7bb6949db1/status responded 200 in 176.4296 ms
+[2026-06-16 14:41:10.122 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 14:41:10.122 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1" to "Approved"
+[2026-06-16 14:41:10.176 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Calculating payout: amount=4500.00, claimType="0560f552-a296-4015-9f4e-ab27d3c03950", policyType="9690ca6c-f901-4c19-9b39-3f671033d476"
+[2026-06-16 14:41:10.191 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Payout calculated: 0
+[2026-06-16 14:41:10.201 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 14:41:10.221 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to Seemamaglin@gmail.com with subject Claim Status Updated
+[2026-06-16 14:41:10.221 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to Seemamaglin@gmail.com
+[2026-06-16 14:41:10.221 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "5c098106-8568-457a-a48f-4a24023201e0" sent to user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 14:41:10.222 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 14:41:10.222 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "d456890b-5e7f-4754-8ede-9c7bb6949db1" status updated to "Approved"
+[2026-06-16 14:41:10.222 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus succeeded
+[2026-06-16 14:41:10.223 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/d456890b-5e7f-4754-8ede-9c7bb6949db1/status responded 200 in 109.7814 ms
+[2026-06-16 14:41:13.982 INF] InsuranceClaimSystem.API.Controllers.NotificationsController: API: GetNotifications called
+[2026-06-16 14:41:14.020 INF] InsuranceClaimSystem.API.Controllers.NotificationsController: API: GetNotifications succeeded
+[2026-06-16 14:41:14.048 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/notifications responded 200 in 84.9251 ms
+[2026-06-16 15:08:52.343 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims responded 401 in 42.3958 ms
+[2026-06-16 15:09:09.398 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 15:09:09.399 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: vikram.finance@gmail.com
+[2026-06-16 15:09:09.850 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-16 15:09:09.873 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-16 15:09:09.874 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 15:09:09.875 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 486.9363 ms
+[2026-06-16 15:09:14.553 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaims called with status "Approved" dateFrom null dateTo null
+[2026-06-16 15:09:14.562 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims page 1 size 10 status "Approved" dateFrom null dateTo null
+[2026-06-16 15:09:14.688 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 3 claims
+[2026-06-16 15:09:14.689 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaims succeeded
+[2026-06-16 15:09:14.699 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims responded 200 in 175.0520 ms
+[2026-06-16 15:09:32.097 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: CreatePaymentIntent called
+[2026-06-16 15:09:32.100 INF] InsuranceClaimSystem.Infrastructure.Services.PaymentService: Creating payment intent for claim "a6c750f4-0ffb-496b-98ac-942ba808f780"
+[2026-06-16 15:09:32.184 WRN] InsuranceClaimSystem.API.Controllers.PaymentsController: API: CreatePaymentIntent failed - ClaimNotApproved
+[2026-06-16 15:09:32.184 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/payments/a6c750f4-0ffb-496b-98ac-942ba808f780/create-intent responded 400 in 119.4990 ms
+[2026-06-16 15:09:56.825 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/d456890b-5e7f-4754-8ede-9c7bb6949db1/status responded 401 in 7.9877 ms
+[2026-06-16 15:10:02.981 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 15:10:02.981 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: priya.manager@gmail.com
+[2026-06-16 15:10:03.315 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-16 15:10:03.324 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-16 15:10:03.325 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 15:10:03.325 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 351.9538 ms
+[2026-06-16 15:10:06.485 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 15:10:06.486 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1" to "Approved"
+[2026-06-16 15:10:06.497 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Invalid status transition for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Invalid claim status transition from Approved to Approved.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimStateMachine.ValidateTransition(ClaimStatus from, ClaimStatus to) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimStateMachine.cs:line 28
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.UpdateStatusAsync(Guid claimId, UpdateClaimStatusRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 172
+[2026-06-16 15:10:06.501 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus failed - InvalidTransition
+[2026-06-16 15:10:06.504 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/d456890b-5e7f-4754-8ede-9c7bb6949db1/status responded 400 in 33.1245 ms
+[2026-06-16 15:10:25.912 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: CreatePaymentIntent called
+[2026-06-16 15:10:25.918 INF] InsuranceClaimSystem.Infrastructure.Services.PaymentService: Creating payment intent for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1"
+[2026-06-16 15:10:25.975 WRN] InsuranceClaimSystem.API.Controllers.PaymentsController: API: CreatePaymentIntent failed - InvalidAmount
+[2026-06-16 15:10:25.975 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/payments/d456890b-5e7f-4754-8ede-9c7bb6949db1/create-intent responded 400 in 68.9771 ms
+[2026-06-16 15:10:41.432 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaims called with status "Approved" dateFrom null dateTo null
+[2026-06-16 15:10:41.433 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims page 1 size 10 status "Approved" dateFrom null dateTo null
+[2026-06-16 15:10:41.457 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 3 claims
+[2026-06-16 15:10:41.457 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaims succeeded
+[2026-06-16 15:10:41.458 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims responded 200 in 39.7373 ms
+[2026-06-16 15:30:51.325 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/users/create-staff responded 401 in 9.4112 ms
+[2026-06-16 15:30:57.602 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 15:30:57.603 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-16 15:30:57.810 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-16 15:30:57.828 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-16 15:30:57.829 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 15:30:57.831 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 239.7622 ms
+[2026-06-16 15:31:05.239 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: CreateStaff called for role "ClaimReviewer"
+[2026-06-16 15:31:05.582 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: CreateStaff succeeded - UserId "0862e914-07cf-42eb-9a45-7980cef2b257"
+[2026-06-16 15:31:05.585 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/users/create-staff responded 201 in 385.2000 ms
+[2026-06-16 16:40:51.316 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/documents/249ece73-974d-417b-aa02-ef8319aa4996/download responded 401 in 13.3790 ms
+[2026-06-16 16:41:30.586 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/documents/249ece73-974d-417b-aa02-ef8319aa4996/download responded 401 in 12.9321 ms
+[2026-06-16 19:06:32.944 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-16 19:06:37.188 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:7858:8ec91b73 was considered dead by other servers, restarting...
+[2026-06-16 19:06:37.192 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:8ec91b73 caught restart signal...
+[2026-06-16 19:06:37.238 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:8ec91b73 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-16 19:06:37.258 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:8ec91b73 successfully reported itself as stopped in 8.1645 ms
+[2026-06-16 19:06:37.258 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:8ec91b73 has been stopped in total 61.8094 ms
+[2026-06-16 19:06:37.267 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:b5daeee8 successfully announced in 5.6854 ms
+[2026-06-16 19:06:37.270 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:b5daeee8 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-16 19:06:37.272 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:b5daeee8 all the dispatchers started
+[2026-06-16 20:30:04.622 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:b5daeee8 caught stopping signal...
+[2026-06-16 20:30:04.627 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-16 20:30:04.629 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:b5daeee8 All dispatchers stopped
+[2026-06-16 20:30:04.657 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:b5daeee8 successfully reported itself as stopped in 27.2232 ms
+[2026-06-16 20:30:04.657 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:7858:b5daeee8 has been stopped in total 34.0237 ms
+[2026-06-16 20:33:53.273 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-16 20:33:53.361 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-16 20:33:53.836 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 20:33:53.836 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 20:33:53.836 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 20:33:54.140 INF] : Database migrated and seeded successfully.
+[2026-06-16 20:33:54.182 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-16 20:33:54.184 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-16 20:33:54.184 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-16 20:33:54.184 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-16 20:33:54.184 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-16 20:33:54.184 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-16 20:33:54.184 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-16 20:33:54.190 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-16 20:33:54.191 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-16 20:33:54.191 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-16 20:33:54.245 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25108:14d0f201 successfully announced in 52.9355 ms
+[2026-06-16 20:33:54.247 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25108:14d0f201 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-16 20:33:54.249 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25108:14d0f201 all the dispatchers started
+[2026-06-16 20:34:08.369 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-16 20:34:08.441 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 20:34:08.442 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-16 20:34:08.786 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-16 20:34:08.868 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-16 20:34:08.868 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 20:34:08.889 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 520.2366 ms
+[2026-06-16 20:34:13.033 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 20:34:13.034 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seemamaglin@gmail.com
+[2026-06-16 20:34:13.478 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 20:34:13.482 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 20:34:13.483 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 20:34:13.483 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 454.8320 ms
+[2026-06-16 20:34:21.070 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 20:34:21.072 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: pratha@reviewer.com
+[2026-06-16 20:34:21.402 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "9907843c-b0e8-4483-8c23-2dca4b98dcf9"
+[2026-06-16 20:34:21.408 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "9907843c-b0e8-4483-8c23-2dca4b98dcf9"
+[2026-06-16 20:34:21.408 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 20:34:21.408 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 346.6230 ms
+[2026-06-16 20:34:25.574 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 20:34:25.574 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: priya.manager@gmail.com
+[2026-06-16 20:34:25.894 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-16 20:34:25.898 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-16 20:34:25.898 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 20:34:25.898 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 328.4917 ms
+[2026-06-16 20:34:29.242 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 20:34:29.243 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: vikram.finance@gmail.com
+[2026-06-16 20:34:29.578 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-16 20:34:29.584 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-16 20:34:29.584 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 20:34:29.586 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 350.2288 ms
+[2026-06-16 20:34:40.593 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-16 20:34:40.721 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Policy application submitted: POL-2026-A95B95 by holder "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 20:34:40.725 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy succeeded
+[2026-06-16 20:34:40.742 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 201 in 274.4121 ms
+[2026-06-16 20:34:53.447 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration called
+[2026-06-16 20:34:53.458 WRN] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration failed - InvalidStatus
+[2026-06-16 20:34:53.469 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/registrations/4af7c011-bf2b-4245-a491-a98249598756/approve responded 400 in 35.0500 ms
+[2026-06-16 20:35:05.766 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-16 20:35:05.768 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:35:05.791 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:35:05.799 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation failed for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Policy is not active. Current status: PendingApproval
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 113
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+[2026-06-16 20:35:05.811 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Business rule violation during claim submission
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Policy is not active. Current status: PendingApproval
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 113
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.SubmitClaimAsync(SubmitClaimRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 67
+[2026-06-16 20:35:05.811 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim failed - ValidationFailed
+[2026-06-16 20:35:05.812 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 400 in 71.1458 ms
+[2026-06-16 20:35:16.005 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApprovePolicy called
+[2026-06-16 20:35:16.028 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Policy approved: "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:35:16.029 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApprovePolicy succeeded
+[2026-06-16 20:35:16.031 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/8f423c17-61d4-4dd6-907a-c1838975257a/approve responded 200 in 32.8568 ms
+[2026-06-16 20:35:22.082 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-16 20:35:22.083 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:35:22.095 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:35:22.167 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation completed successfully for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:35:22.276 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Auto-assigning reviewer to claim "2081226c-6efb-4e46-95c4-dbc4240d9045"
+[2026-06-16 20:35:22.315 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Reviewer "0862e914-07cf-42eb-9a45-7980cef2b257" auto-assigned to claim "2081226c-6efb-4e46-95c4-dbc4240d9045"
+[2026-06-16 20:35:22.315 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Reviewer auto-assigned for claim "2081226c-6efb-4e46-95c4-dbc4240d9045"
+[2026-06-16 20:35:22.316 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "0862e914-07cf-42eb-9a45-7980cef2b257" of type "StatusChanged" via "All"
+[2026-06-16 20:35:22.470 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to new@reviewer.com with subject New Claim Assigned for Review
+[2026-06-16 20:35:22.470 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to new@reviewer.com
+[2026-06-16 20:35:22.472 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "1ab44f4c-28a9-4de7-a0ac-eef7d10631df" sent to user "0862e914-07cf-42eb-9a45-7980cef2b257"
+[2026-06-16 20:35:22.473 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "0862e914-07cf-42eb-9a45-7980cef2b257" of type "StatusChanged" via "All"
+[2026-06-16 20:35:22.522 WRN] Microsoft.EntityFrameworkCore.Query: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2026-06-16 20:35:22.570 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "2081226c-6efb-4e46-95c4-dbc4240d9045" submitted successfully
+[2026-06-16 20:35:22.579 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim succeeded
+[2026-06-16 20:35:22.603 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 201 in 531.1537 ms
+[2026-06-16 20:35:45.105 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 20:35:45.106 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "2081226c-6efb-4e46-95c4-dbc4240d9045" to "UnderReview"
+[2026-06-16 20:35:45.145 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 20:35:45.167 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to Seemamaglin@gmail.com with subject Claim Status Updated
+[2026-06-16 20:35:45.167 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to Seemamaglin@gmail.com
+[2026-06-16 20:35:45.171 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "4a9d1654-17e8-41ac-b79e-6263282a1672" sent to user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 20:35:45.171 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 20:35:45.171 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "2081226c-6efb-4e46-95c4-dbc4240d9045" status updated to "UnderReview"
+[2026-06-16 20:35:45.171 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus succeeded
+[2026-06-16 20:35:45.173 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/2081226c-6efb-4e46-95c4-dbc4240d9045/status responded 200 in 88.0123 ms
+[2026-06-16 20:35:53.278 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 20:35:53.279 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "2081226c-6efb-4e46-95c4-dbc4240d9045" to "Approved"
+[2026-06-16 20:35:53.322 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Calculating payout: amount=25000.00, claimType="50c01d66-86fd-4699-9ef0-3d0ba95e0e62", policyType="7100986a-58b7-4bfe-b89b-620e218a1f6a"
+[2026-06-16 20:35:53.328 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Payout calculated: 21500.0000
+[2026-06-16 20:35:53.338 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 20:35:53.352 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to Seemamaglin@gmail.com with subject Claim Status Updated
+[2026-06-16 20:35:53.352 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to Seemamaglin@gmail.com
+[2026-06-16 20:35:53.352 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "d1858b0a-f071-4bfa-a49e-3d679623e522" sent to user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 20:35:53.352 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 20:35:53.353 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "2081226c-6efb-4e46-95c4-dbc4240d9045" status updated to "Approved"
+[2026-06-16 20:35:53.353 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus succeeded
+[2026-06-16 20:35:53.353 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/2081226c-6efb-4e46-95c4-dbc4240d9045/status responded 200 in 82.9332 ms
+[2026-06-16 20:36:05.270 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: CreatePaymentIntent called
+[2026-06-16 20:36:05.271 INF] InsuranceClaimSystem.Infrastructure.Services.PaymentService: Creating payment intent for claim "2081226c-6efb-4e46-95c4-dbc4240d9045"
+[2026-06-16 20:36:05.358 INF] InsuranceClaimSystem.Infrastructure.Services.PaymentService: Payment intent created for claim "2081226c-6efb-4e46-95c4-dbc4240d9045" with amount 21500.00
+[2026-06-16 20:36:05.358 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: CreatePaymentIntent succeeded
+[2026-06-16 20:36:05.360 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/payments/2081226c-6efb-4e46-95c4-dbc4240d9045/create-intent responded 200 in 111.3417 ms
+[2026-06-16 20:36:10.848 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: ConfirmPayment called
+[2026-06-16 20:36:10.852 INF] InsuranceClaimSystem.Infrastructure.Services.PaymentService: Confirming payment for claim "2081226c-6efb-4e46-95c4-dbc4240d9045"
+[2026-06-16 20:36:10.898 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "InApp, Email"
+[2026-06-16 20:36:10.914 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to Seemamaglin@gmail.com with subject Payment Processed
+[2026-06-16 20:36:10.914 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to Seemamaglin@gmail.com
+[2026-06-16 20:36:10.915 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "0f710a63-bf6e-4d7b-9ce7-f5368e163b5b" sent to user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 20:36:10.915 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "InApp, Email"
+[2026-06-16 20:36:10.915 INF] InsuranceClaimSystem.Infrastructure.Services.PaymentService: Payment confirmed for claim "2081226c-6efb-4e46-95c4-dbc4240d9045" with amount 21500.00
+[2026-06-16 20:36:10.916 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: ConfirmPayment succeeded
+[2026-06-16 20:36:10.918 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/payments/2081226c-6efb-4e46-95c4-dbc4240d9045/confirm responded 200 in 83.7362 ms
+[2026-06-16 20:36:20.225 INF] InsuranceClaimSystem.API.Controllers.NotificationsController: API: GetNotifications called
+[2026-06-16 20:36:20.254 INF] InsuranceClaimSystem.API.Controllers.NotificationsController: API: GetNotifications succeeded
+[2026-06-16 20:36:20.270 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/notifications responded 200 in 66.0268 ms
+[2026-06-16 20:40:15.617 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25108:14d0f201 caught stopping signal...
+[2026-06-16 20:40:15.621 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-16 20:40:15.624 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25108:14d0f201 All dispatchers stopped
+[2026-06-16 20:40:15.640 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25108:14d0f201 successfully reported itself as stopped in 14.4885 ms
+[2026-06-16 20:40:15.643 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25108:14d0f201 has been stopped in total 22.5735 ms
+[2026-06-16 20:40:20.422 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-16 20:40:20.509 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-16 20:40:21.013 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 20:40:21.013 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 20:40:21.013 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 20:40:21.305 INF] : Database migrated and seeded successfully.
+[2026-06-16 20:40:21.347 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-16 20:40:21.349 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-16 20:40:21.349 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-16 20:40:21.349 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-16 20:40:21.349 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-16 20:40:21.350 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-16 20:40:21.350 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-16 20:40:21.356 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-16 20:40:21.356 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-16 20:40:21.356 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-16 20:40:21.411 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25465:da59455f successfully announced in 52.8982 ms
+[2026-06-16 20:40:21.412 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25465:da59455f is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-16 20:40:21.415 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25465:da59455f all the dispatchers started
+[2026-06-16 20:40:31.533 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-16 20:40:31.709 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-16 20:40:31.710 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:40:31.813 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:40:31.869 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation completed successfully for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:40:32.056 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Auto-assigning reviewer to claim "93c29d77-54f5-46b7-8e7a-4ed9c77e962a"
+[2026-06-16 20:40:32.112 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Reviewer "0862e914-07cf-42eb-9a45-7980cef2b257" auto-assigned to claim "93c29d77-54f5-46b7-8e7a-4ed9c77e962a"
+[2026-06-16 20:40:32.113 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Reviewer auto-assigned for claim "93c29d77-54f5-46b7-8e7a-4ed9c77e962a"
+[2026-06-16 20:40:32.114 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "0862e914-07cf-42eb-9a45-7980cef2b257" of type "StatusChanged" via "All"
+[2026-06-16 20:40:32.263 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to new@reviewer.com with subject New Claim Assigned for Review
+[2026-06-16 20:40:32.263 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to new@reviewer.com
+[2026-06-16 20:40:32.265 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "b9a3adcd-8166-4526-ab7a-ace1efe35b33" sent to user "0862e914-07cf-42eb-9a45-7980cef2b257"
+[2026-06-16 20:40:32.265 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "0862e914-07cf-42eb-9a45-7980cef2b257" of type "StatusChanged" via "All"
+[2026-06-16 20:40:32.327 WRN] Microsoft.EntityFrameworkCore.Query: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2026-06-16 20:40:32.368 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "93c29d77-54f5-46b7-8e7a-4ed9c77e962a" submitted successfully
+[2026-06-16 20:40:32.378 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim succeeded
+[2026-06-16 20:40:32.450 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 201 in 918.2267 ms
+[2026-06-16 20:40:39.363 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 20:40:39.365 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "93c29d77-54f5-46b7-8e7a-4ed9c77e962a" to "UnderReview"
+[2026-06-16 20:40:39.426 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus failed - DocumentsNotVerified
+[2026-06-16 20:40:39.434 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/93c29d77-54f5-46b7-8e7a-4ed9c77e962a/status responded 400 in 87.6686 ms
+[2026-06-16 20:41:02.476 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 20:41:02.477 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 20:41:02.483 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 20:41:02.483 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 20:41:02.485 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 31.0828 ms
+[2026-06-16 20:41:39.731 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 20:41:39.732 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 20:41:39.740 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 20:41:39.740 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 20:41:39.741 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 20.1391 ms
+[2026-06-16 20:42:12.993 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 20:42:12.994 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 20:42:13.009 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 20:42:13.010 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 20:42:13.013 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 32.3781 ms
+[2026-06-16 20:44:33.389 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 20:44:33.391 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 20:44:33.396 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 20:44:33.396 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 20:44:33.397 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 14.4100 ms
+[2026-06-16 20:44:47.372 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 20:44:47.372 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "93c29d77-54f5-46b7-8e7a-4ed9c77e962a" to "UnderReview"
+[2026-06-16 20:44:47.399 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus failed - DocumentsNotVerified
+[2026-06-16 20:44:47.400 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/93c29d77-54f5-46b7-8e7a-4ed9c77e962a/status responded 400 in 42.6182 ms
+[2026-06-16 20:45:56.848 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 20:45:56.851 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: new@reviewer.com
+[2026-06-16 20:45:57.283 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "0862e914-07cf-42eb-9a45-7980cef2b257"
+[2026-06-16 20:45:57.304 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "0862e914-07cf-42eb-9a45-7980cef2b257"
+[2026-06-16 20:45:57.304 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 20:45:57.308 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 477.4781 ms
+[2026-06-16 20:46:07.487 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaimsByReviewer called
+[2026-06-16 20:46:07.491 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims for reviewer "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 20:46:07.538 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 5 claims for reviewer "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 20:46:07.538 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaimsByReviewer succeeded
+[2026-06-16 20:46:07.549 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims/reviewer/0bab6fb2-5671-42b0-a70a-567ffd32c717 responded 200 in 71.7222 ms
+[2026-06-16 20:46:47.453 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 20:46:47.453 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 20:46:47.473 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 20:46:47.474 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 20:46:47.477 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 28.6753 ms
+[2026-06-16 20:46:53.711 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-16 20:46:53.712 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:46:53.739 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:46:53.748 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation failed for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: An open claim already exists for this policy.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 116
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+[2026-06-16 20:46:53.758 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Business rule violation during claim submission
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: An open claim already exists for this policy.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 116
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.SubmitClaimAsync(SubmitClaimRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 67
+[2026-06-16 20:46:53.760 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim failed - ValidationFailed
+[2026-06-16 20:46:53.762 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 400 in 58.6870 ms
+[2026-06-16 20:47:03.651 INF] InsuranceClaimSystem.API.Controllers.ReviewersController: API: GetAssignedClaims called
+[2026-06-16 20:47:03.652 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims for reviewer "00000000-0000-0000-0000-000000000000"
+[2026-06-16 20:47:03.673 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 0 claims for reviewer "00000000-0000-0000-0000-000000000000"
+[2026-06-16 20:47:03.673 INF] InsuranceClaimSystem.API.Controllers.ReviewersController: API: GetAssignedClaims succeeded
+[2026-06-16 20:47:03.676 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/reviewers/queue responded 200 in 42.5317 ms
+[2026-06-16 20:47:12.434 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 20:47:12.435 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1" to "UnderReview"
+[2026-06-16 20:47:12.455 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Invalid status transition for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Invalid claim status transition from Approved to UnderReview.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimStateMachine.ValidateTransition(ClaimStatus from, ClaimStatus to) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimStateMachine.cs:line 28
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.UpdateStatusAsync(Guid claimId, UpdateClaimStatusRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 172
+[2026-06-16 20:47:12.457 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus failed - InvalidTransition
+[2026-06-16 20:47:12.458 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/d456890b-5e7f-4754-8ede-9c7bb6949db1/status responded 400 in 30.3213 ms
+[2026-06-16 20:47:20.274 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaimsByReviewer called
+[2026-06-16 20:47:20.277 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims for reviewer "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 20:47:20.304 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 5 claims for reviewer "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 20:47:20.304 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaimsByReviewer succeeded
+[2026-06-16 20:47:20.305 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims/reviewer/0bab6fb2-5671-42b0-a70a-567ffd32c717 responded 200 in 38.7616 ms
+[2026-06-16 20:52:59.207 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25465:da59455f caught stopping signal...
+[2026-06-16 20:52:59.214 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-16 20:52:59.218 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25465:da59455f All dispatchers stopped
+[2026-06-16 20:52:59.234 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25465:da59455f successfully reported itself as stopped in 13.6851 ms
+[2026-06-16 20:52:59.234 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:25465:da59455f has been stopped in total 24.2179 ms
+[2026-06-16 20:53:03.161 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-16 20:53:03.252 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-16 20:53:03.775 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 20:53:03.775 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 20:53:03.775 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-16 20:53:04.079 INF] : Database migrated and seeded successfully.
+[2026-06-16 20:53:04.119 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-16 20:53:04.121 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-16 20:53:04.121 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-16 20:53:04.122 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-16 20:53:04.122 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-16 20:53:04.122 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-16 20:53:04.122 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-16 20:53:04.128 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-16 20:53:04.128 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-16 20:53:04.129 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-16 20:53:04.180 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:26148:c6ef0bd3 successfully announced in 50.0445 ms
+[2026-06-16 20:53:04.181 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:26148:c6ef0bd3 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-16 20:53:04.184 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:26148:c6ef0bd3 all the dispatchers started
+[2026-06-16 20:53:12.919 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-16 20:53:13.072 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaimsByReviewer called
+[2026-06-16 20:53:13.073 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims for reviewer "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 20:53:13.157 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 5 claims for reviewer "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 20:53:13.158 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaimsByReviewer succeeded
+[2026-06-16 20:53:13.208 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims/reviewer/0bab6fb2-5671-42b0-a70a-567ffd32c717 responded 200 in 290.3453 ms
+[2026-06-16 20:53:23.672 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaimsByReviewer called
+[2026-06-16 20:53:23.673 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims for reviewer "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 20:53:23.730 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 5 claims for reviewer "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 20:53:23.730 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaimsByReviewer succeeded
+[2026-06-16 20:53:23.732 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims/reviewer/0bab6fb2-5671-42b0-a70a-567ffd32c717 responded 200 in 64.7881 ms
+[2026-06-16 20:54:41.698 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 401 in 14.1333 ms
+[2026-06-16 20:54:52.233 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 20:54:52.234 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seemamaglin@gmail.com
+[2026-06-16 20:54:52.703 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 20:54:52.819 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 20:54:52.820 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 20:54:52.823 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 616.4214 ms
+[2026-06-16 20:55:00.003 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-16 20:55:00.007 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:55:00.080 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:55:00.098 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation failed for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: An open claim already exists for this policy.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 117
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+[2026-06-16 20:55:00.107 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Business rule violation during claim submission
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: An open claim already exists for this policy.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 117
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.SubmitClaimAsync(SubmitClaimRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 67
+[2026-06-16 20:55:00.107 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim failed - ValidationFailed
+[2026-06-16 20:55:00.112 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 400 in 135.1142 ms
+[2026-06-16 20:55:41.378 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-16 20:55:41.379 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:55:41.403 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 20:55:41.414 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation failed for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: An open claim already exists for this policy.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 117
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+[2026-06-16 20:55:41.415 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Business rule violation during claim submission
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: An open claim already exists for this policy.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 117
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.SubmitClaimAsync(SubmitClaimRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 67
+[2026-06-16 20:55:41.416 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim failed - ValidationFailed
+[2026-06-16 20:55:41.416 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 400 in 49.7530 ms
+[2026-06-16 20:55:51.300 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 20:55:51.302 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1" to "UnderReview"
+[2026-06-16 20:55:51.381 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Invalid status transition for claim "d456890b-5e7f-4754-8ede-9c7bb6949db1"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Invalid claim status transition from Approved to UnderReview.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimStateMachine.ValidateTransition(ClaimStatus from, ClaimStatus to) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimStateMachine.cs:line 28
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.UpdateStatusAsync(Guid claimId, UpdateClaimStatusRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 172
+[2026-06-16 20:55:51.383 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus failed - InvalidTransition
+[2026-06-16 20:55:51.384 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/d456890b-5e7f-4754-8ede-9c7bb6949db1/status responded 400 in 103.9401 ms
+[2026-06-16 20:56:00.167 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 20:56:00.169 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 20:56:00.180 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 20:56:00.180 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 20:56:00.183 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 40.7875 ms
+[2026-06-16 20:59:37.055 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims/policy/8f423c17-61d4-4dd6-907a-c1838975257a responded 401 in 2.9837 ms
+[2026-06-16 20:59:43.375 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 20:59:43.376 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seemamaglin@gmail.com
+[2026-06-16 20:59:43.707 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 20:59:43.723 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 20:59:43.723 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 20:59:43.723 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 362.0485 ms
+[2026-06-16 20:59:49.879 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims/policy/8f423c17-61d4-4dd6-907a-c1838975257a responded 401 in 1.4135 ms
+[2026-06-16 21:00:05.879 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims/policy/8f423c17-61d4-4dd6-907a-c1838975257a responded 401 in 1.4353 ms
+[2026-06-16 21:00:30.849 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaimsByPolicy called
+[2026-06-16 21:00:30.852 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 21:00:30.888 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 2 claims for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 21:00:30.888 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaimsByPolicy succeeded
+[2026-06-16 21:00:30.890 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims/policy/8f423c17-61d4-4dd6-907a-c1838975257a responded 200 in 58.8295 ms
+[2026-06-16 21:01:31.183 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 400 in 38.0210 ms
+[2026-06-16 21:02:42.122 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-16 21:02:42.123 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 21:02:42.141 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+[2026-06-16 21:02:42.145 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation failed for policy "8f423c17-61d4-4dd6-907a-c1838975257a"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: An open claim already exists for this policy.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 117
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+[2026-06-16 21:02:42.149 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Business rule violation during claim submission
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: An open claim already exists for this policy.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 117
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.SubmitClaimAsync(SubmitClaimRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 67
+[2026-06-16 21:02:42.150 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim failed - ValidationFailed
+[2026-06-16 21:02:42.150 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 400 in 35.5184 ms
+[2026-06-16 21:03:22.237 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 21:03:22.237 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 21:03:22.247 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 21:03:22.247 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 21:03:22.249 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 18.3207 ms
+[2026-06-16 21:06:58.812 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-16 21:06:58.973 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Policy application submitted: POL-2026-DE90E6 by holder "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 21:06:58.977 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy succeeded
+[2026-06-16 21:06:58.997 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 201 in 218.4965 ms
+[2026-06-16 21:07:28.983 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-16 21:07:28.984 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "676eaeee-b7dd-4fd5-afcb-ca9d6a43ab38"
+[2026-06-16 21:07:28.993 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "676eaeee-b7dd-4fd5-afcb-ca9d6a43ab38"
+[2026-06-16 21:07:28.996 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation failed for policy "676eaeee-b7dd-4fd5-afcb-ca9d6a43ab38"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Policy is not active. Current status: PendingApproval
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 114
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+[2026-06-16 21:07:28.999 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Business rule violation during claim submission
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Policy is not active. Current status: PendingApproval
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 114
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.SubmitClaimAsync(SubmitClaimRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 67
+[2026-06-16 21:07:29.000 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim failed - ValidationFailed
+[2026-06-16 21:07:29.001 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 400 in 30.5613 ms
+[2026-06-16 21:07:40.428 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/676eaeee-b7dd-4fd5-afcb-ca9d6a43ab38/approve responded 401 in 1.8649 ms
+[2026-06-16 21:07:47.172 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 21:07:47.173 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-16 21:07:47.365 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-16 21:07:47.373 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-16 21:07:47.374 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 21:07:47.374 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 207.5658 ms
+[2026-06-16 21:07:52.818 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApprovePolicy called
+[2026-06-16 21:07:52.832 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Policy approved: "676eaeee-b7dd-4fd5-afcb-ca9d6a43ab38"
+[2026-06-16 21:07:52.833 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApprovePolicy succeeded
+[2026-06-16 21:07:52.833 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/676eaeee-b7dd-4fd5-afcb-ca9d6a43ab38/approve responded 200 in 23.5880 ms
+[2026-06-16 21:08:03.528 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-16 21:08:03.529 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "676eaeee-b7dd-4fd5-afcb-ca9d6a43ab38"
+[2026-06-16 21:08:03.538 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "676eaeee-b7dd-4fd5-afcb-ca9d6a43ab38"
+[2026-06-16 21:08:03.598 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation completed successfully for policy "676eaeee-b7dd-4fd5-afcb-ca9d6a43ab38"
+[2026-06-16 21:08:03.686 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Auto-assigning reviewer to claim "420cb334-9dde-4f7c-b656-3107bbace248"
+[2026-06-16 21:08:03.716 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Reviewer "0bab6fb2-5671-42b0-a70a-567ffd32c717" auto-assigned to claim "420cb334-9dde-4f7c-b656-3107bbace248"
+[2026-06-16 21:08:03.717 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Reviewer auto-assigned for claim "420cb334-9dde-4f7c-b656-3107bbace248"
+[2026-06-16 21:08:03.718 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "0bab6fb2-5671-42b0-a70a-567ffd32c717" of type "StatusChanged" via "All"
+[2026-06-16 21:08:03.829 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to sridhar@reviewer.com with subject New Claim Assigned for Review
+[2026-06-16 21:08:03.829 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to sridhar@reviewer.com
+[2026-06-16 21:08:03.833 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "9bea7ee3-2d0e-40aa-8f66-200900d37f23" sent to user "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-16 21:08:03.833 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "0bab6fb2-5671-42b0-a70a-567ffd32c717" of type "StatusChanged" via "All"
+[2026-06-16 21:08:03.884 WRN] Microsoft.EntityFrameworkCore.Query: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2026-06-16 21:08:03.921 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "420cb334-9dde-4f7c-b656-3107bbace248" submitted successfully
+[2026-06-16 21:08:03.930 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim succeeded
+[2026-06-16 21:08:03.948 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 201 in 432.5406 ms
+[2026-06-16 21:08:14.701 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 21:08:14.702 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 21:08:14.710 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 21:08:14.710 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 21:08:14.711 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 23.4393 ms
+[2026-06-16 21:08:34.601 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 21:08:34.601 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 21:08:34.609 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 21:08:34.609 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 21:08:34.611 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 16.4875 ms
+[2026-06-16 21:08:47.790 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/reviewers/queue responded 401 in 1.8842 ms
+[2026-06-16 21:08:49.164 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/reviewers/queue responded 401 in 1.7132 ms
+[2026-06-16 21:08:56.372 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 21:08:56.374 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: new@reviewer.com
+[2026-06-16 21:08:56.700 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "0862e914-07cf-42eb-9a45-7980cef2b257"
+[2026-06-16 21:08:56.706 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "0862e914-07cf-42eb-9a45-7980cef2b257"
+[2026-06-16 21:08:56.706 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 21:08:56.706 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 338.0172 ms
+[2026-06-16 21:09:07.284 INF] InsuranceClaimSystem.API.Controllers.ReviewersController: API: GetAssignedClaims called
+[2026-06-16 21:09:07.285 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims for reviewer "00000000-0000-0000-0000-000000000000"
+[2026-06-16 21:09:07.293 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 0 claims for reviewer "00000000-0000-0000-0000-000000000000"
+[2026-06-16 21:09:07.294 INF] InsuranceClaimSystem.API.Controllers.ReviewersController: API: GetAssignedClaims succeeded
+[2026-06-16 21:09:07.296 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/reviewers/queue responded 200 in 23.4529 ms
+[2026-06-16 21:09:15.776 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 21:09:15.777 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "420cb334-9dde-4f7c-b656-3107bbace248" to "UnderReview"
+[2026-06-16 21:09:15.796 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus failed - DocumentsNotVerified
+[2026-06-16 21:09:15.796 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/420cb334-9dde-4f7c-b656-3107bbace248/status responded 400 in 22.8241 ms
+[2026-06-16 21:09:17.319 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 21:09:17.320 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "420cb334-9dde-4f7c-b656-3107bbace248" to "UnderReview"
+[2026-06-16 21:09:17.325 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus failed - DocumentsNotVerified
+[2026-06-16 21:09:17.326 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/420cb334-9dde-4f7c-b656-3107bbace248/status responded 400 in 9.1313 ms
+[2026-06-16 21:09:21.856 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 21:09:21.857 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 21:09:21.859 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 21:09:21.859 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 21:09:21.859 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 5.8761 ms
+[2026-06-16 21:10:10.303 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/account responded 401 in 3.8910 ms
+[2026-06-16 21:10:18.174 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 21:10:18.175 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seemamaglin@gmail.com
+[2026-06-16 21:10:18.508 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 21:10:18.513 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 21:10:18.513 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 21:10:18.514 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 344.1701 ms
+[2026-06-16 21:10:37.740 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 21:10:37.741 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "00000000-0000-0000-0000-000000000000"
+[2026-06-16 21:10:37.771 WRN] InsuranceClaimSystem.Infrastructure.Services.DocumentService: File validation failed for claim "00000000-0000-0000-0000-000000000000": Claim not found.
+[2026-06-16 21:10:37.771 WRN] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument failed - ClaimNotFound
+[2026-06-16 21:10:37.772 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 400 in 43.4433 ms
+[2026-06-16 21:11:06.611 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument called
+[2026-06-16 21:11:06.611 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Uploading document for claim "420cb334-9dde-4f7c-b656-3107bbace248"
+[2026-06-16 21:11:06.681 INF] InsuranceClaimSystem.Infrastructure.Services.DocumentService: Document uploaded successfully for claim "420cb334-9dde-4f7c-b656-3107bbace248"
+[2026-06-16 21:11:06.682 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: UploadDocument succeeded
+[2026-06-16 21:11:06.685 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/upload responded 201 in 87.6054 ms
+[2026-06-16 21:11:45.382 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: DownloadDocument called
+[2026-06-16 21:11:45.422 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: DownloadDocument succeeded
+[2026-06-16 21:11:45.430 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/documents/a77c3737-f36d-4771-ac66-fd2411d91105/download responded 200 in 62.9470 ms
+[2026-06-16 21:11:58.201 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: VerifyDocument called
+[2026-06-16 21:11:58.231 INF] InsuranceClaimSystem.API.Controllers.DocumentsController: API: VerifyDocument succeeded
+[2026-06-16 21:11:58.232 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/documents/a77c3737-f36d-4771-ac66-fd2411d91105/verify responded 200 in 50.5019 ms
+[2026-06-16 21:12:07.093 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 21:12:07.094 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "420cb334-9dde-4f7c-b656-3107bbace248" to "UnderReview"
+[2026-06-16 21:12:07.130 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 21:12:07.165 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to Seemamaglin@gmail.com with subject Claim Status Updated
+[2026-06-16 21:12:07.165 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to Seemamaglin@gmail.com
+[2026-06-16 21:12:07.166 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "f53d7ee1-067a-4de4-8044-45fd1625de67" sent to user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 21:12:07.166 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 21:12:07.166 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "420cb334-9dde-4f7c-b656-3107bbace248" status updated to "UnderReview"
+[2026-06-16 21:12:07.166 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus succeeded
+[2026-06-16 21:12:07.168 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/420cb334-9dde-4f7c-b656-3107bbace248/status responded 200 in 77.1630 ms
+[2026-06-16 21:12:11.094 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus called
+[2026-06-16 21:12:11.096 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Updating status for claim "420cb334-9dde-4f7c-b656-3107bbace248" to "Approved"
+[2026-06-16 21:12:11.109 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Calculating payout: amount=25000.00, claimType="50c01d66-86fd-4699-9ef0-3d0ba95e0e62", policyType="7100986a-58b7-4bfe-b89b-620e218a1f6a"
+[2026-06-16 21:12:11.117 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Payout calculated: 21500.0000
+[2026-06-16 21:12:11.125 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 21:12:11.135 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to Seemamaglin@gmail.com with subject Claim Status Updated
+[2026-06-16 21:12:11.135 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to Seemamaglin@gmail.com
+[2026-06-16 21:12:11.135 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "88769162-1bbb-44a8-8c25-62b79cf36487" sent to user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 21:12:11.135 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "All"
+[2026-06-16 21:12:11.135 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "420cb334-9dde-4f7c-b656-3107bbace248" status updated to "Approved"
+[2026-06-16 21:12:11.135 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: UpdateStatus succeeded
+[2026-06-16 21:12:11.135 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP PATCH /api/claims/420cb334-9dde-4f7c-b656-3107bbace248/status responded 200 in 43.9818 ms
+[2026-06-16 21:12:17.996 INF] InsuranceClaimSystem.API.Controllers.NotificationsController: API: GetNotifications called
+[2026-06-16 21:12:18.009 INF] InsuranceClaimSystem.API.Controllers.NotificationsController: API: GetNotifications succeeded
+[2026-06-16 21:12:18.024 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/notifications responded 200 in 32.4508 ms
+[2026-06-16 21:13:29.500 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims responded 401 in 2.5728 ms
+[2026-06-16 21:13:35.754 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-16 21:13:35.755 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: vikram.finance@gmail.com
+[2026-06-16 21:13:36.066 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-16 21:13:36.071 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-16 21:13:36.071 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-16 21:13:36.072 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 319.5978 ms
+[2026-06-16 21:13:41.327 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaims called with status "Approved" dateFrom null dateTo null
+[2026-06-16 21:13:41.329 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims page 1 size 10 status "Approved" dateFrom null dateTo null
+[2026-06-16 21:13:41.351 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 4 claims
+[2026-06-16 21:13:41.351 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaims succeeded
+[2026-06-16 21:13:41.352 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims responded 200 in 33.4666 ms
+[2026-06-16 21:13:46.313 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: CreatePaymentIntent called
+[2026-06-16 21:13:46.314 INF] InsuranceClaimSystem.Infrastructure.Services.PaymentService: Creating payment intent for claim "420cb334-9dde-4f7c-b656-3107bbace248"
+[2026-06-16 21:13:46.390 INF] InsuranceClaimSystem.Infrastructure.Services.PaymentService: Payment intent created for claim "420cb334-9dde-4f7c-b656-3107bbace248" with amount 21500.00
+[2026-06-16 21:13:46.391 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: CreatePaymentIntent succeeded
+[2026-06-16 21:13:46.394 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/payments/420cb334-9dde-4f7c-b656-3107bbace248/create-intent responded 200 in 103.3311 ms
+[2026-06-16 21:13:49.885 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: ConfirmPayment called
+[2026-06-16 21:13:49.887 INF] InsuranceClaimSystem.Infrastructure.Services.PaymentService: Confirming payment for claim "420cb334-9dde-4f7c-b656-3107bbace248"
+[2026-06-16 21:13:49.914 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "InApp, Email"
+[2026-06-16 21:13:49.939 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to Seemamaglin@gmail.com with subject Payment Processed
+[2026-06-16 21:13:49.939 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Email notification sent to Seemamaglin@gmail.com
+[2026-06-16 21:13:49.939 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "54511abf-e233-4009-a960-4fa80a370ca1" sent to user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-16 21:13:49.940 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "4af7c011-bf2b-4245-a491-a98249598756" of type "StatusChanged" via "InApp, Email"
+[2026-06-16 21:13:49.940 INF] InsuranceClaimSystem.Infrastructure.Services.PaymentService: Payment confirmed for claim "420cb334-9dde-4f7c-b656-3107bbace248" with amount 21500.00
+[2026-06-16 21:13:49.940 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: ConfirmPayment succeeded
+[2026-06-16 21:13:49.943 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/payments/420cb334-9dde-4f7c-b656-3107bbace248/confirm responded 200 in 70.7094 ms
+[2026-06-16 21:13:55.248 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/payments/420cb334-9dde-4f7c-b656-3107bbace248 responded 401 in 7.5017 ms
+[2026-06-16 21:14:10.202 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: GetPaymentByClaimId called
+[2026-06-16 21:14:10.219 INF] InsuranceClaimSystem.API.Controllers.PaymentsController: API: GetPaymentByClaimId succeeded
+[2026-06-16 21:14:10.230 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/payments/420cb334-9dde-4f7c-b656-3107bbace248 responded 200 in 43.2506 ms
+[2026-06-16 21:14:16.421 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaims called with status "Closed" dateFrom null dateTo null
+[2026-06-16 21:14:16.422 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Getting claims page 1 size 10 status "Closed" dateFrom null dateTo null
+[2026-06-16 21:14:16.429 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Retrieved 3 claims
+[2026-06-16 21:14:16.429 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: GetClaims succeeded
+[2026-06-16 21:14:16.430 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/claims responded 200 in 9.6212 ms
+[2026-06-16 21:15:32.046 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:26148:c6ef0bd3 caught stopping signal...
+[2026-06-16 21:15:32.050 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-16 21:15:32.053 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:26148:c6ef0bd3 All dispatchers stopped
+[2026-06-16 21:15:32.061 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:26148:c6ef0bd3 successfully reported itself as stopped in 4.777 ms
+[2026-06-16 21:15:32.062 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:26148:c6ef0bd3 has been stopped in total 13.6407 ms

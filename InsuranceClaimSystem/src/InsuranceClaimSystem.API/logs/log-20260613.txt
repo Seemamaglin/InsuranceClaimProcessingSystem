@@ -1,0 +1,1326 @@
+[2026-06-13 21:26:20.560 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-13 21:26:20.678 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-13 21:26:21.171 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-13 21:26:21.171 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-13 21:26:21.171 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-13 21:26:21.496 INF] : Database migrated and seeded successfully.
+[2026-06-13 21:26:21.540 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-13 21:26:21.544 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-13 21:26:21.544 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-13 21:26:21.544 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-13 21:26:21.544 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-13 21:26:21.547 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-13 21:26:21.547 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-13 21:26:21.553 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-13 21:26:21.553 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-13 21:26:21.553 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-13 21:26:21.619 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:87024:b902f43c successfully announced in 64.0104 ms
+[2026-06-13 21:26:21.620 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:87024:b902f43c is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-13 21:26:21.622 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:87024:b902f43c all the dispatchers started
+[2026-06-13 21:37:06.818 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-13 21:37:06.986 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 21:37:06.988 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-13 21:37:07.128 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-13 21:37:07.139 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 401 in 332.8387 ms
+[2026-06-13 21:38:44.699 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 21:38:44.699 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insuranceclaimsystem.com
+[2026-06-13 21:38:45.069 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-13 21:38:45.070 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 401 in 392.2264 ms
+[2026-06-13 21:39:02.366 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 21:39:02.366 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insuranceclaimsystem.com
+[2026-06-13 21:39:02.572 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-13 21:39:02.685 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-13 21:39:02.685 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 21:39:02.697 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 343.4722 ms
+[2026-06-13 21:39:37.825 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-13 21:39:37.830 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: seema@gmail.com
+[2026-06-13 21:39:37.841 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - EmailExists
+[2026-06-13 21:39:37.842 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 409 in 45.9031 ms
+[2026-06-13 21:39:44.569 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 21:39:44.570 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-13 21:39:44.965 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-13 21:39:44.965 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 401 in 404.6712 ms
+[2026-06-13 21:40:26.298 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-13 21:40:26.299 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: seema@gmail.com
+[2026-06-13 21:40:26.311 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - EmailExists
+[2026-06-13 21:40:26.314 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 409 in 20.8602 ms
+[2026-06-13 21:40:32.494 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 21:40:32.495 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-13 21:40:32.836 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-13 21:40:32.836 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 401 in 351.8852 ms
+[2026-06-13 21:40:58.841 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-13 21:40:58.842 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: Seema@gmail.com
+[2026-06-13 21:40:58.848 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - EmailExists
+[2026-06-13 21:40:58.849 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 409 in 23.1458 ms
+[2026-06-13 21:41:00.363 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-13 21:41:00.364 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: Seema@gmail.com
+[2026-06-13 21:41:00.368 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - EmailExists
+[2026-06-13 21:41:00.369 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 409 in 13.9198 ms
+[2026-06-13 21:41:46.319 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-13 21:41:46.320 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: Seemamaglin@gmail.com
+[2026-06-13 21:41:46.807 ERR] InsuranceClaimSystem.Infrastructure.Services.AuthService: Failed to send verification email to Seemamaglin@gmail.com
+System.Net.Sockets.SocketException (61): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at MailKit.Net.SocketUtils.SocketConnectState.OnEndConnect(IAsyncResult ar)
+--- End of stack trace from previous location ---
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, CancellationToken cancellationToken)
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, Int32 timeout, CancellationToken cancellationToken)
+   at MailKit.MailService.ConnectNetworkAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService.SendEmailAsync(String to, String subject, String body, Boolean isHtml) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/Notification/SmtpEmailService.cs:line 41
+   at InsuranceClaimSystem.Infrastructure.Services.AuthService.TrySendVerificationEmailAsync(User user, String code) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/Auth/AuthService.cs:line 337
+[2026-06-13 21:41:46.829 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: User registered successfully: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 21:41:46.829 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register succeeded
+[2026-06-13 21:41:46.830 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 200 in 521.7124 ms
+[2026-06-13 21:42:04.917 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 21:42:04.918 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: Seemamaglin@gmail.com
+[2026-06-13 21:42:05.240 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 21:42:05.256 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 21:42:05.256 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 21:42:05.257 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 344.6865 ms
+[2026-06-13 21:42:28.797 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: RefreshToken called
+[2026-06-13 21:42:28.798 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting token refresh
+[2026-06-13 21:42:28.798 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: RefreshToken failed - InvalidToken
+[2026-06-13 21:42:28.799 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/refresh responded 401 in 21.9379 ms
+[2026-06-13 21:43:21.728 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: VerifyEmail called
+[2026-06-13 21:43:21.732 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting email verification for email: Seemamaglin@gmail.com
+[2026-06-13 21:43:21.807 WRN] InsuranceClaimSystem.Infrastructure.Services.AuthService: Email verification failed - no active code for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 21:43:21.808 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: VerifyEmail failed - InvalidCode
+[2026-06-13 21:43:21.809 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/verify-email responded 401 in 97.2313 ms
+[2026-06-13 21:43:50.737 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: VerifyEmail called
+[2026-06-13 21:43:50.738 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting email verification for email: Seemamaglin@gmail.com
+[2026-06-13 21:43:50.762 WRN] InsuranceClaimSystem.Infrastructure.Services.AuthService: Email verification failed - no active code for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 21:43:50.763 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: VerifyEmail failed - InvalidCode
+[2026-06-13 21:43:50.764 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/verify-email responded 401 in 38.4825 ms
+[2026-06-13 21:43:59.442 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: VerifyEmail called
+[2026-06-13 21:43:59.442 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting email verification for email: Seemamaglin@gmail.com
+[2026-06-13 21:43:59.457 WRN] InsuranceClaimSystem.Infrastructure.Services.AuthService: Email verification failed - no active code for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 21:43:59.457 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: VerifyEmail failed - InvalidCode
+[2026-06-13 21:43:59.458 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/verify-email responded 401 in 59.2055 ms
+[2026-06-13 21:44:16.679 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: CreateStaff called for role "ClaimReviewer"
+[2026-06-13 21:44:17.030 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: CreateStaff succeeded - UserId "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-13 21:44:17.034 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/users/create-staff responded 201 in 383.8403 ms
+[2026-06-13 21:44:50.369 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 21:44:50.369 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: sridhar@reviewer.com
+[2026-06-13 21:44:50.708 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-13 21:44:50.724 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-13 21:44:50.724 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 21:44:50.725 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 360.9445 ms
+[2026-06-13 21:44:56.358 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: CreateStaff called for role "ClaimsManager"
+[2026-06-13 21:44:56.706 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: CreateStaff succeeded - UserId "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-13 21:44:56.707 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/users/create-staff responded 201 in 362.2354 ms
+[2026-06-13 21:45:01.545 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 21:45:01.545 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: priya.manager@gmail.com
+[2026-06-13 21:45:01.897 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-13 21:45:01.906 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-13 21:45:01.906 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 21:45:01.906 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 365.6645 ms
+[2026-06-13 21:45:07.282 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: CreateStaff called for role "FinanceOfficer"
+[2026-06-13 21:45:07.665 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: CreateStaff succeeded - UserId "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-13 21:45:07.666 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/users/create-staff responded 201 in 407.1699 ms
+[2026-06-13 21:45:12.128 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 21:45:12.129 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: vikram.finance@gmail.com
+[2026-06-13 21:45:12.466 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-13 21:45:12.475 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-13 21:45:12.477 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 21:45:12.478 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 355.2923 ms
+[2026-06-13 21:47:19.737 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration called
+[2026-06-13 21:47:19.840 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration succeeded
+[2026-06-13 21:47:19.845 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/registrations/4af7c011-bf2b-4245-a491-a98249598756/approve responded 200 in 140.1554 ms
+[2026-06-13 22:10:57.933 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:87024:b902f43c caught stopping signal...
+[2026-06-13 22:10:57.946 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-13 22:10:57.954 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:87024:b902f43c All dispatchers stopped
+[2026-06-13 22:10:57.994 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:87024:b902f43c successfully reported itself as stopped in 31.6099 ms
+[2026-06-13 22:10:57.994 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:87024:b902f43c has been stopped in total 55.0237 ms
+[2026-06-13 23:04:03.334 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-13 23:04:03.395 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-13 23:04:03.396 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-13 23:06:35.094 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-13 23:06:35.217 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-13 23:06:35.744 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-13 23:06:35.744 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-13 23:06:35.744 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-13 23:06:36.055 INF] : Database migrated and seeded successfully.
+[2026-06-13 23:06:36.099 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-13 23:06:36.102 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-13 23:06:36.102 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-13 23:06:36.103 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-13 23:06:36.103 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-13 23:06:36.103 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-13 23:06:36.103 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-13 23:06:36.109 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-13 23:06:36.109 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-13 23:06:36.109 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-13 23:06:36.169 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:99012:39acab1d successfully announced in 57.4259 ms
+[2026-06-13 23:06:36.170 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:99012:39acab1d is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-13 23:06:36.172 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:99012:39acab1d all the dispatchers started
+[2026-06-13 23:06:48.662 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-13 23:06:48.792 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-13 23:06:48.793 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: seema@gmail.com
+[2026-06-13 23:06:48.920 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - EmailExists
+[2026-06-13 23:06:48.937 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 409 in 274.7009 ms
+[2026-06-13 23:07:16.568 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-13 23:07:16.569 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: Seemamaglin@gmail.com
+[2026-06-13 23:07:16.640 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - EmailExists
+[2026-06-13 23:07:16.641 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 409 in 83.5129 ms
+[2026-06-13 23:07:22.903 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 23:07:22.906 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: Seemamaglin@gmail.com
+[2026-06-13 23:07:23.345 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 23:07:23.436 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 23:07:23.436 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 23:07:23.441 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 559.8701 ms
+[2026-06-13 23:07:28.030 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 23:07:28.031 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-13 23:07:28.134 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-13 23:07:28.135 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 401 in 108.3740 ms
+[2026-06-13 23:07:34.564 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/users/create-staff responded 401 in 13.4257 ms
+[2026-06-13 23:07:40.245 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/users/create-staff responded 401 in 5.6745 ms
+[2026-06-13 23:09:01.981 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 23:09:01.983 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-13 23:09:02.017 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-13 23:09:02.019 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 401 in 48.9055 ms
+[2026-06-13 23:09:27.654 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 23:09:27.655 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-13 23:09:27.842 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-13 23:09:27.859 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-13 23:09:27.859 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 23:09:27.860 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 210.2513 ms
+[2026-06-13 23:09:34.273 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: CreateStaff called for role "ClaimReviewer"
+[2026-06-13 23:09:34.296 WRN] InsuranceClaimSystem.API.Controllers.AdminController: API: CreateStaff failed - EmailExists
+[2026-06-13 23:09:34.318 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/users/create-staff responded 409 in 198.9697 ms
+[2026-06-13 23:09:42.736 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 23:09:42.737 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: sridhar@reviewer.com
+[2026-06-13 23:09:43.069 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-13 23:09:43.074 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "0bab6fb2-5671-42b0-a70a-567ffd32c717"
+[2026-06-13 23:09:43.074 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 23:09:43.075 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 353.1164 ms
+[2026-06-13 23:09:46.680 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 23:09:46.681 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: priya.manager@gmail.com
+[2026-06-13 23:09:47.025 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-13 23:09:47.037 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "a2db0fcc-5cc1-4dbc-b436-654f8cabdbd1"
+[2026-06-13 23:09:47.037 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 23:09:47.038 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 362.5747 ms
+[2026-06-13 23:09:50.121 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 23:09:50.122 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: vikram.finance@gmail.com
+[2026-06-13 23:09:50.460 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-13 23:09:50.469 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "e9e693fb-bb74-4849-8707-f9cce15354af"
+[2026-06-13 23:09:50.470 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 23:09:50.470 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 356.7158 ms
+[2026-06-13 23:09:58.407 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-06-13 23:09:58.488 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-06-13 23:09:58.546 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 160.3559 ms
+[2026-06-13 23:10:10.621 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/registrations//approve responded 404 in 2.4944 ms
+[2026-06-13 23:10:51.616 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 23:10:51.617 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: Seemamaglin@gmail.com
+[2026-06-13 23:10:51.973 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 23:10:51.993 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 23:10:51.993 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 23:10:51.993 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 383.0728 ms
+[2026-06-13 23:11:28.190 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 23:11:28.191 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: Seemamaglin@gmail.com
+[2026-06-13 23:11:28.537 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 23:11:28.549 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 23:11:28.549 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 23:11:28.550 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 362.8750 ms
+[2026-06-13 23:11:42.412 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration called
+[2026-06-13 23:11:42.519 WRN] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration failed - InvalidStatus
+[2026-06-13 23:11:42.520 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/registrations/4af7c011-bf2b-4245-a491-a98249598756/approve responded 400 in 121.5165 ms
+[2026-06-13 23:11:51.284 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-06-13 23:11:51.300 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-06-13 23:11:51.302 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 31.6864 ms
+[2026-06-13 23:12:11.121 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers called with role "PolicyHolder"
+[2026-06-13 23:12:11.130 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting paged accounts - page 1, size 10, role "PolicyHolder"
+[2026-06-13 23:12:11.243 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved paged accounts - total 4, page 1
+[2026-06-13 23:12:11.243 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers succeeded
+[2026-06-13 23:12:11.249 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/users responded 200 in 148.6185 ms
+[2026-06-13 23:12:21.811 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration called
+[2026-06-13 23:12:21.825 WRN] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration failed - InvalidStatus
+[2026-06-13 23:12:21.826 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/registrations/4af7c011-bf2b-4245-a491-a98249598756/approve responded 400 in 19.6177 ms
+[2026-06-13 23:12:35.152 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes called
+[2026-06-13 23:12:35.209 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes succeeded
+[2026-06-13 23:12:35.236 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policy-types responded 200 in 252.7801 ms
+[2026-06-13 23:12:40.932 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policies responded 401 in 3.5943 ms
+[2026-06-13 23:12:52.962 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policies responded 403 in 5.8944 ms
+[2026-06-13 23:13:05.851 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicies called with status "PendingApproval"
+[2026-06-13 23:13:05.853 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Getting policies page 1 size 10 status "PendingApproval"
+[2026-06-13 23:13:05.911 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Retrieved 0 policies
+[2026-06-13 23:13:05.911 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicies succeeded
+[2026-06-13 23:13:05.925 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policies responded 200 in 92.2257 ms
+[2026-06-13 23:13:13.046 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policies responded 401 in 1.8386 ms
+[2026-06-13 23:13:16.592 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policies responded 401 in 2.5103 ms
+[2026-06-13 23:13:25.805 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicies called with status "Active"
+[2026-06-13 23:13:25.805 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Getting policies page 1 size 10 status "Active"
+[2026-06-13 23:13:25.850 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Retrieved 1 policies
+[2026-06-13 23:13:25.850 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicies succeeded
+[2026-06-13 23:13:25.854 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policies responded 200 in 54.6934 ms
+[2026-06-13 23:13:39.887 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration called
+[2026-06-13 23:13:39.901 WRN] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration failed - InvalidStatus
+[2026-06-13 23:13:39.902 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/registrations/4af7c011-bf2b-4245-a491-a98249598756/approve responded 400 in 23.5768 ms
+[2026-06-13 23:13:51.265 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 401 in 3.5915 ms
+[2026-06-13 23:14:06.275 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 44.8914 ms
+[2026-06-13 23:14:19.713 INF] InsuranceClaimSystem.API.Controllers.AccountController: API: GetAccount called
+[2026-06-13 23:14:19.717 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting account for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 23:14:19.722 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Account retrieved successfully for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 23:14:19.723 INF] InsuranceClaimSystem.API.Controllers.AccountController: API: GetAccount succeeded
+[2026-06-13 23:14:19.729 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/account responded 200 in 31.0863 ms
+[2026-06-13 23:14:28.154 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes called
+[2026-06-13 23:14:28.163 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes succeeded
+[2026-06-13 23:14:28.166 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policy-types responded 200 in 15.0146 ms
+[2026-06-13 23:14:42.401 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 8.9365 ms
+[2026-06-13 23:18:09.810 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policy-types responded 401 in 5.0823 ms
+[2026-06-13 23:18:35.603 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: CreatePolicyTypeFromRoute called
+[2026-06-13 23:18:35.794 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: PolicyType created: Health Gold Plan
+[2026-06-13 23:18:35.794 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: CreatePolicyTypeFromRoute succeeded
+[2026-06-13 23:18:35.797 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policy-types responded 201 in 273.7976 ms
+[2026-06-13 23:19:14.553 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-13 23:19:14.753 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (26ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Guid), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = Binary), @p19='?' (DbType = DateTime), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Policies" ("Id", "CoverageAmount", "CreatedAt", "DeletedAt", "EndDate", "GracePeriodDays", "IsDeleted", "LapsedAt", "LastPremiumPaidDate", "NextPremiumDueDate", "PolicyDocumentUrl", "PolicyHolderId", "PolicyNumber", "PolicyTypeId", "PremiumAmount", "PremiumFrequency", "RejectionReason", "RemainingCoverageAmount", "RowVersion", "StartDate", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+[2026-06-13 23:19:14.790 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-13 23:19:14.801 ERR] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Error applying for policy by holder "4af7c011-bf2b-4245-a491-a98249598756"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.PolicyService.ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/PolicyService.cs:line 213
+[2026-06-13 23:19:14.983 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - ApplyForPolicyFailed
+[2026-06-13 23:19:14.985 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 451.4640 ms
+[2026-06-13 23:20:34.748 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-13 23:20:34.961 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (14ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Guid), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = Binary), @p19='?' (DbType = DateTime), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Policies" ("Id", "CoverageAmount", "CreatedAt", "DeletedAt", "EndDate", "GracePeriodDays", "IsDeleted", "LapsedAt", "LastPremiumPaidDate", "NextPremiumDueDate", "PolicyDocumentUrl", "PolicyHolderId", "PolicyNumber", "PolicyTypeId", "PremiumAmount", "PremiumFrequency", "RejectionReason", "RemainingCoverageAmount", "RowVersion", "StartDate", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+[2026-06-13 23:20:34.967 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-13 23:20:34.980 ERR] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Error applying for policy by holder "4af7c011-bf2b-4245-a491-a98249598756"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.PolicyService.ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/PolicyService.cs:line 213
+[2026-06-13 23:20:34.987 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - ApplyForPolicyFailed
+[2026-06-13 23:20:34.988 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 272.1317 ms
+[2026-06-13 23:22:03.127 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-13 23:22:03.235 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (15ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Guid), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = Binary), @p19='?' (DbType = DateTime), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Policies" ("Id", "CoverageAmount", "CreatedAt", "DeletedAt", "EndDate", "GracePeriodDays", "IsDeleted", "LapsedAt", "LastPremiumPaidDate", "NextPremiumDueDate", "PolicyDocumentUrl", "PolicyHolderId", "PolicyNumber", "PolicyTypeId", "PremiumAmount", "PremiumFrequency", "RejectionReason", "RemainingCoverageAmount", "RowVersion", "StartDate", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+[2026-06-13 23:22:03.244 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-13 23:22:03.257 ERR] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Error applying for policy by holder "4af7c011-bf2b-4245-a491-a98249598756"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.PolicyService.ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/PolicyService.cs:line 213
+[2026-06-13 23:22:03.288 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - ApplyForPolicyFailed
+[2026-06-13 23:22:03.288 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 173.7307 ms
+[2026-06-13 23:22:08.958 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-13 23:22:09.045 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Guid), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = Binary), @p19='?' (DbType = DateTime), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Policies" ("Id", "CoverageAmount", "CreatedAt", "DeletedAt", "EndDate", "GracePeriodDays", "IsDeleted", "LapsedAt", "LastPremiumPaidDate", "NextPremiumDueDate", "PolicyDocumentUrl", "PolicyHolderId", "PolicyNumber", "PolicyTypeId", "PremiumAmount", "PremiumFrequency", "RejectionReason", "RemainingCoverageAmount", "RowVersion", "StartDate", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+[2026-06-13 23:22:09.047 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-13 23:22:09.079 ERR] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Error applying for policy by holder "4af7c011-bf2b-4245-a491-a98249598756"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.PolicyService.ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/PolicyService.cs:line 213
+[2026-06-13 23:22:09.097 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - ApplyForPolicyFailed
+[2026-06-13 23:22:09.098 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 152.2272 ms
+[2026-06-13 23:22:22.947 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-13 23:22:22.993 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Guid), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = Binary), @p19='?' (DbType = DateTime), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Policies" ("Id", "CoverageAmount", "CreatedAt", "DeletedAt", "EndDate", "GracePeriodDays", "IsDeleted", "LapsedAt", "LastPremiumPaidDate", "NextPremiumDueDate", "PolicyDocumentUrl", "PolicyHolderId", "PolicyNumber", "PolicyTypeId", "PremiumAmount", "PremiumFrequency", "RejectionReason", "RemainingCoverageAmount", "RowVersion", "StartDate", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+[2026-06-13 23:22:23.003 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-13 23:22:23.014 ERR] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Error applying for policy by holder "4af7c011-bf2b-4245-a491-a98249598756"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.PolicyService.ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/PolicyService.cs:line 213
+[2026-06-13 23:22:23.031 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - ApplyForPolicyFailed
+[2026-06-13 23:22:23.031 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 96.2653 ms
+[2026-06-13 23:25:28.866 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-13 23:25:29.008 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Guid), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = Binary), @p19='?' (DbType = DateTime), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Policies" ("Id", "CoverageAmount", "CreatedAt", "DeletedAt", "EndDate", "GracePeriodDays", "IsDeleted", "LapsedAt", "LastPremiumPaidDate", "NextPremiumDueDate", "PolicyDocumentUrl", "PolicyHolderId", "PolicyNumber", "PolicyTypeId", "PremiumAmount", "PremiumFrequency", "RejectionReason", "RemainingCoverageAmount", "RowVersion", "StartDate", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+[2026-06-13 23:25:29.017 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-13 23:25:29.026 ERR] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Error applying for policy by holder "4af7c011-bf2b-4245-a491-a98249598756"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.PolicyService.ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/PolicyService.cs:line 213
+[2026-06-13 23:25:29.038 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - ApplyForPolicyFailed
+[2026-06-13 23:25:29.040 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 187.7692 ms
+[2026-06-13 23:25:34.542 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-13 23:25:34.637 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (7ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Guid), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = Binary), @p19='?' (DbType = DateTime), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Policies" ("Id", "CoverageAmount", "CreatedAt", "DeletedAt", "EndDate", "GracePeriodDays", "IsDeleted", "LapsedAt", "LastPremiumPaidDate", "NextPremiumDueDate", "PolicyDocumentUrl", "PolicyHolderId", "PolicyNumber", "PolicyTypeId", "PremiumAmount", "PremiumFrequency", "RejectionReason", "RemainingCoverageAmount", "RowVersion", "StartDate", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+[2026-06-13 23:25:34.646 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-13 23:25:34.659 ERR] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Error applying for policy by holder "4af7c011-bf2b-4245-a491-a98249598756"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.PolicyService.ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/PolicyService.cs:line 213
+[2026-06-13 23:25:34.664 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - ApplyForPolicyFailed
+[2026-06-13 23:25:34.665 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 131.1126 ms
+[2026-06-13 23:26:46.104 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 401 in 3.9387 ms
+[2026-06-13 23:27:40.234 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 401 in 34.3942 ms
+[2026-06-13 23:27:45.721 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 401 in 7.1588 ms
+[2026-06-13 23:27:51.306 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 401 in 4.5768 ms
+[2026-06-13 23:27:52.200 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 401 in 6.0035 ms
+[2026-06-13 23:30:12.748 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 401 in 13.2462 ms
+[2026-06-13 23:30:24.857 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 401 in 5.2855 ms
+[2026-06-13 23:30:45.439 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 401 in 9.1564 ms
+[2026-06-13 23:31:29.323 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-13 23:31:29.331 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: Seemamaglin@gmail.com
+[2026-06-13 23:31:29.771 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 23:31:29.819 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "4af7c011-bf2b-4245-a491-a98249598756"
+[2026-06-13 23:31:29.819 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-13 23:31:29.822 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 546.1817 ms
+[2026-06-13 23:31:42.894 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-13 23:31:42.968 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (11ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Guid), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = Binary), @p19='?' (DbType = DateTime), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Policies" ("Id", "CoverageAmount", "CreatedAt", "DeletedAt", "EndDate", "GracePeriodDays", "IsDeleted", "LapsedAt", "LastPremiumPaidDate", "NextPremiumDueDate", "PolicyDocumentUrl", "PolicyHolderId", "PolicyNumber", "PolicyTypeId", "PremiumAmount", "PremiumFrequency", "RejectionReason", "RemainingCoverageAmount", "RowVersion", "StartDate", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+[2026-06-13 23:31:42.975 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-13 23:31:42.988 ERR] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Error applying for policy by holder "4af7c011-bf2b-4245-a491-a98249598756"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.PolicyService.ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/PolicyService.cs:line 213
+[2026-06-13 23:31:42.996 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - ApplyForPolicyFailed
+[2026-06-13 23:31:42.998 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 121.8155 ms
+[2026-06-13 23:31:55.743 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-13 23:31:55.771 ERR] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?', @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Guid), @p14='?' (DbType = Decimal), @p15='?' (DbType = Int32), @p16='?', @p17='?' (DbType = Decimal), @p18='?' (DbType = Binary), @p19='?' (DbType = DateTime), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Policies" ("Id", "CoverageAmount", "CreatedAt", "DeletedAt", "EndDate", "GracePeriodDays", "IsDeleted", "LapsedAt", "LastPremiumPaidDate", "NextPremiumDueDate", "PolicyDocumentUrl", "PolicyHolderId", "PolicyNumber", "PolicyTypeId", "PremiumAmount", "PremiumFrequency", "RejectionReason", "RemainingCoverageAmount", "RowVersion", "StartDate", "Status", "UpdatedAt")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+[2026-06-13 23:31:55.773 ERR] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'InsuranceClaimSystem.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-06-13 23:31:55.787 ERR] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Error applying for policy by holder "4af7c011-bf2b-4245-a491-a98249598756"
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Policies_PolicyNumber"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Policies
+    ConstraintName: IX_Policies_PolicyNumber
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InsuranceClaimSystem.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Data/AppDbContext.cs:line 89
+   at InsuranceClaimSystem.Infrastructure.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Repositories/UnitOfWork.cs:line 17
+   at InsuranceClaimSystem.Infrastructure.Services.PolicyService.ApplyForPolicyAsync(Guid policyHolderId, ApplyForPolicyRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/PolicyService.cs:line 213
+[2026-06-13 23:31:55.797 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - ApplyForPolicyFailed
+[2026-06-13 23:31:55.798 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 63.6519 ms

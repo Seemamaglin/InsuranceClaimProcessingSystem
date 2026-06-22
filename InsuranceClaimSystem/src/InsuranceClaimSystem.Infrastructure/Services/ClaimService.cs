@@ -24,6 +24,7 @@ public class ClaimService : IClaimService
     private readonly IClaimValidationService _validationService;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly INotificationService _notificationService;
     private readonly ILogger<ClaimService> _logger;
 
     public ClaimService(
@@ -37,6 +38,7 @@ public class ClaimService : IClaimService
         IClaimValidationService validationService,
         IUnitOfWork unitOfWork,
         IMapper mapper,
+        INotificationService notificationService,
         ILogger<ClaimService> logger)
     {
         _claimRepository = claimRepository;
@@ -49,6 +51,7 @@ public class ClaimService : IClaimService
         _validationService = validationService;
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+        _notificationService = notificationService;
         _logger = logger;
     }
 
@@ -69,9 +72,43 @@ public class ClaimService : IClaimService
             var claimNumber = await GenerateClaimNumberAsync();
             var claim = BuildClaimEntity(request, policy, claimType, claimNumber, validationResult);
 
+            // Auto-assign reviewer immediately during submission
+            var selectedReviewer = await FindBestReviewerAsync(claim);
+            if (selectedReviewer != null)
+            {
+                claim.AssignedReviewerId = selectedReviewer.Id;
+            }
+
             await _claimRepository.AddAsync(claim);
             await _workflowHistoryRepository.AddAsync(BuildWorkflowEntry(claim, policy.PolicyHolderId, null, ClaimStatus.Submitted, "Claim submitted"));
+            
+            if (selectedReviewer != null)
+            {
+                await _workflowHistoryRepository.AddAsync(BuildWorkflowEntry(claim, selectedReviewer.Id, null, ClaimStatus.Submitted, 
+                    $"Auto-assigned reviewer {selectedReviewer.FirstName} {selectedReviewer.LastName} upon submission"));
+            }
+
             await _unitOfWork.SaveChangesAsync();
+
+            // Send notifications
+            await _notificationService.CreateNotificationAsync(
+                policy.PolicyHolderId,
+                "Claim Submitted",
+                $"Your claim {claimNumber} has been successfully submitted.",
+                InsuranceClaimSystem.Domain.Enums.NotificationType.ClaimSubmitted,
+                InsuranceClaimSystem.Domain.Enums.NotificationChannel.InApp,
+                claim.Id);
+
+            if (selectedReviewer != null)
+            {
+                await _notificationService.CreateNotificationAsync(
+                    selectedReviewer.Id,
+                    "New Claim Assigned",
+                    $"Claim {claimNumber} has been automatically assigned to you for review.",
+                    InsuranceClaimSystem.Domain.Enums.NotificationType.Reminder,
+                    InsuranceClaimSystem.Domain.Enums.NotificationChannel.InApp,
+                    claim.Id);
+            }
 
             var claimWithDetails = await _claimRepository.GetByIdWithDetailsAsync(claim.Id);
             _logger.LogInformation("Claim {ClaimId} submitted successfully", claim.Id);
@@ -153,6 +190,29 @@ public class ClaimService : IClaimService
             await _workflowHistoryRepository.AddAsync(BuildWorkflowEntry(claim, request.ChangedByUserId, previousStatus, request.NewStatus,
                 $"Status changed from {previousStatus} to {request.NewStatus}"));
             await _unitOfWork.SaveChangesAsync();
+
+            // Send notification about status change
+            var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
+            if (policy != null)
+            {
+                var title = request.NewStatus switch
+                {
+                    ClaimStatus.Approved => "Claim Approved",
+                    ClaimStatus.Rejected => "Claim Rejected",
+                    ClaimStatus.UnderReview => "Claim Under Review",
+                    _ => "Claim Status Updated"
+                };
+
+                await _notificationService.CreateNotificationAsync(
+                    policy.PolicyHolderId,
+                    title,
+                    $"The status of your claim {claim.ClaimNumber} has been updated to {request.NewStatus}.",
+                    request.NewStatus == ClaimStatus.Approved ? InsuranceClaimSystem.Domain.Enums.NotificationType.ClaimApproved :
+                    request.NewStatus == ClaimStatus.Rejected ? InsuranceClaimSystem.Domain.Enums.NotificationType.ClaimRejected :
+                    InsuranceClaimSystem.Domain.Enums.NotificationType.StatusChanged,
+                    InsuranceClaimSystem.Domain.Enums.NotificationChannel.InApp,
+                    claim.Id);
+            }
 
             _logger.LogInformation("Claim {ClaimId} status updated to {NewStatus}", claimId, request.NewStatus);
             return Result<bool>.Success(true);
@@ -318,8 +378,13 @@ public class ClaimService : IClaimService
     private async Task<string> GenerateClaimNumberAsync()
     {
         var year = DateTime.UtcNow.Year;
-        var sequence = await _claimRepository.CountByStatusAsync(ClaimStatus.Submitted) + 1;
-        return $"CLM-{year}-{sequence:D4}";
+        // Fixed: Count ALL claims created this year, regardless of their status.
+        var claimsThisYear = await _claimRepository.GetPagedAsync(1, 1, c => c.CreatedAt.Year == year);
+        var sequence = claimsThisYear.TotalCount + 1;
+        
+        // Add a random 4-character suffix to completely guarantee uniqueness even if deleted
+        var randomSuffix = Guid.NewGuid().ToString().Substring(0, 4).ToUpper();
+        return $"CLM-{year}-{sequence:D4}-{randomSuffix}";
     }
 
     private Claim BuildClaimEntity(SubmitClaimRequest request, Policy policy, ClaimType claimType, string claimNumber, ClaimValidationResult validationResult)
@@ -365,7 +430,9 @@ public class ClaimService : IClaimService
         {
             claim.FinalPayableAmount = await _validationService.CalculatePayoutAsync(
                 claim.ClaimedAmount, claim.ClaimTypeId, policy.PolicyTypeId);
+            claim.ApprovedAmount = claim.FinalPayableAmount;
         }
+        claim.ResolvedAt = DateTime.UtcNow;
     }
 
     private async Task HandleClosedStatusAsync(Claim claim)
@@ -392,6 +459,7 @@ public class ClaimService : IClaimService
     {
         if (!string.IsNullOrEmpty(request.RejectionReason))
             claim.RejectionReason = request.RejectionReason;
+        claim.ResolvedAt = DateTime.UtcNow;
     }
 
     private async Task<User?> FindBestReviewerAsync(Claim claim)

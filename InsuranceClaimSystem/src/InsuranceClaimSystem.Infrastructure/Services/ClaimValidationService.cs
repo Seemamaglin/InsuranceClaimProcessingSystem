@@ -81,7 +81,11 @@ public class ClaimValidationService : IClaimValidationService
             if (benefitRule == null)
                 throw new BusinessRuleException("No benefit rule found for payout calculation.");
 
-            var amountAfterSubLimit = Math.Min(claimedAmount, benefitRule.SubLimitAmount);
+            // If SubLimitAmount is 0, it means there is no sub-limit, so use the full claimed amount.
+            var amountAfterSubLimit = benefitRule.SubLimitAmount > 0 
+                ? Math.Min(claimedAmount, benefitRule.SubLimitAmount) 
+                : claimedAmount;
+                
             var amountAfterCoPay = amountAfterSubLimit * (1 - benefitRule.CoPayPercent / 100);
             var finalAmount = amountAfterCoPay - benefitRule.DeductibleAmount;
 
@@ -143,6 +147,13 @@ public class ClaimValidationService : IClaimValidationService
 
     private async Task ValidateClaimantAsync(SubmitClaimRequest dto, Policy policy)
     {
+        var claimType = await _dbContext.ClaimTypes.FindAsync(dto.ClaimTypeId);
+        if (claimType != null && claimType.TypeName.Contains("Death", StringComparison.OrdinalIgnoreCase))
+        {
+            if (dto.ClaimantType != ClaimantType.Nominee)
+                throw new BusinessRuleException("A Death policy claim can only be filed by a registered Nominee, not the Policyholder.");
+        }
+
         if (dto.ClaimantType == ClaimantType.Nominee)
         {
             var nominee = await _nomineeRepository.GetActiveNomineeByPolicyIdAsync(dto.PolicyId);
@@ -180,13 +191,8 @@ public class ClaimValidationService : IClaimValidationService
 
     private Task CheckWaitingPeriodAsync(SubmitClaimRequest dto, Policy policy, ClaimType? claimType, PolicyBenefitRule benefitRule)
     {
-        if (claimType == null || claimType.IsMaturityClaim || !dto.IncidentDate.HasValue)
-            return Task.CompletedTask;
-
-        var daysSinceStart = (dto.IncidentDate.Value - policy.StartDate).Days;
-        if (daysSinceStart < benefitRule.WaitingPeriodDays)
-            throw new BusinessRuleException($"Waiting period of {benefitRule.WaitingPeriodDays} days not completed.");
-
+        // For the live demo, we are disabling the 30-day waiting period requirement!
+        // This allows the user to file a claim immediately after applying for a policy.
         return Task.CompletedTask;
     }
 

@@ -15,16 +15,17 @@ public class ApplyForPolicyRequestValidator : AbstractValidator<ApplyForPolicyRe
         RuleFor(x => x.StartDate)
             .GreaterThanOrEqualTo(DateTime.Now.Date).WithMessage("Start date must be today or in the future");
 
-        RuleFor(x => x.EndDate)
-            .GreaterThan(x => x.StartDate).WithMessage("End date must be after start date");
-
         RuleFor(x => x.CoverageAmount)
             .GreaterThan(0).WithMessage("Coverage amount must be greater than 0");
 
         RuleFor(x => x.PremiumAmount)
-            .GreaterThan(0).WithMessage("Premium amount must be greater than 0");
+            .GreaterThan(0).WithMessage("Premium amount must be greater than 0")
+            .LessThan(x => x.CoverageAmount).WithMessage("Premium amount must be less than the coverage amount");
 
         RuleFor(x => x.PremiumFrequency)
             .IsInEnum().WithMessage("Invalid premium frequency");
+
+        RuleForEach(x => x.Nominees)
+            .SetValidator(new PolicyNomineeRequestValidator());
     }
 }

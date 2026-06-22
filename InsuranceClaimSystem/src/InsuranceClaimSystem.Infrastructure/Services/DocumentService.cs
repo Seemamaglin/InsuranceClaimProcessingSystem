@@ -69,10 +69,7 @@ public class DocumentService : IDocumentService
             var claim = validationResult.Value!;
             var (fileBytes, contentType, fileName) = await ProcessFileAsync(file);
 
-            var fileUrl = await _fileStorageService.SaveFileAsync(
-                new MemoryStream(fileBytes), 
-                fileName, 
-                contentType);
+            var fileUrl = await _fileStorageService.SaveClaimFileAsync(file, claimId);
 
             var document = BuildDocumentEntity(claimId, uploadedByUserId, file, fileUrl, fileBytes, contentType, documentType);
 

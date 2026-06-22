@@ -18,6 +18,8 @@ public class PolicyService : IPolicyService
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly ILogger<PolicyService> _logger;
+    private readonly INotificationService _notificationService;
+    private readonly INomineeRepository _nomineeRepository;
 
     public PolicyService(
         IPolicyRepository policyRepository,
@@ -25,7 +27,9 @@ public class PolicyService : IPolicyService
         IUserRepository userRepository,
         IUnitOfWork unitOfWork,
         IMapper mapper,
-        ILogger<PolicyService> logger)
+        ILogger<PolicyService> logger,
+        INotificationService notificationService,
+        INomineeRepository nomineeRepository)
     {
         _policyRepository = policyRepository;
         _policyTypeRepository = policyTypeRepository;
@@ -33,6 +37,8 @@ public class PolicyService : IPolicyService
         _unitOfWork = unitOfWork;
         _mapper = mapper;
         _logger = logger;
+        _notificationService = notificationService;
+        _nomineeRepository = nomineeRepository;
     }
 
     public async Task<Result<PolicyTypeDto>> CreatePolicyTypeAsync(CreatePolicyTypeRequest request)
@@ -188,10 +194,81 @@ public class PolicyService : IPolicyService
             if (policyType == null)
                 return Result<PolicyResponse>.Failure(Error.NotFound("PolicyTypeNotFound", "Policy type not found."));
 
-            var policyCount = await _policyRepository.CountByStatusAsync(PolicyStatus.PendingApproval);
-            var policyNumber = $"POL-{DateTime.UtcNow.Year}-{(policyCount + 1):D4}";
+            if (request.CoverageAmount > policyType.DefaultCoverageAmount)
+            {
+                return Result<PolicyResponse>.Failure(Error.Validation("CoverageLimitExceeded", $"The requested coverage amount exceeds the limit of {policyType.DefaultCoverageAmount} for this policy type."));
+            }
+
+            if (policyType.AllowsNomineeClaim)
+            {
+                if (request.Nominees == null || !request.Nominees.Any())
+                {
+                    return Result<PolicyResponse>.Failure(Error.Validation("NomineeRequired", "A nominee is required for this policy type."));
+                }
+                if (request.Nominees.Count > 10)
+                {
+                    return Result<PolicyResponse>.Failure(Error.Validation("TooManyNominees", "You can specify a maximum of 10 nominees."));
+                }
+                var totalShare = request.Nominees.Sum(n => n.SharePercentage);
+                if (totalShare != 100)
+                {
+                    return Result<PolicyResponse>.Failure(Error.Validation("InvalidSharePercentage", "The total share percentage of all nominees must equal exactly 100."));
+                }
+            }
+            else
+            {
+                if (request.Nominees != null && request.Nominees.Any())
+                {
+                    return Result<PolicyResponse>.Failure(Error.Validation("NomineesNotAllowed", "Nominees cannot be added to this policy type."));
+                }
+            }
+
+            var existingPolicies = await _policyRepository.GetByPolicyHolderIdAsync(policyHolderId);
+            var duplicatePolicy = existingPolicies.FirstOrDefault(p => p.PolicyTypeId == request.PolicyTypeId && 
+                (p.Status == PolicyStatus.PendingApproval || p.Status == PolicyStatus.Active));
+            
+            if (duplicatePolicy != null)
+            {
+                if (duplicatePolicy.Status == PolicyStatus.PendingApproval)
+                {
+                    return Result<PolicyResponse>.Failure(Error.Validation("DuplicatePolicyType", "Your previous policy of the same policy type is not approved yet."));
+                }
+                else
+                {
+                    return Result<PolicyResponse>.Failure(Error.Validation("DuplicatePolicyType", "Your previous policy of the same policy type is already active."));
+                }
+            }
+
+            // Fixed: Count ALL policies created this year, regardless of their status.
+            var policiesThisYear = await _policyRepository.GetPagedAsync(1, 1, p => p.CreatedAt.Year == DateTime.UtcNow.Year);
+            var sequence = policiesThisYear.TotalCount + 1;
+            
+            // Add a random 4-character suffix to completely guarantee uniqueness even if deleted
+            var randomSuffix = Guid.NewGuid().ToString().Substring(0, 4).ToUpper();
+            var policyNumber = $"POL-{DateTime.UtcNow.Year}-{sequence:D4}-{randomSuffix}";
 
             var gracePeriodDays = request.PremiumFrequency == PremiumFrequency.Monthly ? 15 : 30;
+
+            var nextPremiumDate = request.PremiumFrequency switch
+            {
+                PremiumFrequency.Monthly => request.StartDate.AddMonths(1),
+                PremiumFrequency.Quarterly => request.StartDate.AddMonths(3),
+                PremiumFrequency.HalfYearly => request.StartDate.AddMonths(6),
+                PremiumFrequency.Annually => request.StartDate.AddYears(1),
+                _ => request.StartDate.AddMonths(1)
+            };
+
+            int paymentsPerYear = request.PremiumFrequency switch
+            {
+                PremiumFrequency.Monthly => 12,
+                PremiumFrequency.Quarterly => 4,
+                PremiumFrequency.HalfYearly => 2,
+                PremiumFrequency.Annually => 1,
+                _ => 1
+            };
+            decimal yearlyPremium = request.PremiumAmount * paymentsPerYear;
+            double estimatedYears = yearlyPremium > 0 ? (double)(request.CoverageAmount / yearlyPremium) : 0;
+            var calculatedEndDate = request.StartDate.AddDays(estimatedYears * 365.25);
 
             var policy = new Policy
             {
@@ -200,18 +277,40 @@ public class PolicyService : IPolicyService
                 PolicyTypeId = request.PolicyTypeId,
                 Status = PolicyStatus.PendingApproval,
                 StartDate = request.StartDate,
-                EndDate = request.EndDate,
+                EndDate = calculatedEndDate,
                 CoverageAmount = request.CoverageAmount,
                 RemainingCoverageAmount = request.CoverageAmount,
                 PremiumAmount = request.PremiumAmount,
                 PremiumFrequency = request.PremiumFrequency,
                 GracePeriodDays = gracePeriodDays,
+                LastPremiumPaidDate = DateTime.UtcNow,
+                NextPremiumDueDate = nextPremiumDate,
                 RowVersion = Guid.NewGuid().ToByteArray()
             };
 
             await _policyRepository.AddAsync(policy);
             await _unitOfWork.SaveChangesAsync();
 
+            if (request.Nominees != null && request.Nominees.Any())
+            {
+                foreach (var nr in request.Nominees)
+                {
+                    var nominee = new Nominee
+                    {
+                        PolicyId = policy.Id,
+                        FullName = nr.FullName,
+                        Relationship = nr.Relationship,
+                        DateOfBirth = nr.DateOfBirth,
+                        ContactPhone = nr.ContactPhone,
+                        ContactEmail = nr.ContactEmail,
+                        SharePercentage = nr.SharePercentage,
+                        IsActive = true
+                    };
+                    await _nomineeRepository.AddAsync(nominee);
+                }
+                await _unitOfWork.SaveChangesAsync();
+            }
+            
             _logger.LogInformation("Policy application submitted: {PolicyNumber} by holder {PolicyHolderId}", policyNumber, policyHolderId);
 
             var createdPolicy = await _policyRepository.GetByIdAsync(policy.Id);
@@ -235,11 +334,24 @@ public class PolicyService : IPolicyService
                     Error.NotFound("PolicyNotFound", "Policy not found."));
             }
 
+            if (policy.Status != PolicyStatus.PendingApproval)
+            {
+                return Result<PolicyResponse>.Failure(
+                    Error.Validation("InvalidPolicyStatus", "Policy can only be approved when it is pending approval."));
+            }
+
             policy.Status = PolicyStatus.Active;
 
             policy.NextPremiumDueDate = CalculateNextPremiumDueDate(policy.StartDate, policy.PremiumFrequency);
 
             await _unitOfWork.SaveChangesAsync();
+
+            await _notificationService.CreateNotificationAsync(
+                policy.PolicyHolderId,
+                "Policy Approved",
+                $"Your policy {policy.PolicyNumber} has been approved and is now active.",
+                NotificationType.StatusChanged,
+                NotificationChannel.InApp);
 
             _logger.LogInformation("Policy approved: {PolicyId}", policyId);
 
@@ -264,10 +376,23 @@ public class PolicyService : IPolicyService
                     Error.NotFound("PolicyNotFound", "Policy not found."));
             }
 
+            if (policy.Status != PolicyStatus.PendingApproval)
+            {
+                return Result<PolicyResponse>.Failure(
+                    Error.Validation("InvalidPolicyStatus", "Policy can only be rejected when it is pending approval."));
+            }
+
             policy.Status = PolicyStatus.Rejected;
             policy.RejectionReason = reason;
 
             await _unitOfWork.SaveChangesAsync();
+
+            await _notificationService.CreateNotificationAsync(
+                policy.PolicyHolderId,
+                "Policy Rejected",
+                $"Your policy application {policy.PolicyNumber} has been rejected. Reason: {reason ?? "None provided."}",
+                NotificationType.StatusChanged,
+                NotificationChannel.InApp);
 
             _logger.LogInformation("Policy rejected: {PolicyId}", policyId);
 

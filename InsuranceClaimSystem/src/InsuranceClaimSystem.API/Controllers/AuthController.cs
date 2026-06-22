@@ -49,6 +49,7 @@ public class AuthController : ControllerBase
             {
                 "InvalidCredentials" => Unauthorized(result.Error),
                 "AccountLocked" => Unauthorized(result.Error),
+                "AccountPending" => Unauthorized(result.Error),
                 _ => BadRequest(result.Error)
             };
         }

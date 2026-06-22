@@ -196,12 +196,10 @@ public class NotificationService : INotificationService
         NotificationChannel channel, 
         Notification notification)
     {
-        if (channel.HasFlag(NotificationChannel.Email))
-        {
-            await SendEmailNotificationAsync(recipientEmail, notification.Title, notification.Message);
-        }
+        // Always send email for notifications as requested by user
+        await SendEmailNotificationAsync(recipientEmail, notification.Title, notification.Message);
 
-        if (channel.HasFlag(NotificationChannel.InApp))
+        if (channel == NotificationChannel.InApp)
         {
             await SendInAppNotificationAsync(notification);
         }

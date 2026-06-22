@@ -182,3 +182,4 @@
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/InsuranceClaimSystem.API.pdb
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/InsuranceClaimSystem.API.genruntimeconfig.cache
 /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/obj/Debug/net8.0/ref/InsuranceClaimSystem.API.dll
+/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/bin/Debug/net8.0/InsuranceClaimSystem.API.staticwebassets.runtime.json

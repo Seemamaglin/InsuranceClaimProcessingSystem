@@ -153,6 +153,42 @@ public class PolicyServiceTests
     }
 
     [Fact]
+    public async Task ApprovePolicy_WithAlreadyApprovedPolicy_ShouldReturnValidationError()
+    {
+        // Arrange
+        var policyId = Guid.NewGuid();
+        var policy = new Policy { Id = policyId, Status = PolicyStatus.Active };
+
+        _policyRepositoryMock.Setup(x => x.GetByIdAsync(policyId)).ReturnsAsync(policy);
+
+        // Act
+        var result = await _policyService.ApprovePolicyAsync(policyId);
+
+        // Assert
+        result.IsSuccess.Should().BeFalse();
+        result.Error.Code.Should().Be("InvalidPolicyStatus");
+        result.Error.Description.Should().Contain("pending approval");
+    }
+
+    [Fact]
+    public async Task RejectPolicy_WithAlreadyRejectedPolicy_ShouldReturnValidationError()
+    {
+        // Arrange
+        var policyId = Guid.NewGuid();
+        var policy = new Policy { Id = policyId, Status = PolicyStatus.Rejected };
+
+        _policyRepositoryMock.Setup(x => x.GetByIdAsync(policyId)).ReturnsAsync(policy);
+
+        // Act
+        var result = await _policyService.RejectPolicyAsync(policyId, "Incomplete docs");
+
+        // Assert
+        result.IsSuccess.Should().BeFalse();
+        result.Error.Code.Should().Be("InvalidPolicyStatus");
+        result.Error.Description.Should().Contain("pending approval");
+    }
+
+    [Fact]
     public async Task RejectPolicy_WithPendingPolicy_ShouldSetRejected()
     {
         // Arrange

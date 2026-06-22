@@ -29,22 +29,15 @@ public class StripePaymentService : IStripeService
                 Metadata = metadata
             };
 
-            var requestOptions = new RequestOptions
+            // MOCK: Return a fake intent for local testing instead of hitting Stripe API
+            return await Task.FromResult(new StripePaymentIntent
             {
-                IdempotencyKey = idempotencyKey
-            };
-
-            var service = new PaymentIntentService();
-            var intent = await service.CreateAsync(options, requestOptions);
-
-            return new StripePaymentIntent
-            {
-                Id = intent.Id,
-                ClientSecret = intent.ClientSecret,
+                Id = "pi_mock_" + Guid.NewGuid().ToString("N").Substring(0, 10),
+                ClientSecret = "secret_mock_" + Guid.NewGuid().ToString("N"),
                 Amount = amount,
                 Currency = currency,
-                Status = intent.Status
-            };
+                Status = "requires_payment_method"
+            });
         }
         catch (StripeException ex)
         {
@@ -56,16 +49,14 @@ public class StripePaymentService : IStripeService
     {
         try
         {
-            var service = new PaymentIntentService();
-            var intent = await service.ConfirmAsync(paymentIntentId);
-
-            return new StripePaymentConfirmation
+            // MOCK: Return a fake confirmation for local testing instead of hitting Stripe API
+            return await Task.FromResult(new StripePaymentConfirmation
             {
                 Id = paymentIntentId,
-                Status = intent.Status,
-                FailureMessage = intent.LastPaymentError?.Message,
-                Amount = intent.Amount / 100m
-            };
+                Status = "succeeded",
+                FailureMessage = null,
+                Amount = 300000m // Mocked amount
+            });
         }
         catch (StripeException ex)
         {

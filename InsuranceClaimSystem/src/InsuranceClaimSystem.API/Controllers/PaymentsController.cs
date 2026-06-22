@@ -33,10 +33,17 @@ public class PaymentsController : ControllerBase
             {
                 return NotFound(result.Error);
             }
+            if (result.Error.Code == "ClaimAlreadyClosed" || result.Error.Code == "PaymentAlreadyCompleted")
+            {
+                return Conflict(result.Error);
+            }
             return BadRequest(result.Error);
         }
         _logger.LogInformation("API: {Action} succeeded", nameof(CreatePaymentIntent));
-        return Ok(new { paymentIntentId = result.Value });
+        return Ok(new { 
+            paymentIntentId = result.Value.PaymentIntentId,
+            finalPayableAmount = result.Value.FinalPayableAmount
+        });
     }
 
     /// <summary>
@@ -55,14 +62,17 @@ public class PaymentsController : ControllerBase
             {
                 return NotFound(result.Error);
             }
-            if (result.Error.Code == "PaymentAlreadyCompleted")
+            if (result.Error.Code == "PaymentAlreadyCompleted" || result.Error.Code == "ClaimAlreadyClosed")
             {
                 return Conflict(result.Error);
             }
             return BadRequest(result.Error);
         }
         _logger.LogInformation("API: {Action} succeeded", nameof(ConfirmPayment));
-        return Ok(new { success = result.Value });
+        return Ok(new { 
+            success = result.Value.Success,
+            finalPayableAmount = result.Value.FinalPayableAmount
+        });
     }
 
     /// <summary>

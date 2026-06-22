@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 using InsuranceClaimSystem.Domain.Enums;
 
 namespace InsuranceClaimSystem.Application.DTOs.Accounts;
@@ -13,6 +14,8 @@ public class AccountDto
     public DateTime? DateOfBirth { get; set; }
     public string? LastLoginAt { get; set; }
     public UserRole Role { get; set; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public Specialization? Specialization { get; set; }
     public RegistrationStatus RegistrationStatus { get; set; }
     public bool IsActive { get; set; }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using InsuranceClaimSystem.Application.Common;
 using InsuranceClaimSystem.Application.Interfaces.Repositories;
 using InsuranceClaimSystem.Application.Interfaces.Services;
+using InsuranceClaimSystem.Application.Interfaces.External;
 using InsuranceClaimSystem.Domain.Entities;
 using InsuranceClaimSystem.Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
@@ -19,16 +20,19 @@ public class AdminController : ControllerBase
     private readonly IUnitOfWork _unitOfWork;
     private readonly IAccountService _accountService;
     private readonly ILogger<AdminController> _logger;
+    private readonly IEmailService _emailService;
 
     public AdminController(
         IUserRepository userRepository,
         IUnitOfWork unitOfWork,
         IAccountService accountService,
+        IEmailService emailService,
         ILogger<AdminController> logger)
     {
         _userRepository = userRepository;
         _unitOfWork = unitOfWork;
         _accountService = accountService;
+        _emailService = emailService;
         _logger = logger;
     }
 
@@ -165,6 +169,17 @@ public class AdminController : ControllerBase
                 return Conflict(new { error = "A user with this username already exists." });
             }
 
+            // Check phone uniqueness
+            if (!string.IsNullOrWhiteSpace(request.PhoneNumber))
+            {
+                var existingByPhone = await _userRepository.GetPagedAsync(1, 1, u => u.PhoneNumber == request.PhoneNumber);
+                if (existingByPhone.Items.Any())
+                {
+                    _logger.LogWarning("API: {Action} failed - PhoneNumberExists", nameof(CreateStaff));
+                    return Conflict(new { error = "A user with this phone number already exists." });
+                }
+            }
+
             var staffUser = new User
             {
                 Id = Guid.NewGuid(),
@@ -188,6 +203,12 @@ public class AdminController : ControllerBase
 
             await _userRepository.AddAsync(staffUser);
             await _unitOfWork.SaveChangesAsync();
+
+            await _emailService.SendEmailAsync(
+                staffUser.Email,
+                "Your Staff Account Credentials",
+                $"Hello {staffUser.FirstName},<br><br>Your staff account has been created successfully. Below are your login credentials:<br><br><strong>Email/Username:</strong> {staffUser.Email}<br><strong>Password:</strong> {request.Password}<br><br>Please log in as soon as possible.",
+                isHtml: true);
 
             _logger.LogInformation("API: {Action} succeeded - UserId {UserId}", nameof(CreateStaff), staffUser.Id);
             return StatusCode(201, new

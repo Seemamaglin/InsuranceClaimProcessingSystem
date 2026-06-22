@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using InsuranceClaimSystem.Domain.Common;
 using InsuranceClaimSystem.Domain.Enums;
 
@@ -14,6 +15,7 @@ namespace InsuranceClaimSystem.Domain.Entities
         public string Username { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public DateTime? EmailVerifiedAt { get; set; }
+        [JsonIgnore]
         public string PasswordHash { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         
@@ -29,11 +31,17 @@ namespace InsuranceClaimSystem.Domain.Entities
         public int FailedLoginAttempts { get; set; }
         public DateTime? LockoutUntil { get; set; }
 
+        [JsonIgnore]
         public ICollection<Policy> Policies { get; set; }
+        [JsonIgnore]
         public ICollection<Claim> Claims { get; set; }
+        [JsonIgnore]
         public ICollection<Notification> Notifications { get; set; }
+        [JsonIgnore]
         public ICollection<RefreshToken> RefreshTokens { get; set; }
+        [JsonIgnore]
         public ICollection<KYCDocument> KYCDocuments { get; set; }
+        [JsonIgnore]
         public ICollection<AuditLog> AuditLogs { get; set; }
     }
 }

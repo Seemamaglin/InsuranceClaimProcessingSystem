@@ -14,9 +14,19 @@ public class PolicyRepository : Repository<Policy>, IPolicyRepository
     {
     }
 
+    public override async Task<Policy?> GetByIdAsync(Guid id)
+    {
+        return await _dbContext.Policies
+            .Include(p => p.PolicyHolder)
+            .Include(p => p.PolicyType)
+            .FirstOrDefaultAsync(p => p.Id == id);
+    }
+
     public async Task<Policy?> GetByPolicyNumberAsync(string policyNumber)
     {
         return await _dbContext.Policies
+            .Include(p => p.PolicyHolder)
+            .Include(p => p.PolicyType)
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.PolicyNumber == policyNumber);
     }
@@ -24,6 +34,8 @@ public class PolicyRepository : Repository<Policy>, IPolicyRepository
     public async Task<IEnumerable<Policy>> GetByPolicyHolderIdAsync(Guid policyHolderId)
     {
         return await _dbContext.Policies
+            .Include(p => p.PolicyHolder)
+            .Include(p => p.PolicyType)
             .AsNoTracking()
             .Where(p => p.PolicyHolderId == policyHolderId)
             .ToListAsync();
@@ -31,7 +43,10 @@ public class PolicyRepository : Repository<Policy>, IPolicyRepository
 
     public async Task<PagedResult<Policy>> GetPagedAsync(int page, int pageSize, Expression<Func<Policy, bool>>? predicate = null)
     {
-        var query = _dbContext.Policies.AsNoTracking();
+        var query = _dbContext.Policies
+            .Include(p => p.PolicyHolder)
+            .Include(p => p.PolicyType)
+            .AsNoTracking();
 
         if (predicate != null)
         {

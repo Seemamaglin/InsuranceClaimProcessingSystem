@@ -14,6 +14,16 @@ public class ClaimRepository : Repository<Claim>, IClaimRepository
     {
     }
 
+    public override async Task<Claim?> GetByIdAsync(Guid id)
+    {
+        return await _dbContext.Claims
+            .Include(c => c.Policy)
+            .Include(c => c.ClaimType)
+            .Include(c => c.Claimant)
+            .Include(c => c.AssignedReviewer)
+            .FirstOrDefaultAsync(c => c.Id == id);
+    }
+
     public async Task<Claim?> GetByIdWithDetailsAsync(Guid claimId)
     {
         return await _dbContext.Claims
@@ -32,7 +42,12 @@ public class ClaimRepository : Repository<Claim>, IClaimRepository
 
     public async Task<PagedResult<Claim>> GetPagedAsync(int page, int pageSize, Expression<Func<Claim, bool>>? predicate = null)
     {
-        var query = _dbContext.Claims.AsNoTracking();
+        var query = _dbContext.Claims
+            .Include(c => c.Policy)
+            .Include(c => c.ClaimType)
+            .Include(c => c.Claimant)
+            .Include(c => c.AssignedReviewer)
+            .AsNoTracking();
 
         if (predicate != null)
         {

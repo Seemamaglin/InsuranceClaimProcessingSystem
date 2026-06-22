@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using InsuranceClaimSystem.Application.DTOs.Claims;
 using InsuranceClaimSystem.Application.Interfaces.Services;
 using InsuranceClaimSystem.Domain.Enums;
+using System.Security.Claims;
 
 namespace InsuranceClaimSystem.API.Controllers;
 
@@ -26,12 +27,17 @@ public class DocumentsController : ControllerBase
     [HttpPost("upload")]
     [Authorize(Policy = "PolicyHolderOnly")]
     public async Task<IActionResult> UploadDocument(
-        [FromQuery] Guid claimId,
-        [FromQuery] Guid uploadedByUserId,
-        [FromQuery] DocumentType documentType,
+        [FromForm] Guid claimId,
+        [FromForm] DocumentType documentType,
         IFormFile file)
     {
         _logger.LogInformation("API: {Action} called", nameof(UploadDocument));
+        
+        var uploadedByUserIdStr = User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier);
+        if (!Guid.TryParse(uploadedByUserIdStr, out var uploadedByUserId))
+        {
+            return Unauthorized();
+        }
         var result = await _documentService.UploadDocumentAsync(claimId, uploadedByUserId, file, documentType);
         if (result.IsFailure)
         {

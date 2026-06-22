@@ -11,9 +11,11 @@ public class ClaimProfile : Profile
         CreateMap<Claim, ClaimDto>()
             .ForMember(dest => dest.ClaimantName, opt => opt.MapFrom(src => $"{src.Claimant.FirstName} {src.Claimant.LastName}"))
             .ForMember(dest => dest.AssignedReviewerName, opt => opt.MapFrom(src => src.AssignedReviewer != null ? $"{src.AssignedReviewer.FirstName} {src.AssignedReviewer.LastName}" : null))
-            .ForMember(dest => dest.ClaimTypeName, opt => opt.MapFrom(src => src.ClaimType.TypeName));
+            .ForMember(dest => dest.ClaimTypeName, opt => opt.MapFrom(src => src.ClaimType.TypeName))
+            .ForMember(dest => dest.PolicyNumber, opt => opt.MapFrom(src => src.Policy != null ? src.Policy.PolicyNumber : string.Empty));
 
         CreateMap<Claim, ClaimDetailDto>()
+            .ForMember(dest => dest.PolicyNumber, opt => opt.MapFrom(src => src.Policy != null ? src.Policy.PolicyNumber : string.Empty))
             .ForMember(dest => dest.ClaimantName, opt => opt.MapFrom(src => $"{src.Claimant.FirstName} {src.Claimant.LastName}"))
             .ForMember(dest => dest.AssignedReviewerName, opt => opt.MapFrom(src => src.AssignedReviewer != null ? $"{src.AssignedReviewer.FirstName} {src.AssignedReviewer.LastName}" : null))
             .ForMember(dest => dest.ClaimTypeName, opt => opt.MapFrom(src => src.ClaimType.TypeName))

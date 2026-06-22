@@ -112,6 +112,7 @@ builder.Services.AddScoped<IClaimService, ClaimService>();
 builder.Services.AddScoped<IClaimValidationService, ClaimValidationService>();
 builder.Services.AddScoped<IDocumentService, DocumentService>();
 builder.Services.AddScoped<IPolicyService, PolicyService>();
+builder.Services.AddScoped<INomineeService, NomineeService>();
 builder.Services.AddScoped<IPremiumPaymentService, PremiumPaymentService>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -134,6 +135,7 @@ builder.Services.AddAutoMapper(
 // 8. FluentValidation
 builder.Services.AddValidatorsFromAssembly(
     typeof(InsuranceClaimSystem.Application.Common.Result).Assembly);
+builder.Services.AddFluentValidationAutoValidation();
 
 // 9. SignalR
 builder.Services.AddSignalR();
