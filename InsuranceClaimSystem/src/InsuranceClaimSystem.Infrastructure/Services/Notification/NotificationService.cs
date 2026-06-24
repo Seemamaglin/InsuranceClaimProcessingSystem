@@ -1,3 +1,4 @@
+using Hangfire;
 using Microsoft.Extensions.Logging;
 using InsuranceClaimSystem.Application.Common;
 using InsuranceClaimSystem.Application.DTOs.Notifications;
@@ -15,6 +16,7 @@ public class NotificationService : INotificationService
     private readonly IUserRepository _userRepository;
     private readonly IEmailService _emailService;
     private readonly INotificationDispatcher _notificationDispatcher;
+    private readonly IBackgroundJobClient _backgroundJobClient;
     private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<NotificationService> _logger;
 
@@ -23,6 +25,7 @@ public class NotificationService : INotificationService
         IUserRepository userRepository,
         IEmailService emailService,
         INotificationDispatcher notificationDispatcher,
+        IBackgroundJobClient backgroundJobClient,
         IUnitOfWork unitOfWork,
         ILogger<NotificationService> logger)
     {
@@ -30,6 +33,7 @@ public class NotificationService : INotificationService
         _userRepository = userRepository;
         _emailService = emailService;
         _notificationDispatcher = notificationDispatcher;
+        _backgroundJobClient = backgroundJobClient;
         _unitOfWork = unitOfWork;
         _logger = logger;
     }
@@ -196,8 +200,9 @@ public class NotificationService : INotificationService
         NotificationChannel channel, 
         Notification notification)
     {
-        // Always send email for notifications as requested by user
-        await SendEmailNotificationAsync(recipientEmail, notification.Title, notification.Message);
+        // Always send email for notifications as requested by user, dispatched via Hangfire
+        _backgroundJobClient.Enqueue<IEmailService>(emailService => 
+            emailService.SendEmailAsync(recipientEmail, notification.Title, notification.Message, true));
 
         if (channel == NotificationChannel.InApp)
         {

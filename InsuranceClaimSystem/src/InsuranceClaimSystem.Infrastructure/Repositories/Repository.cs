@@ -52,7 +52,9 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         var entity = await GetByIdAsync(id);
         if (entity != null)
         {
-            _dbContext.Set<T>().Remove(entity);
+            entity.IsDeleted = true;
+            entity.DeletedAt = DateTime.UtcNow;
+            _dbContext.Set<T>().Update(entity);
         }
     }
 

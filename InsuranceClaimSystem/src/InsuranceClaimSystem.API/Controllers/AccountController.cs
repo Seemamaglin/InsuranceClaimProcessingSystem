@@ -1,6 +1,8 @@
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using InsuranceClaimSystem.Application.DTOs.Accounts;
 using InsuranceClaimSystem.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -32,6 +34,10 @@ public class AccountController : ControllerBase
         return userId;
     }
 
+    /// <summary>
+    /// Gets the account details for the authenticated user.
+    /// </summary>
+    /// <returns>User account profile details</returns>
     [HttpGet]
     public async Task<IActionResult> GetAccount()
     {
@@ -60,6 +66,11 @@ public class AccountController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Updates the profile details for the authenticated user.
+    /// </summary>
+    /// <param name="request">The updated profile details</param>
+    /// <returns>Result of the update operation</returns>
     [HttpPut]
     public async Task<IActionResult> UpdateProfile([FromBody] UpdateProfileRequest request)
     {
@@ -94,6 +105,11 @@ public class AccountController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Changes the password for the authenticated user.
+    /// </summary>
+    /// <param name="request">Current and new password</param>
+    /// <returns>Result of the password change</returns>
     [HttpPost("change-password")]
     public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest request)
     {
@@ -160,6 +176,39 @@ public class AccountController : ControllerBase
             return StatusCode(500, new { error = "An unexpected error occurred." });
         }
     }
+
+    [HttpPost("kyc")]
+    public async Task<IActionResult> SubmitKyc([FromForm] List<IFormFile> documents)
+    {
+        _logger.LogInformation("API: {Action} called", nameof(SubmitKyc));
+        try
+        {
+            var userId = GetUserIdFromClaims();
+            var result = await _accountService.SubmitKycAsync(userId, documents);
+            if (result.IsFailure)
+            {
+                _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(SubmitKyc), result.Error.Code);
+                return result.Error.Code switch
+                {
+                    "UserNotFound" => NotFound(result.Error),
+                    _ => BadRequest(result.Error)
+                };
+            }
+            _logger.LogInformation("API: {Action} succeeded", nameof(SubmitKyc));
+            return Ok(new { success = result.Value });
+        }
+        catch (UnauthorizedAccessException)
+        {
+            _logger.LogWarning("API: {Action} failed - Unauthorized", nameof(SubmitKyc));
+            return Unauthorized();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning("API: {Action} failed - {Error}", nameof(SubmitKyc), ex.Message);
+            return StatusCode(500, new { error = "An unexpected error occurred." });
+        }
+    }
+
 
     [HttpPost("reactivate")]
     public async Task<IActionResult> ReactivateAccount()

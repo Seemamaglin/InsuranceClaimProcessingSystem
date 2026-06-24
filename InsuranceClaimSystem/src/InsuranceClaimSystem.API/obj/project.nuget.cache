@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+foRLT4tbbM=",
+  "dgSpecHash": "Ye5/AsC14hE=",
   "success": true,
   "projectFilePath": "/Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API/InsuranceClaimSystem.API.csproj",
   "expectedPackageFiles": [
+    "/Users/seemamaglin/.nuget/packages/aspnetcore.healthchecks.npgsql/9.0.0/aspnetcore.healthchecks.npgsql.9.0.0.nupkg.sha512",
     "/Users/seemamaglin/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/seemamaglin/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/seemamaglin/.nuget/packages/azure.core/1.54.0/azure.core.1.54.0.nupkg.sha512",
@@ -44,6 +45,8 @@
     "/Users/seemamaglin/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.3/microsoft.extensions.dependencyinjection.abstractions.10.0.3.nupkg.sha512",
     "/Users/seemamaglin/.nuget/packages/microsoft.extensions.dependencymodel/8.0.0/microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512",
     "/Users/seemamaglin/.nuget/packages/microsoft.extensions.diagnostics.abstractions/10.0.3/microsoft.extensions.diagnostics.abstractions.10.0.3.nupkg.sha512",
+    "/Users/seemamaglin/.nuget/packages/microsoft.extensions.diagnostics.healthchecks/8.0.11/microsoft.extensions.diagnostics.healthchecks.8.0.11.nupkg.sha512",
+    "/Users/seemamaglin/.nuget/packages/microsoft.extensions.diagnostics.healthchecks.abstractions/8.0.11/microsoft.extensions.diagnostics.healthchecks.abstractions.8.0.11.nupkg.sha512",
     "/Users/seemamaglin/.nuget/packages/microsoft.extensions.fileproviders.abstractions/10.0.3/microsoft.extensions.fileproviders.abstractions.10.0.3.nupkg.sha512",
     "/Users/seemamaglin/.nuget/packages/microsoft.extensions.hosting.abstractions/10.0.3/microsoft.extensions.hosting.abstractions.10.0.3.nupkg.sha512",
     "/Users/seemamaglin/.nuget/packages/microsoft.extensions.logging/8.0.0/microsoft.extensions.logging.8.0.0.nupkg.sha512",

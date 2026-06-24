@@ -8,6 +8,8 @@ using InsuranceClaimSystem.Application.Interfaces.Repositories;
 using InsuranceClaimSystem.Application.Interfaces.Services;
 using InsuranceClaimSystem.Domain.Entities;
 using InsuranceClaimSystem.Domain.Enums;
+using InsuranceClaimSystem.Application.Interfaces.External;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
 namespace InsuranceClaimSystem.Infrastructure.Services;
@@ -15,15 +17,21 @@ namespace InsuranceClaimSystem.Infrastructure.Services;
 public class AccountService : IAccountService
 {
     private readonly IUserRepository _userRepository;
+    private readonly IKYCDocumentRepository _kycDocumentRepository;
+    private readonly IFileStorageService _fileStorageService;
     private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<AccountService> _logger;
 
     public AccountService(
         IUserRepository userRepository,
+        IKYCDocumentRepository kycDocumentRepository,
+        IFileStorageService fileStorageService,
         IUnitOfWork unitOfWork,
         ILogger<AccountService> logger)
     {
         _userRepository = userRepository;
+        _kycDocumentRepository = kycDocumentRepository;
+        _fileStorageService = fileStorageService;
         _unitOfWork = unitOfWork;
         _logger = logger;
     }
@@ -258,6 +266,116 @@ public class AccountService : IAccountService
             _logger.LogError(ex, "Error getting paged accounts");
             return Result<PagedResult<AccountDto>>.Failure(
                 Error.Validation("GetAccountsFailed", "An error occurred while retrieving accounts."));
+        }
+    }
+
+    public async Task<Result<bool>> SubmitKycAsync(Guid userId, List<IFormFile> documents)
+    {
+        _logger.LogInformation("Submitting KYC documents for user {UserId}", userId);
+        try
+        {
+            if (documents == null || documents.Count == 0)
+                return Result<bool>.Failure(Error.Validation("NoDocuments", "No documents were provided."));
+
+            if (documents.Count > 5)
+                return Result<bool>.Failure(Error.Validation("TooManyDocuments", "A maximum of 5 documents is allowed."));
+
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null)
+                return Result<bool>.Failure(Error.NotFound("UserNotFound", "User not found."));
+
+            if (user.RegistrationStatus != RegistrationStatus.PendingKyc && user.RegistrationStatus != RegistrationStatus.KycRejected)
+                return Result<bool>.Failure(Error.Validation("InvalidStatus", "User is not in a valid state to submit KYC."));
+
+            foreach (var doc in documents)
+            {
+                var filePath = await _fileStorageService.SaveKYCFileAsync(doc, userId);
+                var kycDoc = new KYCDocument
+                {
+                    UserId = userId,
+                    DocumentType = KycDocumentType.Aadhar, // Default or infer from extension/form
+                    FileName = doc.FileName,
+                    FilePath = filePath,
+                    MimeType = doc.ContentType,
+                    FileSizeBytes = doc.Length,
+                    VerificationStatus = VerificationStatus.Pending
+                };
+                await _kycDocumentRepository.AddAsync(kycDoc);
+            }
+
+            user.RegistrationStatus = RegistrationStatus.PendingApproval;
+            user.RegistrationRejectionReason = null; // Clear previous rejections if any
+            
+            await _userRepository.UpdateAsync(user);
+            await _unitOfWork.SaveChangesAsync();
+
+            _logger.LogInformation("KYC documents submitted successfully for user {UserId}", userId);
+            return Result<bool>.Success(true);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error submitting KYC for {UserId}", userId);
+            return Result<bool>.Failure(Error.Validation("KycSubmissionFailed", "An error occurred while submitting KYC documents."));
+        }
+    }
+
+    public async Task<Result<bool>> ApproveRegistrationAsync(Guid targetUserId, Guid adminId, bool isApproved, string? rejectionReason)
+    {
+        _logger.LogInformation("Admin {AdminId} processing registration approval for user {TargetUserId}", adminId, targetUserId);
+        try
+        {
+            var user = await _userRepository.GetByIdAsync(targetUserId);
+            if (user == null)
+                return Result<bool>.Failure(Error.NotFound("UserNotFound", "Target user not found."));
+
+            if (user.RegistrationStatus != RegistrationStatus.PendingApproval)
+                return Result<bool>.Failure(Error.Validation("InvalidStatus", "User is not pending approval."));
+
+            if (isApproved)
+            {
+                user.RegistrationStatus = RegistrationStatus.Approved;
+                user.IsActive = true;
+                user.RegistrationRejectionReason = null;
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(rejectionReason))
+                    return Result<bool>.Failure(Error.Validation("ReasonRequired", "A rejection reason must be provided."));
+                
+                user.RegistrationStatus = RegistrationStatus.KycRejected;
+                user.RegistrationRejectionReason = rejectionReason;
+            }
+
+            await _userRepository.UpdateAsync(user);
+            await _unitOfWork.SaveChangesAsync();
+
+            _logger.LogInformation("Registration for {TargetUserId} processed: {Status}", targetUserId, user.RegistrationStatus);
+            return Result<bool>.Success(true);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error approving registration for {TargetUserId}", targetUserId);
+            return Result<bool>.Failure(Error.Validation("ApprovalFailed", "An error occurred while processing registration approval."));
+        }
+    }
+
+    public async Task<Result<IEnumerable<AccountDto>>> GetPendingApprovalsAsync()
+    {
+        _logger.LogInformation("Getting users pending registration approval");
+        try
+        {
+            var users = await _userRepository.GetAllAsync();
+            var pendingUsers = users.Where(u => u.RegistrationStatus == RegistrationStatus.PendingApproval);
+            
+            var accountDtos = pendingUsers.Select(MapToAccountDto).ToList();
+
+            _logger.LogInformation("Retrieved {Count} pending approvals", accountDtos.Count);
+            return Result<IEnumerable<AccountDto>>.Success(accountDtos);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting pending approvals");
+            return Result<IEnumerable<AccountDto>>.Failure(Error.Validation("GetPendingApprovalsFailed", "An error occurred while retrieving pending approvals."));
         }
     }
 

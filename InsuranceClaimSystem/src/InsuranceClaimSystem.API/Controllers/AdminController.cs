@@ -42,9 +42,13 @@ public class AdminController : ControllerBase
         _logger.LogInformation("API: {Action} called", nameof(GetPendingRegistrations));
         try
         {
-            var result = await _userRepository.GetPendingRegistrationsAsync(page, pageSize);
+            var result = await _accountService.GetPendingApprovalsAsync();
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
             _logger.LogInformation("API: {Action} succeeded", nameof(GetPendingRegistrations));
-            return Ok(result);
+            return Ok(result.Value);
         }
         catch (Exception ex)
         {
@@ -59,22 +63,15 @@ public class AdminController : ControllerBase
         _logger.LogInformation("API: {Action} called", nameof(ApproveRegistration));
         try
         {
-            var user = await _userRepository.GetByIdAsync(userId);
-            if (user == null)
-            {
-                _logger.LogWarning("API: {Action} failed - UserNotFound", nameof(ApproveRegistration));
-                return NotFound(new { error = "User not found." });
-            }
+            var adminIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier) ?? User.FindFirst("sub");
+            var adminId = adminIdClaim != null ? Guid.Parse(adminIdClaim.Value) : Guid.Empty;
 
-            if (user.RegistrationStatus != RegistrationStatus.PendingApproval)
+            var result = await _accountService.ApproveRegistrationAsync(userId, adminId, true, null);
+            if (result.IsFailure)
             {
-                _logger.LogWarning("API: {Action} failed - InvalidStatus", nameof(ApproveRegistration));
-                return BadRequest(new { error = "User is not pending approval." });
+                _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(ApproveRegistration), result.Error.Code);
+                return BadRequest(result.Error);
             }
-
-            user.RegistrationStatus = RegistrationStatus.Approved;
-            user.IsActive = true;
-            await _unitOfWork.SaveChangesAsync();
 
             _logger.LogInformation("API: {Action} succeeded", nameof(ApproveRegistration));
             return Ok(new { success = true, message = "Registration approved successfully." });
@@ -92,31 +89,18 @@ public class AdminController : ControllerBase
         _logger.LogInformation("API: {Action} called", nameof(RejectRegistration));
         try
         {
-            var user = await _userRepository.GetByIdAsync(userId);
-            if (user == null)
-            {
-                _logger.LogWarning("API: {Action} failed - UserNotFound", nameof(RejectRegistration));
-                return NotFound(new { error = "User not found." });
-            }
+            var adminIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier) ?? User.FindFirst("sub");
+            var adminId = adminIdClaim != null ? Guid.Parse(adminIdClaim.Value) : Guid.Empty;
 
-            if (user.RegistrationStatus != RegistrationStatus.PendingApproval)
+            var result = await _accountService.ApproveRegistrationAsync(userId, adminId, false, request.Reason);
+            if (result.IsFailure)
             {
-                _logger.LogWarning("API: {Action} failed - InvalidStatus", nameof(RejectRegistration));
-                return BadRequest(new { error = "User is not pending approval." });
+                _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(RejectRegistration), result.Error.Code);
+                return BadRequest(result.Error);
             }
-
-            if (string.IsNullOrWhiteSpace(request.Reason))
-            {
-                _logger.LogWarning("API: {Action} failed - MissingReason", nameof(RejectRegistration));
-                return BadRequest(new { error = "Rejection reason is required." });
-            }
-
-            user.RegistrationStatus = RegistrationStatus.Rejected;
-            user.RegistrationRejectionReason = request.Reason;
-            await _unitOfWork.SaveChangesAsync();
 
             _logger.LogInformation("API: {Action} succeeded", nameof(RejectRegistration));
-            return Ok(new { success = true, message = "Registration rejected." });
+            return Ok(new { success = true, message = "Registration rejected successfully." });
         }
         catch (Exception ex)
         {

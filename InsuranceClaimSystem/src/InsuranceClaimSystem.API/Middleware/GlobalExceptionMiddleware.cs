@@ -1,5 +1,6 @@
 using System.Net;
 using System.Text.Json;
+using InsuranceClaimSystem.Application.Common;
 
 namespace InsuranceClaimSystem.API.Middleware;
 
@@ -32,40 +33,40 @@ public class GlobalExceptionMiddleware
     {
         context.Response.ContentType = "application/json";
 
-        var response = new ErrorResponse();
+        var message = "An internal server error occurred.";
+        var statusCode = (int)HttpStatusCode.InternalServerError;
 
         switch (exception)
         {
             case UnauthorizedAccessException:
-                context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                response.Message = "Unauthorized access.";
-                response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                statusCode = (int)HttpStatusCode.Unauthorized;
+                message = "Unauthorized access.";
                 break;
 
             case ArgumentException argEx:
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                response.Message = argEx.Message;
-                response.StatusCode = (int)HttpStatusCode.BadRequest;
+                statusCode = (int)HttpStatusCode.BadRequest;
+                message = argEx.Message;
                 break;
 
             case InvalidOperationException invOpEx:
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                response.Message = invOpEx.Message;
-                response.StatusCode = (int)HttpStatusCode.BadRequest;
+                statusCode = (int)HttpStatusCode.BadRequest;
+                message = invOpEx.Message;
                 break;
 
             case KeyNotFoundException:
-                context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-                response.Message = "The requested resource was not found.";
-                response.StatusCode = (int)HttpStatusCode.NotFound;
+                statusCode = (int)HttpStatusCode.NotFound;
+                message = "The requested resource was not found.";
                 break;
 
             default:
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                response.Message = "An internal server error occurred. Please try again later.";
-                response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                statusCode = (int)HttpStatusCode.InternalServerError;
+                message = "An internal server error occurred. Please try again later.";
                 break;
         }
+
+        context.Response.StatusCode = statusCode;
+
+        var response = ApiResponse<object>.Fail(message, new List<Error> { Error.Validation("UnhandledException", message) });
 
         var jsonResponse = JsonSerializer.Serialize(response, new JsonSerializerOptions
         {
@@ -74,12 +75,4 @@ public class GlobalExceptionMiddleware
 
         await context.Response.WriteAsync(jsonResponse);
     }
-}
-
-public class ErrorResponse
-{
-    public int StatusCode { get; set; }
-    public string Message { get; set; } = string.Empty;
-    public string? CorrelationId { get; set; }
-    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 }

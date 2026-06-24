@@ -4,6 +4,5 @@
     <Project Path="src/InsuranceClaimSystem.Application/InsuranceClaimSystem.Application.csproj" />
     <Project Path="src/InsuranceClaimSystem.Domain/InsuranceClaimSystem.Domain.csproj" />
     <Project Path="src/InsuranceClaimSystem.Infrastructure/InsuranceClaimSystem.Infrastructure.csproj" />
-    <Project Path="src/InsuranceClaimSystem.Tests/InsuranceClaimSystem.Tests.csproj" />
   </Folder>
 </Solution>

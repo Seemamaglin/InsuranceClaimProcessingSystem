@@ -8,6 +8,7 @@ using InsuranceClaimSystem.Application.Interfaces.Services;
 using InsuranceClaimSystem.Domain.Entities;
 using InsuranceClaimSystem.Domain.Enums;
 using InsuranceClaimSystem.Domain.Exceptions;
+using InsuranceClaimSystem.Application.Interfaces.External;
 using Microsoft.Extensions.Logging;
 
 namespace InsuranceClaimSystem.Infrastructure.Services;
@@ -25,6 +26,7 @@ public class ClaimService : IClaimService
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly INotificationService _notificationService;
+    private readonly IEmailService _emailService;
     private readonly ILogger<ClaimService> _logger;
 
     public ClaimService(
@@ -39,6 +41,7 @@ public class ClaimService : IClaimService
         IUnitOfWork unitOfWork,
         IMapper mapper,
         INotificationService notificationService,
+        IEmailService emailService,
         ILogger<ClaimService> logger)
     {
         _claimRepository = claimRepository;
@@ -52,7 +55,77 @@ public class ClaimService : IClaimService
         _unitOfWork = unitOfWork;
         _mapper = mapper;
         _notificationService = notificationService;
+        _emailService = emailService;
         _logger = logger;
+    }
+
+    public async Task<Result<ClaimDetailDto>> SaveAsDraftAsync(SaveClaimDraftRequest request)
+    {
+        _logger.LogInformation("Saving draft claim for policy {PolicyId}", request.PolicyId);
+        try
+        {
+            var policy = await _policyRepository.GetByIdAsync(request.PolicyId);
+            if (policy == null)
+                return Result<ClaimDetailDto>.Failure(Error.NotFound("PolicyNotFound", "Policy not found."));
+
+            ClaimType? claimType = null;
+            if (request.ClaimTypeId.HasValue)
+            {
+                claimType = await _claimTypeRepository.GetByIdAsync(request.ClaimTypeId.Value);
+                if (claimType == null)
+                    return Result<ClaimDetailDto>.Failure(Error.NotFound("ClaimTypeNotFound", "Claim type not found."));
+            }
+
+            var claimNumber = await GenerateClaimNumberAsync();
+            
+            Claim claim;
+            if (request.ClaimId.HasValue)
+            {
+                claim = await _claimRepository.GetByIdAsync(request.ClaimId.Value);
+                if (claim == null)
+                    return Result<ClaimDetailDto>.Failure(Error.NotFound("ClaimNotFound", "Draft claim not found."));
+                
+                if (claim.Status != ClaimStatus.Draft)
+                    return Result<ClaimDetailDto>.Failure(Error.Validation("InvalidStatus", "Only claims in Draft status can be saved as draft."));
+
+                if (request.ClaimTypeId.HasValue) claim.ClaimTypeId = request.ClaimTypeId.Value;
+                claim.IncidentDate = request.IncidentDate ?? claim.IncidentDate;
+                claim.IncidentDescription = request.IncidentDescription ?? string.Empty;
+                claim.IncidentLocation = request.IncidentLocation ?? string.Empty;
+                claim.ClaimedAmount = request.ClaimedAmount ?? 0;
+                claim.NomineeId = request.NomineeId;
+                claim.ClaimantType = request.ClaimantType ?? ClaimantType.Policyholder;
+                
+                await _claimRepository.UpdateAsync(claim);
+            }
+            else
+            {
+                var validationResult = new ClaimValidationResult { IsValid = true, DeductibleAmount = 0, CoPayPercentage = 0 }; // Draft doesn't calculate
+                var submitRequest = new SubmitClaimRequest
+                {
+                    PolicyId = request.PolicyId,
+                    ClaimTypeId = request.ClaimTypeId ?? Guid.Empty,
+                    IncidentDate = request.IncidentDate ?? DateTime.UtcNow,
+                    IncidentDescription = request.IncidentDescription ?? string.Empty,
+                    IncidentLocation = request.IncidentLocation ?? string.Empty,
+                    ClaimedAmount = request.ClaimedAmount ?? 0,
+                    NomineeId = request.NomineeId,
+                    ClaimantType = request.ClaimantType ?? ClaimantType.Policyholder
+                };
+                claim = BuildClaimEntity(submitRequest, policy, claimType, claimNumber, validationResult);
+                claim.Status = ClaimStatus.Draft;
+                await _claimRepository.AddAsync(claim);
+            }
+
+            await _unitOfWork.SaveChangesAsync();
+            var claimWithDetails = await _claimRepository.GetByIdWithDetailsAsync(claim.Id);
+            return Result<ClaimDetailDto>.Success(_mapper.Map<ClaimDetailDto>(claimWithDetails));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error saving draft claim for policy {PolicyId}", request.PolicyId);
+            return Result<ClaimDetailDto>.Failure(Error.Validation("SaveDraftFailed", "An error occurred while saving the draft claim."));
+        }
     }
 
     public async Task<Result<ClaimDetailDto>> SubmitClaimAsync(SubmitClaimRequest request)
@@ -108,6 +181,44 @@ public class ClaimService : IClaimService
                     InsuranceClaimSystem.Domain.Enums.NotificationType.Reminder,
                     InsuranceClaimSystem.Domain.Enums.NotificationChannel.InApp,
                     claim.Id);
+            }
+
+            // Send KYC/Documents email
+            try
+            {
+                var docList = new List<string>();
+                if (claimType.RequiredDocuments.RootElement.ValueKind == System.Text.Json.JsonValueKind.Array)
+                {
+                    foreach (var docElement in claimType.RequiredDocuments.RootElement.EnumerateArray())
+                    {
+                        if (docElement.ValueKind == System.Text.Json.JsonValueKind.String)
+                        {
+                            docList.Add(docElement.GetString() ?? "Unknown Document");
+                        }
+                    }
+                }
+
+                if (docList.Any())
+                {
+                    var policyHolder = await _userRepository.GetByIdAsync(policy.PolicyHolderId);
+                    if (policyHolder != null && !string.IsNullOrEmpty(policyHolder.Email))
+                    {
+                        var docsHtml = string.Join("", docList.Select(d => $"<li>{d}</li>"));
+                        await _emailService.SendEmailAsync(
+                            policyHolder.Email,
+                            $"Action Required: Documents for Claim {claimNumber}",
+                            $"<p>Dear {policyHolder.FirstName},</p>" +
+                            $"<p>Your claim <strong>{claimNumber}</strong> has been submitted successfully.</p>" +
+                            $"<p>To process this claim, please upload the following documents:</p>" +
+                            $"<ul>{docsHtml}</ul>" +
+                            $"<p>Thank you.</p>",
+                            isHtml: true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to send required documents email for claim {ClaimId}", claim.Id);
             }
 
             var claimWithDetails = await _claimRepository.GetByIdWithDetailsAsync(claim.Id);

@@ -1,0 +1,449 @@
+[2026-06-24 14:38:10.326 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-24 14:38:10.513 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-24 14:38:11.281 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 14:38:11.282 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 14:38:11.282 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 14:38:11.666 INF] : Database migrated and seeded successfully.
+[2026-06-24 14:38:11.721 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-24 14:38:11.723 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-24 14:38:11.724 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-24 14:38:11.724 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-24 14:38:11.724 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-24 14:38:11.724 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-24 14:38:11.724 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-24 14:38:11.736 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-24 14:38:11.736 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-24 14:38:11.736 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-24 14:38:11.815 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65297:fd507f82 successfully announced in 76.0063 ms
+[2026-06-24 14:38:11.816 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65297:fd507f82 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-24 14:38:11.819 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65297:fd507f82 all the dispatchers started
+[2026-06-24 14:40:49.301 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-24 14:40:49.372 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /favicon.ico responded 404 in 79.9730 ms
+[2026-06-24 15:04:55.961 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 400 in 377.4634 ms
+[2026-06-24 15:05:26.708 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-24 15:05:26.715 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: testuser_be58dbb5@example.com
+[2026-06-24 15:05:31.867 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to testuser_be58dbb5@example.com with subject Verify Your Email - Insurance Claim System
+[2026-06-24 15:05:31.892 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: User registered successfully: "1fc1f558-62af-4f21-a25f-2305aff7817b"
+[2026-06-24 15:05:31.904 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register succeeded
+[2026-06-24 15:05:32.022 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 200 in 5359.0269 ms
+[2026-06-24 15:05:32.102 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 57.1617 ms
+[2026-06-24 15:12:24.711 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-24 15:12:24.716 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: seema@gmail.com
+[2026-06-24 15:12:25.290 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - EmailExists
+[2026-06-24 15:12:25.308 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 400 in 759.6853 ms
+[2026-06-24 15:13:03.417 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-24 15:13:03.418 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: sneha@gmail.com
+[2026-06-24 15:13:07.930 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to sneha@gmail.com with subject Verify Your Email - Insurance Claim System
+[2026-06-24 15:13:07.933 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: User registered successfully: "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 15:13:07.934 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register succeeded
+[2026-06-24 15:13:07.938 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 200 in 4554.9530 ms
+[2026-06-24 15:14:33.298 ERR] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 503 in 13.3484 ms
+[2026-06-24 15:14:37.886 ERR] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 503 in 1.0125 ms
+[2026-06-24 15:14:54.083 ERR] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 503 in 0.6437 ms
+[2026-06-24 15:16:33.137 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65297:fd507f82 caught stopping signal...
+[2026-06-24 15:16:33.161 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-24 15:16:33.186 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65297:fd507f82 All dispatchers stopped
+[2026-06-24 15:16:33.319 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65297:fd507f82 successfully reported itself as stopped in 104.4403 ms
+[2026-06-24 15:16:33.322 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:65297:fd507f82 has been stopped in total 177.7713 ms
+tCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+[2026-06-24 15:16:44.194 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-24 15:16:44.297 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-24 15:16:44.891 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 15:16:44.892 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 15:16:44.893 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 15:16:45.233 INF] : Database migrated and seeded successfully.
+[2026-06-24 15:16:45.292 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-24 15:16:45.295 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-24 15:16:45.295 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-24 15:16:45.295 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-24 15:16:45.295 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-24 15:16:45.295 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-24 15:16:45.295 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-24 15:16:45.303 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-24 15:16:45.303 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-24 15:16:45.304 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-24 15:16:45.402 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68851:eaafb0a3 successfully announced in 93.2189 ms
+[2026-06-24 15:16:45.404 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68851:eaafb0a3 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-24 15:16:45.407 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68851:eaafb0a3 all the dispatchers started
+[2026-06-24 15:18:58.245 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-24 15:18:58.699 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 15:18:58.704 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: sneha@gmail.com
+[2026-06-24 15:18:58.856 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - AccountPending
+[2026-06-24 15:18:58.885 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 641.1967 ms
+[2026-06-24 15:20:23.936 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68851:eaafb0a3 caught stopping signal...
+[2026-06-24 15:20:23.966 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-24 15:20:23.974 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68851:eaafb0a3 All dispatchers stopped
+[2026-06-24 15:20:24.065 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68851:eaafb0a3 successfully reported itself as stopped in 80.7658 ms
+[2026-06-24 15:20:24.065 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:68851:eaafb0a3 has been stopped in total 113.5531 ms
+[2026-06-24 15:20:33.365 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-24 15:20:33.528 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-24 15:20:34.133 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 15:20:34.133 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 15:20:34.133 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 15:20:34.451 INF] : Database migrated and seeded successfully.
+[2026-06-24 15:20:34.510 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-24 15:20:34.515 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-24 15:20:34.516 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-24 15:20:34.517 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-24 15:20:34.517 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-24 15:20:34.517 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-24 15:20:34.517 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-24 15:20:34.526 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-24 15:20:34.526 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-24 15:20:34.528 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-24 15:20:34.604 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69246:038916fc successfully announced in 73.3687 ms
+[2026-06-24 15:20:34.605 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69246:038916fc is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-24 15:20:34.607 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69246:038916fc all the dispatchers started
+[2026-06-24 15:21:16.420 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-24 15:21:16.704 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-24 15:21:16.711 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: snehas@gmail.com
+[2026-06-24 15:21:16.866 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - UsernameExists
+[2026-06-24 15:21:16.887 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 400 in 469.0384 ms
+[2026-06-24 15:21:24.014 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-24 15:21:24.015 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: snehas@gmail.com
+[2026-06-24 15:21:24.160 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - PhoneNumberExists
+[2026-06-24 15:21:24.162 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 400 in 160.0704 ms
+[2026-06-24 15:21:29.094 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-24 15:21:29.095 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: snehas@gmail.com
+[2026-06-24 15:21:33.912 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to snehas@gmail.com with subject Verify Your Email - Insurance Claim System
+[2026-06-24 15:21:33.914 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: User registered successfully: "1e110db6-1a5e-4b0b-9a0b-555dfc4e8eab"
+[2026-06-24 15:21:33.915 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register succeeded
+[2026-06-24 15:21:33.940 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 200 in 4863.6732 ms
+[2026-06-24 15:24:44.421 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/account/kyc responded 401 in 69.5541 ms
+[2026-06-24 15:26:50.307 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 15:26:50.316 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: snehas@gmail.com
+[2026-06-24 15:26:50.710 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - AccountPending
+[2026-06-24 15:26:50.712 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 530.5946 ms
+[2026-06-24 15:27:02.603 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 401 in 7.7258 ms
+[2026-06-24 16:01:58.395 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 401 in 62.8134 ms
+[2026-06-24 16:03:26.240 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:03:26.243 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-24 16:03:26.571 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:03:26.573 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 446.0562 ms
+[2026-06-24 16:03:54.804 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69246:038916fc caught stopping signal...
+[2026-06-24 16:03:54.825 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-24 16:03:54.841 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69246:038916fc All dispatchers stopped
+[2026-06-24 16:03:55.059 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69246:038916fc successfully reported itself as stopped in 151.21 ms
+[2026-06-24 16:03:55.060 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:69246:038916fc has been stopped in total 245.1855 ms
+[2026-06-24 16:04:14.379 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-24 16:04:14.539 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-24 16:04:15.486 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 16:04:15.488 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 16:04:15.488 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 16:04:16.190 INF] : Database migrated and seeded successfully.
+[2026-06-24 16:04:16.250 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-24 16:04:16.252 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-24 16:04:16.252 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-24 16:04:16.252 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-24 16:04:16.252 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-24 16:04:16.252 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-24 16:04:16.252 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-24 16:04:16.271 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-24 16:04:16.271 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-24 16:04:16.271 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-24 16:04:16.369 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:71771:7fcdf778 successfully announced in 94.873 ms
+[2026-06-24 16:04:16.371 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:71771:7fcdf778 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-24 16:04:16.374 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:71771:7fcdf778 all the dispatchers started
+[2026-06-24 16:06:30.330 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-24 16:06:30.664 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:06:30.669 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-24 16:06:31.342 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:06:31.415 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 1099.0212 ms
+[2026-06-24 16:07:42.421 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:07:42.424 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-24 16:07:43.616 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:07:43.619 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 1260.6902 ms
+[2026-06-24 16:10:01.711 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:10:01.718 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-24 16:10:02.618 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:10:02.621 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 995.9209 ms
+[2026-06-24 16:10:10.448 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:10:10.449 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-24 16:10:10.529 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:10:10.530 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 91.6263 ms
+[2026-06-24 16:10:15.036 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:10:15.037 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-24 16:10:15.115 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:10:15.116 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 95.6988 ms
+[2026-06-24 16:10:19.538 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:10:19.542 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-24 16:10:19.601 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:10:19.602 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 74.8161 ms
+[2026-06-24 16:10:26.757 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:10:26.764 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-24 16:10:26.834 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:10:26.842 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 101.7631 ms
+[2026-06-24 16:10:28.206 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:10:28.207 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-24 16:10:28.237 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:10:28.238 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 38.9624 ms
+[2026-06-24 16:10:30.018 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:10:30.019 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-06-24 16:10:30.041 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:10:30.042 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 36.0403 ms
+[2026-06-24 16:10:48.350 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:71771:7fcdf778 caught stopping signal...
+[2026-06-24 16:10:48.366 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-24 16:10:48.376 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:71771:7fcdf778 All dispatchers stopped
+[2026-06-24 16:10:48.452 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:71771:7fcdf778 successfully reported itself as stopped in 71.9208 ms
+[2026-06-24 16:10:48.452 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:71771:7fcdf778 has been stopped in total 90.3725 ms
+[2026-06-24 16:10:59.809 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-24 16:11:00.598 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-24 16:11:03.137 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 16:11:03.142 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 16:11:03.142 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 16:11:04.139 INF] : Database migrated and seeded successfully.
+[2026-06-24 16:11:04.269 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-24 16:11:04.272 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-24 16:11:04.272 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-24 16:11:04.272 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-24 16:11:04.273 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-24 16:11:04.273 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-24 16:11:04.273 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-24 16:11:04.287 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-24 16:11:04.288 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-24 16:11:04.289 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-24 16:11:04.470 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:72391:48588f3b successfully announced in 171.8827 ms
+[2026-06-24 16:11:04.471 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:72391:48588f3b is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-24 16:11:04.475 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:72391:48588f3b all the dispatchers started
+[2026-06-24 16:11:11.528 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-24 16:11:11.668 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:11:11.670 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-24 16:11:12.757 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:11:12.997 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:11:12.997 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-24 16:11:13.034 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 1506.9841 ms
+[2026-06-24 16:11:24.046 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 401 in 18.1258 ms
+[2026-06-24 16:11:54.235 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-06-24 16:11:54.236 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting users pending registration approval
+[2026-06-24 16:11:54.375 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved 4 pending approvals
+[2026-06-24 16:11:54.375 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-06-24 16:11:54.400 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 265.3441 ms
+[2026-06-24 16:12:35.474 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration called
+[2026-06-24 16:12:35.478 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Admin "87ed57a3-bdf4-4730-b5ab-95ebab799c21" processing registration approval for user "1e110db6-1a5e-4b0b-9a0b-555dfc4e8eab"
+[2026-06-24 16:12:35.587 WRN] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration failed - InvalidStatus
+[2026-06-24 16:12:35.589 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/registrations/1e110db6-1a5e-4b0b-9a0b-555dfc4e8eab/approve responded 400 in 143.6962 ms
+[2026-06-24 16:17:09.462 INF] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc called
+[2026-06-24 16:17:09.470 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Submitting KYC documents for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:17:09.471 WRN] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc failed - NoDocuments
+[2026-06-24 16:17:09.497 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/account/kyc responded 400 in 145.0930 ms
+[2026-06-24 16:17:22.415 INF] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc called
+[2026-06-24 16:17:22.416 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Submitting KYC documents for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:17:22.416 WRN] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc failed - NoDocuments
+[2026-06-24 16:17:22.417 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/account/kyc responded 400 in 29.6267 ms
+[2026-06-24 16:18:35.936 INF] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc called
+[2026-06-24 16:18:35.939 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Submitting KYC documents for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:18:36.445 WRN] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc failed - InvalidStatus
+[2026-06-24 16:18:36.447 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/account/kyc responded 400 in 556.6453 ms
+[2026-06-24 16:19:57.614 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:19:57.615 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: snehas@gmail.com
+[2026-06-24 16:19:57.913 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - EmailNotVerified
+[2026-06-24 16:19:57.916 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 361.3069 ms
+[2026-06-24 16:21:16.161 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: VerifyEmail called
+[2026-06-24 16:21:16.166 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting email verification for email: sneha@gmail.com
+[2026-06-24 16:21:21.062 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to sneha@gmail.com with subject Action Required: Submit Your KYC Documents
+[2026-06-24 16:21:21.068 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Email verification succeeded for email: sneha@gmail.com
+[2026-06-24 16:21:21.070 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: VerifyEmail succeeded
+[2026-06-24 16:21:21.087 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/verify-email responded 200 in 5004.2308 ms
+[2026-06-24 16:21:33.657 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:21:33.657 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: sneha@gmail.com
+[2026-06-24 16:21:34.039 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:21:34.102 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:21:34.102 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-24 16:21:34.105 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 461.6713 ms
+[2026-06-24 16:22:05.960 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:22:05.961 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-24 16:22:06.484 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:22:06.539 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:22:06.539 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-24 16:22:06.540 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 600.0449 ms
+[2026-06-24 16:22:14.597 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-06-24 16:22:14.598 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting users pending registration approval
+[2026-06-24 16:22:14.695 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved 4 pending approvals
+[2026-06-24 16:22:14.695 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-06-24 16:22:14.698 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 123.9422 ms
+[2026-06-24 16:22:46.909 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:22:46.909 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: sneha@gmail.com
+[2026-06-24 16:22:47.271 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:22:47.350 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:22:47.350 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-24 16:22:47.352 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 455.4902 ms
+[2026-06-24 16:23:06.343 INF] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc called
+[2026-06-24 16:23:06.344 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Submitting KYC documents for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:23:06.668 WRN] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc failed - InvalidStatus
+[2026-06-24 16:23:06.674 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/account/kyc responded 400 in 381.4985 ms
+[2026-06-24 16:23:39.710 INF] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc called
+[2026-06-24 16:23:39.711 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Submitting KYC documents for user "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:23:40.052 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: KYC documents submitted successfully for user "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:23:40.053 INF] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc succeeded
+[2026-06-24 16:23:40.054 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/account/kyc responded 200 in 356.3371 ms
+[2026-06-24 16:23:56.727 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:23:56.728 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-24 16:23:57.352 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:23:57.422 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:23:57.422 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-24 16:23:57.423 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 766.9076 ms
+[2026-06-24 16:24:13.989 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-06-24 16:24:13.990 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting users pending registration approval
+[2026-06-24 16:24:14.080 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved 5 pending approvals
+[2026-06-24 16:24:14.081 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-06-24 16:24:14.086 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 121.1613 ms
+[2026-06-24 16:24:34.012 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration called
+[2026-06-24 16:24:34.013 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Admin "87ed57a3-bdf4-4730-b5ab-95ebab799c21" processing registration approval for user "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:24:34.105 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Registration for "6b6c39f0-6450-45d4-8b04-1cd509d83c57" processed: "Approved"
+[2026-06-24 16:24:34.107 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration succeeded
+[2026-06-24 16:24:34.124 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/registrations/6b6c39f0-6450-45d4-8b04-1cd509d83c57/approve responded 200 in 121.6740 ms
+[2026-06-24 16:25:43.221 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:25:43.223 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: sneha@gmail.com
+[2026-06-24 16:25:43.840 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-24 16:25:43.842 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 684.6813 ms
+[2026-06-24 16:25:50.136 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:25:50.137 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: sneha@gmail.com
+[2026-06-24 16:25:50.568 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:25:50.602 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:25:50.602 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-24 16:25:50.603 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 480.2705 ms
+[2026-06-24 16:26:36.673 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicies called with status "CoverageExhausted"
+[2026-06-24 16:26:36.675 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Getting policies page 1 size 10 status "CoverageExhausted"
+[2026-06-24 16:26:36.983 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Retrieved 1 policies
+[2026-06-24 16:26:36.983 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicies succeeded
+[2026-06-24 16:26:37.007 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policies responded 200 in 569.1020 ms
+[2026-06-24 16:26:57.622 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes called
+[2026-06-24 16:26:57.757 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes succeeded
+[2026-06-24 16:26:57.793 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policy-types responded 200 in 201.0517 ms
+[2026-06-24 16:27:34.593 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 174.9150 ms
+[2026-06-24 16:28:51.327 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-24 16:28:51.602 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - CoverageLimitExceeded
+[2026-06-24 16:28:51.604 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 366.9516 ms
+[2026-06-24 16:28:57.037 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-06-24 16:28:57.309 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Policy application submitted: POL-2026-0049-3764 by holder "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:28:57.335 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy succeeded
+[2026-06-24 16:28:57.410 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 201 in 390.4738 ms
+[2026-06-24 16:31:06.180 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:31:06.181 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin
+[2026-06-24 16:31:06.771 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:31:07.088 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-06-24 16:31:07.089 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-24 16:31:07.091 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 958.0077 ms
+[2026-06-24 16:31:42.279 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApprovePolicy called
+[2026-06-24 16:31:42.381 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "6b6c39f0-6450-45d4-8b04-1cd509d83c57" of type "StatusChanged" via "InApp"
+[2026-06-24 16:31:42.668 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "58d8fe52-4c0b-47e2-8ecc-1e4c9af5a13d" sent to user "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:31:42.669 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "6b6c39f0-6450-45d4-8b04-1cd509d83c57" of type "StatusChanged" via "InApp"
+[2026-06-24 16:31:42.669 INF] InsuranceClaimSystem.Infrastructure.Services.PolicyService: Policy approved: "b2f2688f-758e-4687-b401-326c1bcef829"
+[2026-06-24 16:31:42.670 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApprovePolicy succeeded
+[2026-06-24 16:31:42.671 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/b2f2688f-758e-4687-b401-326c1bcef829/approve responded 200 in 420.1930 ms
+[2026-06-24 16:31:46.459 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to sneha@gmail.com with subject Policy Approved
+[2026-06-24 16:34:43.635 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:34:43.639 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: sneha@gmail.com
+[2026-06-24 16:34:44.476 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:34:44.733 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:34:44.733 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-24 16:34:44.755 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 1247.7180 ms
+[2026-06-24 16:35:10.661 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-24 16:35:10.668 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "056971dc-0687-c95b-1612-39cdcc7cea7e"
+[2026-06-24 16:35:10.818 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim failed - PolicyNotFound
+[2026-06-24 16:35:10.819 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 404 in 307.9792 ms
+[2026-06-24 16:36:58.214 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 400 in 133.1655 ms
+[2026-06-24 16:37:51.740 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-24 16:37:51.743 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "8b1b55ca-b2cd-42a5-aa31-77ce4134438f"
+[2026-06-24 16:37:52.073 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "8b1b55ca-b2cd-42a5-aa31-77ce4134438f"
+[2026-06-24 16:37:52.145 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation failed for policy "8b1b55ca-b2cd-42a5-aa31-77ce4134438f"
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Policy is not active. Current status: CoverageExhausted
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 117
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+[2026-06-24 16:37:52.177 WRN] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Business rule violation during claim submission
+InsuranceClaimSystem.Domain.Exceptions.BusinessRuleException: Policy is not active. Current status: CoverageExhausted
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidatePolicyAsync(Policy policy, SubmitClaimRequest dto, ClaimValidationResult result) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 117
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService.ValidateSubmissionAsync(SubmitClaimRequest dto, Guid policyHolderId) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimValidationService.cs:line 46
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.SubmitClaimAsync(SubmitClaimRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 140
+[2026-06-24 16:37:52.178 WRN] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim failed - ValidationFailed
+[2026-06-24 16:37:52.179 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 400 in 493.5609 ms
+[2026-06-24 16:38:49.339 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim called
+[2026-06-24 16:38:49.340 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Submitting claim for policy "b2f2688f-758e-4687-b401-326c1bcef829"
+[2026-06-24 16:38:49.605 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Validating claim submission for policy "b2f2688f-758e-4687-b401-326c1bcef829"
+[2026-06-24 16:38:50.540 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimValidationService: Claim validation completed successfully for policy "b2f2688f-758e-4687-b401-326c1bcef829"
+[2026-06-24 16:38:51.163 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "6b6c39f0-6450-45d4-8b04-1cd509d83c57" of type "ClaimSubmitted" via "InApp"
+[2026-06-24 16:38:51.335 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "16b280e1-bf77-445b-a8a6-26e418168afc" sent to user "6b6c39f0-6450-45d4-8b04-1cd509d83c57"
+[2026-06-24 16:38:51.335 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "6b6c39f0-6450-45d4-8b04-1cd509d83c57" of type "ClaimSubmitted" via "InApp"
+[2026-06-24 16:38:51.335 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Creating notification for recipient "8b693cd9-f5b4-4b53-a7b9-09b050538806" of type "Reminder" via "InApp"
+[2026-06-24 16:38:51.483 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: In-app notification "d460c530-59e4-4247-a1fb-d4b09b8530a9" sent to user "8b693cd9-f5b4-4b53-a7b9-09b050538806"
+[2026-06-24 16:38:51.484 INF] InsuranceClaimSystem.Infrastructure.Services.NotificationService: Notification created successfully for user "8b693cd9-f5b4-4b53-a7b9-09b050538806" of type "Reminder" via "InApp"
+[2026-06-24 16:38:51.487 ERR] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Failed to send required documents email for claim "0b46d039-307d-4c4a-bb7f-97822d78865a"
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at InsuranceClaimSystem.Infrastructure.Services.ClaimService.SubmitClaimAsync(SubmitClaimRequest request) in /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.Infrastructure/Services/ClaimService.cs:line 190
+[2026-06-24 16:38:51.723 WRN] Microsoft.EntityFrameworkCore.Query: Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+[2026-06-24 16:38:51.873 INF] InsuranceClaimSystem.Infrastructure.Services.ClaimService: Claim "0b46d039-307d-4c4a-bb7f-97822d78865a" submitted successfully
+[2026-06-24 16:38:51.899 INF] InsuranceClaimSystem.API.Controllers.ClaimsController: API: SubmitClaim succeeded
+[2026-06-24 16:38:51.964 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/claims responded 201 in 2682.0786 ms
+[2026-06-24 16:38:57.066 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to sneha@gmail.com with subject Claim Submitted
+[2026-06-24 16:38:57.295 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to Mugi@reviewer.com with subject New Claim Assigned
+[2026-06-24 16:41:33.577 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:72391:48588f3b caught stopping signal...
+[2026-06-24 16:41:33.642 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-24 16:41:33.651 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:72391:48588f3b All dispatchers stopped
+[2026-06-24 16:41:33.740 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:72391:48588f3b successfully reported itself as stopped in 71.2047 ms
+[2026-06-24 16:41:33.740 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:72391:48588f3b has been stopped in total 119.8305 ms
+[2026-06-24 16:41:43.992 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-24 16:41:44.108 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-24 16:41:44.695 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 16:41:44.696 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 16:41:44.696 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-24 16:41:45.063 INF] : Database migrated and seeded successfully.
+[2026-06-24 16:41:45.113 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-24 16:41:45.116 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-24 16:41:45.116 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-24 16:41:45.116 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-24 16:41:45.116 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-24 16:41:45.116 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-24 16:41:45.116 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-24 16:41:45.123 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-24 16:41:45.124 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-24 16:41:45.124 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-24 16:41:45.181 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:74416:2128712c successfully announced in 55.4604 ms
+[2026-06-24 16:41:45.182 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:74416:2128712c is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-24 16:41:45.185 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:74416:2128712c all the dispatchers started
+[2026-06-24 16:54:43.988 WRN] Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware: Failed to determine the https port for redirect.
+[2026-06-24 16:54:44.251 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-06-24 16:54:44.256 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: ue46678a2@t.com
+[2026-06-24 16:54:48.990 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to ue46678a2@t.com with subject Verify Your Email - Insurance Claim System
+[2026-06-24 16:54:49.007 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: User registered successfully: "1d254a1c-1217-4fff-bfd0-92bb7ab54ebd"
+[2026-06-24 16:54:49.042 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register succeeded
+[2026-06-24 16:54:49.213 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 200 in 5223.8171 ms
+[2026-06-24 16:54:51.189 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-24 16:54:51.204 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: ue46678a2@t.com
+[2026-06-24 16:54:51.734 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - EmailNotVerified
+[2026-06-24 16:54:51.740 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 678.5113 ms
+[2026-06-24 17:04:12.841 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:74416:2128712c caught stopping signal...
+[2026-06-24 17:04:12.900 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-24 17:04:12.908 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:74416:2128712c All dispatchers stopped
+[2026-06-24 17:04:13.016 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:74416:2128712c successfully reported itself as stopped in 91.1817 ms
+[2026-06-24 17:04:13.016 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:74416:2128712c has been stopped in total 134.0581 ms

@@ -1,17 +1,33 @@
 using InsuranceClaimSystem.Application.Interfaces.External;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using SixLabors.ImageSharp;
+using InsuranceClaimSystem.Infrastructure.Configuration;
 
 namespace InsuranceClaimSystem.Infrastructure.Services.Storage;
 
 public class LocalFileStorageService : IFileStorageService
 {
     private readonly string _wwwroot;
+    private readonly FileStorageSettings _settings;
+    private readonly ILogger<LocalFileStorageService> _logger;
 
-    public LocalFileStorageService(IWebHostEnvironment webHostEnvironment)
+    // TODO [PRODUCTION DEPLOYMENT]: DPDP Act 2023 Compliance
+    // KYC documents contain highly sensitive legal data (e.g., Aadhaar).
+    // Local disk storage is acceptable ONLY for local development.
+    // Before production, implement an Azure Blob Storage or AWS S3 provider
+    // with private buckets and at-rest encryption to ensure strict data privacy.
+    
+    public LocalFileStorageService(
+        IWebHostEnvironment webHostEnvironment,
+        IOptions<FileStorageSettings> options,
+        ILogger<LocalFileStorageService> logger)
     {
         _wwwroot = webHostEnvironment.WebRootPath;
+        _settings = options.Value;
+        _logger = logger;
     }
 
     public async Task<string> SaveClaimFileAsync(IFormFile file, Guid claimId)

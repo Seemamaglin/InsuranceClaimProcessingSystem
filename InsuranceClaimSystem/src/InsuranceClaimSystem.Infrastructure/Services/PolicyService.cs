@@ -190,6 +190,11 @@ public class PolicyService : IPolicyService
             if (policyHolder == null)
                 return Result<PolicyResponse>.Failure(Error.NotFound("PolicyHolderNotFound", "Policy holder not found."));
 
+            if (policyHolder.RegistrationStatus != RegistrationStatus.Approved)
+            {
+                return Result<PolicyResponse>.Failure(Error.Unauthorized("AccountNotApproved", "Your account must be fully approved by an administrator before you can apply for a policy."));
+            }
+
             var policyType = await _policyTypeRepository.GetByIdAsync(request.PolicyTypeId);
             if (policyType == null)
                 return Result<PolicyResponse>.Failure(Error.NotFound("PolicyTypeNotFound", "Policy type not found."));

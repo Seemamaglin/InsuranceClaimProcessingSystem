@@ -38,6 +38,23 @@ public class ClaimsController : ControllerBase
     }
 
     /// <summary>
+    /// Save a claim as a draft (skips complex validations)
+    /// </summary>
+    [HttpPost("draft")]
+    public async Task<IActionResult> SaveDraft([FromBody] SaveClaimDraftRequest request)
+    {
+        _logger.LogInformation("API: {Action} called", nameof(SaveDraft));
+        var result = await _claimService.SaveAsDraftAsync(request);
+        if (result.IsFailure)
+        {
+            _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(SaveDraft), result.Error.Code);
+            return BadRequest(result.Error);
+        }
+        _logger.LogInformation("API: {Action} succeeded", nameof(SaveDraft));
+        return Ok(result.Value);
+    }
+
+    /// <summary>
     /// Get paginated list of all claims (staff only)
     /// </summary>
     [HttpGet]

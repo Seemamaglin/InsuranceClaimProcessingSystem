@@ -282,11 +282,37 @@ public class AuthService : IAuthService
             }
 
             user.EmailVerifiedAt = DateTime.UtcNow;
-            user.RegistrationStatus = RegistrationStatus.PendingApproval;
+            user.RegistrationStatus = RegistrationStatus.PendingKyc;
             verificationCode.IsUsed = true;
             verificationCode.UsedAt = DateTime.UtcNow;
             await _userRepository.UpdateAsync(user);
             await _unitOfWork.SaveChangesAsync();
+
+            // Send KYC Intimation Email
+            try
+            {
+                string emailBody = $@"
+                    <h2>Email Verified Successfully!</h2>
+                    <p>Hello {user.FirstName},</p>
+                    <p>Your email address has been successfully verified. However, your account is currently in <b>Pending KYC</b> status.</p>
+                    <p>To fully activate your account and start applying for policies, please log in and submit the following mandatory KYC documents:</p>
+                    <ul>
+                        <li><b>Aadhar Card</b></li>
+                        <li><b>PAN Card</b></li>
+                    </ul>
+                    <p>Once submitted, an Administrator will review your documents and approve your account.</p>
+                    <p>Thank you,<br>Insurance Claim System Team</p>";
+
+                await _emailService.SendEmailAsync(
+                    user.Email,
+                    "Action Required: Submit Your KYC Documents",
+                    emailBody,
+                    isHtml: true);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to send KYC intimation email to {Email}", user.Email);
+            }
 
             _logger.LogInformation("Email verification succeeded for email: {Email}", request.Email);
             return Result<bool>.Success(true);
@@ -442,10 +468,18 @@ public class AuthService : IAuthService
             var remainingMinutes = (user.LockoutUntil.Value - DateTime.UtcNow).TotalMinutes;
             return Result<User>.Failure(Error.Unauthorized("AccountLocked", $"Account is locked. Try again in {(int)remainingMinutes} minutes."));
         }
-        if (user.RegistrationStatus != RegistrationStatus.Approved)
+        
+        // We MUST allow login for PendingKyc, PendingApproval, KycRejected, and Approved.
+        // We ONLY block PendingEmailVerification and permanently Rejected accounts.
+        if (user.RegistrationStatus == RegistrationStatus.PendingEmailVerification)
         {
-            return Result<User>.Failure(Error.Unauthorized("AccountPending", "Your account registration is pending or has been rejected. It must be approved by an administrator before you can log in."));
+            return Result<User>.Failure(Error.Unauthorized("EmailNotVerified", "Please verify your email address before logging in."));
         }
+        if (user.RegistrationStatus == RegistrationStatus.Rejected)
+        {
+            return Result<User>.Failure(Error.Unauthorized("AccountRejected", "Your account registration has been permanently rejected."));
+        }
+
         return Result<User>.Success(user);
     }
 

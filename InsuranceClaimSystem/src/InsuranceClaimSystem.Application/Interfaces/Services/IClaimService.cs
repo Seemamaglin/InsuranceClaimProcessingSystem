@@ -5,6 +5,7 @@ namespace InsuranceClaimSystem.Application.Interfaces.Services;
 
 public interface IClaimService
 {
+    Task<Result<ClaimDetailDto>> SaveAsDraftAsync(SaveClaimDraftRequest request);
     Task<Result<ClaimDetailDto>> SubmitClaimAsync(SubmitClaimRequest request);
     Task<Result<ClaimDetailDto>> GetClaimByIdAsync(Guid claimId);
     Task<Result<ClaimDetailDto>> GetClaimByNumberAsync(string claimNumber);

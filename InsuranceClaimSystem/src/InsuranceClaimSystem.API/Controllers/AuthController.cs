@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.RateLimiting;
 using InsuranceClaimSystem.Application.DTOs.Auth;
 using InsuranceClaimSystem.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ namespace InsuranceClaimSystem.API.Controllers;
 
 [ApiController]
 [Route("api/auth")]
+[EnableRateLimiting("auth")]
 public class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;

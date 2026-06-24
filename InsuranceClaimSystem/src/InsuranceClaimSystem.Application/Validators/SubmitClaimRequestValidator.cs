@@ -23,6 +23,7 @@ public class SubmitClaimRequestValidator : AbstractValidator<SubmitClaimRequest>
 
         RuleFor(x => x.IncidentDescription)
             .NotEmpty().WithMessage("Incident description is required")
+            .NotEqual("string", StringComparer.OrdinalIgnoreCase).WithMessage("Please provide a real incident description, not the default 'string'")
             .MaximumLength(2000).WithMessage("Incident description must not exceed 2000 characters");
     }
 }

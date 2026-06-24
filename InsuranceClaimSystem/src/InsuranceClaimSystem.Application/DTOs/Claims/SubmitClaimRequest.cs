@@ -4,6 +4,7 @@ namespace InsuranceClaimSystem.Application.DTOs.Claims;
 
 public class SubmitClaimRequest
 {
+    public Guid? ClaimId { get; set; }
     public Guid PolicyId { get; set; }
     public Guid ClaimTypeId { get; set; }
     public DateTime? IncidentDate { get; set; }

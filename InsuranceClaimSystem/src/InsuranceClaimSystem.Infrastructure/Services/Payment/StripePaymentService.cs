@@ -12,6 +12,7 @@ public class StripePaymentService : IStripeService
     {
         var settings = stripeSettings.Value;
         StripeConfiguration.ApiKey = settings.SecretKey;
+        StripeConfiguration.MaxNetworkRetries = 3;
     }
 
     public async Task<StripePaymentIntent> CreatePaymentIntentAsync(

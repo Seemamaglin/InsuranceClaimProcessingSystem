@@ -44,7 +44,24 @@ builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Str
 builder.Services.Configure<FileStorageSettings>(builder.Configuration.GetSection("FileStorageSettings"));
 
 // 3. Controllers + API Explorer
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<ApiResponseFilterAttribute>();
+})
+.ConfigureApiBehaviorOptions(options =>
+{
+    options.InvalidModelStateResponseFactory = context =>
+    {
+        var errors = context.ModelState
+            .Where(e => e.Value != null && e.Value.Errors.Count > 0)
+            .SelectMany(x => x.Value!.Errors.Select(e => InsuranceClaimSystem.Application.Common.Error.Validation(x.Key, e.ErrorMessage)))
+            .ToList();
+
+        var response = InsuranceClaimSystem.Application.Common.ApiResponse<object>.Fail("Validation Failed", errors);
+
+        return new Microsoft.AspNetCore.Mvc.BadRequestObjectResult(response);
+    };
+});
 builder.Services.AddEndpointsApiExplorer();
 
 // 4. Swagger
@@ -81,6 +98,13 @@ builder.Services.AddSwaggerGen(options =>
             Array.Empty<string>()
         }
     });
+
+    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = System.IO.Path.Combine(AppContext.BaseDirectory, xmlFile);
+    if (System.IO.File.Exists(xmlPath))
+    {
+        options.IncludeXmlComments(xmlPath);
+    }
 });
 
 // 5. DbContext
@@ -107,6 +131,7 @@ builder.Services.AddScoped<IClaimWorkflowHistoryRepository, ClaimWorkflowHistory
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddScoped<IPasswordResetTokenRepository, PasswordResetTokenRepository>();
 builder.Services.AddScoped<IEmailVerificationCodeRepository, EmailVerificationCodeRepository>();
+builder.Services.AddScoped<IKYCDocumentRepository, KYCDocumentRepository>();
 
 builder.Services.AddScoped<IClaimService, ClaimService>();
 builder.Services.AddScoped<IClaimValidationService, ClaimValidationService>();
@@ -142,19 +167,26 @@ builder.Services.AddSignalR();
 
 // 10. Hangfire
 builder.Services.AddHangfire(config =>
+{
     config.SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
           .UseSimpleAssemblyNameTypeSerializer()
           .UseRecommendedSerializerSettings()
           .UsePostgreSqlStorage(options =>
-              options.UseNpgsqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")!)));
+              options.UseNpgsqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")!));
+    
+    // Log job failures after retries are exhausted
+    GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute { LogEvents = true, OnAttemptsExceeded = AttemptsExceededAction.Fail });
+});
 builder.Services.AddHangfireServer();
 
 // 11. CORS
+var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("StrictCors", policy =>
     {
-        policy.WithOrigins("http://localhost:4200","http://localhost:5050")
+        policy.WithOrigins(allowedOrigins)
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
@@ -185,6 +217,43 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = jwtSettings?.Audience ?? "InsuranceClaimSystem.Client",
         ClockSkew = TimeSpan.Zero
     };
+    
+    options.Events = new JwtBearerEvents
+    {
+        OnChallenge = context =>
+        {
+            context.HandleResponse();
+            context.Response.StatusCode = 401;
+            context.Response.ContentType = "application/json";
+
+            var result = System.Text.Json.JsonSerializer.Serialize(
+                InsuranceClaimSystem.Application.Common.ApiResponse<object>.Fail(
+                    "You are not authorized to access this resource.",
+                    new System.Collections.Generic.List<InsuranceClaimSystem.Application.Common.Error> 
+                    { 
+                        InsuranceClaimSystem.Application.Common.Error.Unauthorized("Unauthorized", "Token is missing or invalid.") 
+                    })
+            );
+
+            return context.Response.WriteAsync(result);
+        },
+        OnForbidden = context =>
+        {
+            context.Response.StatusCode = 403;
+            context.Response.ContentType = "application/json";
+
+            var result = System.Text.Json.JsonSerializer.Serialize(
+                InsuranceClaimSystem.Application.Common.ApiResponse<object>.Fail(
+                    "You are forbidden from accessing this resource.",
+                    new System.Collections.Generic.List<InsuranceClaimSystem.Application.Common.Error> 
+                    { 
+                        InsuranceClaimSystem.Application.Common.Error.Forbidden("Forbidden", "You do not have the required permissions.") 
+                    })
+            );
+
+            return context.Response.WriteAsync(result);
+        }
+    };
 });
 
 // 13. Authorization Policies
@@ -205,7 +274,7 @@ builder.Services.AddRateLimiter(options =>
 {
     options.AddFixedWindowLimiter("auth", opt =>
     {
-        opt.PermitLimit = 5;
+        opt.PermitLimit = 50; // Increased from 5 to 50 for local frontend development
         opt.Window = TimeSpan.FromMinutes(15);
         opt.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
         opt.QueueLimit = 0;
@@ -225,6 +294,10 @@ builder.Services.AddRateLimiter(options =>
 // 15. HttpContextAccessor
 builder.Services.AddHttpContextAccessor();
 
+// 16. Health Checks
+builder.Services.AddHealthChecks()
+    .AddNpgSql(builder.Configuration.GetConnectionString("DefaultConnection")!);
+
 var app = builder.Build();
 
 // Pipeline
@@ -236,7 +309,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
-app.UseCors("AllowAll");
+app.UseCors("StrictCors");
 app.UseRateLimiter();
 
 // Custom middleware
@@ -257,6 +330,9 @@ app.MapControllers();
 
 // SignalR Hubs
 app.MapHub<NotificationHub>("/hubs/notifications");
+
+// Health Checks
+app.MapHealthChecks("/health");
 
 // Apply pending migrations and seed data
 try

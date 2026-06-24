@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "InsuranceClaimSystem.API/1.0.0": {
         "dependencies": {
+          "AspNetCore.HealthChecks.NpgSql": "9.0.0",
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "FluentValidation.AspNetCore": "11.3.0",
@@ -27,6 +28,18 @@
         },
         "runtime": {
           "InsuranceClaimSystem.API.dll": {}
+        }
+      },
+      "AspNetCore.HealthChecks.NpgSql/9.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "8.0.11",
+          "Npgsql": "8.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/HealthChecks.NpgSql.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.0.0"
+          }
         }
       },
       "AutoMapper/12.0.1": {
@@ -548,6 +561,28 @@
           "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
             "fileVersion": "10.0.326.7603"
+          }
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.HealthChecks/8.0.11": {
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "8.0.11",
+          "Microsoft.Extensions.Hosting.Abstractions": "10.0.3",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.3",
+          "Microsoft.Extensions.Options": "10.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1124.52116"
+          }
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/8.0.11": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1124.52116"
           }
         }
       },
@@ -1272,6 +1307,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AspNetCore.HealthChecks.NpgSql/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-npc58/AD5zuVxERdhCl2Kb7WnL37mwX42SJcXIwvmEig0/dugOLg3SIwtfvvh3TnvTwR/sk5LYNkkPaBdks61A==",
+      "path": "aspnetcore.healthchecks.npgsql/9.0.0",
+      "hashPath": "aspnetcore.healthchecks.npgsql.9.0.0.nupkg.sha512"
+    },
     "AutoMapper/12.0.1": {
       "type": "package",
       "serviceable": true,
@@ -1495,6 +1537,20 @@
       "sha512": "sha512-mQiTzAj7PIJ2A9YXR5QhgulS1fTWhmQc3ckd1Mrf3hKW07d03fBDqx8vVaFw+cRTebDOeB6pNqdWdnRxsi1hBA==",
       "path": "microsoft.extensions.diagnostics.abstractions/10.0.3",
       "hashPath": "microsoft.extensions.diagnostics.abstractions.10.0.3.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks/8.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zLgN22Zp9pk8RHlwssRTexw4+a6wqOnKWN+VejdPn5Yhjql4XiBhkFo35Nu8mmqHIk/UEmmCnMGLWq75aFfkOw==",
+      "path": "microsoft.extensions.diagnostics.healthchecks/8.0.11",
+      "hashPath": "microsoft.extensions.diagnostics.healthchecks.8.0.11.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/8.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-So3JUdRxozRjvQ3cxU6F3nI/i4emDnjane6yMYcJhvTTTu29ltlIdoXjkFGRceIWz8yKvuEpzXItZ0x5GvN2nQ==",
+      "path": "microsoft.extensions.diagnostics.healthchecks.abstractions/8.0.11",
+      "hashPath": "microsoft.extensions.diagnostics.healthchecks.abstractions.8.0.11.nupkg.sha512"
     },
     "Microsoft.Extensions.FileProviders.Abstractions/10.0.3": {
       "type": "package",

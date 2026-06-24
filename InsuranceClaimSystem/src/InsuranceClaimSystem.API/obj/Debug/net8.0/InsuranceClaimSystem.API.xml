@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InsuranceClaimSystem.API</name>
+    </assembly>
+    <members>
+        <member name="M:InsuranceClaimSystem.API.Controllers.AccountController.GetAccount">
+            <summary>
+            Gets the account details for the authenticated user.
+            </summary>
+            <returns>User account profile details</returns>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.AccountController.UpdateProfile(InsuranceClaimSystem.Application.DTOs.Accounts.UpdateProfileRequest)">
+            <summary>
+            Updates the profile details for the authenticated user.
+            </summary>
+            <param name="request">The updated profile details</param>
+            <returns>Result of the update operation</returns>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.AccountController.ChangePassword(InsuranceClaimSystem.API.Controllers.ChangePasswordRequest)">
+            <summary>
+            Changes the password for the authenticated user.
+            </summary>
+            <param name="request">Current and new password</param>
+            <returns>Result of the password change</returns>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.SubmitClaim(InsuranceClaimSystem.Application.DTOs.Claims.SubmitClaimRequest)">
+            <summary>
+            Submit a new claim
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.SaveDraft(InsuranceClaimSystem.Application.DTOs.Claims.SaveClaimDraftRequest)">
+            <summary>
+            Save a claim as a draft (skips complex validations)
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.GetClaims(System.Int32,System.Int32,System.Nullable{InsuranceClaimSystem.Domain.Enums.ClaimStatus},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get paginated list of all claims (staff only)
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.GetClaimById(System.Guid)">
+            <summary>
+            Get claim by ID
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.GetClaimByNumber(System.String)">
+            <summary>
+            Get claim by claim number
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.UpdateStatus(System.Guid,InsuranceClaimSystem.Application.DTOs.Claims.UpdateClaimStatusRequest)">
+            <summary>
+            Update claim status
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.AssignReviewer(System.Guid,InsuranceClaimSystem.Application.DTOs.Claims.AssignReviewerRequest)">
+            <summary>
+            Assign a reviewer to a claim
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.AutoAssignReviewer(System.Guid)">
+            <summary>
+            Auto-assign a reviewer to a claim
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.ApproveClaim(System.Guid,System.Guid,System.Nullable{System.Decimal})">
+            <summary>
+            Approve a claim (manager only)
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.RejectClaim(System.Guid,System.Guid,InsuranceClaimSystem.API.Controllers.RejectClaimRequest)">
+            <summary>
+            Reject a claim (manager only)
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.GetClaimsByPolicy(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            Get claims by policy ID
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ClaimsController.GetClaimsByReviewer(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            Get claims assigned to a reviewer
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.DocumentsController.UploadDocument(System.Guid,InsuranceClaimSystem.Domain.Enums.DocumentType,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Upload a document for a claim
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.DocumentsController.DownloadDocument(System.Guid)">
+            <summary>
+            Download a document
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.DocumentsController.VerifyDocument(System.Guid,System.Guid,InsuranceClaimSystem.Domain.Enums.VerificationStatus,InsuranceClaimSystem.API.Controllers.VerifyDocumentRequest)">
+            <summary>
+            Verify a document (reviewer only)
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.DocumentsController.DeleteDocument(System.Guid)">
+            <summary>
+            Delete a document
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.NotificationsController.GetNotifications(System.Int32,System.Int32)">
+            <summary>
+            Get paginated notifications for the current user
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.NotificationsController.MarkAsRead(System.Guid)">
+            <summary>
+            Mark a notification as read
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.NotificationsController.MarkAllAsRead">
+            <summary>
+            Mark all notifications as read for the current user
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.PaymentsController.CreatePaymentIntent(System.Guid)">
+            <summary>
+            Create a payment intent for an approved claim
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.PaymentsController.ConfirmPayment(System.Guid,InsuranceClaimSystem.API.Controllers.ConfirmPaymentRequest)">
+            <summary>
+            Confirm payment for a claim
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.PaymentsController.GetPaymentByClaimId(System.Guid)">
+            <summary>
+            Get payment details by claim ID
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ReviewersController.GetAssignedClaims(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            Get claims assigned to the current reviewer
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ReviewersController.RequestDocuments(System.Guid,InsuranceClaimSystem.API.Controllers.RequestDocumentsRequest)">
+            <summary>
+            Request additional documents for a claim
+            </summary>
+        </member>
+        <member name="M:InsuranceClaimSystem.API.Controllers.ReviewersController.VerifyDocuments(System.Guid,InsuranceClaimSystem.API.Controllers.VerifyDocumentsRequest)">
+            <summary>
+            Verify all documents for a claim
+            </summary>
+        </member>
+    </members>
+</doc>

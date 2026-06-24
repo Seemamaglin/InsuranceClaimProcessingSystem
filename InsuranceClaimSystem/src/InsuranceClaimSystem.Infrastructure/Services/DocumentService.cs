@@ -9,6 +9,8 @@ using InsuranceClaimSystem.Domain.Entities;
 using InsuranceClaimSystem.Domain.Enums;
 using InsuranceClaimSystem.Domain.Exceptions;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using InsuranceClaimSystem.Infrastructure.Configuration;
 
 namespace InsuranceClaimSystem.Infrastructure.Services;
 
@@ -21,18 +23,8 @@ public class DocumentService : IDocumentService
     private readonly IMapper _mapper;
     private readonly ILogger<DocumentService> _logger;
 
-    private const long MaxFileSizeBytes = 10 * 1024 * 1024; // 10MB
     private const long ImageCompressionThreshold = 500 * 1024; // 500KB
-    private static readonly HashSet<string> AllowedMimeTypes = new(StringComparer.OrdinalIgnoreCase)
-    {
-        "image/jpeg",
-        "image/jpg",
-        "image/png",
-        "application/pdf",
-        "application/msword",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        "image/webp"
-    };
+    private readonly FileStorageSettings _fileStorageSettings;
 
     public DocumentService(
         IDocumentRepository documentRepository,
@@ -40,6 +32,7 @@ public class DocumentService : IDocumentService
         IClaimRepository claimRepository,
         IUnitOfWork unitOfWork,
         IMapper mapper,
+        IOptions<FileStorageSettings> fileStorageSettings,
         ILogger<DocumentService> logger)
     {
         _documentRepository = documentRepository;
@@ -47,6 +40,7 @@ public class DocumentService : IDocumentService
         _claimRepository = claimRepository;
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+        _fileStorageSettings = fileStorageSettings.Value;
         _logger = logger;
     }
 
@@ -186,16 +180,17 @@ public class DocumentService : IDocumentService
                 Error.Validation("FileRequired", "File is required."));
         }
 
-        if (file.Length > MaxFileSizeBytes)
+        if (file.Length > _fileStorageSettings.MaxFileSizeBytes)
         {
             return Result<Claim>.Failure(
-                Error.Validation("FileTooLarge", "File size exceeds the maximum allowed size of 10MB."));
+                Error.Validation("FileTooLarge", $"File size exceeds the maximum allowed size of {_fileStorageSettings.MaxFileSizeBytes / 1024 / 1024}MB."));
         }
 
-        if (!AllowedMimeTypes.Contains(file.ContentType))
+        var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+        if (!_fileStorageSettings.AllowedExtensions.Contains(extension, StringComparer.OrdinalIgnoreCase))
         {
             return Result<Claim>.Failure(
-                Error.Validation("InvalidFileType", "File type is not allowed."));
+                Error.Validation("InvalidFileType", $"File extension {extension} is not allowed."));
         }
 
         var claim = await _claimRepository.GetByIdAsync(claimId);
