@@ -41,6 +41,7 @@ public class ClaimsController : ControllerBase
     /// Save a claim as a draft (skips complex validations)
     /// </summary>
     [HttpPost("draft")]
+    [Authorize(Policy = "PolicyHolderOnly")]
     public async Task<IActionResult> SaveDraft([FromBody] SaveClaimDraftRequest request)
     {
         _logger.LogInformation("API: {Action} called", nameof(SaveDraft));

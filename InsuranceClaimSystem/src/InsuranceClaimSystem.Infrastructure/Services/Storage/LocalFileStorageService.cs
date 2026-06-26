@@ -10,7 +10,7 @@ namespace InsuranceClaimSystem.Infrastructure.Services.Storage;
 
 public class LocalFileStorageService : IFileStorageService
 {
-    private readonly string _wwwroot;
+    private readonly string _storageRoot;
     private readonly FileStorageSettings _settings;
     private readonly ILogger<LocalFileStorageService> _logger;
 
@@ -25,14 +25,14 @@ public class LocalFileStorageService : IFileStorageService
         IOptions<FileStorageSettings> options,
         ILogger<LocalFileStorageService> logger)
     {
-        _wwwroot = webHostEnvironment.WebRootPath;
+        _storageRoot = Path.Combine(webHostEnvironment.ContentRootPath, "App_Data");
         _settings = options.Value;
         _logger = logger;
     }
 
     public async Task<string> SaveClaimFileAsync(IFormFile file, Guid claimId)
     {
-        var dir = Path.Combine(_wwwroot, "uploads", "claims", claimId.ToString());
+        var dir = Path.Combine(_storageRoot, "uploads", "claims", claimId.ToString());
         Directory.CreateDirectory(dir);
 
         var fileName = $"{Guid.NewGuid()}_{file.FileName}";
@@ -46,7 +46,7 @@ public class LocalFileStorageService : IFileStorageService
 
     public async Task<string> SaveKYCFileAsync(IFormFile file, Guid userId)
     {
-        var dir = Path.Combine(_wwwroot, "uploads", "kyc", userId.ToString());
+        var dir = Path.Combine(_storageRoot, "uploads", "kyc", userId.ToString());
         Directory.CreateDirectory(dir);
 
         var fileName = $"{Guid.NewGuid()}_{file.FileName}";
@@ -60,7 +60,11 @@ public class LocalFileStorageService : IFileStorageService
 
     public async Task<(byte[] bytes, string mimeType, string fileName)> GetFileWithMetadataAsync(string filePath)
     {
-        var fullPath = Path.Combine(_wwwroot, filePath);
+        var fullPath = Path.GetFullPath(Path.Combine(_storageRoot, filePath));
+        if (!fullPath.StartsWith(Path.GetFullPath(_storageRoot)))
+        {
+            throw new UnauthorizedAccessException("Path traversal detected.");
+        }
         var bytes = await File.ReadAllBytesAsync(fullPath);
         var ext = Path.GetExtension(filePath).ToLowerInvariant();
         var mimeType = ext switch
@@ -79,7 +83,11 @@ public class LocalFileStorageService : IFileStorageService
 
     public Task DeleteFileAsync(string filePath)
     {
-        var fullPath = Path.Combine(_wwwroot, filePath);
+        var fullPath = Path.GetFullPath(Path.Combine(_storageRoot, filePath));
+        if (!fullPath.StartsWith(Path.GetFullPath(_storageRoot)))
+        {
+            throw new UnauthorizedAccessException("Path traversal detected.");
+        }
         if (File.Exists(fullPath))
         {
             File.Delete(fullPath);
@@ -89,7 +97,7 @@ public class LocalFileStorageService : IFileStorageService
 
     public async Task<string> ConvertToWebPAsync(IFormFile file, Guid claimId)
     {
-        var dir = Path.Combine(_wwwroot, "uploads", "claims", claimId.ToString());
+        var dir = Path.Combine(_storageRoot, "uploads", "claims", claimId.ToString());
         Directory.CreateDirectory(dir);
 
         var fileName = $"{Guid.NewGuid()}.webp";
@@ -104,6 +112,13 @@ public class LocalFileStorageService : IFileStorageService
     public Task<string> SaveFileAsync(Stream fileStream, string fileName, string contentType)
         => throw new NotImplementedException("Use SaveClaimFileAsync or SaveKYCFileAsync instead.");
 
-    public Task<byte[]> GetFileAsync(string filePath)
-        => File.ReadAllBytesAsync(Path.Combine(_wwwroot, filePath));
+    public async Task<byte[]> GetFileAsync(string filePath)
+    {
+        var fullPath = Path.GetFullPath(Path.Combine(_storageRoot, filePath));
+        if (!fullPath.StartsWith(Path.GetFullPath(_storageRoot)))
+        {
+            throw new UnauthorizedAccessException("Path traversal detected.");
+        }
+        return await File.ReadAllBytesAsync(fullPath);
+    }
 }

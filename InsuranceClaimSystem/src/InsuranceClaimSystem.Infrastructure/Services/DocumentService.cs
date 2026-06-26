@@ -81,7 +81,7 @@ public class DocumentService : IDocumentService
         }
     }
 
-    public async Task<Result<DocumentDownloadResult>> DownloadDocumentAsync(Guid documentId)
+    public async Task<Result<DocumentDownloadResult>> DownloadDocumentAsync(Guid documentId, Guid userId, bool isStaff)
     {
         try
         {
@@ -90,6 +90,13 @@ public class DocumentService : IDocumentService
             {
                 return Result<DocumentDownloadResult>.Failure(
                     Error.NotFound("DocumentNotFound", "Document not found."));
+            }
+
+            var claim = await _claimRepository.GetByIdAsync(document.ClaimId);
+            if (claim != null && !isStaff && claim.ClaimantId != userId)
+            {
+                _logger.LogWarning("User {UserId} attempted to download document {DocumentId} without permission", userId, documentId);
+                return Result<DocumentDownloadResult>.Failure(Error.Validation("Unauthorized", "You do not have permission to download this document."));
             }
 
             var fileContent = await _fileStorageService.GetFileAsync(document.FileUrl);

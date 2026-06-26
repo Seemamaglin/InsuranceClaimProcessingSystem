@@ -132,6 +132,7 @@ builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddScoped<IPasswordResetTokenRepository, PasswordResetTokenRepository>();
 builder.Services.AddScoped<IEmailVerificationCodeRepository, EmailVerificationCodeRepository>();
 builder.Services.AddScoped<IKYCDocumentRepository, KYCDocumentRepository>();
+builder.Services.AddScoped<IPolicyBenefitRuleRepository, PolicyBenefitRuleRepository>();
 
 builder.Services.AddScoped<IClaimService, ClaimService>();
 builder.Services.AddScoped<IClaimValidationService, ClaimValidationService>();
@@ -325,6 +326,8 @@ app.UseHangfireDashboard("/hangfire", new DashboardOptions
     Authorization = new[] { new HangfireAdminAuthFilter() }
 });
 
+
+
 // Map controllers
 app.MapControllers();
 
@@ -348,6 +351,24 @@ try
 catch (Exception ex)
 {
     Log.Error(ex, "An error occurred during database migration or seeding.");
+}
+
+// Configure Recurring Jobs
+using (var scope = app.Services.CreateScope())
+{
+    var recurringJobManager = scope.ServiceProvider.GetRequiredService<Hangfire.IRecurringJobManager>();
+    
+    // Process policy expiries daily at midnight
+    recurringJobManager.AddOrUpdate<InsuranceClaimSystem.Infrastructure.Jobs.PolicyExpiryJob>(
+        "policy-expiry-check",
+        job => job.ExecuteAsync(),
+        Hangfire.Cron.Daily());
+
+    // Process grace period lapses daily at 1 AM
+    recurringJobManager.AddOrUpdate<InsuranceClaimSystem.Infrastructure.Jobs.GracePeriodLapseJob>(
+        "grace-period-lapse-check",
+        job => job.ExecuteAsync(),
+        "0 1 * * *");
 }
 
 app.Run();

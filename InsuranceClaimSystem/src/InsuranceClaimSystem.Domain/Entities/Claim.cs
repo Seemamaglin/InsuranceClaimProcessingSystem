@@ -43,8 +43,6 @@ namespace InsuranceClaimSystem.Domain.Entities
         public string? RecipientBankName { get; set; } 
         public string? RecipientIFSC { get; set; } 
        
-        public byte[] RowVersion { get; set; } = Array.Empty<byte>();
-        
         public Policy Policy { get; set; }
         public ClaimType ClaimType { get; set; }
         public User Claimant { get; set; }

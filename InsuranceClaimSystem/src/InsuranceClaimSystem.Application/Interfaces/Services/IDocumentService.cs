@@ -8,7 +8,7 @@ namespace InsuranceClaimSystem.Application.Interfaces.Services;
 public interface IDocumentService
 {
     Task<Result<DocumentDto>> UploadDocumentAsync(Guid claimId, Guid uploadedByUserId, IFormFile file, DocumentType documentType);
-    Task<Result<DocumentDownloadResult>> DownloadDocumentAsync(Guid documentId);
+    Task<Result<DocumentDownloadResult>> DownloadDocumentAsync(Guid documentId, Guid userId, bool isStaff);
     Task<Result<DocumentDto>> VerifyDocumentAsync(Guid documentId, Guid verifiedByUserId, VerificationStatus status, string? rejectionReason);
     Task<Result<bool>> DeleteDocumentAsync(Guid documentId);
 }

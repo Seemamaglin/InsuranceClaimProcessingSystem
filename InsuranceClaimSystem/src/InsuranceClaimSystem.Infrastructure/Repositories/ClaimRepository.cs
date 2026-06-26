@@ -86,6 +86,26 @@ public class ClaimRepository : Repository<Claim>, IClaimRepository
             .CountAsync(c => c.AssignedReviewerId == reviewerId && activeStatuses.Contains(c.Status));
     }
 
+    public async Task<Dictionary<Guid, int>> GetActiveClaimCountsForReviewersAsync(IEnumerable<Guid> reviewerIds)
+    {
+        var activeStatuses = new[] { ClaimStatus.Submitted, ClaimStatus.UnderReview, ClaimStatus.DocumentsPending };
+        var query = await _dbContext.Claims
+            .Where(c => c.AssignedReviewerId.HasValue 
+                     && reviewerIds.Contains(c.AssignedReviewerId.Value) 
+                     && activeStatuses.Contains(c.Status))
+            .GroupBy(c => c.AssignedReviewerId)
+            .Select(g => new { ReviewerId = g.Key.Value, Count = g.Count() })
+            .ToDictionaryAsync(x => x.ReviewerId, x => x.Count);
+            
+        // Ensure all requested reviewers are in the dictionary, even with 0 counts
+        var result = new Dictionary<Guid, int>();
+        foreach (var id in reviewerIds)
+        {
+            result[id] = query.GetValueOrDefault(id, 0);
+        }
+        return result;
+    }
+
     public async Task<int> CountByStatusAsync(ClaimStatus status)
     {
         return await _dbContext.Claims.CountAsync(c => c.Status == status);

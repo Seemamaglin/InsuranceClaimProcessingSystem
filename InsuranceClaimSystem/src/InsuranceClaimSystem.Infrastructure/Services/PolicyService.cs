@@ -289,8 +289,7 @@ public class PolicyService : IPolicyService
                 PremiumFrequency = request.PremiumFrequency,
                 GracePeriodDays = gracePeriodDays,
                 LastPremiumPaidDate = DateTime.UtcNow,
-                NextPremiumDueDate = nextPremiumDate,
-                RowVersion = Guid.NewGuid().ToByteArray()
+                NextPremiumDueDate = nextPremiumDate
             };
 
             await _policyRepository.AddAsync(policy);

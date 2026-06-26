@@ -27,6 +27,7 @@ public class ClaimService : IClaimService
     private readonly IMapper _mapper;
     private readonly INotificationService _notificationService;
     private readonly IEmailService _emailService;
+    private readonly IPolicyTypeRepository _policyTypeRepository;
     private readonly ILogger<ClaimService> _logger;
 
     public ClaimService(
@@ -38,6 +39,7 @@ public class ClaimService : IClaimService
         IClaimWorkflowHistoryRepository workflowHistoryRepository,
         IDocumentRepository documentRepository,
         IClaimValidationService validationService,
+        IPolicyTypeRepository policyTypeRepository,
         IUnitOfWork unitOfWork,
         IMapper mapper,
         INotificationService notificationService,
@@ -52,6 +54,7 @@ public class ClaimService : IClaimService
         _workflowHistoryRepository = workflowHistoryRepository;
         _documentRepository = documentRepository;
         _validationService = validationService;
+        _policyTypeRepository = policyTypeRepository;
         _unitOfWork = unitOfWork;
         _mapper = mapper;
         _notificationService = notificationService;
@@ -359,7 +362,8 @@ public class ClaimService : IClaimService
             var claimType = await _claimTypeRepository.GetByIdAsync(claim.ClaimTypeId);
             if (claimType != null && reviewer.Specialization != Specialization.All)
             {
-                if (!SpecializationsMatch(reviewer.Specialization, claimType.PolicyTypeId))
+                var policyType = await _policyTypeRepository.GetByIdAsync(claimType.PolicyTypeId);
+                if (policyType != null && !SpecializationsMatch(reviewer.Specialization, policyType.TypeName))
                     return Result<bool>.Failure(Error.Validation("SpecializationMismatch", "Reviewer specialization does not match the claim type."));
             }
 
@@ -516,8 +520,7 @@ public class ClaimService : IClaimService
             NomineeId = request.ClaimantType == ClaimantType.Nominee ? request.NomineeId : null,
             DeductibleAmount = validationResult.DeductibleAmount,
             CoPayPercentage = validationResult.CoPayPercentage,
-            Status = ClaimStatus.Submitted,
-            RowVersion = Guid.NewGuid().ToByteArray()
+            Status = ClaimStatus.Submitted
         };
     }
 
@@ -550,20 +553,10 @@ public class ClaimService : IClaimService
     {
         claim.ResolvedAt = DateTime.UtcNow;
 
-        if (claim.FinalPayableAmount > 0)
-        {
-            var policy = await _policyRepository.GetByIdAsync(claim.PolicyId);
-            if (policy != null)
-            {
-                policy.RemainingCoverageAmount -= claim.FinalPayableAmount;
-                if (policy.RemainingCoverageAmount <= 0)
-                {
-                    policy.RemainingCoverageAmount = 0;
-                    policy.Status = PolicyStatus.CoverageExhausted;
-                }
-                await _policyRepository.UpdateAsync(policy);
-            }
-        }
+        // Note: We no longer deduct from RemainingCoverageAmount here.
+        // That logic has been moved exclusively to PaymentService.ConfirmPaymentAsync
+        // to prevent double-deduction on closed claims.
+        await Task.CompletedTask;
     }
 
     private void HandleRejectedStatusAsync(Claim claim, UpdateClaimStatusRequest request)
@@ -576,36 +569,40 @@ public class ClaimService : IClaimService
     private async Task<User?> FindBestReviewerAsync(Claim claim)
     {
         var claimType = await _claimTypeRepository.GetByIdAsync(claim.ClaimTypeId);
+        var policyType = claimType != null ? await _policyTypeRepository.GetByIdAsync(claimType.PolicyTypeId) : null;
+        var policyTypeName = policyType?.TypeName ?? string.Empty;
+
         var allReviewers = await _userRepository.GetUsersByRoleAsync(UserRole.ClaimReviewer);
 
         var matchingReviewers = allReviewers.Where(r => r.IsActive).Where(r =>
             r.Specialization == Specialization.All ||
-            (claimType != null && SpecializationsMatch(r.Specialization, claimType.PolicyTypeId))
+            SpecializationsMatch(r.Specialization, policyTypeName)
         ).ToList();
 
         if (!matchingReviewers.Any())
             matchingReviewers = allReviewers.Where(r => r.IsActive).ToList();
 
-        var reviewerWorkloads = new List<(User Reviewer, int Count)>();
-        foreach (var reviewer in matchingReviewers)
-        {
-            var count = await _claimRepository.GetActiveClaimCountByReviewerAsync(reviewer.Id);
-            reviewerWorkloads.Add((reviewer, count));
-        }
+        if (!matchingReviewers.Any())
+            return null;
 
-        return reviewerWorkloads.OrderBy(x => x.Count).FirstOrDefault().Reviewer;
+        var reviewerIds = matchingReviewers.Select(r => r.Id).ToList();
+        var reviewerWorkloads = await _claimRepository.GetActiveClaimCountsForReviewersAsync(reviewerIds);
+
+        return matchingReviewers
+            .OrderBy(r => reviewerWorkloads.GetValueOrDefault(r.Id, 0))
+            .FirstOrDefault();
     }
 
-    private bool SpecializationsMatch(Specialization? specialization, Guid policyTypeId)
+    private bool SpecializationsMatch(Specialization? specialization, string policyTypeName)
     {
-        // Map specialization to policy type based on domain conventions
-        // Health -> policy types with health coverage, Auto -> vehicle policies, etc.
-        // This is a simplified implementation - a real system would have explicit mapping
-        if (specialization == Specialization.All)
+        if (specialization == null || specialization == Specialization.All)
             return true;
 
-        // For now, accept the match - proper implementation would query PolicyType to check coverage types
-        return true;
+        if (string.IsNullOrEmpty(policyTypeName))
+            return false;
+
+        var specName = specialization.Value.ToString();
+        return policyTypeName.Contains(specName, StringComparison.OrdinalIgnoreCase);
     }
 
     private static Expression<Func<Claim, bool>> BuildClaimPredicate(ClaimStatus? status, DateTime? dateFrom, DateTime? dateTo)

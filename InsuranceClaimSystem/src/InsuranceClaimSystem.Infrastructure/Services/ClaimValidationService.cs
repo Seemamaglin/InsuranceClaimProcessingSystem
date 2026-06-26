@@ -16,7 +16,8 @@ public class ClaimValidationService : IClaimValidationService
     private readonly IClaimRepository _claimRepository;
     private readonly INomineeRepository _nomineeRepository;
     private readonly IClaimTypeRepository _claimTypeRepository;
-    private readonly AppDbContext _dbContext;
+    private readonly IPolicyBenefitRuleRepository _benefitRuleRepository;
+    private readonly IPolicyTypeRepository _policyTypeRepository;
     private readonly ILogger<ClaimValidationService> _logger;
 
     public ClaimValidationService(
@@ -24,14 +25,16 @@ public class ClaimValidationService : IClaimValidationService
         IClaimRepository claimRepository,
         INomineeRepository nomineeRepository,
         IClaimTypeRepository claimTypeRepository,
-        AppDbContext dbContext,
+        IPolicyBenefitRuleRepository benefitRuleRepository,
+        IPolicyTypeRepository policyTypeRepository,
         ILogger<ClaimValidationService> logger)
     {
         _policyRepository = policyRepository;
         _claimRepository = claimRepository;
         _nomineeRepository = nomineeRepository;
         _claimTypeRepository = claimTypeRepository;
-        _dbContext = dbContext;
+        _benefitRuleRepository = benefitRuleRepository;
+        _policyTypeRepository = policyTypeRepository;
         _logger = logger;
     }
 
@@ -73,10 +76,7 @@ public class ClaimValidationService : IClaimValidationService
             claimedAmount, claimTypeId, policyTypeId);
         try
         {
-            var benefitRule = await _dbContext.PolicyBenefitRules
-                .AsNoTracking()
-                .FirstOrDefaultAsync(r => r.PolicyTypeId == policyTypeId
-                    && r.ClaimTypeId == claimTypeId && r.IsActive);
+            var benefitRule = await _benefitRuleRepository.GetActiveRuleAsync(policyTypeId, claimTypeId);
 
             if (benefitRule == null)
                 throw new BusinessRuleException("No benefit rule found for payout calculation.");
@@ -123,10 +123,7 @@ public class ClaimValidationService : IClaimValidationService
         if (claimType != null && claimType.IsMaturityClaim && await _claimRepository.HasMaturityClaimAsync(dto.PolicyId))
             throw new BusinessRuleException("A maturity claim already exists for this policy.");
 
-        var benefitRule = await _dbContext.PolicyBenefitRules
-            .AsNoTracking()
-            .FirstOrDefaultAsync(r => r.PolicyTypeId == policy.PolicyTypeId
-                && r.ClaimTypeId == dto.ClaimTypeId && r.IsActive);
+        var benefitRule = await _benefitRuleRepository.GetActiveRuleAsync(policy.PolicyTypeId, dto.ClaimTypeId);
 
         if (benefitRule == null)
             throw new BusinessRuleException("No benefit rule found for this claim type and policy type combination.");
@@ -147,7 +144,7 @@ public class ClaimValidationService : IClaimValidationService
 
     private async Task ValidateClaimantAsync(SubmitClaimRequest dto, Policy policy)
     {
-        var claimType = await _dbContext.ClaimTypes.FindAsync(dto.ClaimTypeId);
+        var claimType = await _claimTypeRepository.GetByIdAsync(dto.ClaimTypeId);
         if (claimType != null && claimType.TypeName.Contains("Death", StringComparison.OrdinalIgnoreCase))
         {
             if (dto.ClaimantType != ClaimantType.Nominee)
@@ -163,18 +160,14 @@ public class ClaimValidationService : IClaimValidationService
             if (dto.NomineeId.HasValue && nominee.Id != dto.NomineeId.Value)
                 throw new BusinessRuleException("Specified nominee is not valid for this policy.");
 
-            var policyType = await _dbContext.PolicyTypes
-                .AsNoTracking()
-                .FirstOrDefaultAsync(pt => pt.Id == policy.PolicyTypeId);
+            var policyType = await _policyTypeRepository.GetByIdAsync(policy.PolicyTypeId);
 
             if (policyType == null || !policyType.AllowsNomineeClaim)
                 throw new BusinessRuleException("Nominee claims are not allowed for this policy type.");
         }
         else if (dto.ClaimantType == ClaimantType.ThirdParty)
         {
-            var policyType = await _dbContext.PolicyTypes
-                .AsNoTracking()
-                .FirstOrDefaultAsync(pt => pt.Id == policy.PolicyTypeId);
+            var policyType = await _policyTypeRepository.GetByIdAsync(policy.PolicyTypeId);
 
             if (policyType == null || !policyType.AllowsThirdPartyClaim)
                 throw new BusinessRuleException("Third party claims are not allowed for this policy type.");
@@ -191,8 +184,14 @@ public class ClaimValidationService : IClaimValidationService
 
     private Task CheckWaitingPeriodAsync(SubmitClaimRequest dto, Policy policy, ClaimType? claimType, PolicyBenefitRule benefitRule)
     {
-        // For the live demo, we are disabling the 30-day waiting period requirement!
-        // This allows the user to file a claim immediately after applying for a policy.
+        if (dto.IncidentDate.HasValue)
+        {
+            var daysSincePolicyStart = (dto.IncidentDate.Value - policy.StartDate).Days;
+            if (daysSincePolicyStart < benefitRule.WaitingPeriodDays)
+            {
+                throw new BusinessRuleException($"Incident occurred during the {benefitRule.WaitingPeriodDays}-day waiting period.");
+            }
+        }
         return Task.CompletedTask;
     }
 

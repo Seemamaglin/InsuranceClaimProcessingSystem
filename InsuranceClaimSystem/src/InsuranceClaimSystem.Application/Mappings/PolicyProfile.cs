@@ -31,7 +31,7 @@ public class PolicyProfile : Profile
             .ForMember(dest => dest.LastPremiumPaidDate, opt => opt.Ignore())
             .ForMember(dest => dest.GracePeriodDays, opt => opt.Ignore())
             .ForMember(dest => dest.PolicyDocumentUrl, opt => opt.Ignore())
-            .ForMember(dest => dest.RowVersion, opt => opt.Ignore())
+
             .ForMember(dest => dest.RejectionReason, opt => opt.Ignore())
             .ForMember(dest => dest.LapsedAt, opt => opt.Ignore())
             .ForMember(dest => dest.PolicyHolder, opt => opt.Ignore())

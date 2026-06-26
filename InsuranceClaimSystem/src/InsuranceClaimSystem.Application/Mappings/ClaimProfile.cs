@@ -52,7 +52,7 @@ public class ClaimProfile : Profile
             .ForMember(dest => dest.RecipientAccountNumber, opt => opt.Ignore())
             .ForMember(dest => dest.RecipientBankName, opt => opt.Ignore())
             .ForMember(dest => dest.RecipientIFSC, opt => opt.Ignore())
-            .ForMember(dest => dest.RowVersion, opt => opt.Ignore())
+
             .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
             .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore())
             .ForMember(dest => dest.IsDeleted, opt => opt.Ignore())

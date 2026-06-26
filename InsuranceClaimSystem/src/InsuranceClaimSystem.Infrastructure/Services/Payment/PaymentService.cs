@@ -119,20 +119,56 @@ public class PaymentService : IPaymentService
 
             if (claimPayment.PaymentStatus == ClaimPaymentStatus.Completed)
             {
-                _logger.LogWarning("Payment already completed for claim {ClaimId}", claimId);
-                return Result<(bool Success, decimal FinalPayableAmount)>.Failure(
-                    Error.Conflict("PaymentAlreadyCompleted", "Payment has already been completed."));
+                // Frontend confirmed after Webhook successfully completed it.
+                return Result<(bool Success, decimal FinalPayableAmount)>.Success((true, claim.FinalPayableAmount));
             }
 
-            var confirmation = await _stripeService.ConfirmPaymentAsync(paymentIntentId);
-            if (confirmation.Status.ToLower() != "succeeded")
+            if (claimPayment.PaymentStatus == ClaimPaymentStatus.Failed)
             {
-                claimPayment.PaymentStatus = ClaimPaymentStatus.Failed;
-                await _paymentRepository.UpdateAsync(claimPayment);
-                await _unitOfWork.SaveChangesAsync();
-                _logger.LogWarning("Payment failed for claim {ClaimId}: {FailureMessage}", claimId, confirmation.FailureMessage);
                 return Result<(bool Success, decimal FinalPayableAmount)>.Failure(
-                    Error.Validation("PaymentFailed", $"Payment failed: {confirmation.FailureMessage ?? "Unknown error"}"));
+                    Error.Validation("PaymentFailed", "Payment was marked as failed by Stripe."));
+            }
+
+            // Webhook hasn't arrived yet!
+            _logger.LogWarning("Payment {PaymentIntentId} not yet verified by webhook for claim {ClaimId}", paymentIntentId, claimId);
+            return Result<(bool Success, decimal FinalPayableAmount)>.Failure(
+                Error.Validation("PaymentNotVerified", "Payment has not been verified by Stripe webhook yet. Please wait a moment and try again."));
+
+
+        }
+        catch (BusinessRuleException ex)
+        {
+            _logger.LogWarning(ex, "Business rule violation during payment confirmation for claim {ClaimId}", claimId);
+            return Result<(bool Success, decimal FinalPayableAmount)>.Failure(Error.Validation("ValidationFailed", ex.Message));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error confirming payment for claim {ClaimId}", claimId);
+            return Result<(bool Success, decimal FinalPayableAmount)>.Failure(
+                Error.Validation("ConfirmPaymentFailed", "An error occurred while confirming the payment."));
+        }
+    }
+
+    public async Task<Result<bool>> CompletePaymentFromWebhookAsync(string paymentIntentId)
+    {
+        try
+        {
+            var claimPayment = await _paymentRepository.GetByPaymentIntentIdAsync(paymentIntentId);
+            if (claimPayment == null)
+            {
+                _logger.LogWarning("Webhook: Payment not found for intent {PaymentIntentId}", paymentIntentId);
+                return Result<bool>.Failure(Error.NotFound("PaymentNotFound", "Payment record not found."));
+            }
+
+            if (claimPayment.PaymentStatus == ClaimPaymentStatus.Completed)
+            {
+                return Result<bool>.Success(true);
+            }
+
+            var claim = await _claimRepository.GetByIdWithDetailsAsync(claimPayment.ClaimId);
+            if (claim == null)
+            {
+                return Result<bool>.Failure(Error.NotFound("ClaimNotFound", "Claim not found."));
             }
 
             await UpdateClaimOnPaymentAsync(claim, claimPayment);
@@ -156,22 +192,13 @@ public class PaymentService : IPaymentService
                     claim.Id);
             }
 
-            _logger.LogInformation(
-                "Payment confirmed for claim {ClaimId} with amount {Amount}",
-                claimId, claimPayment.Amount);
-
-            return Result<(bool Success, decimal FinalPayableAmount)>.Success((true, claim.FinalPayableAmount));
-        }
-        catch (BusinessRuleException ex)
-        {
-            _logger.LogWarning(ex, "Business rule violation during payment confirmation for claim {ClaimId}", claimId);
-            return Result<(bool Success, decimal FinalPayableAmount)>.Failure(Error.Validation("ValidationFailed", ex.Message));
+            _logger.LogInformation("Webhook verified and completed payment for claim {ClaimId}", claim.Id);
+            return Result<bool>.Success(true);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error confirming payment for claim {ClaimId}", claimId);
-            return Result<(bool Success, decimal FinalPayableAmount)>.Failure(
-                Error.Validation("ConfirmPaymentFailed", "An error occurred while confirming the payment."));
+            _logger.LogError(ex, "Error processing webhook for intent {IntentId}", paymentIntentId);
+            return Result<bool>.Failure(Error.Validation("WebhookFailed", "An error occurred processing the webhook."));
         }
     }
 

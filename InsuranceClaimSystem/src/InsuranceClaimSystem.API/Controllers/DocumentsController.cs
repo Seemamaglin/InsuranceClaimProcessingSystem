@@ -55,10 +55,19 @@ public class DocumentsController : ControllerBase
     public async Task<IActionResult> DownloadDocument(Guid id)
     {
         _logger.LogInformation("API: {Action} called", nameof(DownloadDocument));
-        var result = await _documentService.DownloadDocumentAsync(id);
+        
+        var userIdStr = User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier);
+        if (!Guid.TryParse(userIdStr, out var userId))
+            return Unauthorized();
+            
+        var isStaff = User.IsInRole("Admin") || User.IsInRole("FinanceOfficer") || User.IsInRole("ClaimReviewer") || User.IsInRole("CustomerSupport");
+
+        var result = await _documentService.DownloadDocumentAsync(id, userId, isStaff);
         if (result.IsFailure)
         {
             _logger.LogWarning("API: {Action} failed - {ErrorCode}", nameof(DownloadDocument), result.Error.Code);
+            if (result.Error.Code == "Unauthorized")
+                return Forbid();
             return NotFound(result.Error);
         }
         _logger.LogInformation("API: {Action} succeeded", nameof(DownloadDocument));

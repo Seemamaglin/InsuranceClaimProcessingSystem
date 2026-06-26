@@ -12,6 +12,7 @@ public interface IClaimRepository : IRepository<Claim>
     Task<bool> HasOpenClaimAsync(Guid policyId);
     Task<bool> HasMaturityClaimAsync(Guid policyId);
     Task<int> GetActiveClaimCountByReviewerAsync(Guid reviewerId);
+    Task<Dictionary<Guid, int>> GetActiveClaimCountsForReviewersAsync(IEnumerable<Guid> reviewerIds);
     Task<int> CountByStatusAsync(ClaimStatus status);
     Task<Claim?> GetClaimByNumberAsync(string claimNumber);
 }

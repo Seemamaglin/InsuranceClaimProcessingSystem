@@ -27,7 +27,6 @@ namespace InsuranceClaimSystem.Domain.Entities
         public int GracePeriodDays { get; set; }
         
         public string? PolicyDocumentUrl { get; set; }
-        public byte[] RowVersion { get; set; } = Array.Empty<byte>();  //throws exception when same claim is being handled by 2 reviewers.
         
         public string? RejectionReason { get; set; }
         public DateTime? LapsedAt { get; set; }

@@ -38,8 +38,7 @@ public class ClaimConfiguration : IEntityTypeConfiguration<Claim>
         builder.Property(c => c.ClaimantType)
             .HasConversion<string>();
 
-        builder.Property(c => c.RowVersion)
-            .IsConcurrencyToken(); 
+        builder.UseXminAsConcurrencyToken();
        
         builder.HasOne(c => c.Policy)
             .WithMany(p => p.Claims)

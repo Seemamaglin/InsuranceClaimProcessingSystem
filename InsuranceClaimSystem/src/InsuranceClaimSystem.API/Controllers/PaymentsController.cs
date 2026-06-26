@@ -97,6 +97,48 @@ public class PaymentsController : ControllerBase
         _logger.LogInformation("API: {Action} succeeded", nameof(GetPaymentByClaimId));
         return Ok(result.Value);
     }
+
+    [HttpPost("webhook")]
+    [AllowAnonymous]
+    public async Task<IActionResult> StripeWebhook()
+    {
+        var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
+        try
+        {
+            var config = HttpContext.RequestServices.GetRequiredService<Microsoft.Extensions.Options.IOptions<InsuranceClaimSystem.Infrastructure.Configuration.StripeSettings>>().Value;
+            var stripeEvent = Stripe.EventUtility.ConstructEvent(
+                json,
+                Request.Headers["Stripe-Signature"],
+                config.WebhookSecret
+            );
+
+            if (stripeEvent.Type == Stripe.Events.PaymentIntentSucceeded)
+            {
+                var paymentIntent = stripeEvent.Data.Object as Stripe.PaymentIntent;
+                if (paymentIntent != null)
+                {
+                    var result = await _paymentService.CompletePaymentFromWebhookAsync(paymentIntent.Id);
+                    if (result.IsFailure)
+                    {
+                        _logger.LogError("Failed to process webhook for intent {IntentId}: {Error}", paymentIntent.Id, result.Error.Description);
+                        return BadRequest(result.Error);
+                    }
+                }
+            }
+
+            return Ok();
+        }
+        catch (Stripe.StripeException e)
+        {
+            _logger.LogError(e, "Stripe Webhook Error");
+            return BadRequest();
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Unhandled Webhook Error");
+            return StatusCode(500);
+        }
+    }
 }
 
 public class ConfirmPaymentRequest

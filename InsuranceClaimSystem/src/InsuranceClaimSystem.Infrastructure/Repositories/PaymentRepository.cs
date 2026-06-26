@@ -27,6 +27,12 @@ public class PaymentRepository : Repository<ClaimPayment>, IPaymentRepository
             .FirstOrDefaultAsync(p => p.IdempotencyKey == idempotencyKey);
     }
 
+    public async Task<ClaimPayment?> GetByPaymentIntentIdAsync(string paymentIntentId)
+    {
+        return await _dbContext.ClaimPayments
+            .FirstOrDefaultAsync(p => p.StripePaymentIntentId == paymentIntentId);
+    }
+
     public async Task<IEnumerable<ClaimPayment>> GetPendingPaymentsAsync()
     {
         return await _dbContext.ClaimPayments
