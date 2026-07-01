@@ -1,0 +1,237 @@
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.page-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid lightgray;
+  padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+  background: whitesmoke;
+}
+
+.tab-btn.active {
+  color: white;
+  background: var(--primary);
+}
+
+/* Data Table */
+.table-responsive {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px lightgray;
+  padding: 1rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.data-table th {
+  padding: 1rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid lightgray;
+}
+
+.data-table td {
+  padding: 1rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid whitesmoke;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.data-table tbody tr:hover {
+  background-color: ghostwhite;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.action-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+
+.btn-approve {
+  background: palegreen;
+  color: darkgreen;
+}
+
+.btn-approve:hover {
+  background: var(--success);
+  color: white;
+}
+
+.btn-reject {
+  background: pink;
+  color: darkred;
+}
+
+.btn-reject:hover {
+  background: var(--danger);
+  color: white;
+}
+
+/* Badges */
+.badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge.pending {
+  background: var(--warning);
+  color: white;
+}
+
+.badge.active {
+  background: var(--success);
+  color: white;
+}
+
+.badge.inactive {
+  background: lightgray;
+  color: dimgray;
+}
+
+.role-badge {
+  background: lavender;
+  color: darkblue;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+}
+
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: dimgray; /* Using standard color */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px gray;
+}
+
+.modal.lg-modal {
+  max-width: 600px;
+}
+
+.modal-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.modal-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-row .half {
+  flex: 1;
+  margin-bottom: 0;
+}

@@ -41,7 +41,8 @@ export const routes: Routes = [
     component: StaffLayoutComponent,
     canActivate: [authGuard, isFirstLoginGuard],
     children: [
-      // admin-dashboard, reviewer-dashboard, finance-dashboard will go here
+      { path: 'admin-dashboard', loadComponent: () => import('./features/admin/admin-dashboard/admin-dashboard.component').then(c => c.AdminDashboardComponent) }
+      // reviewer-dashboard, finance-dashboard will go here
     ]
   },
 

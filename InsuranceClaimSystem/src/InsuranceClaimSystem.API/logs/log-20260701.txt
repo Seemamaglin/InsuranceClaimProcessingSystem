@@ -16,3 +16,276 @@
 [2026-07-01 10:21:15.864 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:a4d95de3 All dispatchers stopped
 [2026-07-01 10:21:15.867 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:a4d95de3 successfully reported itself as stopped in 2.0466 ms
 [2026-07-01 10:21:15.869 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:a4d95de3 has been stopped in total 209.805 ms
+[2026-07-01 10:32:13.364 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-07-01 10:32:13.483 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-07-01 10:32:14.037 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-01 10:32:14.037 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-01 10:32:14.037 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-01 10:32:14.363 INF] : Database migrated and seeded successfully.
+[2026-07-01 10:32:14.855 INF] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7070
+[2026-07-01 10:32:14.856 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-07-01 10:32:14.858 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-07-01 10:32:14.858 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-07-01 10:32:14.858 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-07-01 10:32:14.858 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-07-01 10:32:14.858 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-07-01 10:32:14.858 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-07-01 10:32:14.863 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-07-01 10:32:14.863 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-07-01 10:32:14.863 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-07-01 10:32:14.878 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:59895:66d2a572 successfully announced in 14.2676 ms
+[2026-07-01 10:32:14.880 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:59895:66d2a572 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-07-01 10:32:14.882 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:59895:66d2a572 all the dispatchers started
+[2026-07-01 10:50:05.241 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/policy-types responded 204 in 3.0482 ms
+[2026-07-01 10:50:05.396 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policy-types responded 401 in 129.8601 ms
+[2026-07-01 10:50:05.408 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/refresh responded 204 in 0.2534 ms
+[2026-07-01 10:50:05.497 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: RefreshToken called
+[2026-07-01 10:50:05.500 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting token refresh
+[2026-07-01 10:50:05.716 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "ccec1852-ca82-4b06-b84e-b7758d0ebe61"
+[2026-07-01 10:50:05.799 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Token refreshed successfully for user: "ccec1852-ca82-4b06-b84e-b7758d0ebe61"
+[2026-07-01 10:50:05.799 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: RefreshToken succeeded
+[2026-07-01 10:50:05.812 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/refresh responded 200 in 401.0918 ms
+[2026-07-01 10:50:05.819 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policy-types responded 401 in 1.3043 ms
+[2026-07-01 11:02:26.014 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/register responded 204 in 4.0670 ms
+[2026-07-01 11:02:26.360 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-07-01 11:02:26.362 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: mag@gmail.com
+[2026-07-01 11:02:26.587 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - UsernameExists
+[2026-07-01 11:02:26.588 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 400 in 555.3296 ms
+[2026-07-01 11:02:38.374 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/register responded 204 in 0.9699 ms
+[2026-07-01 11:02:38.421 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-07-01 11:02:38.422 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: mag@gmail.com
+[2026-07-01 11:02:38.431 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - UsernameExists
+[2026-07-01 11:02:38.439 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 400 in 55.5987 ms
+[2026-07-01 11:02:55.526 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/register responded 204 in 0.6693 ms
+[2026-07-01 11:02:55.549 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-07-01 11:02:55.549 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: magi@gmail.com
+[2026-07-01 11:02:55.581 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Register failed - UsernameExists
+[2026-07-01 11:02:55.582 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 400 in 51.5763 ms
+[2026-07-01 11:03:38.588 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/register responded 204 in 0.5882 ms
+[2026-07-01 11:03:38.624 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register called
+[2026-07-01 11:03:38.624 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting user registration for email: nila@gmail.com
+[2026-07-01 11:03:43.471 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to nila@gmail.com with subject Verify Your Email - Insurance Claim System
+[2026-07-01 11:03:43.473 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: User registered successfully: "26c223d2-8cdb-4ee1-adbe-615b133bacbf"
+[2026-07-01 11:03:43.474 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Register succeeded
+[2026-07-01 11:03:43.484 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 200 in 4884.8323 ms
+[2026-07-01 11:04:09.099 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/verify-email responded 204 in 1.9257 ms
+[2026-07-01 11:04:09.158 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: VerifyEmail called
+[2026-07-01 11:04:09.165 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting email verification for email: nila@gmail.com
+[2026-07-01 11:04:12.929 INF] InsuranceClaimSystem.Infrastructure.Services.Email.SmtpEmailService: Email sent to nila@gmail.com with subject Action Required: Submit Your KYC Documents
+[2026-07-01 11:04:12.934 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Email verification succeeded for email: nila@gmail.com
+[2026-07-01 11:04:12.934 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: VerifyEmail succeeded
+[2026-07-01 11:04:12.942 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/verify-email responded 200 in 3836.2565 ms
+[2026-07-01 11:04:12.957 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 1.7201 ms
+[2026-07-01 11:04:12.973 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:04:12.975 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: nila@gmail.com
+[2026-07-01 11:04:13.290 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "26c223d2-8cdb-4ee1-adbe-615b133bacbf"
+[2026-07-01 11:04:13.311 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "26c223d2-8cdb-4ee1-adbe-615b133bacbf"
+[2026-07-01 11:04:13.311 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-07-01 11:04:13.312 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 350.0175 ms
+[2026-07-01 11:04:40.209 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/account/kyc responded 204 in 0.6734 ms
+[2026-07-01 11:04:40.289 INF] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc called
+[2026-07-01 11:04:40.291 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Submitting KYC documents for user "26c223d2-8cdb-4ee1-adbe-615b133bacbf"
+[2026-07-01 11:04:40.365 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: KYC documents submitted successfully for user "26c223d2-8cdb-4ee1-adbe-615b133bacbf"
+[2026-07-01 11:04:40.365 INF] InsuranceClaimSystem.API.Controllers.AccountController: API: SubmitKyc succeeded
+[2026-07-01 11:04:40.366 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/account/kyc responded 200 in 151.0793 ms
+[2026-07-01 11:04:57.314 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 1.4606 ms
+[2026-07-01 11:04:57.347 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:04:57.347 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: nila@gmail.com
+[2026-07-01 11:04:57.657 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "26c223d2-8cdb-4ee1-adbe-615b133bacbf"
+[2026-07-01 11:04:57.669 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "26c223d2-8cdb-4ee1-adbe-615b133bacbf"
+[2026-07-01 11:04:57.669 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-07-01 11:04:57.669 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 351.0973 ms
+[2026-07-01 11:04:57.729 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/policy-types responded 204 in 0.0543 ms
+[2026-07-01 11:04:57.838 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes called
+[2026-07-01 11:04:57.854 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes succeeded
+[2026-07-01 11:04:57.871 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policy-types responded 200 in 133.2856 ms
+[2026-07-01 11:05:17.042 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/policies/apply responded 204 in 0.4683 ms
+[2026-07-01 11:05:17.119 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy called
+[2026-07-01 11:05:17.125 WRN] InsuranceClaimSystem.API.Controllers.PolicyController: API: ApplyForPolicy failed - AccountNotApproved
+[2026-07-01 11:05:17.126 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/policies/apply responded 400 in 78.2718 ms
+[2026-07-01 11:05:41.842 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/policy-types responded 204 in 3.6818 ms
+[2026-07-01 11:05:41.862 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes called
+[2026-07-01 11:05:41.888 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes succeeded
+[2026-07-01 11:05:41.890 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policy-types responded 200 in 44.8480 ms
+[2026-07-01 11:24:09.556 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 2.3147 ms
+[2026-07-01 11:24:09.596 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:24:09.597 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insureclaim.com
+[2026-07-01 11:24:09.695 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:24:09.697 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 136.7636 ms
+[2026-07-01 11:27:36.275 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.3340 ms
+[2026-07-01 11:27:36.285 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:27:36.285 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-07-01 11:27:36.376 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:27:36.386 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 107.3164 ms
+[2026-07-01 11:27:37.216 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:27:37.217 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-07-01 11:27:37.230 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:27:37.231 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 16.7583 ms
+[2026-07-01 11:27:49.454 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.9146 ms
+[2026-07-01 11:27:49.471 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:27:49.472 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-07-01 11:27:49.488 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:27:49.490 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 32.3688 ms
+[2026-07-01 11:27:49.957 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:27:49.957 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-07-01 11:27:49.963 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:27:49.964 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 13.5864 ms
+[2026-07-01 11:27:50.217 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:27:50.217 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-07-01 11:27:50.223 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:27:50.223 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 7.7739 ms
+[2026-07-01 11:27:50.399 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:27:50.400 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-07-01 11:27:50.411 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:27:50.412 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 16.7034 ms
+[2026-07-01 11:28:12.600 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.7001 ms
+[2026-07-01 11:28:12.609 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:28:12.609 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-07-01 11:28:12.626 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:28:12.627 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 23.0629 ms
+[2026-07-01 11:28:34.047 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.5489 ms
+[2026-07-01 11:28:34.067 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:28:34.067 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-07-01 11:28:34.096 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:28:34.097 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 47.1956 ms
+[2026-07-01 11:28:34.685 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:28:34.686 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insurance.com
+[2026-07-01 11:28:34.692 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:28:34.693 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 9.8231 ms
+[2026-07-01 11:29:49.249 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.5298 ms
+[2026-07-01 11:29:49.269 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:29:49.270 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insuranceclaimsystem.com
+[2026-07-01 11:29:49.654 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-07-01 11:29:49.654 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 401.7112 ms
+[2026-07-01 11:29:54.771 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.3383 ms
+[2026-07-01 11:29:54.777 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:29:54.778 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insuranceclaimsystem.com
+[2026-07-01 11:29:55.109 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-07-01 11:29:55.132 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-07-01 11:29:55.132 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-07-01 11:29:55.133 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 359.4226 ms
+[2026-07-01 11:29:55.249 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/policy-types responded 204 in 0.0433 ms
+[2026-07-01 11:29:55.269 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes called
+[2026-07-01 11:29:55.308 INF] InsuranceClaimSystem.API.Controllers.PolicyController: API: GetPolicyTypes succeeded
+[2026-07-01 11:29:55.309 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/policy-types responded 200 in 50.1437 ms
+[2026-07-01 11:32:56.518 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 34.2300 ms
+[2026-07-01 11:33:11.657 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:33:11.658 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insuranceclaimsystem.com
+[2026-07-01 11:33:11.983 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-07-01 11:33:12.006 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-07-01 11:33:12.006 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-07-01 11:33:12.006 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 354.7786 ms
+[2026-07-01 11:44:07.325 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 7.5031 ms
+[2026-07-01 11:44:07.378 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:44:07.378 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insuranceclaimsystem.com
+[2026-07-01 11:44:07.724 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-07-01 11:44:07.765 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-07-01 11:44:07.765 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-07-01 11:44:07.768 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 429.1406 ms
+[2026-07-01 11:44:07.933 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/users responded 204 in 0.1238 ms
+[2026-07-01 11:44:07.943 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/registrations/pending responded 204 in 0.0184 ms
+[2026-07-01 11:44:07.986 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-07-01 11:44:07.988 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers called with role null
+[2026-07-01 11:44:07.989 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting users pending registration approval
+[2026-07-01 11:44:07.990 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting paged accounts - page 1, size 50, role null
+[2026-07-01 11:44:08.019 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved 6 pending approvals
+[2026-07-01 11:44:08.019 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-07-01 11:44:08.042 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved paged accounts - total 36, page 1
+[2026-07-01 11:44:08.042 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers succeeded
+[2026-07-01 11:44:08.043 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 97.7274 ms
+[2026-07-01 11:44:08.049 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/users responded 200 in 106.5169 ms
+[2026-07-01 11:44:37.609 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/registrations/pending responded 204 in 1.4103 ms
+[2026-07-01 11:44:37.610 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/users responded 204 in 0.2609 ms
+[2026-07-01 11:44:37.657 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers called with role null
+[2026-07-01 11:44:37.657 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-07-01 11:44:37.658 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting paged accounts - page 1, size 50, role null
+[2026-07-01 11:44:37.658 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting users pending registration approval
+[2026-07-01 11:44:37.685 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved 6 pending approvals
+[2026-07-01 11:44:37.685 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-07-01 11:44:37.690 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 66.7764 ms
+[2026-07-01 11:44:37.714 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved paged accounts - total 36, page 1
+[2026-07-01 11:44:37.715 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers succeeded
+[2026-07-01 11:44:37.715 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/users responded 200 in 89.6663 ms
+[2026-07-01 11:51:13.158 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-07-01 11:51:13.161 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: admin@insuranceclaimsystem.com
+[2026-07-01 11:51:13.652 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-07-01 11:51:13.704 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-07-01 11:51:13.704 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-07-01 11:51:13.706 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 578.1083 ms
+[2026-07-01 11:51:13.782 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-07-01 11:51:13.783 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting users pending registration approval
+[2026-07-01 11:51:13.789 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved 6 pending approvals
+[2026-07-01 11:51:13.790 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-07-01 11:51:13.790 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 12.1002 ms
+[2026-07-01 11:52:09.027 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/registrations/pending responded 204 in 1.5353 ms
+[2026-07-01 11:52:09.027 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/users responded 204 in 1.5353 ms
+[2026-07-01 11:52:09.077 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-07-01 11:52:09.077 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting users pending registration approval
+[2026-07-01 11:52:09.085 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers called with role null
+[2026-07-01 11:52:09.087 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting paged accounts - page 1, size 50, role null
+[2026-07-01 11:52:09.109 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved 6 pending approvals
+[2026-07-01 11:52:09.109 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-07-01 11:52:09.113 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 61.8041 ms
+[2026-07-01 11:52:09.270 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved paged accounts - total 36, page 1
+[2026-07-01 11:52:09.271 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers succeeded
+[2026-07-01 11:52:09.276 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/users responded 200 in 223.8917 ms
+[2026-07-01 11:55:09.031 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/registrations/7bcc973b-917f-43dd-bddb-a68fd56c6e2b/approve responded 204 in 0.6474 ms
+[2026-07-01 11:55:09.114 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration called
+[2026-07-01 11:55:09.119 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Admin "87ed57a3-bdf4-4730-b5ab-95ebab799c21" processing registration approval for user "7bcc973b-917f-43dd-bddb-a68fd56c6e2b"
+[2026-07-01 11:55:09.180 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Registration for "7bcc973b-917f-43dd-bddb-a68fd56c6e2b" processed: "Approved"
+[2026-07-01 11:55:09.181 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration succeeded
+[2026-07-01 11:55:09.197 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/registrations/7bcc973b-917f-43dd-bddb-a68fd56c6e2b/approve responded 200 in 159.4193 ms
+[2026-07-01 11:55:09.208 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/users responded 204 in 0.0627 ms
+[2026-07-01 11:55:09.208 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/registrations/pending responded 204 in 0.2025 ms
+[2026-07-01 11:55:09.213 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers called with role null
+[2026-07-01 11:55:09.213 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-07-01 11:55:09.213 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting users pending registration approval
+[2026-07-01 11:55:09.213 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting paged accounts - page 1, size 50, role null
+[2026-07-01 11:55:09.227 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved 5 pending approvals
+[2026-07-01 11:55:09.227 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-07-01 11:55:09.227 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 15.3305 ms
+[2026-07-01 11:55:09.249 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved paged accounts - total 36, page 1
+[2026-07-01 11:55:09.250 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers succeeded
+[2026-07-01 11:55:09.253 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/users responded 200 in 41.8845 ms
+[2026-07-01 11:55:28.433 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/registrations/26c223d2-8cdb-4ee1-adbe-615b133bacbf/approve responded 204 in 0.4488 ms
+[2026-07-01 11:55:28.446 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration called
+[2026-07-01 11:55:28.447 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Admin "87ed57a3-bdf4-4730-b5ab-95ebab799c21" processing registration approval for user "26c223d2-8cdb-4ee1-adbe-615b133bacbf"
+[2026-07-01 11:55:28.459 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Registration for "26c223d2-8cdb-4ee1-adbe-615b133bacbf" processed: "Approved"
+[2026-07-01 11:55:28.460 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: ApproveRegistration succeeded
+[2026-07-01 11:55:28.460 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/admin/registrations/26c223d2-8cdb-4ee1-adbe-615b133bacbf/approve responded 200 in 23.5072 ms
+[2026-07-01 11:55:28.466 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/registrations/pending responded 204 in 0.0662 ms
+[2026-07-01 11:55:28.466 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/users responded 204 in 0.0238 ms
+[2026-07-01 11:55:28.479 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations called
+[2026-07-01 11:55:28.479 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers called with role null
+[2026-07-01 11:55:28.479 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting users pending registration approval
+[2026-07-01 11:55:28.480 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Getting paged accounts - page 1, size 50, role null
+[2026-07-01 11:55:28.507 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved 4 pending approvals
+[2026-07-01 11:55:28.507 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetPendingRegistrations succeeded
+[2026-07-01 11:55:28.508 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/registrations/pending responded 200 in 31.5384 ms
+[2026-07-01 11:55:28.532 INF] InsuranceClaimSystem.Infrastructure.Services.AccountService: Retrieved paged accounts - total 36, page 1
+[2026-07-01 11:55:28.532 INF] InsuranceClaimSystem.API.Controllers.AdminController: API: GetAllUsers succeeded
+[2026-07-01 11:55:28.534 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/users responded 200 in 58.2810 ms
+[2026-07-01 12:00:42.465 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/admin/users responded 204 in 0.2645 ms
+[2026-07-01 12:00:42.483 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/users responded 401 in 10.5705 ms
+[2026-07-01 12:00:42.491 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/refresh responded 204 in 0.0383 ms
+[2026-07-01 12:00:42.499 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: RefreshToken called
+[2026-07-01 12:00:42.501 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting token refresh
+[2026-07-01 12:00:42.584 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-07-01 12:00:42.604 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Token refreshed successfully for user: "87ed57a3-bdf4-4730-b5ab-95ebab799c21"
+[2026-07-01 12:00:42.604 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: RefreshToken succeeded
+[2026-07-01 12:00:42.604 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/refresh responded 200 in 111.7086 ms
+[2026-07-01 12:00:42.611 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/users responded 401 in 1.0736 ms
+[2026-07-01 12:00:51.136 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/users responded 401 in 5.5712 ms
+[2026-07-01 12:00:51.143 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/refresh responded 204 in 1.2645 ms
+[2026-07-01 12:00:51.168 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/refresh responded 400 in 23.2633 ms
+[2026-07-01 12:00:55.914 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/admin/users responded 401 in 0.3937 ms
+[2026-07-01 12:00:55.921 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/refresh responded 400 in 1.8487 ms
+[2026-07-01 12:01:50.509 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:59895:66d2a572 caught stopping signal...
+[2026-07-01 12:01:50.521 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-07-01 12:01:50.526 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:59895:66d2a572 All dispatchers stopped
+[2026-07-01 12:01:50.558 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:59895:66d2a572 successfully reported itself as stopped in 27.4367 ms
+[2026-07-01 12:01:50.558 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:59895:66d2a572 has been stopped in total 44.669 ms
