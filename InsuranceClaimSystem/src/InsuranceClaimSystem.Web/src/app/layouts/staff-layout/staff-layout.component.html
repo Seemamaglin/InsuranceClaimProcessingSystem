@@ -1,0 +1,38 @@
+<div class="layout-wrapper">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="shield-icon">⛨</span> InsureClaim
+    </div>
+    <nav class="nav-links">
+      <a *ngIf="userRole === 'Admin'" routerLink="/admin-dashboard" routerLinkActive="active" class="nav-item">
+        <span class="icon">📊</span> Dashboard
+      </a>
+      <a *ngIf="userRole === 'ClaimsManager'" routerLink="/reviewer-dashboard" routerLinkActive="active" class="nav-item">
+        <span class="icon">📋</span> Queue
+      </a>
+      <a *ngIf="userRole === 'FinanceOfficer'" routerLink="/finance-dashboard" routerLinkActive="active" class="nav-item">
+        <span class="icon">💳</span> Payouts
+      </a>
+      <!-- Add more links here later depending on role -->
+    </nav>
+    <div class="sidebar-footer">
+      <button (click)="logout()" class="logout-btn">
+        <span class="icon">🚪</span> Log Out
+      </button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="top-nav">
+      <div class="page-title"></div>
+      <div class="user-actions">
+        <app-notification-bell></app-notification-bell>
+        <div class="avatar">{{ userRole.charAt(0) }}</div>
+      </div>
+    </header>
+    
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

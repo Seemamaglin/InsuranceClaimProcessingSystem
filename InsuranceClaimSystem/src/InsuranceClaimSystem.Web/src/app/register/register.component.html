@@ -1,0 +1,265 @@
+<div class="register-page">
+  <div class="header-outside">
+    <h1 class="logo">InsureClaim</h1>
+    <p class="subtitle">Secure self-registration portal for premium<br>coverage.</p>
+  </div>
+
+  <div class="auth-card">
+    <div class="wizard-header">
+      <div class="step" [class.active]="currentStep === 1">
+        <div class="circle">1</div>
+        <span class="label">Personal Info</span>
+      </div>
+      <div class="line"></div>
+      <div class="step" [class.active]="currentStep === 2">
+        <div class="circle">2</div>
+        <span class="label">Verification</span>
+      </div>
+      <div class="line"></div>
+      <div class="step" [class.active]="currentStep === 3">
+        <div class="circle">3</div>
+        <span class="label">KYC Upload</span>
+      </div>
+      <div class="line"></div>
+      <div class="step" [class.active]="currentStep === 4">
+        <div class="circle">4</div>
+        <span class="label">Review</span>
+      </div>
+    </div>
+
+    <!-- STEP 1: PERSONAL INFO -->
+    @if (currentStep === 1) {
+
+    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="nextStep()">
+      @if (errorMessage) {
+        <div class="error-banner">{{ errorMessage }}</div>
+      }
+      @if (successMessage) {
+        <div class="success-banner">{{ successMessage }}</div>
+      }
+
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" formControlName="firstName" placeholder="e.g. Rahul">
+      </div>
+
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" formControlName="lastName" placeholder="e.g. Sharma">
+      </div>
+
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" formControlName="dob" [class.invalid]="registerForm.get('dob')?.invalid && registerForm.get('dob')?.touched">
+        @if (registerForm.get('dob')?.invalid && registerForm.get('dob')?.touched) {
+          <span class="validation-error">Date of birth is required and must be in the past.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Corporate Email Address</label>
+        <div class="input-wrapper">
+          <span class="icon-left">✉</span>
+          <input type="email" formControlName="email" placeholder="rahul.sharma&#64;example.com" class="has-icon-left" [class.invalid]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        </div>
+        @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+          <span class="validation-error">Please enter a valid email address.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Username</label>
+        <div class="input-wrapper success-wrapper">
+          <input type="text" formControlName="username" placeholder="rahul_sharma_99" class="success-input">
+          <span class="badge-success">✓ Available</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number</label>
+        <div class="phone-input-group">
+          <div class="country-code">
+            <span>⚑ +91</span>
+          </div>
+          <input type="text" formControlName="phone" placeholder="98765 43210" [class.invalid]="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched">
+        </div>
+        @if (registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched) {
+          <span class="validation-error">Phone number must be exactly 10 digits.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Create Password</label>
+        <div class="input-wrapper">
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="••••••••">
+          <span class="icon" (click)="togglePassword()" style="cursor: pointer;">
+            {{ showPassword ? '👁‍🗨' : '👁' }}
+          </span>
+        </div>
+        <div class="password-strength">
+          <div class="strength-bars">
+            <div class="bar" [class.strong]="score >= 1"></div>
+            <div class="bar" [class.strong]="score >= 2"></div>
+            <div class="bar" [class.strong]="score >= 3"></div>
+            <div class="bar" [class.strong]="score >= 4"></div>
+          </div>
+          <span class="strength-text">{{ strengthText }}</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" placeholder="••••••••">
+      </div>
+
+      <div class="security-requirements">
+        <div class="req-header">Security Requirements</div>
+        <div class="req-item" [class.met]="hasLength">
+          <span [class.check]="hasLength" [class.circle-empty]="!hasLength">{{ hasLength ? '✓' : '○' }}</span> 8+ Characters
+        </div>
+        <div class="req-item" [class.met]="hasNumberAndSpecial">
+          <span [class.check]="hasNumberAndSpecial" [class.circle-empty]="!hasNumberAndSpecial">{{ hasNumberAndSpecial ? '✓' : '○' }}</span> 1 Number & 1 Special Char
+        </div>
+        <div class="req-item" [class.met]="hasUpperAndLower">
+          <span [class.check]="hasUpperAndLower" [class.circle-empty]="!hasUpperAndLower">{{ hasUpperAndLower ? '✓' : '○' }}</span> Upper & Lower case
+        </div>
+        <div class="req-item" [class.met]="noCommonWords && password.length > 0">
+          <span [class.check]="noCommonWords && password.length > 0" [class.circle-empty]="!(noCommonWords && password.length > 0)">{{ (noCommonWords && password.length > 0) ? '✓' : '○' }}</span> No common words
+        </div>
+      </div>
+
+      <p class="terms-text">
+        By continuing, you agree to our <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>.
+      </p>
+
+      <div class="wizard-actions mt-4">
+        <button type="submit" class="btn-primary" [disabled]="registerForm.invalid || isLoading">
+          @if (isLoading) {
+            Loading...
+          } @else {
+            Continue <span class="arrow">→</span>
+          }
+        </button>
+      </div>
+    </form>
+    }
+
+    <!-- STEP 2: VERIFICATION -->
+    @if (currentStep === 2) {
+      <div class="verification-step">
+        <div class="envelope-icon">
+          <div class="check-badge">✓</div>
+        </div>
+        <h2>Check your inbox</h2>
+        <p class="verify-desc">
+          We've sent a 6-digit verification code to<br>
+          <strong>{{ registerForm.value.email }}</strong>. Enter<br>
+          the code below to continue your registration.
+        </p>
+
+        <div class="form-group code-input-group">
+          <input type="text" [(ngModel)]="verificationCode" placeholder="Enter 6-digit code" class="text-center" maxlength="6">
+        </div>
+
+        <button type="button" class="btn-secondary resend-btn mt-4" (click)="resendEmail()" [disabled]="resendCountdown > 0">
+          <span class="refresh-icon">↻</span> Resend code
+        </button>
+        @if (resendCountdown > 0) {
+          <div class="resend-timer">Resend available in {{ resendCountdown }}s</div>
+        }
+
+        <div class="expire-text mt-4">
+          <span class="clock-icon">🕐</span> Code expires in 24 hours.
+        </div>
+        <a class="wrong-email" (click)="currentStep = 1">Wrong email address?</a>
+      </div>
+    }
+
+    <!-- STEP 3: KYC UPLOAD -->
+    @if (currentStep === 3) {
+      <div class="kyc-step">
+        <h2>Upload Identity Documents</h2>
+        <p class="kyc-desc">Required for claim processing. You can also upload these later from your Profile.</p>
+
+        <div class="document-upload">
+          <div class="doc-header">
+            <h3>Aadhaar Card</h3>
+            <span class="required-badge">REQUIRED</span>
+          </div>
+          <div class="dropzone" (click)="fileInputAadhaar.click()">
+            <input type="file" #fileInputAadhaar style="display: none;" (change)="onFileSelected($event, 'aadhaar')" accept=".pdf,.jpg,.png">
+            <div class="upload-icon">☝️</div>
+            <p><strong>Click to upload Aadhaar</strong></p>
+            <p class="upload-hint">PDF, JPG or PNG (Max 5MB)</p>
+            @if (aadhaarFile) {
+              <p class="file-name success-text">{{ aadhaarFile.name }}</p>
+            }
+          </div>
+          <p class="doc-note">Ensure the front and back of your card are clearly visible.</p>
+        </div>
+
+        <div class="document-upload mt-4">
+          <div class="doc-header">
+            <h3>PAN Card</h3>
+            <span class="required-badge">REQUIRED</span>
+          </div>
+          <div class="dropzone" (click)="fileInputPan.click()">
+            <input type="file" #fileInputPan style="display: none;" (change)="onFileSelected($event, 'pan')" accept=".pdf,.jpg,.png">
+            <div class="upload-icon">💳</div>
+            <p><strong>Click to upload PAN Card</strong></p>
+            <p class="upload-hint">PDF, JPG or PNG (Max 5MB)</p>
+            @if (panFile) {
+              <p class="file-name success-text">{{ panFile.name }}</p>
+            }
+          </div>
+          <p class="doc-note">Ensure your PAN number and photo are legible.</p>
+        </div>
+
+        <div class="security-notice mt-4">
+          <div class="shield-icon">🛡️</div>
+          <div class="security-text">
+            <h4>Bank-Grade Security</h4>
+            <p>Your documents are encrypted and stored securely. We only use this information to verify your identity as mandated by IRDAI regulations.</p>
+          </div>
+        </div>
+
+      </div>
+    }
+
+    <!-- STEP 4: COMPLETE -->
+    @if (currentStep === 4) {
+      <div class="complete-step text-center">
+        <h2>Registration Complete!</h2>
+        <p>Your account has been created. An administrator will review your details shortly.</p>
+        <button type="button" class="btn-primary mt-4" routerLink="/login">
+          Go to Login
+        </button>
+      </div>
+    }
+
+    <!-- WIZARD GLOBAL ACTIONS -->
+    @if (currentStep < 4) {
+      <div class="wizard-actions mt-4">
+        <button type="button" class="btn-secondary prev-btn" (click)="prevStep()" [disabled]="currentStep === 1 || isLoading">
+          ◅ Previous
+        </button>
+        <button type="button" class="btn-primary next-btn" (click)="nextStep()" 
+                [disabled]="(currentStep === 1 && registerForm.invalid) || isLoading">
+          @if (isLoading) { Loading... } @else { {{ currentStep === 3 ? 'Submit Registration' : 'Next ▻' }} }
+        </button>
+      </div>
+    }
+
+    @if (currentStep === 1) {
+      <div class="login-link mt-4">
+        Already have an account? <a routerLink="/login">Log In</a>
+      </div>
+    }
+  </div>
+
+  <div class="page-footer">
+    <span>🔒 SSL SECURED</span>
+    <span>✓ ISO 27001</span>
+    <span>SUPPORT: 1800-INSURE-HELP</span>
+  </div>
+</div>

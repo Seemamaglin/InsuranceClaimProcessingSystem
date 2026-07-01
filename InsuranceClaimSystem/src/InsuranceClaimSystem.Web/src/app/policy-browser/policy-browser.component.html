@@ -1,0 +1,44 @@
+<div class="browser-container">
+  <div class="header">
+    <h1>Available Insurance Policies</h1>
+    <p>Choose the protection that fits your needs.</p>
+  </div>
+
+  @if (isLoading) {
+    <div class="loading-state">
+      <span class="spinner"></span>
+      <p>Loading policies...</p>
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="error-banner">{{ errorMessage }}</div>
+  }
+
+  <div class="policy-grid">
+    <!-- Loop through the policies from the DB -->
+    @for (policy of policyTypes; track policy.id) {
+      <div class="card">
+        <div class="card-content">
+          <h3>{{ policy.typeName }} Insurance</h3>
+          <p class="desc">{{ policy.description }}</p>
+          
+          <div class="features">
+            <span class="badge">Coverage: ₹{{ policy.defaultCoverageAmount }}</span>
+            @if (policy.allowsNomineeClaim) {
+              <span class="badge success">Nominee Allowed</span>
+            }
+          </div>
+        </div>
+        
+        <button class="btn-primary" (click)="apply(policy.id)">
+          Apply Now
+        </button>
+      </div>
+    } @empty {
+      @if (!isLoading && !errorMessage) {
+        <div class="empty-state">No policies available at the moment.</div>
+      }
+    }
+  </div>
+</div>

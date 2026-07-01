@@ -1,0 +1,43 @@
+<div class="apply-container">
+  <div class="auth-card">
+    <h2>Apply for Policy</h2>
+    <p>Please configure your policy details below.</p>
+
+    @if (errorMessage) { <div class="error-banner">{{ errorMessage }}</div> }
+    @if (successMessage) { <div class="success-banner">{{ successMessage }}</div> }
+
+    <form [formGroup]="applyForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Coverage Amount: Number Input -->
+      <div class="form-group">
+        <label>Desired Coverage Amount (₹)</label>
+        <input type="number" formControlName="coverageAmount" placeholder="e.g. 500000">
+      </div>
+
+      <!-- Premium Amount: Dropdown -->
+      <div class="form-group">
+        <label>Select Premium Amount (₹)</label>
+        <select formControlName="premiumAmount">
+          @for (option of premiumOptions; track option.amount) {
+            <option [value]="option.amount">{{ option.label }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Premium Frequency: Dropdown -->
+      <div class="form-group">
+        <label>Premium Payment Frequency</label>
+        <select formControlName="premiumFrequency">
+          <option value="1">Monthly</option>
+          <option value="2">Quarterly</option>
+          <option value="3">Half-Yearly</option>
+          <option value="4">Yearly (Most Popular ✨)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-primary" [disabled]="isLoading">
+        {{ isLoading ? 'Submitting...' : 'Submit Application' }}
+      </button>
+    </form>
+  </div>
+</div>

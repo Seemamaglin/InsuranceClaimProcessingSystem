@@ -1,0 +1,35 @@
+[2026-06-29 00:34:31.881 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-29 00:34:32.028 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:c66fa3e2 was considered dead by other servers, restarting...
+[2026-06-29 00:34:32.028 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c66fa3e2 caught restart signal...
+[2026-06-29 00:34:32.030 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c66fa3e2 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-29 00:34:32.031 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c66fa3e2 successfully reported itself as stopped in 1.5501 ms
+[2026-06-29 00:34:32.032 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c66fa3e2 has been stopped in total 2.7333 ms
+[2026-06-29 00:34:32.040 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9778886f successfully announced in 7.6092 ms
+[2026-06-29 00:34:32.042 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9778886f is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-29 00:34:32.046 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9778886f all the dispatchers started
+[2026-06-29 03:37:55.731 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-29 03:37:55.936 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:9778886f was considered dead by other servers, restarting...
+[2026-06-29 03:37:55.936 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9778886f caught restart signal...
+[2026-06-29 03:37:55.939 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9778886f All dispatchers stopped
+[2026-06-29 03:37:55.940 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9778886f successfully reported itself as stopped in 1.5048 ms
+[2026-06-29 03:37:55.941 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9778886f has been stopped in total 3.9724 ms
+[2026-06-29 03:37:55.977 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b0451341 successfully announced in 35.4488 ms
+[2026-06-29 03:37:55.978 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b0451341 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-29 03:37:55.981 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b0451341 all the dispatchers started
+[2026-06-29 05:39:42.962 INF] InsuranceClaimSystem.Infrastructure.Jobs.PolicyExpiryJob: PolicyExpiryJob started at "2026-06-29T00:09:42.9625000Z"
+[2026-06-29 05:39:43.013 INF] InsuranceClaimSystem.Infrastructure.Jobs.PolicyExpiryJob: PolicyExpiryJob completed. Processed 0 policies
+[2026-06-29 06:26:12.562 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-29 06:26:12.942 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:b0451341 was considered dead by other servers, restarting...
+[2026-06-29 06:26:12.943 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b0451341 caught restart signal...
+[2026-06-29 06:26:12.946 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b0451341 stopped non-gracefully due to DelayedJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-29 06:26:12.949 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b0451341 successfully reported itself as stopped in 1.8171 ms
+[2026-06-29 06:26:12.949 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b0451341 has been stopped in total 5.5106 ms
+[2026-06-29 06:26:12.973 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:752cec8c successfully announced in 21.821 ms
+[2026-06-29 06:26:12.973 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:752cec8c is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-29 06:26:12.976 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:752cec8c all the dispatchers started
+[2026-06-29 06:26:12.988 INF] Hangfire.PostgreSql.ExpirationManager: Removed 1 outdated record(s) from 'aggregatedcounter' table.
+[2026-06-29 06:26:14.591 INF] Hangfire.PostgreSql.ExpirationManager: Removed 1 outdated record(s) from 'job' table.
+[2026-06-29 06:40:38.637 INF] InsuranceClaimSystem.Infrastructure.Jobs.GracePeriodLapseJob: GracePeriodLapseJob started at "2026-06-29T01:10:38.6372540Z"
+[2026-06-29 06:40:38.664 INF] InsuranceClaimSystem.Infrastructure.Jobs.GracePeriodLapseJob: GracePeriodLapseJob completed. Processed 0 policies
+[2026-06-29 10:13:38.144 INF] Hangfire.PostgreSql.ExpirationManager: Removed 1 outdated record(s) from 'aggregatedcounter' table.
+[2026-06-29 10:13:39.206 INF] Hangfire.PostgreSql.ExpirationManager: Removed 1 outdated record(s) from 'job' table.

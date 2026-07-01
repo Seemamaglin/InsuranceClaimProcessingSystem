@@ -1,0 +1,18 @@
+[2026-07-01 05:13:41.974 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-07-01 05:13:42.178 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:47541:7e9d4a79 was considered dead by other servers, restarting...
+[2026-07-01 05:13:42.178 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:7e9d4a79 caught restart signal...
+[2026-07-01 05:13:42.180 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:7e9d4a79 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-07-01 05:13:42.182 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:7e9d4a79 successfully reported itself as stopped in 1.8437 ms
+[2026-07-01 05:13:42.183 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:7e9d4a79 has been stopped in total 4.1018 ms
+[2026-07-01 05:13:42.253 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:a4d95de3 successfully announced in 68.9991 ms
+[2026-07-01 05:13:42.255 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:a4d95de3 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-07-01 05:13:42.257 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:a4d95de3 all the dispatchers started
+[2026-07-01 05:31:47.167 INF] InsuranceClaimSystem.Infrastructure.Jobs.PolicyExpiryJob: PolicyExpiryJob started at "2026-07-01T00:01:47.1672210Z"
+[2026-07-01 05:31:47.215 INF] InsuranceClaimSystem.Infrastructure.Jobs.PolicyExpiryJob: PolicyExpiryJob completed. Processed 0 policies
+[2026-07-01 06:30:50.374 INF] InsuranceClaimSystem.Infrastructure.Jobs.GracePeriodLapseJob: GracePeriodLapseJob started at "2026-07-01T01:00:50.3726000Z"
+[2026-07-01 06:30:50.399 INF] InsuranceClaimSystem.Infrastructure.Jobs.GracePeriodLapseJob: GracePeriodLapseJob completed. Processed 0 policies
+[2026-07-01 10:21:15.642 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:a4d95de3 caught stopping signal...
+[2026-07-01 10:21:15.667 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-07-01 10:21:15.864 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:a4d95de3 All dispatchers stopped
+[2026-07-01 10:21:15.867 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:a4d95de3 successfully reported itself as stopped in 2.0466 ms
+[2026-07-01 10:21:15.869 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:47541:a4d95de3 has been stopped in total 209.805 ms

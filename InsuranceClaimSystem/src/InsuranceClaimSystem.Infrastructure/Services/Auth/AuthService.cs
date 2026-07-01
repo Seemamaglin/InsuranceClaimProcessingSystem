@@ -159,8 +159,15 @@ public class AuthService : IAuthService
             var user = await _userRepository.GetByEmailAsync(request.Email);
             if (user == null)
             {
-                _logger.LogWarning("Forgot password - email not found: {Email}", request.Email);
-                return Result<bool>.Failure(Error.NotFound("UserNotFound", "The email address does not exist in our system."));
+                // To prevent user enumeration vulnerabilities, always return success
+                // even if the email does not exist in our system.
+                _logger.LogWarning("Forgot password - email not found: {Email}. Returning success to prevent enumeration.", request.Email);
+                
+                // Add a random delay to simulate DB and SMTP latency to prevent timing side-channel attacks
+                var delay = new Random().Next(800, 1500);
+                await Task.Delay(delay);
+                
+                return Result<bool>.Success(true);
             }
 
             var resetToken = Guid.NewGuid().ToString("N");
@@ -331,6 +338,17 @@ public class AuthService : IAuthService
         var existing = await _userRepository.GetByEmailAsync(email);
         if (existing != null)
         {
+            if (existing.RegistrationStatus == RegistrationStatus.PendingEmailVerification)
+            {
+                // Soft delete the existing unverified user and free up their unique constraints
+                existing.Email = $"deleted_{Guid.NewGuid()}_{existing.Email}";
+                existing.Username = $"deleted_{Guid.NewGuid()}_{existing.Username}";
+                existing.PhoneNumber = $"deleted_{Guid.NewGuid()}_{existing.PhoneNumber}";
+                await _userRepository.UpdateAsync(existing);
+                await _userRepository.DeleteAsync(existing.Id);
+                await _unitOfWork.SaveChangesAsync();
+                return Result<bool>.Success(true);
+            }
             return Result<bool>.Failure(Error.Conflict("EmailExists", "A user with this email already exists."));
         }
         return Result<bool>.Success(true);
@@ -341,6 +359,16 @@ public class AuthService : IAuthService
         var existing = await _userRepository.GetByUsernameAsync(username);
         if (existing != null)
         {
+            if (existing.RegistrationStatus == RegistrationStatus.PendingEmailVerification)
+            {
+                existing.Email = $"deleted_{Guid.NewGuid()}_{existing.Email}";
+                existing.Username = $"deleted_{Guid.NewGuid()}_{existing.Username}";
+                existing.PhoneNumber = $"deleted_{Guid.NewGuid()}_{existing.PhoneNumber}";
+                await _userRepository.UpdateAsync(existing);
+                await _userRepository.DeleteAsync(existing.Id);
+                await _unitOfWork.SaveChangesAsync();
+                return Result<bool>.Success(true);
+            }
             return Result<bool>.Failure(Error.Conflict("UsernameExists", "A user with this username already exists."));
         }
         return Result<bool>.Success(true);
@@ -348,9 +376,20 @@ public class AuthService : IAuthService
 
     private async Task<Result<bool>> CheckPhoneNumberAvailabilityAsync(string phoneNumber)
     {
-        var existing = await _userRepository.GetPagedAsync(1, 1, u => u.PhoneNumber == phoneNumber);
-        if (existing.Items.Any())
+        var existingResult = await _userRepository.GetPagedAsync(1, 1, u => u.PhoneNumber == phoneNumber);
+        var existing = existingResult.Items.FirstOrDefault();
+        if (existing != null)
         {
+            if (existing.RegistrationStatus == RegistrationStatus.PendingEmailVerification)
+            {
+                existing.Email = $"deleted_{Guid.NewGuid()}_{existing.Email}";
+                existing.Username = $"deleted_{Guid.NewGuid()}_{existing.Username}";
+                existing.PhoneNumber = $"deleted_{Guid.NewGuid()}_{existing.PhoneNumber}";
+                await _userRepository.UpdateAsync(existing);
+                await _userRepository.DeleteAsync(existing.Id);
+                await _unitOfWork.SaveChangesAsync();
+                return Result<bool>.Success(true);
+            }
             return Result<bool>.Failure(Error.Conflict("PhoneNumberExists", "A user with this phone number already exists."));
         }
         return Result<bool>.Success(true);
@@ -569,7 +608,7 @@ public class AuthService : IAuthService
             await _emailService.SendEmailAsync(
                 user.Email,
                 "Reset Your Password - Insurance Claim System",
-                $"Click the link to reset your password: <a href='http://localhost:5016/api/auth/reset-password?token={resetToken}&email={user.Email}'>Reset Password</a><br/><br/>This link expires in 30 minutes.");
+                $"Click the link to reset your password: <a href='http://localhost:4200/reset-password?token={resetToken}&email={user.Email}'>Reset Password</a><br/><br/>This link expires in 30 minutes.");
         }
         catch (Exception ex)
         {

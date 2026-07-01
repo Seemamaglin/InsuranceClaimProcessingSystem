@@ -1,0 +1,71 @@
+[2026-06-28 00:49:28.919 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-28 00:49:29.276 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:9258a3ca was considered dead by other servers, restarting...
+[2026-06-28 00:49:29.277 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9258a3ca caught restart signal...
+[2026-06-28 00:49:29.280 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9258a3ca stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-28 00:49:29.289 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9258a3ca successfully reported itself as stopped in 8.8327 ms
+[2026-06-28 00:49:29.289 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9258a3ca has been stopped in total 11.664 ms
+[2026-06-28 00:49:29.350 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:d245b5ef successfully announced in 59.7432 ms
+[2026-06-28 00:49:29.352 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:d245b5ef is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-28 00:49:29.356 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:d245b5ef all the dispatchers started
+[2026-06-28 03:35:58.003 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-28 03:35:58.638 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:d245b5ef was considered dead by other servers, restarting...
+[2026-06-28 03:35:58.639 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:d245b5ef caught restart signal...
+[2026-06-28 03:35:58.643 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:d245b5ef stopped non-gracefully due to DelayedJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-28 03:35:58.645 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:d245b5ef successfully reported itself as stopped in 1.6287 ms
+[2026-06-28 03:35:58.646 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:d245b5ef has been stopped in total 5.2845 ms
+[2026-06-28 03:35:58.664 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:4343981f successfully announced in 15.7049 ms
+[2026-06-28 03:35:58.665 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:4343981f is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-28 03:35:58.668 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:4343981f all the dispatchers started
+[2026-06-28 05:33:00.638 INF] InsuranceClaimSystem.Infrastructure.Jobs.PolicyExpiryJob: PolicyExpiryJob started at "2026-06-28T00:03:00.6382070Z"
+[2026-06-28 05:33:00.675 INF] InsuranceClaimSystem.Infrastructure.Jobs.PolicyExpiryJob: PolicyExpiryJob completed. Processed 0 policies
+[2026-06-28 06:22:22.008 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-28 06:22:22.117 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:4343981f was considered dead by other servers, restarting...
+[2026-06-28 06:22:22.117 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:4343981f caught restart signal...
+[2026-06-28 06:22:22.118 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:4343981f stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-28 06:22:22.131 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:4343981f successfully reported itself as stopped in 4.1842 ms
+[2026-06-28 06:22:22.131 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:4343981f has been stopped in total 13.9566 ms
+[2026-06-28 06:22:22.145 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b837de8e successfully announced in 11.3722 ms
+[2026-06-28 06:22:22.147 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b837de8e is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-28 06:22:22.149 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b837de8e all the dispatchers started
+[2026-06-28 06:22:22.174 INF] Hangfire.PostgreSql.ExpirationManager: Removed 1 outdated record(s) from 'aggregatedcounter' table.
+[2026-06-28 06:22:23.214 INF] Hangfire.PostgreSql.ExpirationManager: Removed 1 outdated record(s) from 'job' table.
+[2026-06-28 06:37:52.303 INF] InsuranceClaimSystem.Infrastructure.Jobs.GracePeriodLapseJob: GracePeriodLapseJob started at "2026-06-28T01:07:52.3033940Z"
+[2026-06-28 06:37:52.345 INF] InsuranceClaimSystem.Infrastructure.Jobs.GracePeriodLapseJob: GracePeriodLapseJob completed. Processed 0 policies
+[2026-06-28 09:10:13.380 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-28 09:10:13.474 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:b837de8e was considered dead by other servers, restarting...
+[2026-06-28 09:10:13.474 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b837de8e caught restart signal...
+[2026-06-28 09:10:13.476 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b837de8e stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-28 09:10:13.480 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b837de8e successfully reported itself as stopped in 3.1853 ms
+[2026-06-28 09:10:13.480 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:b837de8e has been stopped in total 5.6049 ms
+[2026-06-28 09:10:13.510 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:72e1d386 successfully announced in 28.8431 ms
+[2026-06-28 09:10:13.511 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:72e1d386 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-28 09:10:13.515 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:72e1d386 all the dispatchers started
+[2026-06-28 09:10:13.535 INF] Hangfire.PostgreSql.ExpirationManager: Removed 1 outdated record(s) from 'aggregatedcounter' table.
+[2026-06-28 09:10:14.558 INF] Hangfire.PostgreSql.ExpirationManager: Removed 1 outdated record(s) from 'job' table.
+[2026-06-28 11:57:50.942 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-28 11:57:51.050 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:72e1d386 was considered dead by other servers, restarting...
+[2026-06-28 11:57:51.051 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:72e1d386 caught restart signal...
+[2026-06-28 11:57:51.062 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:72e1d386 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-28 11:57:51.066 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:72e1d386 successfully reported itself as stopped in 2.718 ms
+[2026-06-28 11:57:51.066 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:72e1d386 has been stopped in total 14.078 ms
+[2026-06-28 11:57:51.084 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c60c7340 successfully announced in 17.649 ms
+[2026-06-28 11:57:51.085 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c60c7340 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-28 11:57:51.093 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c60c7340 all the dispatchers started
+[2026-06-28 14:43:00.881 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-28 14:43:01.006 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:c60c7340 was considered dead by other servers, restarting...
+[2026-06-28 14:43:01.006 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c60c7340 caught restart signal...
+[2026-06-28 14:43:01.008 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c60c7340 All dispatchers stopped
+[2026-06-28 14:43:01.011 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c60c7340 successfully reported itself as stopped in 2.4331 ms
+[2026-06-28 14:43:01.012 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c60c7340 has been stopped in total 4.782 ms
+[2026-06-28 14:43:01.024 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:a878793e successfully announced in 10.6707 ms
+[2026-06-28 14:43:01.025 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:a878793e is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-28 14:43:01.029 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:a878793e all the dispatchers started
+[2026-06-28 21:47:12.165 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-28 21:47:12.653 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:a878793e was considered dead by other servers, restarting...
+[2026-06-28 21:47:12.653 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:a878793e caught restart signal...
+[2026-06-28 21:47:12.657 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:a878793e stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-28 21:47:12.664 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:a878793e successfully reported itself as stopped in 5.6673 ms
+[2026-06-28 21:47:12.664 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:a878793e has been stopped in total 9.6992 ms
+[2026-06-28 21:47:12.698 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c66fa3e2 successfully announced in 33.41 ms
+[2026-06-28 21:47:12.700 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c66fa3e2 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-28 21:47:12.704 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c66fa3e2 all the dispatchers started

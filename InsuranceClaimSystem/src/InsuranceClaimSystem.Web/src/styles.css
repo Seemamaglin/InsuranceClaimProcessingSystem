@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Sovereign Enterprise Color Palette (using named HTML colors) */
+  --primary: midnightblue;
+  --primary-hover: navy;
+  --accent: gold;
+  
+  --background: ghostwhite;
+  --surface: white;
+  --border: lightgray;
+  
+  --text-primary: black;
+  --text-secondary: slategray;
+  
+  --success: limegreen;
+  --danger: crimson;
+  --warning: goldenrod;
+  --info: royalblue;
+
+  /* Typography */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}

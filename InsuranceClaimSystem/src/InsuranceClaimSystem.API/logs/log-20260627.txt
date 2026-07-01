@@ -1,0 +1,82 @@
+[2026-06-27 01:24:27.099 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-27 01:24:27.159 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:f86fab69 was considered dead by other servers, restarting...
+[2026-06-27 01:24:27.160 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:f86fab69 caught restart signal...
+[2026-06-27 01:24:27.161 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:f86fab69 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-27 01:24:27.163 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:f86fab69 successfully reported itself as stopped in 1.3081 ms
+[2026-06-27 01:24:27.163 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:f86fab69 has been stopped in total 3.0468 ms
+[2026-06-27 01:24:27.174 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:cb7a72e1 successfully announced in 11.0649 ms
+[2026-06-27 01:24:27.175 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:cb7a72e1 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-27 01:24:27.177 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:cb7a72e1 all the dispatchers started
+[2026-06-27 05:37:57.410 INF] InsuranceClaimSystem.Infrastructure.Jobs.PolicyExpiryJob: PolicyExpiryJob started at "2026-06-27T00:07:57.4103690Z"
+[2026-06-27 05:37:57.507 INF] InsuranceClaimSystem.Infrastructure.Jobs.PolicyExpiryJob: PolicyExpiryJob completed. Processed 0 policies
+[2026-06-27 06:35:15.312 INF] InsuranceClaimSystem.Infrastructure.Jobs.GracePeriodLapseJob: GracePeriodLapseJob started at "2026-06-27T01:05:15.3124520Z"
+[2026-06-27 06:35:15.343 INF] InsuranceClaimSystem.Infrastructure.Jobs.GracePeriodLapseJob: GracePeriodLapseJob completed. Processed 0 policies
+[2026-06-27 12:48:41.659 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-27 12:48:41.799 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:cb7a72e1 was considered dead by other servers, restarting...
+[2026-06-27 12:48:41.799 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:cb7a72e1 caught restart signal...
+[2026-06-27 12:48:41.806 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:cb7a72e1 stopped non-gracefully due to ServerJobCancellationWatcher, Worker, DelayedJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-27 12:48:41.838 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:cb7a72e1 successfully reported itself as stopped in 31.2125 ms
+[2026-06-27 12:48:41.838 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:cb7a72e1 has been stopped in total 37.9264 ms
+[2026-06-27 12:48:41.844 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:04c34065 successfully announced in 4.7705 ms
+[2026-06-27 12:48:41.845 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:04c34065 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-27 12:48:41.851 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:04c34065 all the dispatchers started
+[2026-06-27 14:48:28.011 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 4.0398 ms
+[2026-06-27 14:48:28.062 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-27 14:48:28.066 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-27 14:48:28.434 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-27 14:48:28.467 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-27 14:48:28.467 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-27 14:48:28.470 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 452.0396 ms
+[2026-06-27 14:48:29.956 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-27 14:48:29.956 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-27 14:48:30.279 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-27 14:48:30.294 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-27 14:48:30.294 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-27 14:48:30.294 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 339.8652 ms
+[2026-06-27 14:48:30.357 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-27 14:48:30.357 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-27 14:48:30.650 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-27 14:48:30.657 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-27 14:48:30.657 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-27 14:48:30.657 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 301.6797 ms
+[2026-06-27 14:48:30.846 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-27 14:48:30.847 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-27 14:48:31.165 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-27 14:48:31.172 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-27 14:48:31.172 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-27 14:48:31.172 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 328.1879 ms
+[2026-06-27 14:49:08.312 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 1.6632 ms
+[2026-06-27 14:49:08.329 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-27 14:49:08.329 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-27 14:49:08.770 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-27 14:49:08.774 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 454.1007 ms
+[2026-06-27 14:49:15.441 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.3419 ms
+[2026-06-27 14:49:15.448 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-27 14:49:15.449 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-27 14:49:15.769 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-27 14:49:15.769 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 325.2445 ms
+[2026-06-27 14:55:08.976 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.3765 ms
+[2026-06-27 14:55:08.992 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-27 14:55:08.993 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-27 14:55:09.310 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-27 14:55:09.332 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-27 14:55:09.332 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-27 14:55:09.333 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 353.1340 ms
+[2026-06-27 19:39:21.505 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-27 19:39:24.389 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:04c34065 was considered dead by other servers, restarting...
+[2026-06-27 19:39:24.390 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:04c34065 caught restart signal...
+[2026-06-27 19:39:24.397 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:04c34065 stopped non-gracefully due to ServerWatchdog, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-27 19:39:24.401 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:04c34065 successfully reported itself as stopped in 1.6829 ms
+[2026-06-27 19:39:24.401 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:04c34065 has been stopped in total 8.8949 ms
+[2026-06-27 19:39:24.419 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c7b21adb successfully announced in 14.4967 ms
+[2026-06-27 19:39:24.423 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c7b21adb is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-27 19:39:24.431 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c7b21adb all the dispatchers started
+[2026-06-27 22:19:48.664 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-27 22:19:49.129 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:c7b21adb was considered dead by other servers, restarting...
+[2026-06-27 22:19:49.129 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c7b21adb caught restart signal...
+[2026-06-27 22:19:49.135 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c7b21adb stopped non-gracefully due to ServerJobCancellationWatcher, Worker, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-27 22:19:49.148 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c7b21adb successfully reported itself as stopped in 9.1573 ms
+[2026-06-27 22:19:49.148 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:c7b21adb has been stopped in total 17.8905 ms
+[2026-06-27 22:19:49.234 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9258a3ca successfully announced in 84.4807 ms
+[2026-06-27 22:19:49.236 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9258a3ca is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-27 22:19:49.238 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:9258a3ca all the dispatchers started

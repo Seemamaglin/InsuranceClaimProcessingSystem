@@ -1,0 +1,21 @@
+<div class="layout-wrapper">
+  <header class="top-nav">
+    <div class="brand">
+      <span class="shield-icon">⛨</span> InsureClaim
+    </div>
+    
+    <nav class="center-nav">
+      <a routerLink="/browse-policies" routerLinkActive="active" class="nav-item">Policies</a>
+      <a routerLink="/my-claims" routerLinkActive="active" class="nav-item">My Claims</a>
+    </nav>
+
+    <div class="user-actions">
+      <app-notification-bell></app-notification-bell>
+      <button (click)="logout()" class="logout-btn">Log Out</button>
+    </div>
+  </header>
+  
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

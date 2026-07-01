@@ -23,6 +23,7 @@ export interface User {
   role: UserRole;
   isActive: boolean;
   lastLoginAt?: string;
+  isFirstLogin?: boolean;
 }
 
 export interface AccountProfile {

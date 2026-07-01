@@ -1,1 +1,78 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="auth-card">
+    <div class="card-header">
+      <div class="logo-area">
+        <span class="shield-icon">⛨</span> <strong>InsureClaim</strong>
+      </div>
+      <p class="subtitle">Secure Enterprise Access</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      @if (errorMessage) {
+        <div class="error-banner">{{ errorMessage }}</div>
+      }
+
+      <div class="form-group">
+        <label for="email">EMAIL OR USERNAME</label>
+        <div class="input-wrapper">
+          <input 
+            id="email" 
+            type="email" 
+            formControlName="email" 
+            placeholder="e.g. adjustor.one"
+            [class.invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+          >
+          <span class="icon">&#64;</span>
+        </div>
+        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+          <span class="validation-error">Please enter a valid email.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <div class="label-row">
+          <label for="password">PASSWORD</label>
+          <a routerLink="/forgot-password" class="forgot-link" style="cursor: pointer;">Forgot password?</a>
+        </div>
+        <div class="input-wrapper">
+          <input 
+            id="password" 
+            [type]="showPassword ? 'text' : 'password'" 
+            formControlName="password" 
+            placeholder="••••••••"
+            [class.invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+          >
+          <span class="icon" (click)="togglePassword()" style="cursor: pointer;">
+            {{ showPassword ? '👁‍🗨' : '👁' }}
+          </span>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid || isLoading" class="btn-primary">
+        @if (isLoading) {
+          <span class="spinner"></span>
+        } @else {
+          Login <span class="arrow">→</span>
+        }
+      </button>
+      
+      <div class="divider">
+        <span>OR</span>
+      </div>
+
+      <div class="register-section">
+        <p>New policyholder?</p>
+        <button type="button" class="btn-secondary" routerLink="/register">Register with your policy number</button>
+      </div>
+
+      <div class="card-footer">
+        <span class="ver">VER: 2.4.0-PRO</span>
+        <span class="date">03/06/2026</span>
+      </div>
+    </form>
+  </div>
+  
+  <div class="page-footer">
+    Authorized Access Only. All transactions recorded in <br> ₹1,20,000 standard.
+  </div>
+</div>

@@ -1,0 +1,232 @@
+[2026-06-26 17:01:11.492 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-26 17:01:11.592 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-26 17:01:12.306 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-26 17:01:12.307 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-26 17:01:12.307 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-26 17:01:12.639 INF] : Database migrated and seeded successfully.
+[2026-06-26 17:01:12.891 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-26 17:01:12.892 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-26 17:01:12.893 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-26 17:01:12.893 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-26 17:01:12.893 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-26 17:01:12.893 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-26 17:01:12.893 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-26 17:01:12.898 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-26 17:01:12.898 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-26 17:01:12.898 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-26 17:01:12.924 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78647:786fb8ab successfully announced in 10.7666 ms
+[2026-06-26 17:01:12.925 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78647:786fb8ab is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-26 17:01:12.929 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78647:786fb8ab all the dispatchers started
+[2026-06-26 17:01:13.000 INF] Hangfire.PostgreSql.ExpirationManager: Removed 1 outdated record(s) from 'aggregatedcounter' table.
+[2026-06-26 17:01:14.023 INF] Hangfire.PostgreSql.ExpirationManager: Removed 3 outdated record(s) from 'job' table.
+[2026-06-26 17:04:06.658 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78647:786fb8ab caught stopping signal...
+[2026-06-26 17:04:06.668 INF] Microsoft.Hosting.Lifetime: Application is shutting down...
+[2026-06-26 17:04:06.671 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78647:786fb8ab All dispatchers stopped
+[2026-06-26 17:04:06.689 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78647:786fb8ab successfully reported itself as stopped in 14.2839 ms
+[2026-06-26 17:04:06.690 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78647:786fb8ab has been stopped in total 26.5426 ms
+[2026-06-26 17:04:12.773 INF] Hangfire.PostgreSql.PostgreSqlStorage: Start installing Hangfire SQL objects...
+[2026-06-26 17:04:12.987 INF] Hangfire.PostgreSql.PostgreSqlStorage: Hangfire SQL objects installed.
+[2026-06-26 17:04:13.548 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'EmailVerificationCode'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-26 17:04:13.549 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'PasswordResetToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-26 17:04:13.549 WRN] Microsoft.EntityFrameworkCore.Model.Validation: Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-06-26 17:04:13.872 INF] : Database migrated and seeded successfully.
+[2026-06-26 17:04:14.282 INF] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7070
+[2026-06-26 17:04:14.283 INF] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5016
+[2026-06-26 17:04:14.285 INF] Hangfire.BackgroundJobServer: Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: insurance_claim_db, Schema: hangfire'
+[2026-06-26 17:04:14.285 INF] Hangfire.BackgroundJobServer: Using the following options for PostgreSQL job storage:
+[2026-06-26 17:04:14.285 INF] Hangfire.BackgroundJobServer:     Queue poll interval: 00:00:15.
+[2026-06-26 17:04:14.285 INF] Hangfire.BackgroundJobServer:     Invisibility timeout: 00:30:00.
+[2026-06-26 17:04:14.285 INF] Hangfire.BackgroundJobServer:     Use sliding invisibility timeout: False.
+[2026-06-26 17:04:14.285 INF] Hangfire.BackgroundJobServer: Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+[2026-06-26 17:04:14.290 INF] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+[2026-06-26 17:04:14.291 INF] Microsoft.Hosting.Lifetime: Hosting environment: Development
+[2026-06-26 17:04:14.291 INF] Microsoft.Hosting.Lifetime: Content root path: /Users/seemamaglin/Documents/Genspark-assignments/Capstone/InsuranceClaimSystem/src/InsuranceClaimSystem.API
+[2026-06-26 17:04:14.301 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:0f48f922 successfully announced in 8.7229 ms
+[2026-06-26 17:04:14.302 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:0f48f922 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-26 17:04:14.306 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:0f48f922 all the dispatchers started
+[2026-06-26 17:05:26.393 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET / responded 404 in 24.5526 ms
+[2026-06-26 17:09:14.507 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 6.3379 ms
+[2026-06-26 17:09:14.678 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 160.1680 ms
+[2026-06-26 17:09:20.373 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.2727 ms
+[2026-06-26 17:09:20.388 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 9.7451 ms
+[2026-06-26 17:09:37.819 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.7374 ms
+[2026-06-26 17:09:37.847 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 21.3235 ms
+[2026-06-26 17:09:47.161 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.7256 ms
+[2026-06-26 17:09:47.185 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 16.6256 ms
+[2026-06-26 17:09:47.743 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 1.5427 ms
+[2026-06-26 17:09:48.144 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 2.1420 ms
+[2026-06-26 17:09:48.345 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 2.2225 ms
+[2026-06-26 17:09:48.545 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 4.3244 ms
+[2026-06-26 17:10:08.947 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 1.1865 ms
+[2026-06-26 17:10:08.961 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 9.4892 ms
+[2026-06-26 17:10:55.757 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 1.4323 ms
+[2026-06-26 17:10:55.783 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 21.4875 ms
+[2026-06-26 17:10:56.278 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 1.7035 ms
+[2026-06-26 17:10:56.591 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 2.8385 ms
+[2026-06-26 17:11:57.939 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 2.8623 ms
+[2026-06-26 17:11:57.955 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 7.5036 ms
+[2026-06-26 17:11:59.317 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 3.7357 ms
+[2026-06-26 17:11:59.694 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 2.1073 ms
+[2026-06-26 17:11:59.863 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 2.3470 ms
+[2026-06-26 17:14:05.551 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/register responded 400 in 70.6590 ms
+[2026-06-26 17:14:25.418 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP GET /api/account responded 401 in 23.0439 ms
+[2026-06-26 17:14:52.902 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:14:52.908 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:14:53.655 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:14:53.812 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:14:53.812 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:14:53.822 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 945.8525 ms
+[2026-06-26 17:15:08.253 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 3.5733 ms
+[2026-06-26 17:15:08.272 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 12.8133 ms
+[2026-06-26 17:15:08.913 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 1.8367 ms
+[2026-06-26 17:15:09.212 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 1.0412 ms
+[2026-06-26 17:15:09.392 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 0.6379 ms
+[2026-06-26 17:15:09.579 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 2.1910 ms
+[2026-06-26 17:15:09.925 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 1.6540 ms
+[2026-06-26 17:15:10.075 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 1.8474 ms
+[2026-06-26 17:15:10.249 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 2.7528 ms
+[2026-06-26 17:15:12.479 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 2.9807 ms
+[2026-06-26 17:15:12.646 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 2.7803 ms
+[2026-06-26 17:15:12.815 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 1.9301 ms
+[2026-06-26 17:15:13.009 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 14.8224 ms
+[2026-06-26 17:15:13.143 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 1.9877 ms
+[2026-06-26 17:18:42.590 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 4.4949 ms
+[2026-06-26 17:18:42.615 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:42.616 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:43.008 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:43.048 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:43.049 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:43.051 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 452.9219 ms
+[2026-06-26 17:18:46.018 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.4879 ms
+[2026-06-26 17:18:46.041 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:46.041 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:46.362 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:46.374 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:46.374 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:46.374 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 354.2004 ms
+[2026-06-26 17:18:46.992 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:46.992 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:47.319 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:47.327 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:47.327 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:47.328 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 336.7483 ms
+[2026-06-26 17:18:47.759 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:47.760 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:48.093 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:48.102 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:48.102 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:48.102 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 344.9888 ms
+[2026-06-26 17:18:48.593 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:48.594 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:48.918 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:48.925 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:48.926 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:48.926 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 334.0468 ms
+[2026-06-26 17:18:49.390 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:49.392 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:49.728 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:49.735 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:49.735 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:49.736 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 348.0241 ms
+[2026-06-26 17:18:50.257 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:50.257 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:50.577 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:50.591 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:50.591 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:50.591 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 335.3835 ms
+[2026-06-26 17:18:51.058 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.1230 ms
+[2026-06-26 17:18:51.062 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:51.063 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:51.403 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:51.407 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:51.407 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:51.407 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 347.1170 ms
+[2026-06-26 17:18:57.601 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 0.4229 ms
+[2026-06-26 17:18:57.622 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:57.623 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:57.961 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:57.976 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:57.977 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:57.978 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 373.0200 ms
+[2026-06-26 17:18:58.209 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:58.209 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:58.540 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:58.543 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:58.543 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:58.543 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 336.4303 ms
+[2026-06-26 17:18:58.638 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:58.638 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:58.948 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:58.952 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:58.952 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:58.952 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 314.8433 ms
+[2026-06-26 17:18:59.015 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:59.015 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:59.318 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:59.322 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:59.322 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:59.322 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 307.8422 ms
+[2026-06-26 17:18:59.490 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:59.491 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:18:59.813 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:59.820 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:18:59.820 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:18:59.820 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 331.3399 ms
+[2026-06-26 17:18:59.940 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:18:59.940 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:19:00.259 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:19:00.264 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:19:00.264 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:19:00.265 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 325.5776 ms
+[2026-06-26 17:19:00.473 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:19:00.474 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:19:00.796 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:19:00.799 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:19:00.799 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:19:00.799 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 328.1493 ms
+[2026-06-26 17:19:08.796 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP OPTIONS /api/auth/login responded 204 in 2.4184 ms
+[2026-06-26 17:19:08.815 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:19:08.816 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmai.com
+[2026-06-26 17:19:08.887 WRN] InsuranceClaimSystem.API.Controllers.AuthController: API: Login failed - InvalidCredentials
+[2026-06-26 17:19:08.889 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 400 in 88.6129 ms
+[2026-06-26 17:19:13.209 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login called
+[2026-06-26 17:19:13.209 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Starting login for: seema@gmail.com
+[2026-06-26 17:19:13.540 INF] InsuranceClaimSystem.Infrastructure.Services.Auth.JwtTokenService: Access token generated for user "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:19:13.557 INF] InsuranceClaimSystem.Infrastructure.Services.AuthService: Login succeeded for user: "d6fcc9dc-e6cc-4708-98ba-9c7e13249f10"
+[2026-06-26 17:19:13.557 INF] InsuranceClaimSystem.API.Controllers.AuthController: API: Login succeeded
+[2026-06-26 17:19:13.558 INF] Serilog.AspNetCore.RequestLoggingMiddleware: HTTP POST /api/auth/login responded 200 in 364.2500 ms
+[2026-06-26 18:15:00.396 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-26 18:15:00.990 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:0f48f922 was considered dead by other servers, restarting...
+[2026-06-26 18:15:00.992 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:0f48f922 caught restart signal...
+[2026-06-26 18:15:01.011 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:0f48f922 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-26 18:15:01.040 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:0f48f922 successfully reported itself as stopped in 15.1379 ms
+[2026-06-26 18:15:01.040 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:0f48f922 has been stopped in total 43.9528 ms
+[2026-06-26 18:15:01.052 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69851a9f successfully announced in 9.5426 ms
+[2026-06-26 18:15:01.055 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69851a9f is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-26 18:15:01.057 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69851a9f all the dispatchers started
+[2026-06-26 19:56:39.364 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-26 19:56:39.583 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:69851a9f was considered dead by other servers, restarting...
+[2026-06-26 19:56:39.584 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69851a9f caught restart signal...
+[2026-06-26 19:56:39.587 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69851a9f stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-26 19:56:39.592 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69851a9f successfully reported itself as stopped in 3.1677 ms
+[2026-06-26 19:56:39.592 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69851a9f has been stopped in total 6.8441 ms
+[2026-06-26 19:56:39.607 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69af692c successfully announced in 14.6268 ms
+[2026-06-26 19:56:39.611 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69af692c is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-26 19:56:39.617 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69af692c all the dispatchers started
+[2026-06-26 22:52:47.328 INF] Hangfire.Server.ServerWatchdog: 1 servers were removed due to timeout
+[2026-06-26 22:52:47.498 WRN] Hangfire.Server.ServerHeartbeatProcess: Server fvfg908xq05f-seemamaglin:78972:69af692c was considered dead by other servers, restarting...
+[2026-06-26 22:52:47.500 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69af692c caught restart signal...
+[2026-06-26 22:52:47.504 WRN] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69af692c stopped non-gracefully due to CountersAggregator, Worker, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+[2026-06-26 22:52:47.508 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69af692c successfully reported itself as stopped in 0.7028 ms
+[2026-06-26 22:52:47.508 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:69af692c has been stopped in total 6.4485 ms
+[2026-06-26 22:52:47.667 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:f86fab69 successfully announced in 157.4113 ms
+[2026-06-26 22:52:47.671 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:f86fab69 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+[2026-06-26 22:52:47.675 INF] Hangfire.Server.BackgroundServerProcess: Server fvfg908xq05f-seemamaglin:78972:f86fab69 all the dispatchers started

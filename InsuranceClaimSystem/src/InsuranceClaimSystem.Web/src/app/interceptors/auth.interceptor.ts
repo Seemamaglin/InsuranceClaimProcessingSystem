@@ -18,7 +18,7 @@ export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, ne
     catchError((error: HttpErrorResponse) => {
       if (error.status === 401 && !req.url.includes('/refresh-token')) {
         return authService.refreshToken().pipe(
-          switchMap((response) => {
+          switchMap((response:any) => {
             const newAuthReq = req.clone({
               setHeaders: { Authorization: `Bearer ${response.token}` }
             });

@@ -1,0 +1,80 @@
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: ghostwhite;
+}
+
+.top-nav {
+  height: 72px;
+  background: white;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: midnightblue;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.center-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: slategray;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  background: color-mix(in srgb, royalblue 10%, transparent);
+  color: royalblue;
+}
+
+.nav-item.active {
+  color: royalblue;
+  font-weight: 600;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logout-btn {
+  background: none;
+  border: 1px solid lightgray;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: slategray;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background: color-mix(in srgb, crimson 10%, transparent);
+  color: crimson;
+  border-color: crimson;
+}
+
+.main-content {
+  flex: 1;
+  padding: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
